@@ -1,5 +1,5 @@
 {
-  "name": "polard",
+  "name": "hand-polard",
   "version": "1.4.0",
   "scripts": {
     "start": "cross-env ENV_TYPE=native dumi dev",
