@@ -2,62 +2,93 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.0.32]rollup 打包 esm,cjs 发布开发阶段的较稳定版本 (2021-11-09)
+## 1.4.0 (2021-12-23)
 
-### [1.0.31](https://github.com/lbf911531/component-library/compare/v1.0.30...v1.0.31) (2021-11-09)
+### Features
 
-### [1.0.30](https://github.com/lbf911531/component-library/compare/v1.0.28...v1.0.30) (2021-11-09)
+- 可编辑表格组件提供一个批量设置当前行指定单元格们的编辑状态的方法（onVolumeSetStatus） ([8e356b9](https://github.com/lbf911531/component-library/commit/8e356b9e4b585eccac35cbe3428f93b2771f73b8))
+- new-search-area 组件支持表单字段删除后同步触发其绑定的联动事件 ([29311d3](https://github.com/lbf911531/component-library/commit/29311d3a484761e7c12ea84fb9b5b950817f3062))
 
-### [1.0.28](https://github.com/lbf911531/component-library/compare/v1.0.25...v1.0.28) (2021-11-08)
+### Bug Fixes
 
-### [1.0.27] 测试 rollup 打包 umd
+- 费用类型组件搜索报错问题修复(validateFields 方法传参问题) ([7d1ab77](https://github.com/lbf911531/component-library/commit/7d1ab7710ab166d25259921fca36b158bb196fe7))
+- 删除多余的 console.log ([b2d5f26](https://github.com/lbf911531/component-library/commit/b2d5f26fa8c092942b6d1c9d011f191bdff92c99))
+- 搜索组件 mulitply 类型下的表单组件缺失 tagRender 函数 ([9c58cf9](https://github.com/lbf911531/component-library/commit/9c58cf9b745071b06f54855d60a881a8e4a398a1))
+- 修复多语言输入框在非单元格状态下也触发聚焦切换编辑状态的 bug ([aef228e](https://github.com/lbf911531/component-library/commit/aef228ea142a555b2fe6a63eb4125d5b6551804d))
+- 修复金额输入框在可编辑表格中 focus 错误 ([191cf5b](https://github.com/lbf911531/component-library/commit/191cf5bd0eef3533ff507eae98e47adc1927a4e8))
+- 修复未知 bug ([da285fb](https://github.com/lbf911531/component-library/commit/da285fb979abcbf1a5b63b4f2771d0ca052ca5a8))
+- select-application-type 在不选择数据时点击确认仍然可以关闭按钮 ([e39f146](https://github.com/lbf911531/component-library/commit/e39f146f7463c95d59954b6de4cf7e123c928718))
+- select-application-type 组件搜索区域搜索失效问题修复 ([12df387](https://github.com/lbf911531/component-library/commit/12df38725717504f96fdaa01a520f0edd666ba26))
+- select-part-table 组件补充遗漏维护的多语言 ([7eb5ec0](https://github.com/lbf911531/component-library/commit/7eb5ec0cefef2914c5ebb4fc56daf605d969f5e9))
+- select-part-table 组件补充遗漏维护的多语言 ([67b8315](https://github.com/lbf911531/component-library/commit/67b83156c5cfb3a26e7ab2d452e3cc85c10d32b6))
 
-### [1.0.26] 测试 babel 打包模式，尝试按需加载
+### [1.3.2](https://github.com/lbf911531/component-library/compare/v1.3.1...v1.3.2) (2021-12-21)
 
-### [1.0.25](https://github.com/lbf911531/component-library/compare/v1.0.24...v1.0.25) (2021-11-04)
+### Bug Fixes
 
-### [1.0.24](https://github.com/lbf911531/component-library/compare/v1.0.23...v1.0.24) (2021-11-03)
+- 搜索组件 mulitply 类型下的表单组件缺失 tagRender 函数 ([9c58cf9](https://github.com/lbf911531/component-library/commit/9c58cf9b745071b06f54855d60a881a8e4a398a1))
 
-### [1.0.23](https://github.com/lbf911531/component-library/compare/v1.0.22...v1.0.23) (2021-10-22)
+### [1.3.1](https://github.com/lbf911531/component-library/compare/v1.3.0...v1.3.1) (2021-12-20)
 
-### [1.0.22](https://github.com/lbf911531/component-library/compare/v1.0.21...v1.0.22) (2021-10-22)
+### Bug Fixes
 
-### [1.0.21](https://github.com/lbf911531/component-library/compare/v1.0.20...v1.0.21) (2021-10-22)
+- 修复未知 bug ([da285fb](https://github.com/lbf911531/component-library/commit/da285fb979abcbf1a5b63b4f2771d0ca052ca5a8))
 
-### [1.0.20](https://github.com/lbf911531/component-library/compare/v1.0.18...v1.0.20) (2021-10-22)
+## [1.3.0](https://github.com/lbf911531/component-library/compare/v1.2.0...v1.3.0) (2021-12-16)
 
-### [1.0.18](https://github.com/lbf911531/component-library/compare/v1.0.17...v1.0.18) (2021-10-18)
+### Features
 
-### [1.0.17](https://github.com/lbf911531/component-library/compare/v1.0.16...v1.0.17) (2021-10-18)
+- new-search-area 组件支持表单字段删除后同步触发其绑定的联动事件 ([29311d3](https://github.com/lbf911531/component-library/commit/29311d3a484761e7c12ea84fb9b5b950817f3062))
 
-### [1.0.16](https://github.com/lbf911531/component-library/compare/v1.0.15...v1.0.16) (2021-10-18)
+## [1.2.0](https://github.com/lbf911531/component-library/compare/v1.1.11...v1.2.0) (2021-12-15)
 
-### [1.0.15](https://github.com/lbf911531/component-library/compare/v1.0.14...v1.0.15) (2021-09-30)
+### Features
 
-### [1.0.14](https://github.com/lbf911531/component-library/compare/v1.0.13...v1.0.14) (2021-09-29)
+- 可编辑表格组件提供一个批量设置当前行指定单元格们的编辑状态的方法（onVolumeSetStatus） ([8e356b9](https://github.com/lbf911531/component-library/commit/8e356b9e4b585eccac35cbe3428f93b2771f73b8))
 
-### [1.0.13](https://github.com/lbf911531/component-library/compare/v1.0.12...v1.0.13) (2021-09-29)
+### [1.1.11](https://github.com/lbf911531/component-library/compare/v1.1.10...v1.1.11) (2021-12-09)
 
-### [1.0.12](https://github.com/lbf911531/component-library/compare/v1.0.11...v1.0.12) (2021-09-29)
+### Bug Fixes
 
-### [1.0.11](https://github.com/lbf911531/component-library/compare/v1.0.10...v1.0.11) (2021-09-29)
+- 修复多语言输入框在非单元格状态下也触发聚焦切换编辑状态的 bug ([aef228e](https://github.com/lbf911531/component-library/commit/aef228ea142a555b2fe6a63eb4125d5b6551804d))
 
-### [1.0.10](https://github.com/lbf911531/component-library/compare/v1.0.9...v1.0.10) (2021-09-29)
+### [1.1.10](https://github.com/lbf911531/component-library/compare/v1.1.9...v1.1.10) (2021-12-09)
 
-### [1.0.9](https://github.com/lbf911531/component-library/compare/v1.0.8...v1.0.9) (2021-09-29)
+### Bug Fixes
 
-### [1.0.8](https://github.com/lbf911531/component-library/compare/v1.0.7...v1.0.8) (2021-09-29)
+- 修复金额输入框在可编辑表格中 focus 错误 ([191cf5b](https://github.com/lbf911531/component-library/commit/191cf5bd0eef3533ff507eae98e47adc1927a4e8))
 
-### [1.0.7](https://github.com/lbf911531/component-library/compare/v1.0.6...v1.0.7) (2021-09-29)
+### [1.1.9](https://github.com/lbf911531/component-library/compare/v1.1.8...v1.1.9) (2021-12-08)
 
-### [1.0.6](https://github.com/lbf911531/component-library/compare/v1.0.5...v1.0.6) (2021-09-29)
+### Bug Fixes
 
-### [1.0.5](https://github.com/lbf911531/component-library/compare/v1.0.4...v1.0.5) (2021-09-29)
+- select-application-type 在不选择数据时点击确认仍然可以关闭按钮 ([e39f146](https://github.com/lbf911531/component-library/commit/e39f146f7463c95d59954b6de4cf7e123c928718))
+- select-application-type 组件搜索区域搜索失效问题修复 ([12df387](https://github.com/lbf911531/component-library/commit/12df38725717504f96fdaa01a520f0edd666ba26))
 
-### [1.0.4](https://github.com/lbf911531/component-library/compare/v1.0.3...v1.0.4) (2021-09-29)
+### [1.1.8](https://github.com/lbf911531/component-library/compare/v1.1.7...v1.1.8) (2021-12-08)
 
-### [1.0.3](https://github.com/lbf911531/component-library/compare/v1.0.2...v1.0.3) (2021-09-29)
+### Bug Fixes
 
-### 1.0.2 (2021-09-29)
+- 费用类型组件搜索报错问题修复(validateFields 方法传参问题) ([7d1ab77](https://github.com/lbf911531/component-library/commit/7d1ab7710ab166d25259921fca36b158bb196fe7))
 
-### 1.0.1 (2021-09-14)
+### [1.1.7](https://github.com/lbf911531/component-library/compare/v1.1.6...v1.1.7) (2021-12-08)
+
+### Bug Fixes
+
+- 删除多余的 console.log ([b2d5f26](https://github.com/lbf911531/component-library/commit/b2d5f26fa8c092942b6d1c9d011f191bdff92c99))
+
+### [1.1.6](https://github.com/lbf911531/component-library/compare/v1.1.5...v1.1.6) (2021-12-07)
+
+### Bug Fixes
+
+- select-part-table 组件补充遗漏维护的多语言 ([7eb5ec0](https://github.com/lbf911531/component-library/commit/7eb5ec0cefef2914c5ebb4fc56daf605d969f5e9))
+
+### [1.1.5](https://github.com/lbf911531/component-library/compare/v1.1.4...v1.1.5) (2021-12-02)
+
+### [1.1.4](https://github.com/lbf911531/component-library/compare/v1.1.3...v1.1.4) (2021-12-02)
+
+### [1.1.3](https://github.com/lbf911531/component-library/compare/v1.1.2...v1.1.3) (2021-11-30)
+
+### [1.1.2](https://github.com/lbf911531/component-library/compare/v1.1.1...v1.1.2) (2021-11-30)
+
+### [1.1.1](https://github.com/lbf911531/component-library/compare/v1.0.39...v1.1.1) (2021-11-29)

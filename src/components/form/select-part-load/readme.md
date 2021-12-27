@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { SelectPartLoad } from 'polard';
+import { SelectPartLoad } from 'hand-polard';
 
 export default function SelectPartLoadDemo() {
   return (
@@ -117,7 +117,7 @@ export default function SelectPartLoadDemo() {
 ## 和 edit-table 使用
 
 ```javascript
-import { EditTable } from 'polard'
+import { EditTable } from 'hand-polard'
 <EditTable
   columns={[
     {

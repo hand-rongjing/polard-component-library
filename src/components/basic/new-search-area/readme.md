@@ -15,7 +15,7 @@ group:
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { NewSearchArea } from 'polard';
+import { NewSearchArea } from 'hand-polard';
 
 export default function NewSearchAreaDemo() {
   const searchAreaRef = useRef();
@@ -65,10 +65,15 @@ export default function NewSearchAreaDemo() {
       labelKey: 'name',
       label: '员工',
     },
+    {
+      type: 'inputNumber',
+      id: 'num',
+      label: '数值',
+    },
   ]);
 
   function handleSubmit(values) {
-    // console.log(searchAreaRef.current,'searchAreaRef.current')
+    console.log(searchAreaRef.current, 'searchAreaRef.current');
     console.log(values);
   }
 

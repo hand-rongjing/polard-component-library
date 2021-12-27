@@ -16,7 +16,7 @@ order: 6
 
 ```tsx
 import React from 'react';
-import { SelectApplicationType } from 'polard';
+import { SelectApplicationType } from 'hand-polard';
 import config from 'config';
 
 export default function Test() {
@@ -42,7 +42,7 @@ export default function Test() {
 ```tsx
 import React, { useRef } from 'react';
 import { Button } from 'antd';
-import { SelectApplicationType } from 'polard';
+import { SelectApplicationType } from 'hand-polard';
 import config from 'config';
 
 export default function Test() {

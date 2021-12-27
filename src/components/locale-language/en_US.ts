@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-11-10 17:26:15
+ * @LastEditTime: 2021-12-16 18:06:48
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -224,4 +224,17 @@ export default {
   'common.left.fix': 'Left fixed',
   'common.right.fix': 'Right fixed',
   'common.no.fix': 'Not fixed',
+  'base.establish': 'establish',
+  'common.download.import.template': 'Downloading and Importing a Template',
+  'base.has.choose.count': 'Selected {count}',
+  'base.count.options': 'Options:{count}',
+  'common.download.error.data': 'Download Error Data',
+  'common.yes': 'Yes',
+  'common.no': 'No',
+  'common.has.selected': 'Has selected',
+  'common.not.selected': 'Not selected',
+  'base.sync.check.subsidiary':
+    'Check the subordinate company at the same time',
+  'base.policy.verification.info': 'Policy Verification Information',
+  'common.input.name.or.code': 'Please enter a code or name',
 };

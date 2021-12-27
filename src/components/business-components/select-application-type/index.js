@@ -30,13 +30,12 @@ function SearchAreaWrap(props) {
     wrapperCol: { span: 16 },
   };
   return (
-    <Form labelAlign="right">
+    <Form labelAlign="right" form={form}>
       <Row>
         <Col span={8}>
           <Form.Item
             {...formItemLayout}
-            name=""
-            typeCategoryId
+            name="typeCategoryId"
             label={messages('common.large.class') /* 大类 */}
           >
             <Select
@@ -337,6 +336,7 @@ class SelectApplicationType extends Component {
         });
     } else if (onChange) {
       onChange(value, ...rest);
+      this.setState({ visible: false, confirmLoading: false });
     }
   };
 
@@ -365,13 +365,8 @@ class SelectApplicationType extends Component {
   handleSearch = (e, form) => {
     e.preventDefault();
     const { validateFields } = form;
-    validateFields((err, value) => {
-      if (!err) {
-        this.setState(
-          { searchParams: value ? { ...value } : {} },
-          this.getList,
-        );
-      }
+    validateFields().then((value) => {
+      this.setState({ searchParams: value ? { ...value } : {} }, this.getList);
     });
   };
 

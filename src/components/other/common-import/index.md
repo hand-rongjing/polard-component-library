@@ -14,7 +14,7 @@ group:
 ```tsx
 import React, { useState, useMemo } from 'react';
 import { Button } from 'antd';
-import { CommonImporter } from 'polard';
+import { CommonImporter } from 'hand-polard';
 import config from 'config';
 
 export default function Test() {

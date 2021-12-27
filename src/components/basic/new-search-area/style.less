@@ -5,6 +5,8 @@
   @placeholder-color-2: #cecece;
   @sa-color-111: #111;
   @sa-color-333: #333;
+  @body-font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica,
+    'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
   .iPlaceholder(@color: #111) {
     input::-webkit-input-placeholder,
     input::-moz-placeholder,
@@ -38,6 +40,27 @@
     }
     .margin-right-8 {
       margin-right: 8px;
+    }
+    .margin-right-24 {
+      margin-right: 24px;
+    }
+    .position-relative {
+      position: relative;
+      font-size: 0;
+    }
+    .position-absolute {
+      position: absolute;
+      left: 0;
+      right: 0;
+      font-size: 12px;
+      font-family: @body-font-family;
+    }
+    .inputSpanText {
+      opacity: 0;
+      display: inline-block;
+      font-size: 12px;
+      font-family: @body-font-family;
+      padding: 0px 8px;
     }
     div.select-solution,
     div.select-solution.ant-select-focused:not(.ant-select-disabled).ant-select {
@@ -152,6 +175,30 @@
         fill: @primary-color !important;
       }
     }
+
+    .flexLayout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hideConditionBtnBox {
+      margin-left: 10px;
+
+      .rotate-icon {
+        position: relative;
+        left: 0px;
+        top: -2px;
+        margin-right: 5px;
+        font-size: 24px;
+      }
+
+      .btnText {
+        color: #6b6b6b;
+        cursor: pointer;
+      }
+    }
+
     .search-form-item-label {
       color: #606c80;
       font-weight: 400;
@@ -176,6 +223,7 @@
         .ant-form-item {
           line-height: 32px;
           margin-right: 0;
+          margin-bottom: 0 !important;
         }
         .ant-legacy-form-item-children,
         .ant-form-item-control-input-content {
@@ -277,6 +325,9 @@
                 background: #dee0e6;
               }
             }
+          }
+          .value.ant-input-number {
+            width: 100%;
           }
           .value.lovValue.single-value {
             .ant-space {
@@ -405,9 +456,41 @@
             width: 100%;
             min-width: 42px;
           }
+          .value.multipleSelectValue {
+            margin-right: 24px;
+
+            .ant-select-arrow {
+              margin-right: -20px;
+            }
+          }
+          .value.multipleSelectValue.valueNotNull {
+            background: unset !important;
+            
+            .ant-select-selector {
+              margin-top: -4px;
+              min-width: 48px;
+
+              .ant-select-selection-item {
+                background: #EAECF2;
+              }
+              .ant-tag:hover {
+                background: #DEE0E6;
+              }
+
+              .ant-select-selection-overflow-item-suffix {
+                display: none;
+              }
+            }
+          }
+          .value.multipleSelectValue.valueNull {
+            .ant-select-selector {
+              width: 48px !important;
+            }
+          }
           .ant-space-item {
-            .select-part-load {
-              width: auto;
+            .select-part-load,
+            .select-part-table {
+              width: auto !important;
               min-width: 42px;
             }
           }

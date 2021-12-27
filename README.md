@@ -1,4 +1,4 @@
-# polard
+# hand-polard
 
 ## Getting Started
 
@@ -20,11 +20,36 @@ Build documentation,
 $ npm run docs:build
 ```
 
-Build polard via `father-build`,
+Build hand-polard via `father-build`,
 
 ```bash
 $ npm run build
 ```
+
+## 本地开发步骤
+
+1. src/components 根据分类创建存放组件的文件夹 A
+2. 文件 A 中需至少有 index.ts/index.js , index.md
+3. md 格式：
+
+```markdown
+---
+nav:
+  title: 组件
+group:
+  title: 基础 (组件分类：基础，表单，附件，业务组件，其他，可自行归类或补充)
+  path: /basic
+---
+
+## 组件名
+
+## 代码演示
+
+## API
+```
+
+4. src/index.ts 导出上方自定义组件
+5. src/locale-language/zh-CN.ts, en-US.ts 维护多语言
 
 ## 本地开发注意事项
 
@@ -113,7 +138,7 @@ $ npm run release
 ## 多语言
 
 提供 LocaleProvider 组件，于项目入口出，调用该组件包裹子组件，并传入 locale 参数
-如下是 antd 多语言与 polard 多语言共有场景：
+如下是 antd 多语言与 hand-polard 多语言共有场景：
 
 ```tsx
 // locale: {

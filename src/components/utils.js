@@ -129,12 +129,10 @@ export function messages(title, config = defaultConfig) {
       localeMap: defaultLocaleMap,
     },
   } = config;
-  // 合并外界传入的，
-  const lastLocaleMap = {
-    ...defaultLocaleMap,
-    ...context.localeMap,
-  };
-  const lang = lastLocaleMap[locale || context.locale]?.[title];
+  // 优先去default中取，没有则从context中取，
+  const curLocale = locale || context.locale;
+  let lang = defaultLocaleMap[curLocale]?.[title];
+  if (!lang) lang = context.localeMap[curLocale]?.[title];
   // console.log('locale:', context.locale, locale);
   if (!lang) return title;
   if (params) {

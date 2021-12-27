@@ -6,7 +6,7 @@ export default {
   cjs: 'rollup',
   extractCSS: true,
   // umd: {
-  //   name: 'polard',
+  //   name: 'hand-polard',
   //   sourcemap: true,
   //   globals: {
   //     react: 'React',

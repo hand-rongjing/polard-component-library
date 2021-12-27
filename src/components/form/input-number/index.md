@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { InputNumber } from 'polard';
+import { InputNumber } from 'hand-polard';
 import { Radio } from 'antd';
 
 export default function InputNumberDemo() {

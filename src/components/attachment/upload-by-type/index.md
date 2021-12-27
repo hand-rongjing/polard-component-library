@@ -16,7 +16,7 @@ order: 3
 
 ```tsx
 import React, { useState } from 'react';
-import { UploadByType } from 'polard';
+import { UploadByType } from 'hand-polard';
 import config from 'config';
 
 export default function Test() {

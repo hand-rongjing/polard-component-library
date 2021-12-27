@@ -6,7 +6,7 @@ import path from 'path';
 import slash from 'slash2';
 
 const config = {
-  title: 'polard',
+  title: 'hand-polard',
   favicon: '/images/favicon.png',
   // 配置文档的Logo
   logo: '/images/logo.png',

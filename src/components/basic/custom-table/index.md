@@ -19,7 +19,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { CustomTable } from 'polard';
+import { CustomTable } from 'hand-polard';
 import { Badge, Divider } from 'antd';
 
 export default function CustomTableDemo() {
@@ -60,7 +60,7 @@ export default function CustomTableDemo() {
 
 ```tsx
 import React from 'react';
-import { CustomTable } from 'polard';
+import { CustomTable } from 'hand-polard';
 import { Badge, Divider } from 'antd';
 
 export default function CustomTableDemo() {
@@ -100,7 +100,7 @@ export default function CustomTableDemo() {
 
 ## API
 
-基于 Table 组件封装,因此该组件接受 antd/table 及 polard/table 的所有属性
+基于 Table 组件封装,因此该组件接受 antd/table 及 hand-polard/table 的所有属性
 
 | 参数             | 说明                                                                | 类型                                    | 默认值   |
 | ---------------- | ------------------------------------------------------------------- | --------------------------------------- | -------- |

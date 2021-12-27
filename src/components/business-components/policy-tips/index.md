@@ -17,7 +17,7 @@ order: 3
 ```tsx
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import { PolicyTips } from 'polard';
+import { PolicyTips } from 'hand-polard';
 
 export default function Test() {
   const [dataSource, setData] = useState([]);

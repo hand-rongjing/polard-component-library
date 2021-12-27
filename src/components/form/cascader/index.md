@@ -15,7 +15,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Cascader } from 'polard';
+import { Cascader } from 'hand-polard';
 
 export default function CascaderDemo() {
   const options = [

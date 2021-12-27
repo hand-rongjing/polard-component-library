@@ -1,3 +1,4 @@
+// 以下为了解决打包问题
 /// <reference path="../typings.d.ts" />
 // 统一导出
 export { default as LocaleProvider } from './components/locale-lan-provider';
@@ -26,7 +27,7 @@ export { default as CustomSwitch } from './components/form/custom-switch';
 export { default as InputLanguage } from './components/form/input-language';
 export { default as InputNumber } from './components/form/input-number';
 export { default as SelectPartLoad } from './components/form/select-part-load';
-export { default as ListerSelector } from './components/form/lov/list-selector';
+export { default as ListSelector } from './components/form/lov/list-selector';
 export { default as CustomAmount } from './components/form/custom-amount';
 
 // 业务组件
@@ -35,7 +36,12 @@ export { default as VoucherTable } from './components/business-components/vouche
 export { default as BudgetTips } from './components/business-components/budget/budget-check-message';
 export { default as BudgetProgressDetail } from './components/business-components/budget/budget-progress-detail';
 export { default as DocumentBasicInfo } from './components/business-components/document-basic-info';
-export { default as BatchDownLoadAttachments } from './components/business-components/batch-download-attachments';
+export {
+  default as BatchDownloadAttachments,
+  transformSelectRows,
+  filterAndSetSortIndex,
+  AttachmentsWrap,
+} from './components/business-components/batch-download-attachments';
 export { default as SelectApplicationType } from './components/business-components/select-application-type';
 export { default as ApproveHistory } from './components/business-components/approve-history';
 export { default as DocumentSubmitBtn } from './components/business-components/document-submit-btn';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import moment from 'moment';
 //@ts-ignore
 import config from 'config';
@@ -10,6 +10,8 @@ import WrapperConnect from '../../custom-connect';
 import SelectPartLoad from '../select-part-load';
 import { IProps, AlignType, ILov } from './interface';
 import OriginLov from './entry';
+import SelectPartTable from '../select-part-table';
+import LocaleContext from '../../locale-lan-provider/context';
 
 /**
  * TODO:
@@ -18,7 +20,8 @@ import OriginLov from './entry';
  */
 
 function CompatibleLov(props: IProps) {
-  const { code, selectorItem, isRenderSelect = true } = props;
+  const context = useContext(LocaleContext);
+  const { code, selectorItem, isRenderSelect = true, onBlur } = props;
   const [lov, setLov] = useState<ILov>({ columns: [], url: '' });
   const renderMap = {
     time: {
@@ -74,7 +77,7 @@ function CompatibleLov(props: IProps) {
 
     selectorItem.columns = (selectorItem?.columns || []).map((item: any) => {
       let tempItem = item;
-      tempItem.title = messages(item.title);
+      tempItem.title = messages(item.title, { context });
       if (item.tooltips) {
         tempItem.render = (value: string | number) => (
           <Popover content={value}>{value}</Popover>
@@ -276,6 +279,12 @@ function CompatibleLov(props: IProps) {
     }
   }
 
+  function handleBlur(e: any, open: boolean) {
+    if (onBlur) {
+      onBlur(e, open);
+    }
+  }
+
   if (isRenderSelect && Array.isArray(lov.columns) && lov.columns.length <= 2) {
     return (
       <SelectPartLoad
@@ -294,6 +303,28 @@ function CompatibleLov(props: IProps) {
             : messages('common.please.select')
         }
         allowClear={props.allowClear ?? true}
+        onBlur={handleBlur}
+      />
+    );
+  } else if (
+    isRenderSelect &&
+    Array.isArray(lov.columns) &&
+    lov.columns.length > 2
+  ) {
+    return (
+      <SelectPartTable
+        {...props}
+        columns={lov.columns}
+        method={lov.method}
+        url={lov.url}
+        params={props.extraParams || props.listExtraParams}
+        mode={props.single !== true ? 'multiple' : undefined}
+        value={formatSelectValue()}
+        onChange={handleChangeSelectValue}
+        searchKey={props.searchKey || 'keywords'}
+        placeholder={props.placeholder || messages('common.please.select')}
+        allowClear={props.allowClear ?? true}
+        onBlur={handleBlur}
       />
     );
   }

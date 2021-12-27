@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-11-10 17:06:30
+ * @LastEditTime: 2021-12-16 18:06:49
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -188,7 +188,7 @@ export default {
   'common.choose.download.format': '选择下载格式',
   'common.to.pdf.merge': '转pdf合并',
   'common.original.compression': '原件压缩',
-  'common.total.files': '共{num}个文件',
+  'common.total.files': '共{number}个文件',
   'common.column.status': '状态',
   'base.successful': '成功',
   'base.fail': '失败',
@@ -213,7 +213,7 @@ export default {
   'common.table.new.warning': '有未保存的数据，请先保存！',
   'common.import.success': '导入成功',
   'common.delete.warning': '确认删除？',
-  'common.show.total': '显示${range0}-${range1} 共{total}条',
+  'common.show.total': '显示{range0}-{range1} 共{total}条',
   'common.copy': '复制',
   'common.cancel.fix': '取消固定',
   'common.left.fix': '左固定',
@@ -221,4 +221,17 @@ export default {
   'common.left.side.fix': '固定在左侧',
   'common.right.side.fix': '固定在右侧',
   'common.no.fix': '不固定',
+  'base.establish': '创建',
+  'common.download.import.template': '下载导入模板',
+  'base.has.choose.count': '已选择 {count} 条',
+  'base.count.options': '{count}个选项',
+  'common.download.error.data': '下载错误数据',
+  'common.yes': '是',
+  'common.no': '否',
+  'common.has.selected': '已选',
+  'common.not.selected': '未选',
+  'base.sync.check.subsidiary': '同时勾选下属公司',
+  'base.selected.limit.warning': '所选数据不能超过 {count} 条',
+  'base.policy.verification.info': '政策校验信息',
+  'common.input.name.or.code': '请输入代码或名称',
 };

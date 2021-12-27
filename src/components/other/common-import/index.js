@@ -15,6 +15,7 @@ import httpFetch from 'share/httpFetch';
 import FileSaver from 'file-saver';
 import { messages } from '../../utils';
 import CustomTable from '../../basic/custom-table';
+import UploadFileList from '../../attachment/upload-file-list';
 import './index.less';
 
 const { TabPane } = Tabs;
@@ -278,7 +279,14 @@ class CommonImporter extends React.Component {
 
   // 只能上传一个文件
   handleChange = (info) => {
-    const { fileList, file } = info;
+    // const { fileList, file } = info;
+    const { fileList, file, event } = info;
+    const { showProgress } = this.props;
+    if (event && showProgress) {
+      const { loaded, total } = event;
+      const percent = Math.floor((loaded / total) * 100) - 1; // 避免数据没有处理完，显示100
+      this.setState({ percent });
+    }
     const { status } = file;
     if (status === 'done') {
       message.success(messages('common.upload.success' /* 上传成功 */));
@@ -302,7 +310,9 @@ class CommonImporter extends React.Component {
     const formData = new FormData();
     formData.append('file', options.file);
     httpFetch
-      .post(url, formData)
+      .post(url, formData, null, {
+        onUploadProgress: options.onProgress,
+      })
       .then((res) => {
         if (res.data) {
           options.onSuccess(res, options.file);
@@ -329,6 +339,8 @@ class CommonImporter extends React.Component {
       afterClose,
       extraParams,
       buttonInfo = defaultButton,
+      showUploadFileList,
+      showProgress,
     } = this.props;
 
     const { visible, initLoading, uploading } = this.state;
@@ -341,6 +353,7 @@ class CommonImporter extends React.Component {
       batchNo,
       successTotal,
       failureTotal,
+      percent,
     } = this.state;
 
     const props = {
@@ -414,6 +427,19 @@ class CommonImporter extends React.Component {
                 </Upload>
               </div>
             </div>
+            {showUploadFileList &&
+              Array.isArray(fileList) &&
+              !!fileList.length && (
+                <UploadFileList
+                  fileList={fileList}
+                  showProgress={showProgress}
+                  percent={percent}
+                  showRemoveIcon={false}
+                  showPreviewIcon={false}
+                  showDownloadIcon={false}
+                />
+              )}
+
             <Tabs
               defaultActiveKey={tabKey}
               onChange={this.tabChange}
@@ -534,6 +560,9 @@ class CommonImporter extends React.Component {
 //   extraParams: PropTypes.object,
 //   showTemplate: PropTypes.string,  // 是否获取模版配置信息
 //   onConfirm: PropTypes.func, // 提供确定按钮事件
+//   showUploadFileList: PropTypes.bool, // 附件列表是否可见
+//   showProgress: PropTypes.bool, // 附件上传进度是否可见
+
 // };
 
 CommonImporter.defaultProps = {
@@ -545,6 +574,8 @@ CommonImporter.defaultProps = {
   extraParams: {},
   showTemplate: true,
   onConfirm: undefined,
+  showUploadFileList: false,
+  showProgress: false,
 };
 
 export default CommonImporter;

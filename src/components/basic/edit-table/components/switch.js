@@ -56,11 +56,11 @@ function CustomSwitch(props) {
             text={
               value === true || value === 1
                 ? labelname
-                  ? messages('common.status.enable') /** 启用 */
-                  : messages('request.detail.booker.yes') /** 是 */
+                  ? messages('common.enabled') /** 启用 */
+                  : messages('common.yes') /** 是 */
                 : labelname
-                ? messages('common.status.disable') /** 禁用 */
-                : messages('request.detail.booker.no') /** 否 */
+                ? messages('common.disabled') /** 禁用 */
+                : messages('common.no') /** 否 */
             }
             onClick={handleFocus}
           />

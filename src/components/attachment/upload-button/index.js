@@ -52,6 +52,18 @@ class UploadButton extends React.Component {
     }
   }
 
+  checkUploadIsDone = () => {
+    const { fileList } = this.state;
+    const result = fileList.every((file) => {
+      return file.status !== 'uploading';
+    });
+    if (result) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   /**
    * 根据外传的fileList联动设置当前组件内部的valueList
    * @param {array} nextFileList
@@ -332,8 +344,14 @@ class UploadButton extends React.Component {
    * @returns undefined 打断函数执行
    */
   handleRemove = (info) => {
-    const { uploadHandle, uploadHandleFileList, onChange, disabled, valueKey } =
-      this.props;
+    const {
+      uploadHandle,
+      uploadHandleFileList,
+      onChange,
+      disabled,
+      valueKey,
+      removeByInterface,
+    } = this.props;
     if (disabled) {
       /* 该状态不允许删除附件 */
       message.warn(messages('common.upload.not.allowed.delete'));
@@ -362,7 +380,10 @@ class UploadButton extends React.Component {
         }
       },
     );
-    this.handleRemoveByInterface(targetKey);
+    // this.handleRemoveByInterface(targetKey);
+    if (removeByInterface) {
+      this.handleRemoveByInterface(targetKey);
+    }
   };
 
   /**
@@ -538,6 +559,7 @@ class UploadButton extends React.Component {
 //   fileNum: PropTypes.number,
 //   extensions: PropTypes.array, // 限制上传类型
 //   uploadHandleFileList: PropTypes.func,
+//   removeByInterface: PropTypes.bool, // 删除附件调用接口，默认true
 // };
 // 理论上讲disabled,hideArrow,noZoom 都用于了显隐当前组件的一部分，不知道原来是出于什么样的考虑这样做
 UploadButton.defaultProps = {
@@ -570,6 +592,7 @@ UploadButton.defaultProps = {
   fileNum: undefined,
   extensions: undefined, // 用法： ["png","jpg","jpeg"], 不传则默认接受所有
   uploadHandleFileList: undefined,
+  removeByInterface: true,
 };
 
 export default UploadButton;

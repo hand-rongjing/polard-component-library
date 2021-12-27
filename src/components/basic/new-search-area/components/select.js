@@ -171,7 +171,7 @@ export default function CustomSelect(props) {
           fetching ? (
             <Spin size="small" />
           ) : (
-            messages('agency.setting.no.result')
+            messages('common.no.matching.result')
           )
         }
         className={
@@ -206,7 +206,7 @@ export default function CustomSelect(props) {
                 <div className="select-dropdown-title">
                   <Input
                     prefix={<SearchSvg />}
-                    placeholder={messages('org.search' /* 搜索 */)}
+                    placeholder={messages('common.search' /* 搜索 */)}
                     onChange={debounce(handleSearch, 200)}
                     ref={searchInput}
                   />

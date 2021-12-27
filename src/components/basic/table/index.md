@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Table } from 'polard';
+import { Table } from 'hand-polard';
 
 export default function BasicTable() {
   const dataSource = [

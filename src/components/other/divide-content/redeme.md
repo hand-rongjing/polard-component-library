@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { DivideContent, SearchArea, Table } from 'polard';
+import { DivideContent, SearchArea, Table } from 'hand-polard';
 
 export default function DivideContentDemo() {
   const searchForm = [

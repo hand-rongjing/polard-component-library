@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { EditTable } from 'polard';
+import { EditTable } from 'hand-polard';
 
 export default function EditTableDemo() {
   const editTableRef = useRef();
@@ -22,17 +22,21 @@ export default function EditTableDemo() {
       title: '数据权限代码',
       dataIndex: 'dataAuthorityCode',
       width: 200,
+      type: 'input',
+      disable: true,
     },
     {
       title: '数据权限名称',
       dataIndex: 'dataAuthorityName',
       width: 100,
+      type: 'language',
     },
 
     {
       title: '数据权限说明',
       dataIndex: 'description',
       width: 300,
+      type: 'input',
     },
   ];
 
@@ -44,12 +48,17 @@ export default function EditTableDemo() {
     setFlag((pre) => !pre);
   }
 
+  function handleSave(value, status, next) {
+    console.log(value);
+    next(true);
+  }
+
   return (
     <div>
             <a onClick={handleChangeStatus}>切换表格编辑模式</a>
             <br />
             <br />
-            <EditTable
+      <EditTable
         url="/base/api/authority/query"
         rowKey="dataAuthorityCode"
         columns={columns}
@@ -75,7 +84,8 @@ export default function EditTableDemo() {
           },
         }}
         editWithCellFlag={editWithCellFlag}
-      />   {' '}
+        onRowSave={handleSave}
+      />
     </div>
   );
 }
@@ -143,6 +153,7 @@ export default function EditTableDemo() {
    （原组件内部只设置 valueMap 有隐藏的 bug，因此增加额外辅助字段，用法如下代码：）
 4. 增加 ` hiddenEditMore` 属性，配置后，可编辑表格左侧的最左侧的操作栏 icon 不会默认显示，得搭配 `editWithCellFlag` 一起使用，单用无效
 5. render 方法拆分为 renderEditCell 和 renderNormalCell 属性，提供分别自定义 可编辑状态下以及常态下的单元格，也可继续使用之前的 render 方法
+6. 更新下拉操作栏中需要气泡确认框的操作，在 optionMap 中配置 isPopConfirm 以及 title 属性
 
 ## editWithCellFlag,hiddenEditMore 的使用
 
@@ -159,14 +170,24 @@ export default function EditTableDemo() {
     operationMap={{
       "delete": null, // 通过为内置的同名属性设置null，可去除删除操作
       "delete": {	// 如果 页面自己定义了 delete 方法，通过这个方式传给 editTable 才能使用
-         label: this.$t("mdata.delete" /* 删除 */),,
-         event: (value, record) => {this.handleDelete(record.id)},
+        label: this.$t("mdata.delete" /* 删除 */),
+        // next 方法接受两个参数 （flag：boolean | string，record.id） => void;
+        // 其作用在某种程度上可以替代外界调用table.getList操作，且是 停留在当前页的数据刷新
+        /*
+         * flag:
+            为true则调用接口刷新数据
+            为false则阻塞 删除数据后的逻辑操作（包含接口刷新数据）
+            为 "delete" 则不调用接口删除行数据
+        */
+        event: (value, record, index, next) => {this.handleDelete(record.id,next)},
       },
       "detail": { // 通过如下配置，[key]自定义，格式如下，可自定义操作，与renderOption 属性作用一致
         label: this.$t("my.contract.detail"),
         disabled: false,
         disabled: (record) => !record.detail  // disabled 可传入一个方法，去根据 record 的值进行判断与计算
         event: (value, record) => { this.detailClick(record) },
+        isPopConfirm: true,		// 如果需要配置气泡确认框，配置该属性
+        title: messages('workbench.initializing.credit.management.will.empt.di18n'),	// 如果配置了气泡确认框，必须配置该项，代表气泡确认框的提示
       },
     }}
   />

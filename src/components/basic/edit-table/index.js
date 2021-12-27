@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, Divider, message, Popconfirm, Popover } from 'antd';
-import Table from 'widget/table';
+import Table from '../table';
 import httpFetch from 'share/httpFetch';
 import ExcelExporter from '../../other/excel-export';
 import CommonImporter from '../../other/common-import';
@@ -537,6 +537,7 @@ class EditTable extends Component {
             onCopy={this.handleCopy}
             hideEditMore={hideEditMore}
             rowKey={rowKey}
+            onAfterDelete={this.afterDeleteLineData}
           />
         );
       },
@@ -1222,6 +1223,23 @@ class EditTable extends Component {
   };
 
   /**
+   * 批量设置当前行某些列的单元格编辑状态
+   * @param {string} row
+   * @param {array<string>} cols
+   * @param {boolean} isEdit
+   */
+  onVolumeSetStatus = (row, cols, isEdit) => {
+    const { cellStatusMap } = this.state;
+    if (Array.isArray(cols)) {
+      const temp = {};
+      cols.forEach((col) => {
+        temp[`${row}|${col}`] = isEdit;
+      });
+      this.setState({ cellStatusMap: { ...cellStatusMap, ...temp } });
+    }
+  };
+
+  /**
    * 方法：外界自行控制当前单元格的编辑状态，仅用于单元格编辑模式下，
    * 配置 属性 (isCusRenderFormItem: true)
    * @param {*} row record[rowKey || "id"]
@@ -1235,7 +1253,7 @@ class EditTable extends Component {
     if (curColumn) {
       // 判断当前单元格是否禁用
       if (typeof curColumn.disabled === 'function') {
-        if (col.disabled({ ...record, _status: 'EDIT' })) return;
+        if (curColumn.disabled({ ...record, _status: 'EDIT' })) return;
       } else if (curColumn.disabled === true) return;
       cellStatusMap[`${row}|${col}`] = isEdit;
       this.setState({
@@ -1322,9 +1340,11 @@ class EditTable extends Component {
 
   // 用于 JSON.stringify 来判断值是否为 ''、null、undefined, 如果是 都转为 Null
   valueReplace = (key, value) => {
-    // debugger
     if (value === '' || value === undefined) {
       value = null;
+    } else if (value?.constructor === Object) {
+      const isNull = Object.values(value).every((item) => !item);
+      if (isNull) value = null;
     }
     return value;
   };
@@ -1536,7 +1556,7 @@ class EditTable extends Component {
   // callback 只在单元格编辑失焦时调用该方法时会存在此函数，用于将当前单元格切换成文本状态
   okRowHandle = (record, index, callback) => {
     const { rowKey, onRowSave } = this.props;
-    const { pagination } = this.state;
+    const { pagination, cellStatusMap } = this.state;
     // const curRecordErrorInfo = this.errorMap[record[rowKey]];
     // if (curRecordErrorInfo && Object.keys(curRecordErrorInfo).length) return;
 
@@ -1558,6 +1578,15 @@ class EditTable extends Component {
           pagination.pageSize = 10;
           this.setState({ loading: false, pagination });
           if (!value) return;
+
+          // 遍历 cellStatusMap
+          // 关于 record[rowKey] 这一行的所有在编辑状态的字段全部置为 非编辑状态
+          for (const key in cellStatusMap) {
+            if (key.includes(record[rowKey])) {
+              cellStatusMap[key] = false;
+            }
+          }
+
           if (callback) callback();
 
           // 保存成功之后的操作
