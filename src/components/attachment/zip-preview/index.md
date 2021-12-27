@@ -19,7 +19,7 @@ order: 6
 ```tsx
 import React, { useState, useMemo } from 'react';
 import { Button } from 'antd';
-import { ZipFileView } from 'polard';
+import { ZipFileView } from 'hand-polard';
 import httpFetch from 'share/httpFetch';
 import config from 'config';
 

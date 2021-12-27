@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { SlideFrame, CustomSwitch, CodeInput } from 'polard';
+import { SlideFrame, CustomSwitch, CodeInput } from 'hand-polard';
 import { Form, Button } from 'antd';
 
 export default function SlideFrameDemo() {

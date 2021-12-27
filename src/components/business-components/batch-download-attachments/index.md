@@ -18,7 +18,7 @@ group:
 ```tsx
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import { BatchDownLoadAttachments } from 'polard';
+import { BatchDownLoadAttachments } from 'hand-polard';
 
 export default function Test() {
   const [visible, setVisible] = useState(false);

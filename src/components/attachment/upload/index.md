@@ -15,7 +15,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Upload } from 'polard';
+import { Upload } from 'hand-polard';
 import config from 'config';
 
 export default function Test() {

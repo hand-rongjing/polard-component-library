@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { BasicInfo } from 'polard';
+import { BasicInfo } from 'hand-polard';
 
 export default function BasicInfoDemo() {
   const infoList = [

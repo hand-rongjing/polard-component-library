@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { CustomAmount } from 'polard';
+import { CustomAmount } from 'hand-polard';
 
 export default function CustomAmountDemo() {
   const [disabled, setDisabled] = useState(false);

@@ -18,7 +18,7 @@ group:
 
 ```tsx
 import React, { useRef } from 'react';
-import { ProTable } from 'polard';
+import { ProTable } from 'hand-polard';
 
 export default function ProTableDemo() {
   const columns = [

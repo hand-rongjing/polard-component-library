@@ -18,7 +18,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { CodeInput } from 'polard';
+import { CodeInput } from 'hand-polard';
 
 export default function CodeInputDemo() {
   return (
@@ -36,7 +36,7 @@ export default function CodeInputDemo() {
 
 ```tsx
 import React, { useState } from 'react';
-import { CodeInput } from 'polard';
+import { CodeInput } from 'hand-polard';
 import { Radio } from 'antd';
 
 export default function CodeInputDemo() {
@@ -66,7 +66,7 @@ export default function CodeInputDemo() {
 
 ```tsx
 import React, { useState } from 'react';
-import { CodeInput } from 'polard';
+import { CodeInput } from 'hand-polard';
 
 export default function CodeInputDemo() {
   return (

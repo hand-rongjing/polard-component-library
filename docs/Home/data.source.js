@@ -17,7 +17,7 @@ export const Banner50DataSource = {
         name: 'title',
         children: (
           <span>
-            <p>Polard</p>
+            <p>hand-polard</p>
           </span>
         ),
         className: 'banner5-title',
@@ -174,7 +174,7 @@ export const Footer00DataSource = {
     className: 'copyright',
     children: (
       <span>
-        ©2021 <a href="#">polard</a> All Rights Reserved
+        ©2021 <a href="#">hand-polard</a> All Rights Reserved
       </span>
     ),
   },

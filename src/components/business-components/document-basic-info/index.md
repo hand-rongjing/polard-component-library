@@ -17,7 +17,7 @@ order: 1
 ```tsx
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import { DocumentBasicInfo } from 'polard';
+import { DocumentBasicInfo } from 'hand-polard';
 
 export default function Test() {
   const [reimburseInfo] = useState({

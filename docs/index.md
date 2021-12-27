@@ -1,6 +1,6 @@
 ---
 gapless: true
-title: polard
+title: hand-polard
 ---
 
 <code src="./Home/index.jsx" inline />
