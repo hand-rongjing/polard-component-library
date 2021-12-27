@@ -279,7 +279,7 @@ class CommonImporter extends React.Component {
 
   // 只能上传一个文件
   handleChange = (info) => {
-    const { fileList, file } = info;
+    // const { fileList, file } = info;
     const { fileList, file, event } = info;
     const { showProgress } = this.props;
     if (event && showProgress) {
