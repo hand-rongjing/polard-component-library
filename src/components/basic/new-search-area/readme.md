@@ -15,7 +15,7 @@ group:
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { NewSearchArea } from 'polard';
+import { NewSearchArea } from 'hand-polard';
 
 export default function NewSearchAreaDemo() {
   const searchAreaRef = useRef();

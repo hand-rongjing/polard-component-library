@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { EditTable } from 'polard';
+import { EditTable } from 'hand-polard';
 
 export default function EditTableDemo() {
   const editTableRef = useRef();

@@ -14,13 +14,13 @@ group:
 </Alert>
 
 ```bash
-$ yarn add polard
+$ yarn add hand-polard
 ```
 
 - 使用
 
 ```javascript
-import { CodeInput } from 'polard';
+import { CodeInput } from 'hand-polard';
 
 // ...
 ```

@@ -17,7 +17,7 @@ group:
 
 ```tsx
 import React, { useState, useRef } from 'react';
-import { SearchArea } from 'polard';
+import { SearchArea } from 'hand-polard';
 
 export default function SearchAreaDemo() {
   const searchRef = useRef();
@@ -92,7 +92,7 @@ export default function SearchAreaDemo() {
 
 ```tsx
 import React, { useState, useRef } from 'react';
-import { SearchAreaLov } from 'polard';
+import { SearchAreaLov } from 'hand-polard';
 
 export default function SearchAreaLovDemo() {
   const searchRef = useRef();

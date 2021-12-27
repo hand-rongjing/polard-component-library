@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { Lov } from 'polard';
+import { Lov } from 'hand-polard';
 
 export default function LovDemo() {
   const [value, setValue] = useState(undefined);

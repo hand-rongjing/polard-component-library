@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { CustomSwitch } from 'polard';
+import { CustomSwitch } from 'hand-polard';
 
 export default function CustomSwitchDemo() {
   const [status, setSwitchValue] = useState(false);
@@ -34,7 +34,7 @@ export default function CustomSwitchDemo() {
 
 ```tsx
 import React from 'react';
-import { CustomSwitch } from 'polard';
+import { CustomSwitch } from 'hand-polard';
 import { Form, Button } from 'antd';
 
 export default function CustomSwitchDemo() {

@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { SlideFrame, SlideFrameSubtitle } from 'polard';
+import { SlideFrame, SlideFrameSubtitle } from 'hand-polard';
 
 export default function SlideFrameSubtitleDemo() {
   const [visible, setVisible] = useState(false);

@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { PrintButton } from 'polard';
+import { PrintButton } from 'hand-polard';
 
 export default function PrintButtonDemo() {
   return (

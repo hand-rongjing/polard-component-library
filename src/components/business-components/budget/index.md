@@ -17,7 +17,7 @@ order: 4
 ```tsx
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import { BudgetTips } from 'polard';
+import { BudgetTips } from 'hand-polard';
 
 export default function Test() {
   const [dataSource, setData] = useState([]);
@@ -64,7 +64,7 @@ export default function Test() {
 ```tsx
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import { BudgetProgressDetail } from 'polard';
+import { BudgetProgressDetail } from 'hand-polard';
 
 export default function Test() {
   const [visible, setVisible] = useState(false);

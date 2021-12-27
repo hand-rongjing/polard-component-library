@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { InputLanguage } from 'polard';
+import { InputLanguage } from 'hand-polard';
 
 export default function InputLanguageDemo() {
   const [language, setLanguage] = useState(undefined);
@@ -51,7 +51,7 @@ export default function InputLanguageDemo() {
 
 ```tsx
 import React from 'react';
-import { InputLanguage } from 'polard';
+import { InputLanguage } from 'hand-polard';
 import { Form, Button } from 'antd';
 
 export default function InputLanguageDemo() {

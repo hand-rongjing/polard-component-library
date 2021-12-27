@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { DocumentSubmitBtn } from 'polard';
+import { DocumentSubmitBtn } from 'hand-polard';
 
 export default function DocumentSubmitBtnDemo() {
   const [submitLoading, setSubmitLoading] = useState(false);

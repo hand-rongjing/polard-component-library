@@ -14,7 +14,7 @@ order: 4
 
 ```tsx
 import React, { useState } from 'react';
-import { UploadFileList } from 'polard';
+import { UploadFileList } from 'hand-polard';
 
 export default function Test() {
   const [fileList] = useState([

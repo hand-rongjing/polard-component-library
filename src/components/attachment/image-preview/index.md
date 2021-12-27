@@ -15,7 +15,7 @@ order: 5
 ```tsx
 import React, { useState, useMemo } from 'react';
 import { Button } from 'antd';
-import { ImagePriview } from 'polard';
+import { ImagePriview } from 'hand-polard';
 
 export default function Demo(props) {
   const [imageIndex, setImageIndex] = useState(0);

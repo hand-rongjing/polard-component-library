@@ -15,7 +15,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { CustomCollapse } from 'polard';
+import { CustomCollapse } from 'hand-polard';
 
 export default function CustomCollapseDemo() {
   const components = [

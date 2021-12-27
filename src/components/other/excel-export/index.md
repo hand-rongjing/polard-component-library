@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { ExcelExporter } from 'polard';
+import { ExcelExporter } from 'hand-polard';
 // import FileSaver from 'file-saver';
 
 export default function ExcelExportDemo() {

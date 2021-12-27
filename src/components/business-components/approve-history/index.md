@@ -17,7 +17,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { ApproveHistory } from 'polard';
+import { ApproveHistory } from 'hand-polard';
 
 export default function ApproveHistoryDemo() {
   return (
@@ -30,7 +30,7 @@ export default function ApproveHistoryDemo() {
 
 ```tsx
 import React from 'react';
-import { ApproveHistory } from 'polard';
+import { ApproveHistory } from 'hand-polard';
 
 export default function ApproveHistoryDemoTwo() {
   const data = [

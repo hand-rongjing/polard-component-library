@@ -18,7 +18,7 @@ order: 5
 
 ```tsx
 import React from 'react';
-import { VoucherTable } from 'polard';
+import { VoucherTable } from 'hand-polard';
 import config from 'config';
 
 export default function Test() {

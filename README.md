@@ -1,4 +1,4 @@
-# polard
+# hand-polard
 
 ## Getting Started
 
@@ -20,7 +20,7 @@ Build documentation,
 $ npm run docs:build
 ```
 
-Build polard via `father-build`,
+Build hand-polard via `father-build`,
 
 ```bash
 $ npm run build
@@ -138,7 +138,7 @@ $ npm run release
 ## 多语言
 
 提供 LocaleProvider 组件，于项目入口出，调用该组件包裹子组件，并传入 locale 参数
-如下是 antd 多语言与 polard 多语言共有场景：
+如下是 antd 多语言与 hand-polard 多语言共有场景：
 
 ```tsx
 // locale: {
