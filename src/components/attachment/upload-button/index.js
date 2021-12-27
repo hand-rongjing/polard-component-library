@@ -344,8 +344,6 @@ class UploadButton extends React.Component {
    * @returns undefined 打断函数执行
    */
   handleRemove = (info) => {
-    const { uploadHandle, uploadHandleFileList, onChange, disabled, valueKey } =
-      this.props;
     const {
       uploadHandle,
       uploadHandleFileList,
