@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0-alpha.0 (2021-12-27)
+
+### Features
+
+- new-search-area 组件支持表单字段删除后同步触发其绑定的联动事件 ([29311d3](https://github.com/hand-rongjing/polard-component-library/commit/29311d3a484761e7c12ea84fb9b5b950817f3062))
+- 可编辑表格组件提供一个批量设置当前行指定单元格们的编辑状态的方法（onVolumeSetStatus） ([8e356b9](https://github.com/hand-rongjing/polard-component-library/commit/8e356b9e4b585eccac35cbe3428f93b2771f73b8))
+
+### Bug Fixes
+
+- select-application-type 在不选择数据时点击确认仍然可以关闭按钮 ([e39f146](https://github.com/hand-rongjing/polard-component-library/commit/e39f146f7463c95d59954b6de4cf7e123c928718))
+- select-application-type 组件搜索区域搜索失效问题修复 ([12df387](https://github.com/hand-rongjing/polard-component-library/commit/12df38725717504f96fdaa01a520f0edd666ba26))
+- select-part-table 组件补充遗漏维护的多语言 ([7eb5ec0](https://github.com/hand-rongjing/polard-component-library/commit/7eb5ec0cefef2914c5ebb4fc56daf605d969f5e9))
+- select-part-table 组件补充遗漏维护的多语言 ([67b8315](https://github.com/hand-rongjing/polard-component-library/commit/67b83156c5cfb3a26e7ab2d452e3cc85c10d32b6))
+- 修复多语言输入框在非单元格状态下也触发聚焦切换编辑状态的 bug ([aef228e](https://github.com/hand-rongjing/polard-component-library/commit/aef228ea142a555b2fe6a63eb4125d5b6551804d))
+- 修复未知 bug ([da285fb](https://github.com/hand-rongjing/polard-component-library/commit/da285fb979abcbf1a5b63b4f2771d0ca052ca5a8))
+- 修复金额输入框在可编辑表格中 focus 错误 ([191cf5b](https://github.com/hand-rongjing/polard-component-library/commit/191cf5bd0eef3533ff507eae98e47adc1927a4e8))
+- 删除多余的 console.log ([b2d5f26](https://github.com/hand-rongjing/polard-component-library/commit/b2d5f26fa8c092942b6d1c9d011f191bdff92c99))
+- 搜索组件 mulitply 类型下的表单组件缺失 tagRender 函数 ([9c58cf9](https://github.com/hand-rongjing/polard-component-library/commit/9c58cf9b745071b06f54855d60a881a8e4a398a1))
+- 解决 selectPartLoad 在选择完后有缓存的问题 ([0e225be](https://github.com/hand-rongjing/polard-component-library/commit/0e225becea3b449166b2bf74bb04c4196eb64444))
+- 费用类型组件搜索报错问题修复(validateFields 方法传参问题) ([7d1ab77](https://github.com/hand-rongjing/polard-component-library/commit/7d1ab7710ab166d25259921fca36b158bb196fe7))
+
 ## 1.4.0 (2021-12-23)
 
 ### Features
