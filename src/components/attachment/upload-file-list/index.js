@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon, { LoadingOutlined } from '@ant-design/icons';
-import { Tooltip, Popconfirm, Col, Row } from 'antd';
+import { Tooltip, Popconfirm, Col, Row, Progress } from 'antd';
 import config from 'config';
 import httpFetch from 'share/httpFetch';
 import { getImgIcon, messages } from '../../utils';
@@ -193,20 +193,24 @@ class RenderUploadFileItem extends React.Component {
     }, 500);
   };
 
-  fileListContent = (item, index) => {
-    const dataIndex = `upload${index}`;
-    const name = item.fileName || item.name;
+  // 文件大小转换
+  renderSize = (value) => {
+    if (!value) return '0B';
+    const unitArr = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    let index = 0;
+    const srcsize = parseFloat(value);
+    index = Math.floor(Math.log(srcsize) / Math.log(1024));
+    let size = srcsize / 1024 ** index;
+    size = size.toFixed(2);
+    return size + unitArr[index];
+  };
+
+  // 渲染上传进度
+  renderProgress = (name, item, percent) => {
     const isError = item.status === 'error';
+    const isUploading = item.status === 'uploading';
     return (
-      <div
-        className={`upload-file-list-title ${isError ? 'upload-error' : ''}`}
-        key={dataIndex}
-      >
-        <img
-          src={getImgIcon(name)}
-          alt="Icon"
-          className="upload-file-list-img"
-        />
+      <div>
         <span
           className="upload-file-list-name over-range"
           title={name}
@@ -214,12 +218,61 @@ class RenderUploadFileItem extends React.Component {
         >
           {name}
         </span>
-        <span className="upload-file-list-operation">
-          {item.status && item.status === 'uploading' ? (
-            <LoadingOutlined />
+        <div>
+          <span>
+            {isUploading
+              ? `${this.renderSize((item.size * percent) / 100)}/`
+              : ''}
+            {this.renderSize(item.size)}
+          </span>
+          <span className="upload-file-list-progress-tip">
+            {isError ? '上传失败' : isUploading ? '上传中...' : '上传成功'}
+          </span>
+          {isUploading ? (
+            <React.Fragment>
+              <Progress strokeWidth={3} percent={percent} showInfo={false} />
+              <LoadingOutlined />
+            </React.Fragment>
           ) : (
-            this.renderOperationGroup(index, !isError, item)
+            ''
           )}
+        </div>
+      </div>
+    );
+  };
+
+  fileListContent = (item, index) => {
+    const { showProgress, percent } = this.props;
+    const dataIndex = `upload${index}`;
+    const name = item.fileName || item.name;
+    const isError = item.status === 'error';
+    return (
+      <div
+        className={`upload-file-list-title upload-${item.status} ${
+          showProgress ? 'upload-progress' : ''
+        }`}
+        key={dataIndex}
+      >
+        <img
+          src={getImgIcon(name)}
+          alt="Icon"
+          className="upload-file-list-img"
+        />
+        {showProgress ? (
+          this.renderProgress(name, item, percent)
+        ) : (
+          <span
+            className="upload-file-list-name over-range"
+            title={name}
+            onClick={() => this.onRowClick(item)}
+          >
+            {name}
+          </span>
+        )}
+        <span className="upload-file-list-operation">
+          {item.status && item.status === 'uploading'
+            ? !showProgress && <LoadingOutlined />
+            : this.renderOperationGroup(index, !isError, item)}
         </span>
       </div>
     );
@@ -323,6 +376,9 @@ class RenderUploadFileItem extends React.Component {
 //   showPreviewIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
 //   showDownloadIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
 //   onRemove: PropTypes.func,
+//   showProgress: PropTypes.bool,
+//   percent: PropTypes.number,
+
 // };
 
 RenderUploadFileItem.defaultProps = {
@@ -331,6 +387,8 @@ RenderUploadFileItem.defaultProps = {
   showPreviewIcon: true,
   showDownloadIcon: true,
   onRemove: () => {},
+  showProgress: false,
+  percent: 0,
 };
 
 export default RenderUploadFileItem;

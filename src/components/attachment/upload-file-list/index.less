@@ -9,10 +9,34 @@
       color: #666;
       line-height: 22px;
       height: 22px;
+      &.upload-progress {
+        height: 40px;
+        align-items: center;
+        .ant-progress-line {
+          width: 150px;
+          margin: 0 8px;
+        }
+        .upload-file-list-progress-tip {
+          margin: 0 8px;
+        }
+      }
       &.upload-error {
         color: red;
         .upload-file-list-operation .operation-btn.error-ico path {
           fill: #fa5555;
+        }
+        .upload-file-list-progress-tip {
+          color: #fa5555;
+        }
+      }
+      &.upload-done {
+        .upload-file-list-progress-tip {
+          color: #52c41a;
+        }
+      }
+      &.upload-uploading {
+        .upload-file-list-progress-tip {
+          color: #1890ff;
         }
       }
       &:not(:last-of-type) {
