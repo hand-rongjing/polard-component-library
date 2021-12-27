@@ -1,3 +1,4 @@
+// 以下为了解决打包问题
 /// <reference path="../typings.d.ts" />
 // 统一导出
 export { default as LocaleProvider } from './components/locale-lan-provider';
