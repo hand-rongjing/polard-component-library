@@ -1,6 +1,6 @@
 {
   "name": "hand-polard",
-  "version": "1.4.0",
+  "version": "1.5.1-alpha.0",
   "scripts": {
     "start": "cross-env ENV_TYPE=native dumi dev",
     "docs:build": "cross-env ENV_TYPE=native dumi build",
@@ -8,6 +8,8 @@
     "build": "cross-env NODE_ENV=production NODE_OPTIONS=--max_old_space_size=4096 father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npx standard-version && npm publish",
+    "release-alpha": "npm run build && npx standard-version -p alpha && npm publish --tag=alpha",
+    "release-beta": "npm run build && npx standard-version -p beta && npm publish --tag=beta",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
