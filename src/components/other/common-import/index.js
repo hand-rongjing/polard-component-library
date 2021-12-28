@@ -171,7 +171,11 @@ class CommonImporter extends React.Component {
 
   // 下载导入模板
   downloadTemplate = () => {
-    const { extraParams } = this.props;
+    const { extraParams, onCustomDownTpl } = this.props;
+    if (onCustomDownTpl && typeof onCustomDownTpl === 'function') {
+      onCustomDownTpl();
+      return;
+    }
     const { templateProperties } = this.state;
     const url = `${templateProperties.prefixPatch}/api/excel/import/down/template?templateCode=${templateProperties.templateCode}`;
 
