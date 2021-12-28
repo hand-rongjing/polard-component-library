@@ -578,8 +578,8 @@ CommonImporter.defaultProps = {
   extraParams: {},
   showTemplate: true,
   onConfirm: undefined,
-  showUploadFileList: false,
-  showProgress: false,
+  showUploadFileList: true,
+  showProgress: true,
 };
 
 export default CommonImporter;
