@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-28 14:23:21
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-11-04 16:43:38
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2021-12-29 11:33:47
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -122,7 +122,12 @@ class ExcelExporter extends React.Component<IProps, IState> {
           });
         }
         // @ts-ignore
-        result.push({ ...itemResult, columnsInfo, sheetName: item.sheetName });
+        result.push({
+          ...itemResult,
+          columnsInfo,
+          sheetName: item.sheetName,
+          sheetIndex: item.sheetIndex,
+        });
       } else if (Array.isArray(selectedRowKeys)) {
         selectedRowKeys.forEach((key) => {
           if (item.dataIndex === key) {
