@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.2...v1.5.1-alpha.3) (2021-12-31)
+
+### Bug Fixes
+
+- 兼容处理 IE 浏览器下调用 dom.remove()方法 ([02b05ab](https://github.com/hand-rongjing/polard-component-library/commit/02b05abe69e430c46b1bef8c8a75ccf70715eb55))
+
+### [1.5.1-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.1...v1.5.1-beta.0) (2021-12-28)
+
 ### [1.5.1-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.1...v1.5.1-alpha.2) (2021-12-29)
 
 ### [1.5.1-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.0...v1.5.1-alpha.1) (2021-12-28)
