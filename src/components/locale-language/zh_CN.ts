@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-12-16 18:06:49
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2021-12-31 15:04:40
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -234,4 +234,5 @@ export default {
   'base.selected.limit.warning': '所选数据不能超过 {count} 条',
   'base.policy.verification.info': '政策校验信息',
   'common.input.name.or.code': '请输入代码或名称',
+  'chooser.data.company': '选择公司',
 };
