@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.5...v1.5.1-alpha.6) (2021-12-31)
+
+### Bug Fixes
+
+- 修复 IE 浏览器下 new-search-area 组件布局问题紊乱 ([833f432](https://github.com/hand-rongjing/polard-component-library/commit/833f4323f7b60552ef4c223a2f01fcfe83596904))
+
 ### [1.5.1-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.4...v1.5.1-alpha.5) (2021-12-31)
 
 ### [1.5.1-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.3...v1.5.1-alpha.4) (2021-12-31)
