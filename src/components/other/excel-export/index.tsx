@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-28 14:23:21
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2021-12-29 11:33:47
+ * @LastEditTime: 2021-12-31 10:17:44
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -27,6 +27,7 @@ class ExcelExporter extends React.Component<IProps, IState> {
     excelItem: '',
     canCheckVersion: true,
     visible: false,
+    allowPartEmpty: false,
   };
 
   constructor(props) {
@@ -83,7 +84,8 @@ class ExcelExporter extends React.Component<IProps, IState> {
   };
 
   exportResult = () => {
-    const { columns, fileName, excelItem, onOk, onCancel } = this.props;
+    const { columns, fileName, excelItem, onOk, onCancel, allowPartEmpty } =
+      this.props;
     const { selectedRowKeys, excelVersion, multiple } = this.state;
 
     const itemResult = { fileName, excelType: excelVersion, excelItem };
@@ -101,14 +103,16 @@ class ExcelExporter extends React.Component<IProps, IState> {
       if (multiple) {
         const keys = selectedRowKeys[item.sheetName] || [];
         if (keys.length === 0) {
-          /** 请选择导出列 */
-          message.error(
-            messages('base.please.select.the.export.column.of.tab.sheet', {
-              params: { sheet: item.sheetName },
-              context: this.context,
-            }),
-          );
-          isEmpty = true;
+          if (!allowPartEmpty) {
+            /** 请选择导出列 */
+            message.error(
+              messages('base.please.select.the.export.column.of.tab.sheet', {
+                params: { sheet: item.sheetName },
+                context: this.context,
+              }),
+            );
+            isEmpty = true;
+          }
           return;
         }
         const columnsInfo = [];
