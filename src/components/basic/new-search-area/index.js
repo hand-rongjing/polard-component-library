@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-05-18 14:34:39
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-12-17 10:32:10
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2021-12-31 16:18:00
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -15,7 +15,6 @@ import React, {
   useRef,
 } from 'react';
 import {
-  SearchOutlined,
   CloseCircleFilled,
   EllipsisOutlined,
   CaretDownOutlined,
@@ -590,21 +589,22 @@ function SearchArea(props) {
 
   function replaceDefaultFields(nextFields, nextSearchForm, searchCodeKey) {
     // 通过 searchCodeKey 获取到 缓存的搜索条件
-    const {searchParams = {}} = getCacheValueFromRedux(searchCodeKey);
+    const { searchParams = {} } = getCacheValueFromRedux(searchCodeKey);
 
     // 当存在 缓存的搜索条件时，取出在 nextSearchForm 中对应的值
     if (Object.keys(searchParams).length) {
-      const tempSearchForm = []
-      nextSearchForm.forEach(item => {
+      const tempSearchForm = [];
+      flattenArray(nextSearchForm).forEach((item) => {
         for (const key in searchParams) {
           if (key === item.id) {
-            tempSearchForm.push(item)
+            tempSearchForm.push(item);
           }
         }
-      })
-      return flattenArray(tempSearchForm)
+      });
+      return tempSearchForm;
     }
-    if (nextFields?.length === 0 && selectAll) return flattenArray(nextSearchForm);
+    if (nextFields?.length === 0 && selectAll)
+      return flattenArray(nextSearchForm);
     if (isRefresh.current) {
       isRefresh.current = false;
       return flattenArray(nextSearchForm);
@@ -656,56 +656,58 @@ function SearchArea(props) {
       // newSearchForm = newSearchForm.filter(item => curCondition.includes(item.id));
     }
     // 取上一次的 展示的动态字段和当前外传的搜索数组 交际合并，确保内部能同步外界修改的搜索区参数，
-    replaceDefaultFields(defaultFields, nextSearchForm, searchCodeKey).forEach((item) => {
-      if (item.defaultValue) initValueToRedux[item.id] = item.defaultValue;
-      // 如果有缓存值，则根据缓存值重设searchForm的每一个成员，否则依据searchForm的配置，渲染动态字段
-      if (defaultFlag) {
-        const cacheValue = defaultSearchValue[item.id];
-        if (!fixedFieldIds.includes(item.id)) {
-          item.isFixed = false;
-        } else item.isFixed = true;
+    replaceDefaultFields(defaultFields, nextSearchForm, searchCodeKey).forEach(
+      (item) => {
+        if (item.defaultValue) initValueToRedux[item.id] = item.defaultValue;
+        // 如果有缓存值，则根据缓存值重设searchForm的每一个成员，否则依据searchForm的配置，渲染动态字段
+        if (defaultFlag) {
+          const cacheValue = defaultSearchValue[item.id];
+          if (!fixedFieldIds.includes(item.id)) {
+            item.isFixed = false;
+          } else item.isFixed = true;
 
-        if (item.type === 'items') {
-          item.items.forEach((ops) => {
-            const op = ops;
-            if (defaultSearchValue[op.id]) {
-              op.defaultValue = defaultSearchValue[op.id];
-              // if (!item.isFixed) tempDefaultFields.push({ item: ops, value: op.defaultValue });
-              tempDefaultFields.push({ item: ops, value: op.defaultValue });
+          if (item.type === 'items') {
+            item.items.forEach((ops) => {
+              const op = ops;
+              if (defaultSearchValue[op.id]) {
+                op.defaultValue = defaultSearchValue[op.id];
+                // if (!item.isFixed) tempDefaultFields.push({ item: ops, value: op.defaultValue });
+                tempDefaultFields.push({ item: ops, value: op.defaultValue });
+              }
+            });
+          } else if (
+            (item.type === 'select' || item.type === 'value_list') &&
+            !!cacheValue
+          ) {
+            if (cacheValue.key || [0, false].includes(cacheValue.key))
+              cacheValue.key = String(cacheValue.key);
+            // (String(cacheValue.key || cacheValue)) 兼容情况：恰好options为空数组时，将值设置到了缓存
+            item.defaultValue = item.entity
+              ? cacheValue
+              : String(cacheValue.key || cacheValue);
+            if (item.options.length === 0 && cacheValue.key) {
+              item.options = [
+                {
+                  label: cacheValue.label,
+                  value: cacheValue.key,
+                  temp: true,
+                },
+              ];
             }
-          });
-        } else if (
-          (item.type === 'select' || item.type === 'value_list') &&
-          !!cacheValue
-        ) {
-          if (cacheValue.key || [0, false].includes(cacheValue.key))
-            cacheValue.key = String(cacheValue.key);
-          // (String(cacheValue.key || cacheValue)) 兼容情况：恰好options为空数组时，将值设置到了缓存
-          item.defaultValue = item.entity
-            ? cacheValue
-            : String(cacheValue.key || cacheValue);
-          if (item.options.length === 0 && cacheValue.key) {
-            item.options = [
-              {
-                label: cacheValue.label,
-                value: cacheValue.key,
-                temp: true,
-              },
-            ];
-          }
-          // if (!item.isFixed) tempDefaultFields.push({ item, value: item.defaultValue });
+            // if (!item.isFixed) tempDefaultFields.push({ item, value: item.defaultValue });
+            tempDefaultFields.push({ item, value: item.defaultValue });
+          } else if (item.id in defaultSearchValue) {
+            item.defaultValue = cacheValue;
+            // if (!item.isFixed) tempDefaultFields.push({ item, value: cacheValue });
+            tempDefaultFields.push({ item, value: cacheValue });
+          } else tempDefaultFields.push({ item, value: cacheValue });
+        } else if (curCondition && solution !== 'all') {
           tempDefaultFields.push({ item, value: item.defaultValue });
-        } else if (item.id in defaultSearchValue) {
-          item.defaultValue = cacheValue;
-          // if (!item.isFixed) tempDefaultFields.push({ item, value: cacheValue });
-          tempDefaultFields.push({ item, value: cacheValue });
-        } else tempDefaultFields.push({ item, value: cacheValue });
-      } else if (curCondition && solution !== 'all') {
-        tempDefaultFields.push({ item, value: item.defaultValue });
-      } else if (solution === 'all') {
-        tempDefaultFields.push({ item, value: undefined });
-      }
-    });
+        } else if (solution === 'all') {
+          tempDefaultFields.push({ item, value: undefined });
+        }
+      },
+    );
     setDefaultFields(tempDefaultFields);
 
     if (defaultFlag && cacheSolution) {
