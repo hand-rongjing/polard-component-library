@@ -97,7 +97,7 @@ function TreeSelectModel(props) {
         },
       ],
       event: 'WITHCHILDREN',
-      label: ' ',
+      label: '',
       span: 12,
       defaultValue: [false],
     },
@@ -510,7 +510,7 @@ function TreeSelectModel(props) {
       />
       <Modal
         visible={visible}
-        title={messages(modalTitle || 'chooser.data.company')}
+        title={modalTitle || messages('chooser.data.company')}
         width={580}
         onOk={handleSubmit}
         onCancel={handleClose}

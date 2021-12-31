@@ -1469,9 +1469,13 @@ class SearchAreaLov extends React.Component {
                   }
                 >
                   <Form.Item
-                    label={messages(searchItem.label, {
-                      context: this.context,
-                    })}
+                    label={
+                      searchItem.label
+                        ? messages(searchItem.label, {
+                            context: this.context,
+                          })
+                        : ''
+                    }
                     colon={false}
                     initialValue={this.getDefaultValue(searchItem)}
                     name={searchItem.id}
