@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-05-18 14:34:39
  * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-12-17 10:32:10
+ * @LastEditTime: 2021-12-31 15:15:17
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -1720,7 +1720,7 @@ function SearchArea(props) {
               <Select
                 value={solution}
                 style={{
-                  width: 'unset',
+                  width: 'auto',
                   height: 28,
                   fontSize: 16,
                   marginRight: 6,
@@ -1820,7 +1820,7 @@ function SearchArea(props) {
               <Divider type="vertical" style={{ margin: '0 12px 0 -2px' }} />
               <div
                 style={{
-                  display: 'inline-flex',
+                  display: 'inline-block',
                   width: 88,
                   height: 24,
                   justifyContent: 'space-between',
@@ -1850,7 +1850,10 @@ function SearchArea(props) {
                     />
                   </Tooltip>
                 </div>
-                <div className="btnBG" style={{ marginLeft: 8 }}>
+                <div
+                  className="btnBG"
+                  style={{ marginLeft: 8, verticalAlign: 'bottom' }}
+                >
                   <div className="themeBG" />
                   <Tooltip title="清空搜索条件">
                     <ResetSvg className="reset-icon" onClick={clearHandle} />
@@ -1864,10 +1867,8 @@ function SearchArea(props) {
           {/* 渲染额外输入搜索框 */}
           {extraSearch && handleRenderExtraSearch()}
           {/* 渲染固定字段 */}
-          <div className="fixed-field-form-items">
+          <div className="fixed-field-form-items default-field-form-items">
             {handleRenderFixedFields()}
-          </div>
-          <div className="default-field-form-items">
             {handleRenderDefaultFields()}
           </div>
           {hideDynamicSelFieldBtn ? null : (
