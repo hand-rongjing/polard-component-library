@@ -588,9 +588,23 @@ function SearchArea(props) {
     if (callback) callback();
   }
 
-  function replaceDefaultFields(nextFields, nextSearchForm) {
-    if (nextFields?.length === 0 && selectAll)
-      return flattenArray(nextSearchForm);
+  function replaceDefaultFields(nextFields, nextSearchForm, searchCodeKey) {
+    // 通过 searchCodeKey 获取到 缓存的搜索条件
+    const {searchParams = {}} = getCacheValueFromRedux(searchCodeKey);
+
+    // 当存在 缓存的搜索条件时，取出在 nextSearchForm 中对应的值
+    if (Object.keys(searchParams).length) {
+      const tempSearchForm = []
+      nextSearchForm.forEach(item => {
+        for (const key in searchParams) {
+          if (key === item.id) {
+            tempSearchForm.push(item)
+          }
+        }
+      })
+      return flattenArray(tempSearchForm)
+    }
+    if (nextFields?.length === 0 && selectAll) return flattenArray(nextSearchForm);
     if (isRefresh.current) {
       isRefresh.current = false;
       return flattenArray(nextSearchForm);
@@ -642,7 +656,7 @@ function SearchArea(props) {
       // newSearchForm = newSearchForm.filter(item => curCondition.includes(item.id));
     }
     // 取上一次的 展示的动态字段和当前外传的搜索数组 交际合并，确保内部能同步外界修改的搜索区参数，
-    replaceDefaultFields(defaultFields, nextSearchForm).forEach((item) => {
+    replaceDefaultFields(defaultFields, nextSearchForm, searchCodeKey).forEach((item) => {
       if (item.defaultValue) initValueToRedux[item.id] = item.defaultValue;
       // 如果有缓存值，则根据缓存值重设searchForm的每一个成员，否则依据searchForm的配置，渲染动态字段
       if (defaultFlag) {
