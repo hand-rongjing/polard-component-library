@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-09-22 10:23:48
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-12-17 10:23:55
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2021-12-31 14:57:13
  * @Version: 1.0.0
  * @Description: 弹窗 树形展示 公司数据，
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -31,7 +31,7 @@ function TreeSelectModel(props) {
     modalTitle,
     getUrl = `${config.mdataUrl}/api/company/tree`,
     options = [],
-    method = 'get',
+    method = 'post',
     extraParams,
     paramAsBody,
     requestBody,
@@ -97,7 +97,7 @@ function TreeSelectModel(props) {
         },
       ],
       event: 'WITHCHILDREN',
-      label: ' ',
+      label: '',
       span: 12,
       defaultValue: [false],
     },
@@ -215,6 +215,22 @@ function TreeSelectModel(props) {
       } else if (method === 'post') {
         // params在请求头, requestBody在请求体
         flag = true;
+        if (checkType === 'SELECT') {
+          let inIds = selectedList.map((s) => s.id);
+          newRequestBody = {
+            ...newRequestBody,
+            inIds,
+          };
+        } else if (checkType === 'NOT_SELECT') {
+          newRequestBody = {
+            ...newRequestBody,
+            notInIds: [],
+          };
+        } else {
+          newRequestBody = {
+            ...newRequestBody,
+          };
+        }
       }
       setSpinning(true);
       httpFetch[method](getUrl, newRequestBody, null, null, flag ? params : {})
@@ -494,7 +510,7 @@ function TreeSelectModel(props) {
       />
       <Modal
         visible={visible}
-        title={messages(modalTitle || 'chooser.data.company')}
+        title={modalTitle || messages('chooser.data.company')}
         width={580}
         onOk={handleSubmit}
         onCancel={handleClose}
