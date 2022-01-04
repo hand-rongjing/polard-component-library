@@ -1,7 +1,7 @@
 /*
  * @Author: cong.guo@hand-china.com
  * @Date: 2021-09-10 13:11:16
- * @LastEditors: binfeng.long@hand-china.com
+ * @LastEditors: zong.wang01@hand-china.com
  * @Version: 1.0.0
  * @Description: 下拉选择 展示2个字段以上
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -84,7 +84,7 @@ export default function TableOptionsRender(props) {
 
   useEffect(() => {
     if (open && value && typeof value === 'object') {
-      const valRow = document.querySelector(`.row-${value[valueKey]}`);
+      const valRow = document.getElementById(`.row-${value[valueKey]}`);
       if (valRow) {
         setTimeout(() => {
           valRow.scrollIntoView({ block: 'center' });
@@ -231,6 +231,7 @@ export default function TableOptionsRender(props) {
             }
             onRow={(record) => ({
               onClick: (e) => onRowClick(e, record),
+              id: `row-${record[valueKey]}`,
             })}
             style={{ width: '100%' }}
           />
