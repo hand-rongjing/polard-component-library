@@ -655,6 +655,13 @@
         }
       }
     }
+    @media only screen and (-ms-high-contrast: active),
+      (-ms-high-contrast: none) {
+      /* 以下编写 IE浏览器下独有 样式  */
+      .fixed-field-form-items {
+        display: flex;
+      }
+    }
     .fixed-field {
       .ant-select-selector {
         .ant-select-selection-placeholder {
