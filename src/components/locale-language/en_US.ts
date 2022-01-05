@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2021-12-31 15:05:16
+ * @LastEditTime: 2022-01-05 11:05:29
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -115,6 +115,7 @@ export default {
   'common.name': '名称',
   'common.application.type': 'Application Type',
   'common.total.of.results': 'A Total Of {total} Results',
+  'common.total': 'Total {total} Results',
   'common.recently.used': 'Recently Used',
   'common.line.number': 'Num',
   'common.tips': 'Tips',
