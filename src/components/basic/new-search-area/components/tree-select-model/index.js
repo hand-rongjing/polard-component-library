@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-09-22 10:23:48
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 11:08:03
+ * @LastEditTime: 2022-01-05 16:14:25
  * @Version: 1.0.0
  * @Description: 弹窗 树形展示 公司数据，
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -567,7 +567,7 @@ function TreeSelectModel(props) {
           showTotal={
             () =>
               messages('common.total', {
-                params: { totalCount },
+                params: { total: totalCount },
               })
             // messages('common.show.total', {
             //   params: {
