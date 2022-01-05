@@ -50,7 +50,8 @@ export default function TableOptionsRender(props) {
       title: messages(col.title, { context }),
       width: undefined,
       render:
-        (['date', 'amount'].includes(col.fieldType) || !col.fieldType) &&
+        (['date', 'amount', 'time'].includes(col.fieldType) ||
+          !col.fieldType) &&
         col.render
           ? col.render
           : (val) => (
