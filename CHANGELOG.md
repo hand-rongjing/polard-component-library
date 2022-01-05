@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.1...v1.5.1-beta.2) (2022-01-05)
+
+### Bug Fixes
+
+- lov 多列下拉时日期渲染错误 ([0579f85](https://github.com/hand-rongjing/polard-component-library/commit/0579f8539a9d3977a8d582a86950416686dc94ab))
+- 修复 IE 浏览器下 new-search-area 组件布局问题紊乱 ([c41f0e0](https://github.com/hand-rongjing/polard-component-library/commit/c41f0e0bb02a9027a9bb2bdc90d156c681878284))
+- 修复 IE 浏览器下 new-search-area 组件布局问题紊乱 ([833f432](https://github.com/hand-rongjing/polard-component-library/commit/833f4323f7b60552ef4c223a2f01fcfe83596904))
+- 影像核对-历史已核对单据多 sheet 导出，增加校验 ([1eb79a3](https://github.com/hand-rongjing/polard-component-library/commit/1eb79a349cac59d04c5b8335de01b86c315998e2))
+- 解决冲突 ([6d13e45](https://github.com/hand-rongjing/polard-component-library/commit/6d13e451edc3aa6c7b830f5ac82a02181e476dbf))
+- 费用-公司查询条件组件接口优化 ([b9e3b25](https://github.com/hand-rongjing/polard-component-library/commit/b9e3b255711756c50ef345b26b36f39578f6b3f5))
+- 费用-公司查询条件组件接口优化 ([77ed091](https://github.com/hand-rongjing/polard-component-library/commit/77ed0916a9e41ec4ac2d0ca7e18eb7fb11386e76))
+
 ### [1.5.1-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.0...v1.5.1-beta.1) (2022-01-04)
 
 ### Bug Fixes
