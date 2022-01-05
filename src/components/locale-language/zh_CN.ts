@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2021-12-31 15:04:40
+ * @LastEditTime: 2022-01-05 11:05:05
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -114,6 +114,7 @@ export default {
   'common.name': '名称',
   'common.application.type': '申请类型',
   'common.total.of.results': '共{total}条结果',
+  'common.total': '共{total}条',
   'common.recently.used': '最近使用',
   'common.line.number': '行号',
   'common.tips': '提示信息',

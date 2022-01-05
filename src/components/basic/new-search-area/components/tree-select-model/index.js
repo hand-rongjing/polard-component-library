@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-09-22 10:23:48
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-04 17:35:09
+ * @LastEditTime: 2022-01-05 11:08:03
  * @Version: 1.0.0
  * @Description: 弹窗 树形展示 公司数据，
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -105,7 +105,7 @@ function TreeSelectModel(props) {
   ];
 
   const [optionList, setOptionList] = useState([]);
-
+  const [totalCount, setTotalCount] = useState(0);
   const [searchParam, setSearchParams] = useState({ withChildren: false });
 
   const [newConfig, setNewConfig] = useState({});
@@ -154,6 +154,7 @@ function TreeSelectModel(props) {
         total: 0,
         current: 1,
       });
+      setTotalCount(0);
       searchParam.withChildren = false;
       setSearchParams(searchParam);
     }
@@ -248,12 +249,14 @@ function TreeSelectModel(props) {
             first = true;
           }
           pageInfo.total = Number(res.headers['x-total-count']) || 0;
+          setTotalCount(Number(res.headers['x-total-count-v2']) || 0);
           if (
             checkType === SELECT &&
             !(Array.isArray(selectedList) && selectedList.length > 0)
           ) {
             // 当前状态是已选，且没有选中任何数据时，分页数据清空
             pageInfo.total = 0;
+            setTotalCount(0);
           }
           setPageInfo(pageInfo);
           setOptionList(filterByCheckType(checkType, res.data));
@@ -561,14 +564,18 @@ function TreeSelectModel(props) {
           current={pageInfo.current}
           onChange={onPaginationChange}
           style={{ margin: 10 }}
-          showTotal={(total, range) =>
-            messages('common.show.total', {
-              params: {
-                range0: `${range[0]}`,
-                range1: `${range[1]}`,
-                total,
-              },
-            })
+          showTotal={
+            () =>
+              messages('common.total', {
+                params: { totalCount },
+              })
+            // messages('common.show.total', {
+            //   params: {
+            //     range0: `${range[0]}`,
+            //     range1: `${range[1]}`,
+            //     total,
+            //   },
+            // })
           }
           pageSizeOptions={['5', '10', '20', '50', '100', '200', '500']}
         />
