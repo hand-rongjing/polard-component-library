@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1-beta.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.2...v1.5.1-beta.3) (2022-01-06)
+
+### Bug Fixes
+
+- 财务查询单据公司组件勾选公司后，首次重新点开弹窗，已选查询失效 ([b37361b](https://github.com/hand-rongjing/polard-component-library/commit/b37361bec5b6c30248b5f3bac85c9902d0c55a7d))
+
 ### [1.5.1-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.1...v1.5.1-beta.2) (2022-01-05)
 
 ### Bug Fixes
