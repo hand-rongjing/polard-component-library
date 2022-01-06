@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-09-22 10:23:48
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-06 10:13:43
+ * @LastEditTime: 2022-01-06 12:33:41
  * @Version: 1.0.0
  * @Description: 弹窗 树形展示 公司数据，
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -384,7 +384,9 @@ function TreeSelectModel(props) {
     let checkedList = selectedList;
     checkedList = Array.isArray(checkedList)
       ? Array.from(new Set(checkedList))
-      : undefined;
+      : checkedList.checked
+      ? Array.from(new Set(checkedList.checked))
+      : undefined; // 增加checked判断，解决在第一次选中值确定之后，再次打开直接点击确定按钮后把选择的内容清空了
     if (checkedList?.length > 1000) {
       message.error(
         messages(
@@ -547,18 +549,21 @@ function TreeSelectModel(props) {
         </div>
         <Spin spinning={spinning}>
           <div className="tree-select-model-container">
-            <Tree
-              checkable
-              blockNode
-              selectable={false}
-              treeData={optionList}
-              onCheck={handleCheck}
-              checkedKeys={selectedList}
-              checkStrictly
-              titleRender={customRenderTitle}
-              expandedKeys={expandedKeys}
-              onExpand={setExpandedKeys}
-            />
+            {/* 添加spinning判断，是选中值后，再次打开弹窗搜索未选，勾选的数据仍然显示，需要重新渲染树结构 */}
+            {!spinning && (
+              <Tree
+                checkable
+                blockNode
+                selectable={false}
+                treeData={optionList}
+                onCheck={handleCheck}
+                checkedKeys={selectedList}
+                checkStrictly
+                titleRender={customRenderTitle}
+                expandedKeys={expandedKeys}
+                onExpand={setExpandedKeys}
+              />
+            )}
           </div>
         </Spin>
         <Pagination
