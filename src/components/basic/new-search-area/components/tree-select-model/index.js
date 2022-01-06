@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-09-22 10:23:48
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 16:14:25
+ * @LastEditTime: 2022-01-06 12:33:41
  * @Version: 1.0.0
  * @Description: 弹窗 树形展示 公司数据，
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -208,6 +208,11 @@ function TreeSelectModel(props) {
       };
       let newRequestBody = requestBody;
       let flag = false;
+      const inIds = Array.isArray(selectedList)
+        ? selectedList
+        : selectedList.checked
+        ? selectedList.checked
+        : []; // 已选id
       if (paramAsBody) {
         // post方法下，将params拼接到请求体中而非下面【flag = true】这种情况
         newRequestBody = { ...requestBody, ...params };
@@ -218,7 +223,6 @@ function TreeSelectModel(props) {
         // params在请求头, requestBody在请求体
         flag = true;
         if (checkType === SELECT) {
-          const inIds = Array.isArray(selectedList) ? selectedList : [];
           newRequestBody = {
             ...newRequestBody,
             inIds,
@@ -226,7 +230,7 @@ function TreeSelectModel(props) {
         } else if (checkType === NOT_SELECT) {
           newRequestBody = {
             ...newRequestBody,
-            notInIds: [],
+            notInIds: inIds,
           };
         } else {
           newRequestBody = {
@@ -248,18 +252,18 @@ function TreeSelectModel(props) {
             };
             first = true;
           }
-          pageInfo.total = Number(res.headers['x-total-count']) || 0;
-          setTotalCount(Number(res.headers['x-total-count-v2']) || 0);
-          if (
-            checkType === SELECT &&
-            !(Array.isArray(selectedList) && selectedList.length > 0)
-          ) {
+          if (checkType === SELECT && inIds.length === 0) {
             // 当前状态是已选，且没有选中任何数据时，分页数据清空
             pageInfo.total = 0;
             setTotalCount(0);
+            setOptionList([]);
+          } else {
+            pageInfo.total = Number(res.headers['x-total-count']) || 0;
+            setTotalCount(Number(res.headers['x-total-count-v2']) || 0);
+            setOptionList(res.data);
           }
           setPageInfo(pageInfo);
-          setOptionList(filterByCheckType(checkType, res.data));
+          // setOptionList(filterByCheckType(checkType, res.data));
           setSpinning(false);
           setNewConfig({ getUrl, extraParams, requestBody });
         })
@@ -380,7 +384,9 @@ function TreeSelectModel(props) {
     let checkedList = selectedList;
     checkedList = Array.isArray(checkedList)
       ? Array.from(new Set(checkedList))
-      : undefined;
+      : checkedList.checked
+      ? Array.from(new Set(checkedList.checked))
+      : undefined; // 增加checked判断，解决在第一次选中值确定之后，再次打开直接点击确定按钮后把选择的内容清空了
     if (checkedList?.length > 1000) {
       message.error(
         messages(
@@ -543,18 +549,21 @@ function TreeSelectModel(props) {
         </div>
         <Spin spinning={spinning}>
           <div className="tree-select-model-container">
-            <Tree
-              checkable
-              blockNode
-              selectable={false}
-              treeData={optionList}
-              onCheck={handleCheck}
-              checkedKeys={selectedList}
-              checkStrictly
-              titleRender={customRenderTitle}
-              expandedKeys={expandedKeys}
-              onExpand={setExpandedKeys}
-            />
+            {/* 添加spinning判断，是选中值后，再次打开弹窗搜索未选，勾选的数据仍然显示，需要重新渲染树结构 */}
+            {!spinning && (
+              <Tree
+                checkable
+                blockNode
+                selectable={false}
+                treeData={optionList}
+                onCheck={handleCheck}
+                checkedKeys={selectedList}
+                checkStrictly
+                titleRender={customRenderTitle}
+                expandedKeys={expandedKeys}
+                onExpand={setExpandedKeys}
+              />
+            )}
           </div>
         </Spin>
         <Pagination
