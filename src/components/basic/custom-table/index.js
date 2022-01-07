@@ -743,7 +743,7 @@ class CustomTable extends Component {
             top: 0,
             right: 0,
             background: '#f7f8fa',
-            padding: '15px 12px 9px',
+            padding: '12px',
             zIndex: 900,
           }}
         >
@@ -1051,7 +1051,12 @@ class CustomTable extends Component {
     };
 
     return (
-      <div style={{ position: 'relative' }} className="custom-table">
+      <div
+        style={{ position: 'relative' }}
+        className={
+          headSettingKey ? 'custom-table header-setting' : 'custom-table'
+        }
+      >
         <Table
           tableLayout="fixed"
           rowKey={(record) => this.getDataLabel(record, tableKey || 'id')}
