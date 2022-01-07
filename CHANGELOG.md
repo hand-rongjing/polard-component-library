@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2-alpha.0...v1.5.2-alpha.1) (2022-01-07)
+
+### Bug Fixes
+
+- custom-table 表格最后一列文字被设置按钮遮挡 ([145b257](https://github.com/hand-rongjing/polard-component-library/commit/145b257f6fb4a9ae59f60e25ea1f46b9c4385d51))
+
 ### [1.5.2-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-alpha.12...v1.5.2-alpha.0) (2022-01-07)
 
 ### Bug Fixes
