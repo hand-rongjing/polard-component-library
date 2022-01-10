@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1...v1.5.2-beta.0) (2022-01-10)
+
+### Bug Fixes
+
+- custom-table 表格最后一列文字被设置按钮遮挡 ([145b257](https://github.com/hand-rongjing/polard-component-library/commit/145b257f6fb4a9ae59f60e25ea1f46b9c4385d51))
+- internet explorer 打开搜索条件区域或重叠 ([1c28dbf](https://github.com/hand-rongjing/polard-component-library/commit/1c28dbfeca982d34b50603f9bc64f32986e2fee6))
+- 付款申请单财务查询查询条件多语言 ([8b083a8](https://github.com/hand-rongjing/polard-component-library/commit/8b083a88b673f8f86aa525ee54b3ab507eb784db))
+
 ### [1.5.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.3...v1.5.1) (2022-01-06)
 
 ### [1.5.1-beta.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.2...v1.5.1-beta.3) (2022-01-06)
