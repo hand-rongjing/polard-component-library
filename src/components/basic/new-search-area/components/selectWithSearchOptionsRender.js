@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-10-15 14:51:42
- * @LastEditTime: 2021-12-27 11:07:04
- * @LastEditors: binfeng.long@hand-china.com
+ * @LastEditTime: 2022-01-07 10:14:22
+ * @LastEditors: zong.wang01@hand-china.com
  * @Description: In User Settings Edit
  * @FilePath: \companyCode\polaris-web-workbench\polaris-web-workbench\src\components\Widget\Template\select-part-load\multipleOptionsRender.js
  */
@@ -181,7 +181,7 @@ export default function SelectWithSearchOptionsRender(props) {
         >
           <Input
             prefix={<SearchSvg style={{ marginRight: 8 }} />}
-            placeholder={messages('org.search' /* 搜索 */)}
+            placeholder={messages('common.search' /* 搜索 */)}
             onChange={(e) => handleFilterOptions(e.target.value)}
             ref={searchInput}
             style={{
@@ -207,7 +207,7 @@ export default function SelectWithSearchOptionsRender(props) {
           <>
             <Divider type="vertical" />
             <a onClick={handleClearSelectedValue}>
-              {messages('base.clear.selected' /* 清除已选 */)}
+              {messages('common.clear.selected' /* 清除已选 */)}
             </a>
           </>
         )}
