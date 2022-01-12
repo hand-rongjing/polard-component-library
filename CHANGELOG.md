@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2-beta.0...v1.5.2-beta.1) (2022-01-12)
+
+### Bug Fixes
+
+- 【验收缺陷】【费控】项目类型定义-列表同一行水平不对齐 https://www.tapd.cn/34592457/s/2053850 ([bf93535](https://github.com/hand-rongjing/polard-component-library/commit/bf935357509418d2dd25307a810b7d5b4612566e))
+- lov 三列多选问题修复 ([17ffa44](https://github.com/hand-rongjing/polard-component-library/commit/17ffa4431ee984bf32643807d0d3458d67bf6d1c))
+- 搜索组件重置修复 ([2b5da30](https://github.com/hand-rongjing/polard-component-library/commit/2b5da307b7af2f368f0c0f6edc4d41b37ff2de5f))
+
 ### [1.5.2-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1...v1.5.2-beta.0) (2022-01-10)
 
 ### Bug Fixes
