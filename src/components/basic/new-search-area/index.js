@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-05-18 14:34:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 17:11:53
+ * @LastEditTime: 2022-01-11 16:34:50
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -1603,6 +1603,15 @@ function SearchArea(props) {
   }
 
   function handleResetDefaultField() {
+    const { dispatch } = window.g_app._store;
+    const { searchCodeKey } = props;
+    if (searchCodeKey) {
+      // 重置时清除缓存
+      dispatch({
+        type: 'search/addSearchData',
+        payload: { [searchCodeKey]: null },
+      });
+    }
     setDefaultFields([...editInfo.info]);
     /**
      * 重置，回到最开始选择的方案，defaultFields需要重定，form的值也需要回滚
