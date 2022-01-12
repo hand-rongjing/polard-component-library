@@ -141,6 +141,8 @@
     }
     .edit-table-cell-box {
       min-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
       .edit-table-hover-status {
         display: none;
         margin-left: 4px;
@@ -172,7 +174,7 @@
       // white-space: nowrap;
       position: relative;
       min-height: 20px;
-      display: inline-block;
+      display: inline;
       max-width: calc(100% - 22px);
     }
     .ant-popover-inner {
