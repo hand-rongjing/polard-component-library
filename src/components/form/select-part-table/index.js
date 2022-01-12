@@ -1,7 +1,7 @@
 /*
  * @Author: cong.guo@hand-china.com
  * @Date: 2021-09-10 13:11:16
- * @LastEditors: Please set LastEditors
+ * @LastEditors: zong.wang01@hand-china.com
  * @Version: 1.0.0
  * @Description: 下拉选择 展示2个字段以上
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -292,9 +292,11 @@ function SelectPartTable(props) {
   function onChange(val) {
     setValue(val);
     if (propsOnChange) {
+      if (mode !== 'multiple') {
+        setOptions([]);
+        searchText.current = null;
+      }
       propsOnChange(val);
-      setOptions([]);
-      searchText.current = null;
     }
   }
 
