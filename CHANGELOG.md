@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2-alpha.3...v1.5.2-alpha.4) (2022-01-12)
+
+### Bug Fixes
+
+- lov 三列多选问题修复 ([17ffa44](https://github.com/hand-rongjing/polard-component-library/commit/17ffa4431ee984bf32643807d0d3458d67bf6d1c))
+
 ### [1.5.2-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2-alpha.2...v1.5.2-alpha.3) (2022-01-11)
 
 ### Bug Fixes
