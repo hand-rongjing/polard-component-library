@@ -563,16 +563,19 @@ class CustomTable extends Component {
           return;
         }
         const search = window.g_app._store.getState()?.search;
+        console.log('search.all[headSettingKey]', search.all[headSettingKey]);
         if (search.all && search.all[headSettingKey]) {
           const tableConfig = search.all[headSettingKey].find(
             (item) => item.settingType === 'TABLE',
           );
+          console.log('tableConfig', tableConfig);
           if (tableConfig) {
             const flag = Array.isArray(tableConfig) && tableConfig.length;
             resolve({
               columns: flag ? tableConfig : columns,
               isDefault: !flag,
             });
+            console.log('resolve', flag);
             return;
           }
         }
@@ -583,6 +586,7 @@ class CustomTable extends Component {
           .then((res) => {
             if (Array.isArray(res.data)) {
               const flag = Array.isArray(res.data) && res.data[0];
+              console.log('httpFetch', flag, flag ? res.data[0] : columns);
               resolve({
                 columns: flag ? res.data[0] : columns,
                 isDefault: !flag,
@@ -801,10 +805,10 @@ class CustomTable extends Component {
     if (params?.lastSize) {
       pagination.pageSize = params.lastSize;
     }
-    this.setState(
-      { pagination: { ...pagination }, params, bodyParams },
-      this.getList,
-    );
+    this.setState({ pagination: { ...pagination }, params, bodyParams }, () => {
+      this.getList();
+      this.pageCaching(pagination);
+    });
   };
 
   // 重新加载数据

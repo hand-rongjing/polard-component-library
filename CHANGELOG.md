@@ -23,6 +23,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.5.2-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2-alpha.0...v1.5.2-alpha.1) (2022-01-07)
 
+### [1.5.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2...v1.5.3) (2022-01-12)
+
+### Bug Fixes
+
+- 【验收缺陷】【费控】项目类型定义-列表同一行水平不对齐 https://www.tapd.cn/34592457/s/2053850 ([bf93535](https://github.com/hand-rongjing/polard-component-library/commit/bf935357509418d2dd25307a810b7d5b4612566e))
+- internet explorer 打开搜索条件区域或重叠 ([1c28dbf](https://github.com/hand-rongjing/polard-component-library/commit/1c28dbfeca982d34b50603f9bc64f32986e2fee6))
+- lov 三列多选问题修复 ([17ffa44](https://github.com/hand-rongjing/polard-component-library/commit/17ffa4431ee984bf32643807d0d3458d67bf6d1c))
+- 搜索组件重置修复 ([2b5da30](https://github.com/hand-rongjing/polard-component-library/commit/2b5da307b7af2f368f0c0f6edc4d41b37ff2de5f))
+
+### [1.5.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1...v1.5.2) (2022-01-12)
+
 ### Bug Fixes
 
 - custom-table 表格最后一列文字被设置按钮遮挡 ([145b257](https://github.com/hand-rongjing/polard-component-library/commit/145b257f6fb4a9ae59f60e25ea1f46b9c4385d51))
@@ -35,6 +46,8 @@ All notable changes to this project will be documented in this file. See [standa
 - 合并冲突 ([12dcef2](https://github.com/hand-rongjing/polard-component-library/commit/12dcef29e7dbb26f7be19b9eaa1ebce3d898d47a))
 
 ### [1.5.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.3...v1.5.1) (2022-01-06)
+
+- 付款申请单财务查询查询条件多语言 ([8b083a8](https://github.com/hand-rongjing/polard-component-library/commit/8b083a88b673f8f86aa525ee54b3ab507eb784db))
 
 ### [1.5.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1-beta.3...v1.5.1) (2022-01-06)
 
