@@ -571,8 +571,10 @@ class CustomTable extends Component {
           console.log('tableConfig', tableConfig);
           if (tableConfig) {
             const flag = Array.isArray(tableConfig) && tableConfig.length;
+            const newColumns = this.compareColumns(flag, tableConfig, columns);
+            console.log('newColumns Search', newColumns);
             resolve({
-              columns: flag ? tableConfig : columns,
+              columns: [...newColumns],
               isDefault: !flag,
             });
             console.log('resolve', flag);
@@ -586,9 +588,15 @@ class CustomTable extends Component {
           .then((res) => {
             if (Array.isArray(res.data)) {
               const flag = Array.isArray(res.data) && res.data[0];
-              console.log('httpFetch', flag, flag ? res.data[0] : columns);
+              // console.log('httpFetch', flag, flag ? res.data[0] : columns);
+              const newColumns = this.compareColumns(
+                flag,
+                res.data[0],
+                columns,
+              );
+              console.log('newColumns', newColumns);
               resolve({
-                columns: flag ? res.data[0] : columns,
+                columns: [...newColumns],
                 isDefault: !flag,
               });
             } else {
@@ -603,6 +611,31 @@ class CustomTable extends Component {
         resolve(columns);
       }
     });
+  };
+
+  // 比较数据库的列与传入的列是否一致，如果存在列被修改，则采用传入的columns, 例如新增列，删除列
+  compareColumns = (flag, tableConfig, columns) => {
+    let newColumns = [];
+    if (flag) {
+      const tempColumns = tableConfig.settingValue
+        ? JSON.parse(tableConfig.settingValue)
+        : [];
+      if (tempColumns.length !== columns.length) {
+        newColumns = [...columns];
+      } else {
+        let isDiff = false;
+        columns.forEach((c) => {
+          let col = tempColumns.findIndex((o) => o.dataIndex === c.dataIndex);
+          if (col === -1) {
+            isDiff = true;
+          }
+        });
+        newColumns = isDiff ? [...columns] : tableConfig;
+      }
+    } else {
+      newColumns = [...columns];
+    }
+    return newColumns;
   };
 
   // 获取表格列
