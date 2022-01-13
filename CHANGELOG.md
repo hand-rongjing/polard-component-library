@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.4-alpha.0...v1.5.4-alpha.1) (2022-01-13)
+
+### Bug Fixes
+
+- 列表设置，若修改了列字段，再开发新字段，界面上选不到需重置 ([fb3bc83](https://github.com/hand-rongjing/polard-component-library/commit/fb3bc83d13a5ee8cf6a5a5080e8e842e4eff1ac8))
+
 ### [1.5.4-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.3...v1.5.4-alpha.0) (2022-01-13)
 
 ### Bug Fixes
