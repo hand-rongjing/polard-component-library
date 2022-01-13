@@ -801,10 +801,10 @@ class CustomTable extends Component {
     if (params?.lastSize) {
       pagination.pageSize = params.lastSize;
     }
-    this.setState(
-      { pagination: { ...pagination }, params, bodyParams },
-      this.getList,
-    );
+    this.setState({ pagination: { ...pagination }, params, bodyParams }, () => {
+      this.getList();
+      this.pageCaching(pagination);
+    });
   };
 
   // 重新加载数据
