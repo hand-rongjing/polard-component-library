@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.3...v1.5.4-beta.0) (2022-01-14)
+
+### Bug Fixes
+
+- 列表设置，若修改了列字段，再开发新字段，界面上选不到需重置 ([1beaf55](https://github.com/hand-rongjing/polard-component-library/commit/1beaf55d48613e7d518d9c9974add24582aef007))
+- 列表设置，若修改了列字段，再开发新字段，界面上选不到需重置 ([fb3bc83](https://github.com/hand-rongjing/polard-component-library/commit/fb3bc83d13a5ee8cf6a5a5080e8e842e4eff1ac8))
+- 查询列表返回页码问题 ([c87cbcc](https://github.com/hand-rongjing/polard-component-library/commit/c87cbcc5e66260ddf1d23246f77ce3b81629a25f))
+
+### [1.5.2-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2...v1.5.2-beta.1) (2022-01-12)
+
+### [1.5.2-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.1...v1.5.2-beta.0) (2022-01-10)
+
 ### [1.5.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.2...v1.5.3) (2022-01-12)
 
 ### Bug Fixes
