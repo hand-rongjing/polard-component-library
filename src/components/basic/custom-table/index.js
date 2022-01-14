@@ -563,21 +563,14 @@ class CustomTable extends Component {
           return;
         }
         const search = window.g_app._store.getState()?.search;
-        console.log('search.all[headSettingKey]', search.all[headSettingKey]);
         if (search.all && search.all[headSettingKey]) {
           const tableConfig = search.all[headSettingKey].find(
             (item) => item.settingType === 'TABLE',
           );
-          console.log('tableConfig', tableConfig);
           if (tableConfig) {
             const flag = Array.isArray(tableConfig) && tableConfig.length;
-            const newColumns = this.compareColumns(flag, tableConfig, columns);
-            console.log('newColumns Search', newColumns);
-            resolve({
-              columns: [...newColumns],
-              isDefault: !flag,
-            });
-            console.log('resolve', flag);
+            const result = this.compareColumns(flag, tableConfig, columns);
+            resolve(result);
             return;
           }
         }
@@ -588,17 +581,8 @@ class CustomTable extends Component {
           .then((res) => {
             if (Array.isArray(res.data)) {
               const flag = Array.isArray(res.data) && res.data[0];
-              // console.log('httpFetch', flag, flag ? res.data[0] : columns);
-              const newColumns = this.compareColumns(
-                flag,
-                res.data[0],
-                columns,
-              );
-              console.log('newColumns', newColumns);
-              resolve({
-                columns: [...newColumns],
-                isDefault: !flag,
-              });
+              const result = this.compareColumns(flag, res.data[0], columns);
+              resolve(result);
             } else {
               resolve({ columns, isDefault: true });
             }
@@ -615,27 +599,35 @@ class CustomTable extends Component {
 
   // 比较数据库的列与传入的列是否一致，如果存在列被修改，则采用传入的columns, 例如新增列，删除列
   compareColumns = (flag, tableConfig, columns) => {
-    let newColumns = [];
+    let result = {
+      columns: [],
+      isDefault: true,
+    };
     if (flag) {
       const tempColumns = tableConfig.settingValue
         ? JSON.parse(tableConfig.settingValue)
         : [];
       if (tempColumns.length !== columns.length) {
-        newColumns = [...columns];
+        // 列长度不一致，直接采用默认的数组
+        result.columns = [...columns];
+        result.isDefault = true;
       } else {
         let isDiff = false;
         columns.forEach((c) => {
+          // 判断默认列是否都在缓存的数据中，如果都在，则采用缓存的，否则采用默认的
           let col = tempColumns.findIndex((o) => o.dataIndex === c.dataIndex);
           if (col === -1) {
             isDiff = true;
           }
         });
-        newColumns = isDiff ? [...columns] : tableConfig;
+        result.columns = isDiff ? [...columns] : tableConfig;
+        result.isDefault = isDiff;
       }
     } else {
-      newColumns = [...columns];
+      result.columns = [...columns];
+      result.isDefault = true;
     }
-    return newColumns;
+    return result;
   };
 
   // 获取表格列
