@@ -569,10 +569,8 @@ class CustomTable extends Component {
           );
           if (tableConfig) {
             const flag = Array.isArray(tableConfig) && tableConfig.length;
-            resolve({
-              columns: flag ? tableConfig : columns,
-              isDefault: !flag,
-            });
+            const result = this.compareColumns(flag, tableConfig, columns);
+            resolve(result);
             return;
           }
         }
@@ -583,10 +581,8 @@ class CustomTable extends Component {
           .then((res) => {
             if (Array.isArray(res.data)) {
               const flag = Array.isArray(res.data) && res.data[0];
-              resolve({
-                columns: flag ? res.data[0] : columns,
-                isDefault: !flag,
-              });
+              const result = this.compareColumns(flag, res.data[0], columns);
+              resolve(result);
             } else {
               resolve({ columns, isDefault: true });
             }
@@ -599,6 +595,39 @@ class CustomTable extends Component {
         resolve(columns);
       }
     });
+  };
+
+  // 比较数据库的列与传入的列是否一致，如果存在列被修改，则采用传入的columns, 例如新增列，删除列
+  compareColumns = (flag, tableConfig, columns) => {
+    let result = {
+      columns: [],
+      isDefault: true,
+    };
+    if (flag) {
+      const tempColumns = tableConfig.settingValue
+        ? JSON.parse(tableConfig.settingValue)
+        : [];
+      if (tempColumns.length !== columns.length) {
+        // 列长度不一致，直接采用默认的数组
+        result.columns = [...columns];
+        result.isDefault = true;
+      } else {
+        let isDiff = false;
+        columns.forEach((c) => {
+          // 判断默认列是否都在缓存的数据中，如果都在，则采用缓存的，否则采用默认的
+          let col = tempColumns.findIndex((o) => o.dataIndex === c.dataIndex);
+          if (col === -1) {
+            isDiff = true;
+          }
+        });
+        result.columns = isDiff ? [...columns] : tableConfig;
+        result.isDefault = isDiff;
+      }
+    } else {
+      result.columns = [...columns];
+      result.isDefault = true;
+    }
+    return result;
   };
 
   // 获取表格列
@@ -801,10 +830,10 @@ class CustomTable extends Component {
     if (params?.lastSize) {
       pagination.pageSize = params.lastSize;
     }
-    this.setState(
-      { pagination: { ...pagination }, params, bodyParams },
-      this.getList,
-    );
+    this.setState({ pagination: { ...pagination }, params, bodyParams }, () => {
+      this.getList();
+      this.pageCaching(pagination);
+    });
   };
 
   // 重新加载数据
