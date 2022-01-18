@@ -769,6 +769,13 @@ class EditTable extends Component {
     const { pagination, dataSource } = this.state;
     const { total, pageSize, current } = pagination;
     pagination.current = flag ? current : 1;
+    if (params?.lastPage) {
+      // 使用lastPage用以区分正常逻辑中传入的page,size和缓存的页码
+      pagination.current = params.lastPage;
+    }
+    if (params?.lastSize) {
+      pagination.pageSize = params.lastSize;
+    }
     if (dataSource.some((o) => ['EDIT', 'NEW'].includes(o._status))) {
       Modal.confirm({
         title: messages('common.info'),
@@ -795,7 +802,10 @@ class EditTable extends Component {
               params,
               bodyParamsState,
             },
-            this.getList,
+            () => {
+              this.getList();
+              this.pageCaching(pagination);
+            },
           );
         },
       });
@@ -808,7 +818,10 @@ class EditTable extends Component {
           params,
           bodyParamsState,
         },
-        this.getList,
+        () => {
+          this.getList();
+          this.pageCaching(pagination);
+        },
       );
     }
   };
@@ -839,7 +852,10 @@ class EditTable extends Component {
               addKeys: [],
               changeKeys: [],
             },
-            this.getList,
+            () => {
+              this.getList();
+              this.pageCaching(pagination);
+            },
           );
         },
       });
@@ -850,9 +866,33 @@ class EditTable extends Component {
           addKeys: [],
           changeKeys: [],
         },
-        this.getList,
+        () => {
+          this.getList();
+          this.pageCaching(pagination);
+        },
       );
     }
+  };
+
+  /**
+   * 缓存页码
+   * @param {object} pagination
+   */
+  pageCaching = (pagination) => {
+    const { current, pageSize } = pagination;
+    const { dispatch, getState } = window.g_app._store;
+    const { searchCodeKey } = this.props;
+    const searchData = getState()?.search?.data || {};
+    dispatch({
+      type: 'search/addSearchData',
+      payload: {
+        [searchCodeKey]: {
+          ...searchData[searchCodeKey],
+          lastPage: current,
+          lastSize: pageSize,
+        },
+      },
+    });
   };
 
   // 刷新数据
