@@ -31,6 +31,9 @@ function CustomLov(props) {
     labelKeySelect,
     listType,
     listExtraParams,
+    method,
+    paramAsBody,
+    requestBody,
   } = props;
 
   const input = useRef();
@@ -139,6 +142,9 @@ function CustomLov(props) {
         searchListIndex={searchListIndex}
         isRenderSelect={isRenderSelect}
         listExtraParams={listExtraParams}
+        method={method}
+        requestBody={requestBody}
+        paramAsBody={paramAsBody}
       />
     </div>
   );
