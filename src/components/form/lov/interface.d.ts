@@ -44,6 +44,7 @@ export interface IProps {
   onRowMouseLeave?: (row: any, index?: number, e?: any) => void;
   onRowMouseEnter?: (row: any, index?: number, e?: any) => void;
   isPage?: boolean;
+  method?: string;
   requestBody?: any;
   paramAsBody?: boolean;
   needCache?: boolean;

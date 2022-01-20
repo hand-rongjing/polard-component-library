@@ -104,8 +104,8 @@ function CompatibleLov(props: IProps) {
         );
       }
     }
-    const { paramAsBody = false } = props;
-    const tempLov = { method: 'get', paramAsBody, ...selectorItem };
+    const { method = 'get', paramAsBody = false } = props;
+    const tempLov = { method, paramAsBody, ...selectorItem };
     setLov(tempLov);
   }
 
