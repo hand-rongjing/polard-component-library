@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.6.0-alpha.0 (2022-01-20)
+
+### Features
+
+- 可编辑表格组件提供一个批量设置当前行指定单元格们的编辑状态的方法（onVolumeSetStatus） ([8e356b9](https://github.com/hand-rongjing/polard-component-library/commit/8e356b9e4b585eccac35cbe3428f93b2771f73b8))
+- new-search-area 组件支持表单字段删除后同步触发其绑定的联动事件 ([29311d3](https://github.com/hand-rongjing/polard-component-library/commit/29311d3a484761e7c12ea84fb9b5b950817f3062))
+
+### Bug Fixes
+
+- 【验收缺陷】【费控】项目类型定义-列表同一行水平不对齐 https://www.tapd.cn/34592457/s/2053850 ([bf93535](https://github.com/hand-rongjing/polard-component-library/commit/bf935357509418d2dd25307a810b7d5b4612566e))
+- 财务查询单据公司组件勾选公司后，首次重新点开弹窗，已选查询失效 ([b37361b](https://github.com/hand-rongjing/polard-component-library/commit/b37361bec5b6c30248b5f3bac85c9902d0c55a7d))
+- 查询列表返回页码问题 ([c87cbcc](https://github.com/hand-rongjing/polard-component-library/commit/c87cbcc5e66260ddf1d23246f77ce3b81629a25f))
+- 费用-公司查询条件组件接口优化 ([b9e3b25](https://github.com/hand-rongjing/polard-component-library/commit/b9e3b255711756c50ef345b26b36f39578f6b3f5))
+- 费用-公司查询条件组件接口优化 ([77ed091](https://github.com/hand-rongjing/polard-component-library/commit/77ed0916a9e41ec4ac2d0ca7e18eb7fb11386e76))
+- 费用类型组件搜索报错问题修复(validateFields 方法传参问题) ([7d1ab77](https://github.com/hand-rongjing/polard-component-library/commit/7d1ab7710ab166d25259921fca36b158bb196fe7))
+- 付款申请单财务查询查询条件多语言 ([8b083a8](https://github.com/hand-rongjing/polard-component-library/commit/8b083a88b673f8f86aa525ee54b3ab507eb784db))
+- 合并冲突 ([12dcef2](https://github.com/hand-rongjing/polard-component-library/commit/12dcef29e7dbb26f7be19b9eaa1ebce3d898d47a))
+- 合并冲突 ([6eb900e](https://github.com/hand-rongjing/polard-component-library/commit/6eb900e5d50037fdc10d9972509fc9ba2c8c2ab6))
+- 兼容处理 IE 浏览器下调用 dom.remove()方法 ([02b05ab](https://github.com/hand-rongjing/polard-component-library/commit/02b05abe69e430c46b1bef8c8a75ccf70715eb55))
+- 解决 selectPartLoad 在选择完后有缓存的问题 ([0e225be](https://github.com/hand-rongjing/polard-component-library/commit/0e225becea3b449166b2bf74bb04c4196eb64444))
+- 解决冲突 ([a695220](https://github.com/hand-rongjing/polard-component-library/commit/a695220de56a9a320d07a4f1444e437d14cca2a4))
+- 解决冲突 ([6d13e45](https://github.com/hand-rongjing/polard-component-library/commit/6d13e451edc3aa6c7b830f5ac82a02181e476dbf))
+- 可编辑表格增加缓存 ([72d1a6f](https://github.com/hand-rongjing/polard-component-library/commit/72d1a6f170c18d97d4a76eff79871906545b58ea))
+- 列表设置，若修改了列字段，再开发新字段，界面上选不到需重置 ([1beaf55](https://github.com/hand-rongjing/polard-component-library/commit/1beaf55d48613e7d518d9c9974add24582aef007))
+- 列表设置，若修改了列字段，再开发新字段，界面上选不到需重置 ([fb3bc83](https://github.com/hand-rongjing/polard-component-library/commit/fb3bc83d13a5ee8cf6a5a5080e8e842e4eff1ac8))
+- 删除多余的 console.log ([b2d5f26](https://github.com/hand-rongjing/polard-component-library/commit/b2d5f26fa8c092942b6d1c9d011f191bdff92c99))
+- 搜索组件重置修复 ([2b5da30](https://github.com/hand-rongjing/polard-component-library/commit/2b5da307b7af2f368f0c0f6edc4d41b37ff2de5f))
+- 搜索组件 mulitply 类型下的表单组件缺失 tagRender 函数 ([9c58cf9](https://github.com/hand-rongjing/polard-component-library/commit/9c58cf9b745071b06f54855d60a881a8e4a398a1))
+- 修复多语言输入框在非单元格状态下也触发聚焦切换编辑状态的 bug ([aef228e](https://github.com/hand-rongjing/polard-component-library/commit/aef228ea142a555b2fe6a63eb4125d5b6551804d))
+- 修复金额输入框在可编辑表格中 focus 错误 ([191cf5b](https://github.com/hand-rongjing/polard-component-library/commit/191cf5bd0eef3533ff507eae98e47adc1927a4e8))
+- 修复未知 bug ([da285fb](https://github.com/hand-rongjing/polard-component-library/commit/da285fb979abcbf1a5b63b4f2771d0ca052ca5a8))
+- 修复 IE 浏览器下 new-search-area 组件布局问题紊乱 ([c41f0e0](https://github.com/hand-rongjing/polard-component-library/commit/c41f0e0bb02a9027a9bb2bdc90d156c681878284))
+- 修复 IE 浏览器下 new-search-area 组件布局问题紊乱 ([833f432](https://github.com/hand-rongjing/polard-component-library/commit/833f4323f7b60552ef4c223a2f01fcfe83596904))
+- 影像核对-历史已核对单据多 sheet 导出，增加校验 ([1eb79a3](https://github.com/hand-rongjing/polard-component-library/commit/1eb79a349cac59d04c5b8335de01b86c315998e2))
+- custom-table 表格最后一列文字被设置按钮遮挡 ([145b257](https://github.com/hand-rongjing/polard-component-library/commit/145b257f6fb4a9ae59f60e25ea1f46b9c4385d51))
+- internet explorer 打开搜索条件区域或重叠 ([1c28dbf](https://github.com/hand-rongjing/polard-component-library/commit/1c28dbfeca982d34b50603f9bc64f32986e2fee6))
+- lov 多列下拉时日期渲染错误 ([0579f85](https://github.com/hand-rongjing/polard-component-library/commit/0579f8539a9d3977a8d582a86950416686dc94ab))
+- lov 三列多选问题修复 ([17ffa44](https://github.com/hand-rongjing/polard-component-library/commit/17ffa4431ee984bf32643807d0d3458d67bf6d1c))
+- select-application-type 在不选择数据时点击确认仍然可以关闭按钮 ([e39f146](https://github.com/hand-rongjing/polard-component-library/commit/e39f146f7463c95d59954b6de4cf7e123c928718))
+- select-application-type 组件搜索区域搜索失效问题修复 ([12df387](https://github.com/hand-rongjing/polard-component-library/commit/12df38725717504f96fdaa01a520f0edd666ba26))
+- select-part-table 组件补充遗漏维护的多语言 ([7eb5ec0](https://github.com/hand-rongjing/polard-component-library/commit/7eb5ec0cefef2914c5ebb4fc56daf605d969f5e9))
+- select-part-table 组件补充遗漏维护的多语言 ([67b8315](https://github.com/hand-rongjing/polard-component-library/commit/67b83156c5cfb3a26e7ab2d452e3cc85c10d32b6))
+
 ### [1.5.4-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.4-alpha.2...v1.5.4-alpha.3) (2022-01-18)
 
 ### Bug Fixes
