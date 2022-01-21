@@ -57,6 +57,11 @@ function CustomLov(props) {
     // forbidSecond.current = false;
   }
 
+  // 提供给 子组件聚焦 父级 div 的方法
+  function handleFocusDiv() {
+    input.current.focus();
+  }
+
   function handleBlur(values, flag) {
     const { afterBlur } = props;
     const timer = setTimeout(() => {
@@ -141,6 +146,7 @@ function CustomLov(props) {
         searchList={searchList}
         searchListIndex={searchListIndex}
         isRenderSelect={isRenderSelect}
+        handleFocusDiv={handleFocusDiv}
         listExtraParams={listExtraParams}
         method={method}
         requestBody={requestBody}
