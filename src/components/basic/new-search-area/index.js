@@ -128,7 +128,9 @@ function SearchArea(props) {
         handleFormatSearchForm(searchForm);
       })
       .then(() => {
-        handleGetAllConditions(true);
+        setTimeout(() => {
+          handleGetAllConditions(true);
+        }, 300);
       });
     return () => {
       setChangeFlag(false);
