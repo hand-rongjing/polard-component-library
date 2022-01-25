@@ -31,6 +31,9 @@ function CustomLov(props) {
     labelKeySelect,
     listType,
     listExtraParams,
+    method,
+    paramAsBody,
+    requestBody,
   } = props;
 
   const input = useRef();
@@ -52,6 +55,11 @@ function CustomLov(props) {
   function handleInputFocus() {
     lock.current = true;
     // forbidSecond.current = false;
+  }
+
+  // 提供给 子组件聚焦 父级 div 的方法
+  function handleFocusDiv() {
+    input.current.focus();
   }
 
   function handleBlur(values, flag) {
@@ -138,7 +146,11 @@ function CustomLov(props) {
         searchList={searchList}
         searchListIndex={searchListIndex}
         isRenderSelect={isRenderSelect}
+        handleFocusDiv={handleFocusDiv}
         listExtraParams={listExtraParams}
+        method={method}
+        requestBody={requestBody}
+        paramAsBody={paramAsBody}
       />
     </div>
   );
