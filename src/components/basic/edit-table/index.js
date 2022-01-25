@@ -1510,7 +1510,7 @@ class EditTable extends Component {
    * @returns
    */
   setRowValue = (row, status, value, noTransform, refresh) => {
-    const { dataSource } = this.state;
+    const { dataSource, editRows } = this.state;
     const { rowKey } = this.props;
     this._dataSource = [];
     if (!value) {
@@ -1537,8 +1537,8 @@ class EditTable extends Component {
         };
       }
     }
-
-    this.setState({ dataSource: [...dataSource] });
+    delete editRows[row];
+    this.setState({ dataSource: [...dataSource], editRows });
   };
 
   // 获取dataSource
