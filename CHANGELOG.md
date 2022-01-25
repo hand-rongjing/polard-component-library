@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.4-beta.0...v1.5.4-beta.1) (2022-01-25)
+
+### Bug Fixes
+
+- 可编辑表格增加缓存 ([96769d4](https://github.com/hand-rongjing/polard-component-library/commit/96769d45278063b77943aa9a399259043c763ab8))
+- 可编辑表格增加缓存 ([32d2be7](https://github.com/hand-rongjing/polard-component-library/commit/32d2be7cd0c9b1a1c4e1965277599d98bfa1ba1b))
+- 可编辑表格增加缓存 ([72d1a6f](https://github.com/hand-rongjing/polard-component-library/commit/72d1a6f170c18d97d4a76eff79871906545b58ea))
+
 ### [1.5.4-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.3...v1.5.4-beta.0) (2022-01-14)
 
 ### Bug Fixes
