@@ -23,6 +23,7 @@ export const modelInfoMap = {
   CON_FINISH: { color: '#3ABFA5' }, // 已完成（合同完成）
   '6004': { color: '#4390FF' }, // 取消暂挂
   APPLICATION_CLOSE: { color: '#EA4343' }, // 关闭（费用申请单关闭）
+  TRAVEL_APPLICATION_CLOSE: { color: '#EA4343' }, // 关闭（差旅申请单关闭）
   PAYMENT: {
     color: '#4390FF',
     dot: 'pay-circle-o',
