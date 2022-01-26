@@ -13,7 +13,8 @@ export const modelInfoMap = {
   SUBMIT: { color: '#4390FF' }, // 提交
   '1003': { color: '#4390FF' }, // 撤回
   '2004': { color: '#EA4343' }, // 审批退回
-  '1002': { color: '#3ABFA5' }, // 审核通过
+  '1002-WORKBENCH': { color: '#3ABFA5' }, // 工作台1002：审核通过
+  '1002-WORKFLOW': { color: '#4390FF' }, // 工作流1002：撤回
   PASS: { color: '#3ABFA5' }, // 审批通过
   '2001': { color: '#3ABFA5' }, // 审批通过
   '2002': { color: '#EA4343' }, // 审批驳回
