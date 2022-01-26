@@ -1,9 +1,69 @@
 :global {
   .approve-history {
+    .pending-line {
+      .ant-timeline-item-tail {
+        border-left: 1px dashed #e8e8e8;
+      }
+    }
+    .circle-dot {
+      width: 6px;
+      height: 6px;
+      border: 2px solid #d5dae0;
+      border-radius: 6px;
+    }
+    .solid-dot {
+      width: 6px;
+      height: 6px;
+      background: #d5dae0;
+      border-radius: 6px;
+    }
+    .solid-dot-l {
+      width: 8px;
+      height: 8px;
+      background: #4390ff;
+      border-radius: 8px;
+    }
+    .ant-timeline-item-label {
+      position: absolute;
+      top: -4px !important;
+      width: 90px !important;
+      font-size: 13px;
+      .time {
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+    .ant-timeline-item-head {
+      left: 110px !important;
+    }
+    .ant-timeline-item-content {
+      position: relative;
+      top: -4px;
+      left: 130px;
+      width: calc(100% - 130px - 16px);
+      text-align: left;
+      margin-left: 0;
+      .times-desc {
+        color: #666;
+        font-size: 13px;
+        background: #fafafa;
+        border-radius: 4px;
+        line-height: 20px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        .waring {
+          padding-right: 4px;
+        }
+      }
+      .times-desc-warning {
+        background: #ff54540f;
+      }
+    }
     .ant-timeline-item-tail {
       position: absolute;
       top: 0.75em;
-      left: 4px;
+      left: 110px !important;
       height: 100%;
       border-left: 1px solid #e8e8e8;
     }

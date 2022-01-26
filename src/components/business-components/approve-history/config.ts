@@ -10,18 +10,21 @@
 
 export const modelInfoMap = {
   '1001': { color: '#4390FF' }, // 分配
-  SUBMIT: { color: '#EA4343' }, // 提交
-  '1003': { color: '#EA4343' }, // 撤回
+  SUBMIT: { color: '#4390FF' }, // 提交
+  '1003': { color: '#4390FF' }, // 撤回
   '2004': { color: '#EA4343' }, // 审批退回
-  '1002': { color: '#3ABFA5' }, // 审批通过
+  '1002-WORKBENCH': { color: '#3ABFA5' }, // 工作台1002：审核通过
+  '1002-WORKFLOW': { color: '#4390FF' }, // 工作流1002：撤回
   PASS: { color: '#3ABFA5' }, // 审批通过
-  '2002': { color: '#3ABFA5' }, // 审批驳回
-  REJECT: { color: '#3ABFA5' }, // 审批驳回
+  '2001': { color: '#3ABFA5' }, // 审批通过
+  '2002': { color: '#EA4343' }, // 审批驳回
+  REJECT: { color: '#EA4343' }, // 审批驳回
   '6001': { color: 'yellow' }, // 暂挂中
-  CON_CANCEL: { color: 'yellow' }, // 已取消
-  CON_FINISH: { color: '#4390FF' }, // // 已完成
+  CON_CANCEL: { color: '#EA4343' }, // 已取消（合同取消）
+  CON_FINISH: { color: '#3ABFA5' }, // 已完成（合同完成）
   '6004': { color: '#4390FF' }, // 取消暂挂
-  APPLICATION_CLOSE: { color: '#4390FF' }, // 关闭
+  APPLICATION_CLOSE: { color: '#EA4343' }, // 关闭（费用申请单关闭）
+  TRAVEL_APPLICATION_CLOSE: { color: '#EA4343' }, // 关闭（差旅申请单关闭）
   PAYMENT: {
     color: '#4390FF',
     dot: 'pay-circle-o',
@@ -31,7 +34,7 @@ export const modelInfoMap = {
     dot: 'down-circle-o',
   }, // 退款
   REFUND: {
-    color: '#4390FF',
+    color: '#EA4343',
     dot: 'down-circle-o',
   }, // 退票
   '9004': {
@@ -43,5 +46,14 @@ export const modelInfoMap = {
     dot: 'down-circle-o',
   }, // 变更
   PAYMENT_SUBMIT: { color: '#4390FF' }, // 发起支付
+  '9999': { color: '#D5DAE0', isPending: true }, // 待处理
+  DOCUMENT_POST: { color: '#FAAD14' }, // 单据邮寄
+  PAYMENT_FAIL: { color: '#EA4343' }, // 支付失败
+  CSH_RESERVED: { color: '#EA4343' }, // 付款反冲
+  CSH_RETURN: { color: '#EA4343' }, // 付款退款
+  DOCUMENT_RETURN: { color: '#EA4343' }, // 单据邮退
+  '1004': { color: '#EA4343' }, // 退回至申请人
+  '1009': { color: '#EA4343' }, // 申请退回驳回
+  '1010': { color: '#EA4343' }, // 强制退回
   default: { color: '#4390FF' }, // 未知
 };

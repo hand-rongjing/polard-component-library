@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse, Timeline, Spin, Row, Col, Empty, Badge } from 'antd';
+import { Collapse, Timeline, Spin, Row, Col, Empty } from 'antd';
 import moment from 'moment';
 // @ts-ignore
 import httpFetch from 'share/httpFetch';
@@ -8,6 +8,7 @@ import config from 'config';
 import { messages } from '../../utils';
 import { IProps, IState } from './interface';
 import { modelInfoMap } from './config';
+import Waring from './images/waring.svg';
 import './style.less';
 /**
  * 审批历史
@@ -16,6 +17,7 @@ interface IModel {
   text: string;
   color: string;
   dot?: string;
+  isPending?: Boolean;
 }
 
 class WorkFlowApproveHistory extends React.Component<IProps, IState> {
@@ -237,8 +239,11 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           model.dot = 'solution-o';
         } else if (value.operation === 3003) {
           // 重启
-          model.color = '#F9A343';
+          model.color = '#4390FF';
           model.dot = 'up-circle-o';
+        } else if (value.operation === 3004) {
+          // 关闭
+          model.color = '#EA4343';
         } else if (value.operation === 3009) {
           // 跳转
           model.color = '#4390FF';
@@ -275,6 +280,13 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           // 通知补寄
           model.color = '#4390FF';
           model.dot = 'close-circle-o';
+        } else if (value.operation === 'CANCEL_APPROVAL') {
+          // 撤销（撤销审批）
+          model.color = '#EA4343';
+        } else if (value.operation === '9999') {
+          // 待处理
+          model.color = '#D5DAE0'; // 灰色
+          model.isPending = true;
         } else {
           // 其他
           model.color = '#4390FF';
@@ -286,9 +298,13 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   getExpenseColor = (value) => {
+    const operationType =
+      value.operationType == '1002'
+        ? `${value.operationType}-${value.source}`
+        : value.operationType;
     const model: IModel = {
       text: value.operationTypeName,
-      ...modelInfoMap[value.operationType || 'default'],
+      ...modelInfoMap[operationType || 'default'],
     };
     return model;
   };
@@ -309,76 +325,77 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   getHistoryRender = (item, i) => {
-    const { expenseColorFlag } = this.state;
-    const { slideFrameFlag } = this.props;
+    const { expenseColorFlag, historyData } = this.state;
     if (item) {
       const model =
         expenseColorFlag || item.hasOwnProperty('operationTypeName')
           ? this.getExpenseColor(item)
           : this.getColor(item);
+      const description = item.hasOwnProperty('description')
+        ? item.description
+        : this.operationRemarkTransfer(item);
+      const isLatest = historyData[0].operationType == '9999' ? i == 1 : i == 0; // 最新节点展示颜色
       return (
         <Timeline.Item
-          dot={<Badge color={model.color || '#4390FF'} offset={[4, 0]} />}
-          color={model.color || '#4390FF'}
+          dot={
+            <div
+              className={
+                model.isPending
+                  ? 'circle-dot'
+                  : isLatest
+                  ? 'solid-dot-l'
+                  : 'solid-dot'
+              }
+              style={{ background: isLatest ? model.color : '' }}
+            />
+          }
+          color={isLatest ? model.color : '#D5DAE0'}
           key={i}
+          label={
+            item.lastUpdatedDate ? (
+              <div>
+                <div>{moment(item.lastUpdatedDate).format('YYYY-MM-DD')}</div>
+                <div className="time">
+                  {moment(item.lastUpdatedDate).format('HH:mm')}
+                </div>
+              </div>
+            ) : (
+              ''
+            )
+          }
+          className={model.isPending ? 'pending-line' : ''}
         >
           <Row>
-            <Col
-              span={slideFrameFlag ? 12 : 8}
-              style={{
-                maxWidth: '320px',
-                paddingLeft: '8px',
-                paddingRight: `${slideFrameFlag ? '32px' : '42px'}`,
-              }}
-            >
-              <div
-                style={{
-                  fontWeight: 'bold',
-                  height: '14px',
-                  marginBottom: 8,
-                  color: '#333333',
-                }}
-              >
-                {model.text}
-              </div>
-              <div style={{ color: '#999999' }}>
-                <span
-                  style={{
-                    fontSize: '12px',
-                    marginRight: '8px',
-                    letterSpacing: 0,
-                    color: '#999999',
-                  }}
-                >
-                  {moment(item.lastUpdatedDate).format('YYYY-MM-DD HH:mm')}
-                </span>
-                <span style={{ fontSize: '12px', marginRight: '8px' }}>
-                  {item.approvalNodeName}
-                </span>
-                <span style={{ fontSize: '12px', color: '#999999' }}>
+            <Col span={24}>
+              <div style={{ marginBottom: 8, color: '#333333' }}>
+                <span style={{ fontWeight: 'bold' }}>{model.text}</span>
+                <span style={{ margin: '0 8px' }}>{item.approvalNodeName}</span>
+                <span>
                   {item.operationMethodName === 'ROBOT'
                     ? `${item.userName}`
                     : item.hasOwnProperty('createdByName')
-                    ? `${item.createdByName ? item.createdByName : ''} ${
-                        item.createdByCode ? item.createdByCode : ''
+                    ? `${item.createdByName ? item.createdByName : ''}${
+                        item.createdByCode ? '-' + item.createdByCode : ''
                       }`
-                    : `${item.userName} ${item.userCode}`}
+                    : `${item.userName}-${item.userCode}`}
                 </span>
               </div>
-            </Col>
-            <Col span={slideFrameFlag ? 12 : 16}>
-              <div
-                style={{
-                  wordBreak: 'break-word',
-                  fontSize: '12px',
-                  color: '#666',
-                  lineHeight: '18px',
-                }}
-              >
-                {item.hasOwnProperty('description')
-                  ? item.description
-                  : this.operationRemarkTransfer(item)}
-              </div>
+              {description ? (
+                <div
+                  className={`times-desc ${
+                    item.operationType === '2002' ? 'times-desc-warning' : ''
+                  }`}
+                >
+                  {item.operationType === '2002' ? (
+                    <img src={Waring} className="waring" alt="" />
+                  ) : (
+                    ''
+                  )}
+                  {description}
+                </div>
+              ) : (
+                <div style={{ height: 15 }} />
+              )}
             </Col>
           </Row>
         </Timeline.Item>
