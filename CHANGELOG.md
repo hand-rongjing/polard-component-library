@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.5-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.5-alpha.4...v1.5.5-alpha.5) (2022-01-26)
+
+### Bug Fixes
+
+- 可编辑表格 lov 的 label 取值优化 ([77538a7](https://github.com/hand-rongjing/polard-component-library/commit/77538a7113a04a15863d01c8f2fc8c05e9fbaecd))
+- 可编辑表格 lov 的 label 取值优化 ([8dd2504](https://github.com/hand-rongjing/polard-component-library/commit/8dd250456328bb863e3be6a9c59e0ad3a4b95e28))
+
 ### [1.5.5-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.5-alpha.3...v1.5.5-alpha.4) (2022-01-25)
 
 ### [1.5.5-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.5-alpha.2...v1.5.5-alpha.3) (2022-01-24)
