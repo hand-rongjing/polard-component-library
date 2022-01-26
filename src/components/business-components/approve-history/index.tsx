@@ -298,9 +298,13 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   getExpenseColor = (value) => {
+    const operationType =
+      value.operationType == '1002'
+        ? `${value.operationType}-${value.source}`
+        : value.operationType;
     const model: IModel = {
       text: value.operationTypeName,
-      ...modelInfoMap[value.operationType || 'default'],
+      ...modelInfoMap[operationType || 'default'],
     };
     return model;
   };
