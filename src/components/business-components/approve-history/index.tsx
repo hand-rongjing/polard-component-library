@@ -17,6 +17,7 @@ interface IModel {
   text: string;
   color: string;
   dot?: string;
+  isPending?: Boolean;
 }
 
 class WorkFlowApproveHistory extends React.Component<IProps, IState> {
@@ -282,6 +283,10 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
         } else if (value.operation === 'CANCEL_APPROVAL') {
           // 撤销（撤销审批）
           model.color = '#EA4343';
+        } else if (value.operation === '9999') {
+          // 待处理
+          model.color = '#D5DAE0'; // 灰色
+          model.isPending = true;
         } else {
           // 其他
           model.color = '#4390FF';
@@ -326,13 +331,12 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
         ? item.description
         : this.operationRemarkTransfer(item);
       const isLatest = historyData[0].operationType == '9999' ? i == 1 : i == 0; // 最新节点展示颜色
-      const isPending = item.operationType == '9999';
       return (
         <Timeline.Item
           dot={
             <div
               className={
-                isPending
+                model.isPending
                   ? 'circle-dot'
                   : isLatest
                   ? 'solid-dot-l'
@@ -355,7 +359,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
               ''
             )
           }
-          className={isPending ? 'pending-line' : ''}
+          className={model.isPending ? 'pending-line' : ''}
         >
           <Row>
             <Col span={24}>

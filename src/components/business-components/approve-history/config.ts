@@ -10,8 +10,8 @@
 
 export const modelInfoMap = {
   '1001': { color: '#4390FF' }, // 分配
-  SUBMIT: { color: '#EA4343' }, // 提交
-  '1003': { color: '#EA4343' }, // 撤回
+  SUBMIT: { color: '#4390FF' }, // 提交
+  '1003': { color: '#4390FF' }, // 撤回
   '2004': { color: '#EA4343' }, // 审批退回
   '1002': { color: '#3ABFA5' }, // 审核通过
   PASS: { color: '#3ABFA5' }, // 审批通过
@@ -45,7 +45,7 @@ export const modelInfoMap = {
     dot: 'down-circle-o',
   }, // 变更
   PAYMENT_SUBMIT: { color: '#4390FF' }, // 发起支付
-  '9999': { color: '#D5DAE0' }, // 待处理
+  '9999': { color: '#D5DAE0', isPending: true }, // 待处理
   DOCUMENT_POST: { color: '#FAAD14' }, // 单据邮寄
   PAYMENT_FAIL: { color: '#EA4343' }, // 支付失败
   CSH_RESERVED: { color: '#EA4343' }, // 付款反冲
