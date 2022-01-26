@@ -73,10 +73,26 @@ function CustomLov(props) {
     }, 0);
   }
 
+  function getLabel(label, item) {
+    const multipleLabel = String(label).includes('-');
+    if (multipleLabel) {
+      return String(label)
+        .split('-')
+        .map(
+          (field) =>
+            item[field.replace('{', '').replace('}', '').replace('$', '')],
+        )
+        .filter((val) => val)
+        .join('-');
+    } else {
+      return item[label];
+    }
+  }
+
   // eslint-disable-next-line no-underscore-dangle
   if (!['NEW', 'EDIT'].includes(record._status) && !cellStatusMap[cellKey]) {
     const result = single
-      ? value && value[labelKey]
+      ? value && getLabel(labelKey, value)
       : Array.isArray(value) && !value.length
       ? ''
       : `已选择${value.length}条`;
