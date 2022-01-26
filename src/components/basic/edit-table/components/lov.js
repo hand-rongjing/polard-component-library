@@ -74,7 +74,7 @@ function CustomLov(props) {
           (field) =>
             item[field.replace('{', '').replace('}', '').replace('$', '')],
         )
-        .filter((value) => value)
+        .filter((val) => val)
         .join('-');
     } else {
       return item[label];
