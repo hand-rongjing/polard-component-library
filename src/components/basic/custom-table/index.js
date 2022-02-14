@@ -78,6 +78,7 @@ export function OperateMenus(props) {
 export function HeaderSettingsDropDown(props) {
   const { columns, tableColumns, onChange } = props;
   const [fixedColumns, setFixedColumns] = useState({ left: [], right: [] });
+  const [cacheColumns, setCacheColumns] = useState(columns);
 
   // 获取 固定在 左边和右边的选项
   // 当 columns 改变的时候 触发这个函数
@@ -89,6 +90,7 @@ export function HeaderSettingsDropDown(props) {
       else if (col.fixed === 'right') right.push(col.dataIndex);
     });
     setFixedColumns({ left, right });
+    formatColumns();
   }, [columns]);
 
   // 获取 必选项，提前渲染出来
@@ -159,21 +161,11 @@ export function HeaderSettingsDropDown(props) {
     // 重排cols顺序
     const left = [];
     const right = [];
-    let temp = [];
-    const { getTableColumnDataIndex } = props;
-    const originColumns = getTableColumnDataIndex();
+    const temp = cacheColumns;
     columns.forEach((col) => {
       if (col.fixed === 'left') left.push(col);
       else if (col.fixed === 'right') right.push(col);
-      else {
-        const index = originColumns.findIndex(
-          (dataIndex) => dataIndex === col.dataIndex,
-        );
-        temp[index] = col;
-      }
-      // else temp.push(col);
     });
-    temp = temp.filter((col) => col);
     const final = left.concat(temp).concat(right);
     // 滤出勾选的数据
     const result = final.filter((col) => {
@@ -250,17 +242,18 @@ export function HeaderSettingsDropDown(props) {
 
   // 格式化 处理表格列
   const formatColumns = () => {
-    const temp = columns.filter((col) => !col.fixed);
+    let temp = columns.filter((col) => !col.fixed && !col.cancelFixed);
     const originColumns = props.getTableColumnDataIndex();
-    const treeNodes = [];
-    temp.forEach((col) => {
-      const index = originColumns.findIndex(
+    // 将 取消固定的列 恢复为原来位置
+    const cancelFixedCol = columns.filter((col) => col.cancelFixed);
+    cancelFixedCol.map((col) => {
+      col.cancelFixed = false;
+      const originIndex = originColumns.findIndex(
         (dataIndex) => dataIndex === col.dataIndex,
       );
-      col.key = col.dataIndex;
-      treeNodes[index] = col;
+      temp.splice(originIndex, 0, col);
     });
-    return treeNodes.filter((col) => col);
+    setCacheColumns(temp);
   };
 
   // 固定 表格列中 选中的选项
@@ -269,6 +262,7 @@ export function HeaderSettingsDropDown(props) {
     const anotherType = type === 'left' ? 'right' : 'left';
     item.fixed = type;
     item.ellipsis = true;
+    item.cancelFixed = false;
     if (Array.isArray(fixedColumns[type])) {
       fixedColumns[type].push(item.dataIndex);
     } else fixedColumns[type] = [item.dataIndex];
@@ -282,6 +276,7 @@ export function HeaderSettingsDropDown(props) {
       [type]: fixedColumns[type],
       [anotherType]: fixedColumns[anotherType],
     });
+    formatColumns();
   };
 
   // 取消 表格列中 被固定的选项
@@ -292,10 +287,12 @@ export function HeaderSettingsDropDown(props) {
     if (~index) fixedColumns[type].splice(index, 1);
     col.fixed = '';
     col.ellipsis = false;
+    col.cancelFixed = true;
     setFixedColumns({
       ...fixedColumns,
       [type]: fixedColumns[type],
     });
+    formatColumns();
   };
 
   // 渲染 进行列控制的节点树上的 节点
@@ -390,7 +387,7 @@ export function HeaderSettingsDropDown(props) {
           draggable
           blockNode
           selectable={false}
-          treeData={formatColumns()}
+          treeData={cacheColumns}
           titleRender={renderTreeNode}
           onDrop={handleResetColsAfterSort}
           style={{ padding: '4px 0px 12px' }}
