@@ -161,10 +161,11 @@ export function HeaderSettingsDropDown(props) {
     // 重排cols顺序
     const left = [];
     const right = [];
-    const temp = cacheColumns;
-    columns.forEach((col) => {
+    const temp = [];
+    cacheColumns.forEach((col) => {
       if (col.fixed === 'left') left.push(col);
       else if (col.fixed === 'right') right.push(col);
+      else temp.push(col);
     });
     const final = left.concat(temp).concat(right);
     // 滤出勾选的数据
@@ -242,7 +243,7 @@ export function HeaderSettingsDropDown(props) {
 
   // 格式化 处理表格列
   const formatColumns = () => {
-    let temp = columns.filter((col) => !col.fixed && !col.cancelFixed);
+    let temp = columns.filter((col) => !col.cancelFixed);
     const originColumns = props.getTableColumnDataIndex();
     // 将 取消固定的列 恢复为原来位置
     const cancelFixedCol = columns.filter((col) => col.cancelFixed);
@@ -387,7 +388,7 @@ export function HeaderSettingsDropDown(props) {
           draggable
           blockNode
           selectable={false}
-          treeData={cacheColumns}
+          treeData={cacheColumns.filter((col) => !col.fixed)}
           titleRender={renderTreeNode}
           onDrop={handleResetColsAfterSort}
           style={{ padding: '4px 0px 12px' }}
