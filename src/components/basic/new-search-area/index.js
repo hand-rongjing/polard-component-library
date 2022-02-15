@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-05-18 14:34:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-11 17:10:11
+ * @LastEditTime: 2022-02-15 14:21:43
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -321,7 +321,9 @@ function SearchArea(props) {
           formItem.isRequired
             ? 'field-value-required ant-legacy-form-item'
             : 'ant-legacy-form-item'
-        } ${formItem.className || ''}`}
+        } ${formItem.className || ''} ${
+          type === 'month' || type === 'date' ? 'search-date-item' : ''
+        }`}
       >
         <Form.Item
           key={formItem.id}
