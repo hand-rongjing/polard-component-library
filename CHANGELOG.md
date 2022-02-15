@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.7-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7-alpha.3...v1.5.7-alpha.4) (2022-02-15)
+
+### Bug Fixes
+
+- ie 浏览器搜素条件下拉显示错位 ([754d1ba](https://github.com/hand-rongjing/polard-component-library/commit/754d1ba2dd647c410e59dd71addfcee686256206))
+- 同步打开列设置时 选了序列号 但是不在列设置中的问题 ([71bd8c0](https://github.com/hand-rongjing/polard-component-library/commit/71bd8c0515c128b02aef88a294dfe1a6bf81b548))
+
 ### [1.5.7-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7-alpha.2...v1.5.7-alpha.3) (2022-02-15)
 
 ### Bug Fixes
