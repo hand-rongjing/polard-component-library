@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.7-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7-alpha.0...v1.5.7-alpha.1) (2022-02-15)
+
+### Bug Fixes
+
+- ie 日期搜索条件样式修改 ([f7bd875](https://github.com/hand-rongjing/polard-component-library/commit/f7bd87540e438f4afd6f16021fde979802edeed1))
+- 解决冲突 ([5dd7eb0](https://github.com/hand-rongjing/polard-component-library/commit/5dd7eb01f79494cec05e59b32edd446213608f46))
+
 ### [1.5.7-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.5-alpha.7...v1.5.7-alpha.0) (2022-02-14)
 
 ### [1.5.5-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.6...v1.5.5-alpha.7) (2022-01-28)
