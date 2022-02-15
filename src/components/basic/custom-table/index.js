@@ -16,6 +16,18 @@ import SettingSvg from './images/setting';
 import './style.less';
 import { messages } from '../../utils';
 
+const isHaveSortColumn = (columns, showNumber, sortColumn) => {
+  // 判断一下 序号列在不在
+  const isSortColumn = columns.findIndex((item) => item.dataIndex === 'sort');
+  if (isSortColumn < 0) {
+    if (showNumber) {
+      // 序号列不在 在看有没有配置 showNumber
+      columns.unshift(sortColumn);
+    }
+  }
+  return columns;
+};
+
 /**
  * 表格行操作菜单，鼠标移入才显示
  */
@@ -76,7 +88,7 @@ export function OperateMenus(props) {
  */
 
 export function HeaderSettingsDropDown(props) {
-  const { columns, tableColumns, onChange } = props;
+  const { columns, tableColumns, onChange, sortColumn, showNumber } = props;
   const [fixedColumns, setFixedColumns] = useState({ left: [], right: [] });
   const [cacheColumns, setCacheColumns] = useState(columns);
 
@@ -162,7 +174,8 @@ export function HeaderSettingsDropDown(props) {
     const left = [];
     const right = [];
     const temp = [];
-    cacheColumns.forEach((col) => {
+    const newColumns = isHaveSortColumn(cacheColumns, showNumber, sortColumn); // 用于判断是否存在 序号列
+    newColumns.forEach((col) => {
       if (col.fixed === 'left') left.push(col);
       else if (col.fixed === 'right') right.push(col);
       else temp.push(col);
@@ -667,9 +680,7 @@ class CustomTable extends Component {
       }
     });
     let tableColumns = [...columns];
-    if (showNumber) {
-      tableColumns = [sortColumn, ...columns];
-    }
+    tableColumns = isHaveSortColumn(tableColumns, showNumber, sortColumn); // 用于判断是否存在 序号列
     if (operateMenus) {
       // 操作列下拉菜单
       const fixed = tableColumns.find((col) => col.fixed === 'left')
@@ -754,13 +765,15 @@ class CustomTable extends Component {
   };
 
   handleResetCols = () => {
-    const { columns } = this.props;
-    this.getTableColumns(columns, this.props, true);
+    const { columns, showNumber } = this.props;
+    const { sortColumn } = this.state;
+    const newColumns = isHaveSortColumn(columns, showNumber, sortColumn); // 用于判断是否存在 序号列
+    this.getTableColumns(newColumns, this.props, true);
   };
 
   // 最后一列添加 表头设置按钮
   setHeaderSettings = () => {
-    const { allColumns, tableColumns } = this.state;
+    const { allColumns, tableColumns, sortColumn } = this.state;
     const { headSettingKey } = this.props;
     if (headSettingKey) {
       return (
@@ -777,6 +790,7 @@ class CustomTable extends Component {
           <HeaderSettingsDropDown
             {...this.props}
             columns={allColumns || []}
+            sortColumn={sortColumn}
             tableColumns={tableColumns}
             onChange={(cols, results) => {
               this.setState({
