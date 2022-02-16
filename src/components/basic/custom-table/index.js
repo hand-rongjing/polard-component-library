@@ -90,7 +90,7 @@ export function OperateMenus(props) {
 export function HeaderSettingsDropDown(props) {
   const { columns, tableColumns, onChange, sortColumn, showNumber } = props;
   const [fixedColumns, setFixedColumns] = useState({ left: [], right: [] });
-  const [cacheColumns, setCacheColumns] = useState(columns);
+  const [cacheColumns, setCacheColumns] = useState([]);
 
   // 获取 固定在 左边和右边的选项
   // 当 columns 改变的时候 触发这个函数
@@ -102,7 +102,7 @@ export function HeaderSettingsDropDown(props) {
       else if (col.fixed === 'right') right.push(col.dataIndex);
     });
     setFixedColumns({ left, right });
-    formatColumns();
+    formatColumns(columns);
   }, [columns]);
 
   // 获取 必选项，提前渲染出来
@@ -249,14 +249,16 @@ export function HeaderSettingsDropDown(props) {
       newIndex = Number(newIndex) + 1;
     }
     const temp = arrayMove(columns, Number(oldIndex), Number(newIndex));
-    if (onChange) {
-      onChange(temp, temp);
-    }
+    setCacheColumns(temp);
+    // if (onChange) {
+    //   onChange(temp, temp);
+    // }
   };
 
   // 格式化 处理表格列
-  const formatColumns = () => {
-    let temp = columns.filter((col) => !col.cancelFixed);
+  const formatColumns = (cols) => {
+    const newColumns = isHaveSortColumn(cols, showNumber, sortColumn); // 用于判断是否存在 序号列
+    let temp = newColumns.filter((col) => !col.cancelFixed);
     const originColumns = props.getTableColumnDataIndex();
     // 将 取消固定的列 恢复为原来位置
     const cancelFixedCol = columns.filter((col) => col.cancelFixed);
@@ -290,7 +292,7 @@ export function HeaderSettingsDropDown(props) {
       [type]: fixedColumns[type],
       [anotherType]: fixedColumns[anotherType],
     });
-    formatColumns();
+    formatColumns(cacheColumns);
   };
 
   // 取消 表格列中 被固定的选项
@@ -306,7 +308,7 @@ export function HeaderSettingsDropDown(props) {
       ...fixedColumns,
       [type]: fixedColumns[type],
     });
-    formatColumns();
+    formatColumns(cacheColumns);
   };
 
   // 渲染 进行列控制的节点树上的 节点
