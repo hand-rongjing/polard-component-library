@@ -74,7 +74,7 @@ export const getImgIcon = (title = '', canPreviewFile) => {
   const ppt = ['ppt', 'pptx'];
   const imgs = ['png', 'jpg', 'bmp', 'jpeg', 'gif', 'svg'];
   const docs = ['doc', 'docx'];
-  const excels = ['xlsx'];
+  const excels = ['xlsx', 'xls'];
   const pdf = ['pdf'];
   const packages = ['zip', 'rar'];
   if (canPreviewFile) {
