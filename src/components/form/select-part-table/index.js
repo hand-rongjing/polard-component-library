@@ -232,6 +232,8 @@ function SelectPartTable(props) {
     } else {
       setOptions([]);
     }
+    const wrapEle = document.querySelector(`.option-table-content`);
+    wrapEle?.scrollTo(0, 0);
     searchText.current = null;
   }
 
