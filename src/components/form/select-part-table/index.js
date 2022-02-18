@@ -222,6 +222,7 @@ function SelectPartTable(props) {
     if (isOpen) {
       if (handleFocus) handleFocus();
       if (!options.length || forceGetList) {
+        canGetList.current = false;
         setOptions([]);
         setForceGetList(propsForceGetList);
         getList(null, { page: 0 });
