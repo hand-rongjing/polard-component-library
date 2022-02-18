@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.8-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.0...v1.5.8-beta.1) (2022-02-18)
+
+### Bug Fixes
+
+- 文件预览新增 xls ([5c9e82c](https://github.com/hand-rongjing/polard-component-library/commit/5c9e82c5569be7a03bd92435eb4f1a12cbdd5f64))
+
 ### [1.5.8-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7...v1.5.8-beta.0) (2022-02-18)
 
 ### Bug Fixes
