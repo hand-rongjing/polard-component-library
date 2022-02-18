@@ -248,7 +248,7 @@ export function HeaderSettingsDropDown(props) {
     if (oldIndex > newIndex && dropPosition >= 0) {
       newIndex = Number(newIndex) + 1;
     }
-    const temp = arrayMove(columns, Number(oldIndex), Number(newIndex));
+    const temp = arrayMove(cacheColumns, Number(oldIndex), Number(newIndex));
     setCacheColumns(temp);
     // if (onChange) {
     //   onChange(temp, temp);
