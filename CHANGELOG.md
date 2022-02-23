@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.9-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-alpha.1...v1.5.9-alpha.0) (2022-02-23)
+
+### [1.5.8-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.0...v1.5.8-beta.1) (2022-02-18)
+
+### [1.5.8-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-alpha.0...v1.5.8-beta.0) (2022-02-18)
+
+### Bug Fixes
+
+- 解决冲突 ([52c41ee](https://github.com/hand-rongjing/polard-component-library/commit/52c41ee6e3bdce843b41653cd1a377840e319486))
+
+### [1.5.7-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7-alpha.7...v1.5.7-beta.0) (2022-02-17)
+
 ### [1.5.8-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-alpha.0...v1.5.8-alpha.1) (2022-02-18)
 
 ### [1.5.8-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7...v1.5.8-alpha.0) (2022-02-17)
