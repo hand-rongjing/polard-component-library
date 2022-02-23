@@ -624,6 +624,7 @@ class EditTable extends Component {
     const { optionColumn } = this.state;
     const {
       showNumber,
+      hiddenEditMore,
       hiddenOption,
       renderOption,
       defaultGetList = true,
@@ -635,7 +636,7 @@ class EditTable extends Component {
     }
     // 入参引用类型，可以直接unshift，push等操作，如果改为拷贝，则需要对下面append方法做出修改
     if (editWithCellFlag) {
-      this.appendOperationCol(nextColumns);
+      if (!hiddenEditMore) this.appendOperationCol(nextColumns);
       if (!hiddenOption) this.appendOperationColWhenEditing(nextColumns);
     }
     if (!editWithCellFlag) {
