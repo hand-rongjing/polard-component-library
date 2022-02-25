@@ -171,4 +171,4 @@ BasicTable.defaultProps = {
 
 export default connect(({ pageTab }) => ({
   currentPage: pageTab.currentPage,
-}))(CustomTable);
+}))(BasicTable);
