@@ -238,17 +238,26 @@ export function HeaderSettingsDropDown(props) {
     return newArr;
   };
 
-  // 排序后 重置表格列
+  // 拖拽排序
   const handleResetColsAfterSort = (info) => {
-    const [, oldIndex] = info.dragNode.pos.split('-');
-    let [, newIndex] = info.node.pos.split('-');
-    const dropPos = info.node.pos.split('-');
-    const dropPosition =
-      info.dropPosition - Number(dropPos[dropPos.length - 1]);
-    if (oldIndex > newIndex && dropPosition >= 0) {
-      newIndex = Number(newIndex) + 1;
+    const { node, dragNode, dropPosition } = info;
+    const oldNodeIndex = cacheColumns.findIndex(
+      (item) => item.dataIndex === dragNode.key,
+    );
+    let newNodeIndex = cacheColumns.findIndex(
+      (item) => item.dataIndex === node.key,
+    );
+    const dropPositionNew =
+      dropPosition +
+      cacheColumns.filter((item) => item.fixed === 'left').length; // dropPosition 节后的位置
+    if (oldNodeIndex > newNodeIndex && dropPositionNew >= newNodeIndex) {
+      newNodeIndex = newNodeIndex + 1;
     }
-    const temp = arrayMove(cacheColumns, Number(oldIndex), Number(newIndex));
+    const temp = arrayMove(
+      cacheColumns,
+      Number(oldNodeIndex),
+      Number(newNodeIndex),
+    );
     setCacheColumns(temp);
     // if (onChange) {
     //   onChange(temp, temp);
@@ -676,6 +685,9 @@ class CustomTable extends Component {
       }
       if (item.key && !item.dataIndex) {
         item.dataIndex = item.key;
+      }
+      if (!item.key && item.dataIndex) {
+        item.key = items.dataIndex;
       }
       if (item.align !== 'right') {
         item.align = 'left';

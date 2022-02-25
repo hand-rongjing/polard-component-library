@@ -38,6 +38,14 @@
     }
     .checkbox-item {
       padding: 5px 16px;
+      position: relative;
+      .ant-checkbox + span {
+        display: inline-block;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
       &:hover {
         background-color: rgb(230, 247, 255);
         .fixed-col-ico-group {
