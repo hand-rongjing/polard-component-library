@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.8-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.0...v1.5.8-beta.1) (2022-02-18)
+
+### Bug Fixes
+
+- 文件预览新增 xls ([5c9e82c](https://github.com/hand-rongjing/polard-component-library/commit/5c9e82c5569be7a03bd92435eb4f1a12cbdd5f64))
+
+### [1.5.8-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7...v1.5.8-beta.0) (2022-02-18)
+
+### Bug Fixes
+
+- lov 下拉分页问题修复 ([8778314](https://github.com/hand-rongjing/polard-component-library/commit/8778314fde430e761671c2e012048599dd7dd056))
+- 解决冲突 ([52c41ee](https://github.com/hand-rongjing/polard-component-library/commit/52c41ee6e3bdce843b41653cd1a377840e319486))
+
+### [1.5.7-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.6...v1.5.7-beta.0) (2022-02-17)
+
+### [1.5.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.6...v1.5.7) (2022-02-17)
+
+### Bug Fixes
+
+- ie 日期搜索条件样式修改 ([0d93951](https://github.com/hand-rongjing/polard-component-library/commit/0d939519723718cce6a4e08cd695a019e0bb084d))
+- ie 日期搜索条件样式修改 ([e3f6bc8](https://github.com/hand-rongjing/polard-component-library/commit/e3f6bc8a1869a34102572980ad71b7b486ffbbdd))
+- ie 日期搜索条件样式修改 ([f7bd875](https://github.com/hand-rongjing/polard-component-library/commit/f7bd87540e438f4afd6f16021fde979802edeed1))
+- ie 浏览器搜素条件下拉显示错位 ([60f0c1a](https://github.com/hand-rongjing/polard-component-library/commit/60f0c1a49f5bbdd13f277f0e51d914022a9808aa))
+- ie 浏览器搜素条件下拉显示错位 ([754d1ba](https://github.com/hand-rongjing/polard-component-library/commit/754d1ba2dd647c410e59dd71addfcee686256206))
+- 表格设置列样式修改 ([09bcfa4](https://github.com/hand-rongjing/polard-component-library/commit/09bcfa414add081041934495ffe605b8b705f8a8))
+
 ### [1.5.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.4-beta.1...v1.5.6) (2022-01-26)
 
 ### Bug Fixes

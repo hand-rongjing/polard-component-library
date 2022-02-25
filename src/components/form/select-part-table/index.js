@@ -222,6 +222,7 @@ function SelectPartTable(props) {
     if (isOpen) {
       if (handleFocus) handleFocus();
       if (!options.length || forceGetList) {
+        canGetList.current = false;
         setOptions([]);
         setForceGetList(propsForceGetList);
         getList(null, { page: 0 });
@@ -232,6 +233,8 @@ function SelectPartTable(props) {
     } else {
       setOptions([]);
     }
+    const wrapEle = document.querySelector(`.option-table-content`);
+    wrapEle?.scrollTo(0, 0);
     searchText.current = null;
   }
 
