@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'dva';
 import { Table, ConfigProvider, Empty } from 'antd';
 import { Resizable } from 'react-resizable';
 
@@ -87,9 +88,37 @@ class BasicTable extends React.Component {
     }
   };
 
+  /**
+   * 获取当前页面表格可滚动高度
+   */
+  getScrollY = () => {
+    const { currentPage } = this.props;
+    let initScrollY = 500;
+    try {
+      const contentDom = document.querySelector(`#${currentPage.pageCode}`);
+      const scrollWrapDom = contentDom.parentElement; // .scroll-wrapped
+      initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
+      const footerDom = contentDom.querySelector('.content-footer');
+      if (footerDom) {
+        initScrollY -= footerDom.clientHeight;
+      }
+      initScrollY = initScrollY < 100 ? 100 : initScrollY;
+    } catch (e) {
+      console.log(e);
+      initScrollY = 500;
+    }
+    return initScrollY;
+  };
+
   render() {
-    const { noReSize, onExpandedRowsChange, expandedRowKeys, pagination } =
-      this.props;
+    const {
+      noReSize,
+      onExpandedRowsChange,
+      expandedRowKeys,
+      pagination,
+      scrollXWidth,
+      scroll,
+    } = this.props;
     const { columns: columnsFromState } = this.state;
     const columns = noReSize
       ? columnsFromState
@@ -102,12 +131,17 @@ class BasicTable extends React.Component {
           }),
         }));
     const { expandedRows } = this.state;
+    const initScrollY = this.getScrollY();
 
     return (
       <ConfigProvider renderEmpty={() => <Empty />}>
         <Table
           components={this.components}
           {...this.props}
+          scroll={{
+            x: scrollXWidth || scroll?.x || 1000,
+            y: scroll?.y || initScrollY,
+          }}
           pagination={pagination}
           onChange={this.onTableChange}
           columns={columns}
@@ -135,4 +169,6 @@ BasicTable.defaultProps = {
   columns: [],
 };
 
-export default BasicTable;
+export default connect(({ pageTab }) => ({
+  currentPage: pageTab.currentPage,
+}))(CustomTable);
