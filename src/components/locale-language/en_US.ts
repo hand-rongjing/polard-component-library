@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 11:05:29
+ * @LastEditTime: 2022-02-28 17:56:37
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -239,4 +239,5 @@ export default {
   'base.policy.verification.info': 'Policy Verification Information',
   'common.input.name.or.code': 'Please enter a code or name',
   'chooser.data.company': 'Choose the company',
+  'common.to.configuration': 'To configure',
 };
