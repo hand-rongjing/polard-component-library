@@ -295,7 +295,7 @@ class ListSelector extends Component<IListSelectorProps, IListSelectorState> {
           onClick={onToConfigure || this.cancelHandle}
           style={{ float: 'left', fontSize: 12 }}
         >
-          前往配置{messages(title || lov?.title)}&gt;&gt;
+          {messages('common.to.configuration')}&gt;&gt;
         </a>
       ),
       <Button key="back" onClick={this.cancelHandle}>
