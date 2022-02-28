@@ -741,6 +741,7 @@ class EditTable extends Component {
             }
           });
         }
+        this.errorMap = {};
         // 清空临时副本，确保每次renderCell初始化 _dataSource的值没有问题
         this._dataSource.length = [];
         this.originDataSource = _.cloneDeep(data);
