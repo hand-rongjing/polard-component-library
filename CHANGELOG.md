@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.8-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.1...v1.5.8-beta.2) (2022-02-28)
+
+### Bug Fixes
+
+- 同步打开列设置时 选了序列号 但是不在列设置中的问题 ([71bd8c0](https://github.com/hand-rongjing/polard-component-library/commit/71bd8c0515c128b02aef88a294dfe1a6bf81b548))
+
 ### [1.5.8-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.0...v1.5.8-beta.1) (2022-02-18)
 
 ### Bug Fixes
