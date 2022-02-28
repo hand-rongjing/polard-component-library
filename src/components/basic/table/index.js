@@ -101,7 +101,7 @@ class BasicTable extends React.Component {
       if (footerDom) {
         initScrollY -= footerDom.clientHeight;
       }
-      return (initScrollY = initScrollY < 100 ? 100 : initScrollY);
+      return initScrollY < 100 ? 100 : initScrollY;
     } catch (e) {
       return null;
     }
@@ -166,7 +166,10 @@ BasicTable.defaultProps = {
   columns: [],
 };
 
-export default Connect(({ pageTab }) => ({
-  pageTab,
-  currentPage: pageTab.currentPage,
-}))(BasicTable);
+function mapStateToProps(state) {
+  return {
+    currentPage: state.pageTab.currentPage,
+  };
+}
+
+export default Connect(mapStateToProps)(BasicTable);
