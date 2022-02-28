@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.9-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.5...v1.5.9-alpha.6) (2022-02-28)
+
+### Bug Fixes
+
+- ListSelector 组件增加前往配置多语言 ([0396bbe](https://github.com/hand-rongjing/polard-component-library/commit/0396bbe13f1a192cc027e13bd33de294f7f7a6a6))
+
 ### [1.5.9-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.4...v1.5.9-alpha.5) (2022-02-28)
 
 ### [1.5.9-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.3...v1.5.9-alpha.4) (2022-02-28)
