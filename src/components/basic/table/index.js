@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'dva';
+import Connect from '../../custom-connect';
 import { Table, ConfigProvider, Empty } from 'antd';
 import { Resizable } from 'react-resizable';
 
@@ -92,29 +92,19 @@ class BasicTable extends React.Component {
    * 获取当前页面表格可滚动高度
    */
   getScrollY = () => {
-    const { pageTab, currentPage } = this.props;
-    let initScrollY = 500;
+    const { currentPage } = this.props;
     try {
       const contentDom = document.querySelector(`#${currentPage.pageCode}`);
-      console.log(
-        'pageTab, currentPage：',
-        pageTab,
-        currentPage,
-        currentPage.pageCode,
-        contentDom,
-      );
       const scrollWrapDom = contentDom.parentElement; // .scroll-wrapped
-      initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
+      let initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
       const footerDom = contentDom.querySelector('.content-footer');
       if (footerDom) {
         initScrollY -= footerDom.clientHeight;
       }
-      initScrollY = initScrollY < 100 ? 100 : initScrollY;
+      return (initScrollY = initScrollY < 100 ? 100 : initScrollY);
     } catch (e) {
-      console.log(e);
-      initScrollY = 500;
+      return null;
     }
-    return initScrollY;
   };
 
   render() {
@@ -176,7 +166,7 @@ BasicTable.defaultProps = {
   columns: [],
 };
 
-export default connect(({ pageTab }) => ({
+export default Connect(({ pageTab }) => ({
   pageTab,
   currentPage: pageTab.currentPage,
 }))(BasicTable);
