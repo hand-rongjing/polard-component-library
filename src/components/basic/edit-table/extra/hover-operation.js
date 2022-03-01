@@ -187,7 +187,7 @@ export default function HoverOperation(props) {
           }
         </Menu>
       }
-      // getPopupContainer={(node) => node.parentNode}
+      getPopupContainer={(node) => node.parentNode}
       overlayStyle={{ width: 130 }}
     >
       <EditMoreSvg
