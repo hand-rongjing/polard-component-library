@@ -92,9 +92,12 @@ class BasicTable extends React.Component {
    * 获取当前页面表格可滚动高度
    */
   getScrollY = () => {
-    const { currentPage, dataSource } = this.props;
+    const { dataSource } = this.props;
     try {
       if (dataSource.length < 3) return null; // 解决表格数据少，Popover Dropdown弹出框定位问题
+      const { getState } = window?.g_app?._store || {};
+      const state = getState ? getState() : {};
+      const currentPage = state?.pageTab?.currentPage;
       const contentDom = document.querySelector(`#${currentPage.pageCode}`);
       const scrollWrapDom = contentDom.parentElement; // .scroll-wrapped
       let initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
@@ -102,13 +105,8 @@ class BasicTable extends React.Component {
       if (footerDom) {
         initScrollY -= footerDom.clientHeight;
       }
-      console.log(
-        'initScrollY',
-        initScrollY,
-        scrollWrapDom,
-        scrollWrapDom.offsetHeight,
-      );
-      return initScrollY < 100 ? 100 : initScrollY;
+      console.log('initScrollY', initScrollY, currentPage.pageCode);
+      return initScrollY < 200 ? 200 : initScrollY;
     } catch (e) {
       console.log('getScrollY error', e);
       return null;
@@ -176,7 +174,7 @@ BasicTable.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    currentPage: state?.pageTab?.currentPage,
+    // currentPage: state?.pageTab?.currentPage,
   };
 }
 
