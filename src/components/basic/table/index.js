@@ -168,7 +168,7 @@ BasicTable.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    currentPage: state.pageTab.currentPage,
+    currentPage: state?.pageTab?.currentPage,
   };
 }
 
