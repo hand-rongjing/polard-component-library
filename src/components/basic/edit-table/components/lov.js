@@ -102,7 +102,10 @@ function CustomLov(props) {
         <span
           className="edit-table-over-range"
           onClick={handleFocus}
-          style={{ minHeight: !result ? '20px' : 'unset' }}
+          style={{
+            minHeight: !result ? '20px' : 'unset',
+            display: !value ? 'inline-block' : 'inline',
+          }}
         >
           {text}
         </span>
