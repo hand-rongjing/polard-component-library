@@ -290,7 +290,19 @@ class CustomUpload extends React.Component {
    * @param {object} file 当前上传的文件
    * @returns boolean 返回boolean值决定file是否符合预期
    */
-  handleBeforeUpload = (file) => {
+  handleBeforeUpload = (file, fileList) => {
+    const { maxFileNum, fileList: originFileList } = this.state;
+    const passList = originFileList.filter(
+      (o) => o.status === 'done' || o.pass === true,
+    );
+    if (passList.length + fileList.length > maxFileNum) {
+      message.error(
+        messages('common.upload.max.num', {
+          params: { fileNum: maxFileNum },
+        }) /* 最多上传{fileNum}个文件 */,
+      );
+      return false;
+    }
     if (!this.handleCheckFileType(file.name)) return false;
     if (!this.handleCheckFileSize(file.size)) return false;
     return this.handleCheckImgSize(file)
