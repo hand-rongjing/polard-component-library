@@ -282,6 +282,7 @@ class ListSelector extends Component<IListSelectorProps, IListSelectorState> {
       hideFooter,
       diyFooter,
       canConfig,
+      toConfigText,
       onToConfigure,
       onReturn,
       okText,
@@ -295,7 +296,7 @@ class ListSelector extends Component<IListSelectorProps, IListSelectorState> {
           onClick={onToConfigure || this.cancelHandle}
           style={{ float: 'left', fontSize: 12 }}
         >
-          {messages('common.to.configuration')}&gt;&gt;
+          {toConfigText || messages('common.to.configuration')}&gt;&gt;
         </a>
       ),
       <Button key="back" onClick={this.cancelHandle}>
