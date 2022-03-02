@@ -94,7 +94,7 @@ class BasicTable extends React.Component {
   getScrollY = () => {
     const { dataSource } = this.props;
     try {
-      if (dataSource.length < 3) return null; // 解决表格数据少，Popover Dropdown弹出框定位问题
+      if (dataSource.length <= 5) return null; // 解决表格数据少，Popover Dropdown弹出框定位问题，同时避免详情页数据设置高度
       const { getState } = window?.g_app?._store || {};
       const state = getState ? getState() : {};
       const currentPage = state?.pageTab?.currentPage;
