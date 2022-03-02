@@ -125,6 +125,7 @@ export interface IListSelectorProps extends IProps {
   isRequest?: boolean;
   confirmLoading?: boolean;
   canConfig?: boolean;
+  toConfigText?: string;
   onToConfigure: () => void;
 }
 
