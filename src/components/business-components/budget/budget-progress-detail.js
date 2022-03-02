@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, Popover, Tabs } from 'antd';
 import config from 'config';
 import httpFetch from 'share/httpFetch';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, isFunction } from 'lodash';
 import { messages } from '../../utils';
 import CustomTable from '../../basic/custom-table';
 
@@ -224,7 +224,7 @@ class BudgetProgressDetail extends React.Component {
   }
 
   componentWillMount() {
-    const { baseParams } = this.props;
+    const { baseParams, onReqSuccess } = this.props;
     httpFetch
       .get(
         `${config.budgetUrl}/api/budget/reserves/all/related/control/rule/query`,
@@ -235,6 +235,9 @@ class BudgetProgressDetail extends React.Component {
           ruleList: res.data,
           currentRuleId: (res.data && res.data[0].id) || '',
         });
+        if (isFunction(onReqSuccess)) {
+          onReqSuccess()
+        }
       });
   }
 
