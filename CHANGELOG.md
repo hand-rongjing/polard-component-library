@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.9-alpha.15](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.14...v1.5.9-alpha.15) (2022-03-02)
+
+### Bug Fixes
+
+- ListSelector 组件增加前往配置按钮文字参数 ([0be44db](https://github.com/hand-rongjing/polard-component-library/commit/0be44db6ee30d77327442f33cd7eca0ca4c4e30f))
+- 附件类型定义-自定义附件上传数量 ([d2a5782](https://github.com/hand-rongjing/polard-component-library/commit/d2a5782c7af7b8ca2d9d5490a6b2ed6d9f3aa9e6))
+
 ### [1.5.9-alpha.14](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.13...v1.5.9-alpha.14) (2022-03-02)
 
 ### Bug Fixes
