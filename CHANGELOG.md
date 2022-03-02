@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.9-alpha.14](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.13...v1.5.9-alpha.14) (2022-03-02)
+
+### Bug Fixes
+
+- search-area-lov 组件的 list 类型增加参数 ([ac89ee9](https://github.com/hand-rongjing/polard-component-library/commit/ac89ee9f7d1077e4ee6f2205f6e3a7caf8aa2a59))
+
 ### [1.5.9-alpha.13](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.12...v1.5.9-alpha.13) (2022-03-02)
 
 ### Bug Fixes
