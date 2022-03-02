@@ -1383,6 +1383,7 @@ class SearchAreaLov extends React.Component {
       case 'list': {
         return (
           <Lov
+            {...item}
             placeholder={item.placeholder || messages('common.please.select')}
             disabled={item.disabled}
             code={item.listType}
@@ -1403,6 +1404,7 @@ class SearchAreaLov extends React.Component {
       case 'lov': {
         return (
           <Lov
+            {...item}
             placeholder={item.placeholder || messages('common.please.select')}
             disabled={item.disabled}
             code={item.code}
