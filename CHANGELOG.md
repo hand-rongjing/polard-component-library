@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.9-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.2...v1.5.9-beta.0) (2022-03-02)
+
+### Bug Fixes
+
+- search-area-lov 组件的 list 类型增加参数 ([ac89ee9](https://github.com/hand-rongjing/polard-component-library/commit/ac89ee9f7d1077e4ee6f2205f6e3a7caf8aa2a59))
+- 可编辑表格浮窗换行显示 ([f5c08fe](https://github.com/hand-rongjing/polard-component-library/commit/f5c08fe6aa33df31bc9f14b92240a915e9e749cf))
+- 可编辑表格级联样式修改 ([6629d5d](https://github.com/hand-rongjing/polard-component-library/commit/6629d5d3e61153f94e566f91ed912dda6342638f))
+
 ### [1.5.8-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.1...v1.5.8-beta.2) (2022-02-28)
 
 ### Bug Fixes
