@@ -672,16 +672,14 @@ class CustomTable extends Component {
         };
       } else if (item.fixed) {
         item.ellipsis = true;
-        if (item.render) {
-          const tempRender = item.render;
-          item.render = (values, record, index) => (
-            <div className="over-range">
-              {tempRender(values, record, index)}
-            </div>
-          );
-        } else {
-          item.render = (values) => <div className="over-range">{values}</div>;
-        }
+      }
+      if (item.render) {
+        const tempRender = item.render;
+        item.render = (values, record, index) => (
+          <div className="over-range">{tempRender(values, record, index)}</div>
+        );
+      } else {
+        item.render = (values) => <div className="over-range">{values}</div>;
       }
       if (item.key && !item.dataIndex) {
         item.dataIndex = item.key;
