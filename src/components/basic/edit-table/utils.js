@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-07-27 15:53:12
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-09 14:51:20
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-03-03 16:28:32
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -69,6 +69,10 @@ export function validation(rules, value) {
     }
     if ('whitespace' in rule) {
       ({ error, message } = verifyValueByWhitespace(rule, value));
+      if (error) return true;
+    }
+    if ('type' in rule) {
+      ({ error, message } = verifyValueByType(rule, value));
       if (error) return true;
     }
     return error;
@@ -197,4 +201,32 @@ function verifyValueByUserDefined(rule, value) {
     errorMsg.message = msg;
   });
   return errorMsg;
+}
+
+function verifyValueByType(rule, value) {
+  const target = isExistTransform(rule, value);
+  let error = false;
+  switch (rule.type) {
+    case 'string':
+      error = !isString(target);
+      break;
+    case 'number':
+      error = !isNumber(target);
+      break;
+    case 'boolean |url | email':
+      error = !(typeof target === 'boolean');
+      break;
+    case 'url':
+      error = !(isString(target) && /^[a-zA-z]+:\/\/[^\s]*$/.test(target));
+      break;
+    case 'email':
+      error = !(
+        isString(target) &&
+        /^\w+([-+.]\w+)*@\w+([-.]\w{2,})*\.\w{2,}([-.]\w{2,)*$/.test(target)
+      );
+      break;
+    default:
+      error = false;
+  }
+  return error ? { error: true, message: rule.message } : { error: false };
 }
