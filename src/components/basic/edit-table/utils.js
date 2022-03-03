@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-07-27 15:53:12
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-03 16:28:32
+ * @LastEditTime: 2022-03-03 16:29:54
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -213,7 +213,7 @@ function verifyValueByType(rule, value) {
     case 'number':
       error = !isNumber(target);
       break;
-    case 'boolean |url | email':
+    case 'boolean':
       error = !(typeof target === 'boolean');
       break;
     case 'url':
