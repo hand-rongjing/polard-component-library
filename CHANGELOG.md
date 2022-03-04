@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-beta.0...v1.6.0-beta.0) (2022-03-04)
+
+### Bug Fixes
+
+- ListSelector 组件增加前往配置多语言 ([0396bbe](https://github.com/hand-rongjing/polard-component-library/commit/0396bbe13f1a192cc027e13bd33de294f7f7a6a6))
+- ListSelector 组件增加前往配置按钮 ([983a42b](https://github.com/hand-rongjing/polard-component-library/commit/983a42bf85907fc9c93ae45172efa9b4421c9061))
+- ListSelector 组件增加前往配置按钮 ([d219bed](https://github.com/hand-rongjing/polard-component-library/commit/d219bedf20889f519de3508ae0655aca453347f2))
+- ListSelector 组件增加前往配置按钮文字参数 ([0be44db](https://github.com/hand-rongjing/polard-component-library/commit/0be44db6ee30d77327442f33cd7eca0ca4c4e30f))
+- 可编辑表格校验修复 ([435342e](https://github.com/hand-rongjing/polard-component-library/commit/435342eaef061342f05063962692d7e872e359be))
+- 可编辑表格校验修复 ([7735d2c](https://github.com/hand-rongjing/polard-component-library/commit/7735d2c12a41034838363bbab373f4ca5f5d5c0d))
+
 ### [1.5.9-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.2...v1.5.9-beta.0) (2022-03-02)
 
 ### Bug Fixes
