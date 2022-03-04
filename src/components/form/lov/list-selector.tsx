@@ -281,24 +281,43 @@ class ListSelector extends Component<IListSelectorProps, IListSelectorState> {
       selectedData,
       hideFooter,
       diyFooter,
+      canConfig,
+      toConfigText,
+      onToConfigure,
       onReturn,
       okText,
       cancelText,
       confirmLoading,
     } = this.props;
 
+    const defaultFoot = [
+      canConfig && (
+        <a
+          onClick={onToConfigure || this.cancelHandle}
+          style={{ float: 'left', fontSize: 12 }}
+        >
+          {toConfigText || messages('common.to.configuration')}&gt;&gt;
+        </a>
+      ),
+      <Button key="back" onClick={this.cancelHandle}>
+        {cancelText || messages('common.cancel')}
+      </Button>,
+      <Button key="submit" type="primary" loading={loading} onClick={this.onOk}>
+        {okText || messages('common.ok')}
+      </Button>,
+    ];
     const foot =
       diyFooter && hideFooter
         ? {
-            footer: (
+            footer: [
               <Button onClick={onReturn || this.cancelHandle}>
                 {messages('common.return')}
-              </Button>
-            ),
+              </Button>,
+            ],
           }
         : hideFooter
         ? { footer: null }
-        : {};
+        : { footer: defaultFoot };
 
     return (
       <Modal
