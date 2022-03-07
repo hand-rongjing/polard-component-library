@@ -644,7 +644,7 @@ class CustomTable extends Component {
               getPopupContainer={(node) => node.parentNode}
               overlayStyle={{ maxWidth: 500, wordWrap: 'break-word' }}
             >
-              <div className="over-range">{value}</div>
+              {value}
             </Popover>
           );
         };
