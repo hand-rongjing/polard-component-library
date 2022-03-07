@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-01 18:57:47
+ * @LastEditTime: 2022-03-07 15:06:50
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -171,6 +171,7 @@ export default {
   'common.period': 'Period',
   'common.budget.item': 'Budget item',
   'common.expense.type': 'Expense type',
+  'common.control.period': 'Phase control section',
   'common.company': 'Company',
   'common.company.group': 'Company group',
   'common.department': 'Department',

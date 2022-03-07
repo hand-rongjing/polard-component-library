@@ -64,6 +64,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.5.9-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-alpha.5...v1.5.9-alpha.6) (2022-02-28)
 
+## [1.6.0-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-beta.0...v1.6.0-beta.0) (2022-03-04)
+
 ### Bug Fixes
 
 - ListSelector 组件增加前往配置多语言 ([0396bbe](https://github.com/hand-rongjing/polard-component-library/commit/0396bbe13f1a192cc027e13bd33de294f7f7a6a6))
@@ -189,6 +191,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 - new-search-area 组件支持表单字段删除后同步触发其绑定的联动事件 ([29311d3](https://github.com/hand-rongjing/polard-component-library/commit/29311d3a484761e7c12ea84fb9b5b950817f3062))
 - 可编辑表格组件提供一个批量设置当前行指定单元格们的编辑状态的方法（onVolumeSetStatus） ([8e356b9](https://github.com/hand-rongjing/polard-component-library/commit/8e356b9e4b585eccac35cbe3428f93b2771f73b8))
+- ListSelector 组件增加前往配置按钮 ([983a42b](https://github.com/hand-rongjing/polard-component-library/commit/983a42bf85907fc9c93ae45172efa9b4421c9061))
+- ListSelector 组件增加前往配置按钮 ([d219bed](https://github.com/hand-rongjing/polard-component-library/commit/d219bedf20889f519de3508ae0655aca453347f2))
+- ListSelector 组件增加前往配置按钮文字参数 ([0be44db](https://github.com/hand-rongjing/polard-component-library/commit/0be44db6ee30d77327442f33cd7eca0ca4c4e30f))
+- 可编辑表格校验修复 ([435342e](https://github.com/hand-rongjing/polard-component-library/commit/435342eaef061342f05063962692d7e872e359be))
+- 可编辑表格校验修复 ([7735d2c](https://github.com/hand-rongjing/polard-component-library/commit/7735d2c12a41034838363bbab373f4ca5f5d5c0d))
 
 ### [1.5.9-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.8-beta.2...v1.5.9-beta.0) (2022-03-02)
 

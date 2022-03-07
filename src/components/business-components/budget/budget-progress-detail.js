@@ -63,9 +63,7 @@ class BudgetProgressDetail extends React.Component {
           render: (record) => <Popover content={record}>{record}</Popover>,
         },
         {
-          title: messages(
-            'budget.strategy.detail.control.period',
-          ) /* 控制期段 */,
+          title: messages('common.control.period') /* 控制期段 */,
           dataIndex: 'periodStrategy',
           align: 'left',
           width: '10%',
@@ -236,7 +234,7 @@ class BudgetProgressDetail extends React.Component {
           currentRuleId: (res.data && res.data[0].id) || '',
         });
         if (isFunction(onReqSuccess)) {
-          onReqSuccess()
+          onReqSuccess();
         }
       });
   }
