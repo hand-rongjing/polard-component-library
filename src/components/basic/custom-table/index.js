@@ -1130,11 +1130,23 @@ class CustomTable extends Component {
           bordered={!headSettingKey}
           onChange={this.tableChange}
           onRow={(record) => {
+            const userDefOns = typeof onRow === 'function' ? onRow(record) : {}
             return {
-              ...(typeof onRow === 'function' ? onRow(record) : {}),
+              ...userDefOns,
+              onMouseDown: (...args) => {
+                this.mouseDownTime = new Date()
+                if (userDefOns.onMouseDown) {
+                  userDefOns.onMouseDown(...args)
+                }
+              },
               onClick: () => {
-                if (onClick) {
-                  onClick(record);
+                const now = new Date()
+                console.log('onClick delay', now - this.mouseDownTime)
+                // 超过 300ms 认为是在选择复制, 不触发 onClick
+                if (now - this.mouseDownTime < 300) {
+                  if (onClick) {
+                    onClick(record);
+                  }
                 }
               },
             };
