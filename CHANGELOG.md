@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.3...v1.6.0-alpha.4) (2022-03-07)
+
+### Bug Fixes
+
+- 附件上传按钮组件增加附件类型控制 ([2c5b119](https://github.com/hand-rongjing/polard-component-library/commit/2c5b119c29082e21e6b1b26181dc8d6c793a49f1))
+
 ## [1.6.0-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.2...v1.6.0-alpha.3) (2022-03-07)
 
 ### Bug Fixes
