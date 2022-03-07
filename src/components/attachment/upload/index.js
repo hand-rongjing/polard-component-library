@@ -569,6 +569,7 @@ CustomUpload.defaultProps = {
   unitSize: 'MB',
   fileSize: 100,
   lowerLimitFileSize: 0,
+  fileNum: undefined,
   extensionName: '.rar .zip .doc .docx .pdf .jpg .jpeg .png .txt .xls .xlsx...',
   extensions: [],
   defaultOids: [],

@@ -17,11 +17,21 @@ class UploadButton extends React.Component {
       valueList: [],
       defaultListTag: true,
       visible: true,
+      maxFileNum: 0, // 限制文件数量
+      lowerLimitSize: 0, // 限制文件最小大小
+      upperLimitSize: 0, // 限制文件最大大小
+      sizeUnit: 'MB', // 文件大小单位
     };
     this.sizeMap = {
       MB: 2,
       KB: 1,
       B: 0,
+    };
+    this.sizeUnitList = {
+      // 附件大小单位
+      1001: 'MB',
+      1002: 'KB',
+      1003: 'GB',
     };
   }
 
@@ -51,6 +61,47 @@ class UploadButton extends React.Component {
       );
     }
   }
+
+  getAttachmentTypeConfig = () => {
+    const {
+      attachmentType,
+      useCustomConfig,
+      fileNum,
+      fileSize,
+      lowerLimitFileSize,
+      unitSize,
+    } = this.props;
+    httpFetch
+      .get(
+        `${config.fileUrl}/api/attachment/type/query/code?attachmentType=${attachmentType}`,
+      )
+      .then((res) => {
+        console.log(res);
+        if (useCustomConfig) {
+          this.setState({
+            maxFileNum: fileNum,
+            lowerLimitSize: lowerLimitFileSize, // 限制文件最小大小
+            upperLimitSize: fileSize, // 限制文件最大大小
+            sizeUnit: unitSize, // 文件大小单位
+          });
+        } else {
+          this.setState({
+            maxFileNum: res.data.attachmentCount,
+            lowerLimitSize: res.data.lowerLimit, // 限制文件最小大小
+            upperLimitSize: res.data.upperLimit, // 限制文件最大大小
+            sizeUnit: this.sizeUnitList[res.data.sizeUnit || '1001'], // 文件大小单位
+          });
+        }
+      })
+      .catch(() => {
+        this.setState({
+          maxFileNum: fileNum,
+          lowerLimitSize: lowerLimitFileSize, // 限制文件最小大小
+          upperLimitSize: fileSize, // 限制文件最大大小
+          sizeUnit: unitSize, // 文件大小单位
+        });
+      });
+  };
 
   checkUploadIsDone = () => {
     const { fileList } = this.state;
@@ -150,20 +201,37 @@ class UploadButton extends React.Component {
    * @returns boolean 返回 false 则停止上传
    */
   handleCheckFileSize = (size) => {
-    const { fileSize, unitSize } = this.props;
-    // size 单位是 B
-    const isLt = size / 1024 ** this.sizeMap[unitSize] <= fileSize;
-    if (!isLt) {
-      message.error(
-        messages('common.attachment.size.limit', {
-          params: {
-            size: fileSize,
-            unit: unitSize,
-          },
-        }),
-      );
+    const { lowerLimitSize, upperLimitSize, sizeUnit } = this.state;
+    if (upperLimitSize) {
+      // size 单位是 B
+      const isInMax = size / 1024 ** this.sizeMap[sizeUnit] <= upperLimitSize;
+      if (!isInMax) {
+        message.error(
+          messages('common.attachment.size.limit', {
+            params: {
+              size: upperLimitSize,
+              unit: sizeUnit,
+            },
+          }),
+        );
+        return false;
+      }
     }
-    return isLt;
+    if (lowerLimitSize) {
+      const isInMin = size / 1024 ** this.sizeMap[sizeUnit] >= lowerLimitSize;
+      if (!isInMin) {
+        message.error(
+          messages('common.attachment.size.lower', {
+            params: {
+              size: lowerLimitSize,
+              unit: sizeUnit,
+            },
+          }),
+        );
+        return false;
+      }
+    }
+    return true;
   };
 
   /**
@@ -195,7 +263,19 @@ class UploadButton extends React.Component {
    * @param {object} file 当前上传的文件
    * @returns boolean 返回boolean值决定file是否符合预期
    */
-  handleBeforeUpload = async (file) => {
+  handleBeforeUpload = async (file, fileList) => {
+    const { maxFileNum, fileList: originFileList } = this.state;
+    const passList = originFileList.filter(
+      (o) => o.status === 'done' || o.pass === true,
+    );
+    if (passList.length + fileList.length > maxFileNum) {
+      message.error(
+        messages('common.upload.max.num', {
+          params: { fileNum: maxFileNum },
+        }) /* 最多上传{fileNum}个文件 */,
+      );
+      return false;
+    }
     if (!this.handleCheckFileType(file.name)) return false;
     if (!this.handleCheckFileSize(file.size)) return false;
     return this.handleCheckImgSize(file)
@@ -331,9 +411,9 @@ class UploadButton extends React.Component {
    * @returns array 截取后的数组
    */
   handleCutArray = (list) => {
-    const { fileNum } = this.props;
-    if (fileNum) {
-      return list.slice(parseInt(`-${fileNum}`, 10));
+    const { maxFileNum } = this.state;
+    if (maxFileNum) {
+      return list.slice(parseInt(`-${maxFileNum}`, 10));
     }
     return list;
   };
@@ -530,6 +610,7 @@ class UploadButton extends React.Component {
 }
 
 // UploadButton.propTypes = {
+//   useCustomConfig: PropTypes.bool, // 是否使用客制化配置，该参数主要用来判断附件大小、数量、单位是否采用组件传入的参数，false表示采用数据库中的附件类型配置信息，true则采用组件传入的信息
 //   uploadUrl: PropTypes.string, // 上传URL
 //   disabled: PropTypes.bool, // 是否禁用, 禁用时会隐藏掉上传按钮
 //   valueKey: PropTypes.string, // 指定使用附件的唯一值字段，默认使用id，原使用attachmentOid
@@ -563,6 +644,7 @@ class UploadButton extends React.Component {
 // };
 // 理论上讲disabled,hideArrow,noZoom 都用于了显隐当前组件的一部分，不知道原来是出于什么样的考虑这样做
 UploadButton.defaultProps = {
+  useCustomConfig: false,
   uploadUrl: `${config.fileUrl}/api/upload/attachment`,
   disabled: false,
   valueKey: 'id',
@@ -573,7 +655,7 @@ UploadButton.defaultProps = {
   hideButtonIcon: false,
   buttonText: '',
   buttonClass: '',
-  attachmentType: '',
+  attachmentType: 'default',
   pkValue: '',
   bucketName: '',
   pkName: '',
@@ -589,6 +671,7 @@ UploadButton.defaultProps = {
   compressionSize: 0.3, // 超过0.3m才压缩
   unitSize: 'MB',
   fileSize: 500,
+  lowerLimitFileSize: 0,
   fileNum: undefined,
   extensions: undefined, // 用法： ["png","jpg","jpeg"], 不传则默认接受所有
   uploadHandleFileList: undefined,
