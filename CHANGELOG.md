@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-beta.0...v1.6.0-beta.1) (2022-03-07)
+
+### Bug Fixes
+
+- 解决冲突 ([67d4aba](https://github.com/hand-rongjing/polard-component-library/commit/67d4aba4a62cdee7d6a126d012e4596f24d07662))
+- 附件上传按钮组件增加附件类型控制 ([2c5b119](https://github.com/hand-rongjing/polard-component-library/commit/2c5b119c29082e21e6b1b26181dc8d6c793a49f1))
+- 附件上传按钮组件增加附件类型控制 ([26af15f](https://github.com/hand-rongjing/polard-component-library/commit/26af15f3952f3ede13083dc1b9652d719b50cea3))
+- 附件上传按钮组件增加附件类型控制 ([01a585a](https://github.com/hand-rongjing/polard-component-library/commit/01a585a760172059d45479db73d8718e7639abba))
+- 附件上传提示优化 ([31c2e3b](https://github.com/hand-rongjing/polard-component-library/commit/31c2e3b719adb324ab223fe8b7dd148e39a913d9))
+- 附件类型定义-自定义附件上传数量 ([d2a5782](https://github.com/hand-rongjing/polard-component-library/commit/d2a5782c7af7b8ca2d9d5490a6b2ed6d9f3aa9e6))
+- 附件类型定义-自定义附件上传数量 ([32edce1](https://github.com/hand-rongjing/polard-component-library/commit/32edce19a3b14c128d0fb69208418caa304c02d4))
+
 ## [1.6.0-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.9-beta.0...v1.6.0-beta.0) (2022-03-04)
 
 ### Bug Fixes
