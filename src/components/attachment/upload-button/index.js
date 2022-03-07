@@ -39,6 +39,7 @@ class UploadButton extends React.Component {
     const { defaultFileList, defaultOids } = this.props;
     this.setState({ fileList: defaultFileList, valueList: defaultOids });
     this.handleSetValueList(defaultFileList, defaultOids);
+    this.getAttachmentTypeConfig();
   }
 
   componentWillReceiveProps(nextProps) {
