@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-02-28 17:56:37
+ * @LastEditTime: 2022-03-07 18:07:32
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -83,7 +83,9 @@ export default {
   'common.size.big.warning': 'Size Cannot Be Greater Than',
   'common.size.small.warning': 'Size Cannot Be Less Than',
   'common.attachment.size.limit':
-    'Please select an attachment less than {size} {unit}',
+    'Please select an attachment less than {size}{unit}',
+  'common.attachment.size.lower':
+    'Please select an attachment larger than {size}{unit}',
   'common.upload.failed.reason':
     'Upload Failed. The Current Attachment Type Format Setting Does Not Support This Kind Of Attachment Format Upload',
   'common.upload.success': 'Uploaded successfully',
@@ -240,4 +242,13 @@ export default {
   'common.input.name.or.code': 'Please enter a code or name',
   'chooser.data.company': 'Choose the company',
   'common.to.configuration': 'To configure',
+  'common.upload.max.num': 'Upload up to {filenum} files',
+  'common.size.of.attachment':
+    'The size of each attachment is {upperlimitsize}{unit}',
+  'common.size.of.attachment.within':
+    'The size of each attachment is within {lowerlimitsize}{unit} ~ {upperlimitsize}{unit}',
+  'common.size.of.attachment.not.less.than':
+    'The size of each attachment shall not be less than {lowerlimitsize}{unit}',
+  'common.size.of.attachment.in':
+    'The size of each attachment is within {upperlimitsize}{unit}',
 };
