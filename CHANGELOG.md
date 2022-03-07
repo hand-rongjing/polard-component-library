@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.4...v1.6.0-alpha.5) (2022-03-07)
+
+### Bug Fixes
+
+- 解决冲突 ([573050d](https://github.com/hand-rongjing/polard-component-library/commit/573050d55ef883bb958df662eb964c9bd36a466e))
+- 附件上传提示优化 ([31c2e3b](https://github.com/hand-rongjing/polard-component-library/commit/31c2e3b719adb324ab223fe8b7dd148e39a913d9))
+- 预算进度增加多语言 ([efa8b9d](https://github.com/hand-rongjing/polard-component-library/commit/efa8b9da0602e014ecd6e661a3eb6be723dde97a))
+
+## [1.6.0-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.1...v1.6.0-beta.0) (2022-03-04)
+
 ## [1.6.0-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.3...v1.6.0-alpha.4) (2022-03-07)
 
 ### Bug Fixes
