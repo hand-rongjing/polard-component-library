@@ -666,7 +666,7 @@ class CustomTable extends Component {
               getPopupContainer={(node) => node.parentNode}
               overlayStyle={{ maxWidth: 500, wordWrap: 'break-word' }}
             >
-              <div className="over-range">{value}</div>
+              {value}
             </Popover>
           );
         };
@@ -1130,18 +1130,18 @@ class CustomTable extends Component {
           bordered={!headSettingKey}
           onChange={this.tableChange}
           onRow={(record) => {
-            const userDefOns = typeof onRow === 'function' ? onRow(record) : {}
+            const userDefOns = typeof onRow === 'function' ? onRow(record) : {};
             return {
               ...userDefOns,
               onMouseDown: (...args) => {
-                this.mouseDownTime = new Date()
+                this.mouseDownTime = new Date();
                 if (userDefOns.onMouseDown) {
-                  userDefOns.onMouseDown(...args)
+                  userDefOns.onMouseDown(...args);
                 }
               },
               onClick: () => {
-                const now = new Date()
-                console.log('onClick delay', now - this.mouseDownTime)
+                const now = new Date();
+                console.log('onClick delay', now - this.mouseDownTime);
                 // 超过 300ms 认为是在选择复制, 不触发 onClick
                 if (now - this.mouseDownTime < 300) {
                   if (onClick) {
