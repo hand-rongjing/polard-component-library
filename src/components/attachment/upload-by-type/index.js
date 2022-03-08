@@ -278,13 +278,20 @@ class UploadByType extends React.Component {
   };
 
   // 附件上传前的钩子函数
-  beforeUpload = (file) => {
+  beforeUpload = (file, fileList = []) => {
     const {
-      fileList,
+      fileList: originFileList,
       accept,
-      params: { formatFlag, sizeFlag, upperLimit, lowerLimit, sizeUnit },
+      params: {
+        formatFlag,
+        sizeFlag,
+        upperLimit,
+        lowerLimit,
+        sizeUnit,
+        attachmentCount,
+      },
     } = this.state;
-    const { fileNum } = this.props;
+    // const { fileNum } = this.props;
     const curUnit = sizeUnit ? sizeDes[sizeUnit] : 'MB';
     const dividend = sizeUnit ? sizeDividend[sizeUnit] : 1024;
     const isLimitUpper = sizeFlag || file.size / dividend <= upperLimit;
@@ -292,14 +299,17 @@ class UploadByType extends React.Component {
     const fileName = file.name || file.fileName || '';
     const fileType = fileName.split('.').pop().toLowerCase();
     const isType = formatFlag || accept.split(',').includes(`.${fileType}`);
-    const isLimitNum = fileList.length < fileNum;
+    const isLimitNum =
+      !attachmentCount ||
+      originFileList.length + fileList?.length <= attachmentCount;
     if (!isLimitNum) {
-      message.error(
-        `${fileName} ${messages('common.upload.num', {
-          params: { num: fileNum },
-        })}`,
-      );
-      // 上传失败，最多上传${fileNum}个附件
+      if (file.uid === fileList[0].uid) {
+        message.error(
+          `${fileName} ${messages('common.upload.num', {
+            params: { num: attachmentCount },
+          })}`,
+        ); // 上传失败，最多上传${fileNum}个附件
+      }
     } else if (!isType) {
       message.error(`${fileName} ${messages('common.upload.failed.reason')}`);
       // 上传失败，当前附件类型格式设置不支持此类附件格式上传
@@ -421,7 +431,7 @@ class UploadByType extends React.Component {
 }
 
 // UploadByType.propTypes = {
-//   params: PropTypes.object.isRequired, // 附件类型相关信息（类型名称，代码，格式，附件大小等信息）
+//   params: PropTypes.object.isRequired, // 附件类型相关信息（类型名称，代码，格式，附件大小, 附件数量等信息）
 //   pkName: PropTypes.string.isRequired, // 上传时的参数
 //   attachmentType: PropTypes.string, // 上传时的参数
 //   pkValue: PropTypes.string, // 上传时的参数
@@ -445,7 +455,7 @@ UploadByType.defaultProps = {
   disabled: false,
   isUseAttachmentId: false,
   uploadHandle: () => {},
-  fileNum: Infinity, // Infinity
+  // fileNum: Infinity, // Infinity
   noDelete: false,
   bucketName: undefined,
   required: false,
