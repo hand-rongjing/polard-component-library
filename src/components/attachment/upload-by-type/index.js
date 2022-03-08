@@ -305,7 +305,7 @@ class UploadByType extends React.Component {
     if (!isLimitNum) {
       if (file.uid === fileList[0].uid) {
         message.error(
-          `${fileName} ${messages('common.upload.num', {
+          `${messages('common.upload.num', {
             params: { num: attachmentCount },
           })}`,
         ); // 上传失败，最多上传${fileNum}个附件
