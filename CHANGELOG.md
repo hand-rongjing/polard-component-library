@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0-beta.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.0...v1.6.0-beta.3) (2022-03-09)
+
+### Bug Fixes
+
+- 表格设置列样式修改 ([09bcfa4](https://github.com/hand-rongjing/polard-component-library/commit/09bcfa414add081041934495ffe605b8b705f8a8))
+- 附件类型定义-自定义附件上传数量 ([d2a5782](https://github.com/hand-rongjing/polard-component-library/commit/d2a5782c7af7b8ca2d9d5490a6b2ed6d9f3aa9e6))
+- 附件类型定义-自定义附件上传数量 ([32edce1](https://github.com/hand-rongjing/polard-component-library/commit/32edce19a3b14c128d0fb69208418caa304c02d4))
+- 附件上传按钮组件增加附件类型控制 ([2c5b119](https://github.com/hand-rongjing/polard-component-library/commit/2c5b119c29082e21e6b1b26181dc8d6c793a49f1))
+- 附件上传按钮组件增加附件类型控制 ([26af15f](https://github.com/hand-rongjing/polard-component-library/commit/26af15f3952f3ede13083dc1b9652d719b50cea3))
+- 附件上传按钮组件增加附件类型控制 ([01a585a](https://github.com/hand-rongjing/polard-component-library/commit/01a585a760172059d45479db73d8718e7639abba))
+- 附件上传提示优化 ([31c2e3b](https://github.com/hand-rongjing/polard-component-library/commit/31c2e3b719adb324ab223fe8b7dd148e39a913d9))
+- 解决冲突 ([67d4aba](https://github.com/hand-rongjing/polard-component-library/commit/67d4aba4a62cdee7d6a126d012e4596f24d07662))
+- 解决冲突 ([52c41ee](https://github.com/hand-rongjing/polard-component-library/commit/52c41ee6e3bdce843b41653cd1a377840e319486))
+- 解决冲突 ([8abedcf](https://github.com/hand-rongjing/polard-component-library/commit/8abedcfaf04af69f871891129271d28d97f0fe66))
+- 解决冲突 ([5dd7eb0](https://github.com/hand-rongjing/polard-component-library/commit/5dd7eb01f79494cec05e59b32edd446213608f46))
+- 可编辑表格浮窗换行显示 ([f5c08fe](https://github.com/hand-rongjing/polard-component-library/commit/f5c08fe6aa33df31bc9f14b92240a915e9e749cf))
+- 可编辑表格级联样式修改 ([6629d5d](https://github.com/hand-rongjing/polard-component-library/commit/6629d5d3e61153f94e566f91ed912dda6342638f))
+- 可编辑表格校验修复 ([435342e](https://github.com/hand-rongjing/polard-component-library/commit/435342eaef061342f05063962692d7e872e359be))
+- 可编辑表格校验修复 ([7735d2c](https://github.com/hand-rongjing/polard-component-library/commit/7735d2c12a41034838363bbab373f4ca5f5d5c0d))
+- 可编辑表格增加缓存 ([96769d4](https://github.com/hand-rongjing/polard-component-library/commit/96769d45278063b77943aa9a399259043c763ab8))
+- 可编辑表格增加缓存 ([32d2be7](https://github.com/hand-rongjing/polard-component-library/commit/32d2be7cd0c9b1a1c4e1965277599d98bfa1ba1b))
+- 可编辑表格 lov 的 label 取值优化 ([77538a7](https://github.com/hand-rongjing/polard-component-library/commit/77538a7113a04a15863d01c8f2fc8c05e9fbaecd))
+- 可编辑表格 lov 的 label 取值优化 ([8dd2504](https://github.com/hand-rongjing/polard-component-library/commit/8dd250456328bb863e3be6a9c59e0ad3a4b95e28))
+- 同步打开列设置时 选了序列号 但是不在列设置中的问题 ([71bd8c0](https://github.com/hand-rongjing/polard-component-library/commit/71bd8c0515c128b02aef88a294dfe1a6bf81b548))
+- 文件预览新增 xls ([5c9e82c](https://github.com/hand-rongjing/polard-component-library/commit/5c9e82c5569be7a03bd92435eb4f1a12cbdd5f64))
+- ie 浏览器搜素条件下拉显示错位 ([60f0c1a](https://github.com/hand-rongjing/polard-component-library/commit/60f0c1a49f5bbdd13f277f0e51d914022a9808aa))
+- ie 浏览器搜素条件下拉显示错位 ([754d1ba](https://github.com/hand-rongjing/polard-component-library/commit/754d1ba2dd647c410e59dd71addfcee686256206))
+- ie 日期搜索条件样式修改 ([0d93951](https://github.com/hand-rongjing/polard-component-library/commit/0d939519723718cce6a4e08cd695a019e0bb084d))
+- ie 日期搜索条件样式修改 ([e3f6bc8](https://github.com/hand-rongjing/polard-component-library/commit/e3f6bc8a1869a34102572980ad71b7b486ffbbdd))
+- ie 日期搜索条件样式修改 ([f7bd875](https://github.com/hand-rongjing/polard-component-library/commit/f7bd87540e438f4afd6f16021fde979802edeed1))
+- ListSelector 组件增加前往配置按钮 ([983a42b](https://github.com/hand-rongjing/polard-component-library/commit/983a42bf85907fc9c93ae45172efa9b4421c9061))
+- ListSelector 组件增加前往配置按钮 ([d219bed](https://github.com/hand-rongjing/polard-component-library/commit/d219bedf20889f519de3508ae0655aca453347f2))
+- ListSelector 组件增加前往配置按钮文字参数 ([0be44db](https://github.com/hand-rongjing/polard-component-library/commit/0be44db6ee30d77327442f33cd7eca0ca4c4e30f))
+- ListSelector 组件增加前往配置多语言 ([0396bbe](https://github.com/hand-rongjing/polard-component-library/commit/0396bbe13f1a192cc027e13bd33de294f7f7a6a6))
+- lov 下拉分页问题修复 ([8778314](https://github.com/hand-rongjing/polard-component-library/commit/8778314fde430e761671c2e012048599dd7dd056))
+- search-area-lov 组件的 list 类型增加参数 ([ac89ee9](https://github.com/hand-rongjing/polard-component-library/commit/ac89ee9f7d1077e4ee6f2205f6e3a7caf8aa2a59))
+
 ## [1.6.0-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-beta.1...v1.6.0-beta.2) (2022-03-08)
 
 ## [1.6.0-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-beta.0...v1.6.0-beta.1) (2022-03-07)
