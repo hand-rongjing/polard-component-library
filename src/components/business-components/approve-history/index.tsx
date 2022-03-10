@@ -377,7 +377,9 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
                     ? `${item.createdByName ? item.createdByName : ''}${
                         item.createdByCode ? '-' + item.createdByCode : ''
                       }`
-                    : `${item.userName}-${item.userCode}`}
+                    : `${item.userName ? item.userName : ''}${
+                        item.userCode ? `-${item.userCode}` : ''
+                      }`}
                 </span>
               </div>
               {description ? (
