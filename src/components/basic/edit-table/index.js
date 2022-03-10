@@ -1000,7 +1000,10 @@ class EditTable extends Component {
       this._dataSource.splice(index, 1);
       this.originDataSource.splice(index, 1);
       pagination.total -= 1;
-      pagination.pageSize = 10;
+      if (record._isCopy) {
+        // 复制行，取消保存，恢复pageSize
+        pagination.pageSize -= 1;
+      }
       this.setState({ dataSource: _dataSource, pagination });
       /**
        * 重构时发现之前有人写了以下代码，只处理了新建状态下，回抛dataSource
@@ -1338,6 +1341,7 @@ class EditTable extends Component {
     this.id -= 1;
     const rowFormData = { ...row };
     rowFormData._status = 'NEW';
+    rowFormData._isCopy = true;
     rowFormData[rowKey] = String(this.id);
     dataSource.splice(index + 1, 0, rowFormData);
     pagination.total += 1;
@@ -1598,7 +1602,7 @@ class EditTable extends Component {
   // callback 只在单元格编辑失焦时调用该方法时会存在此函数，用于将当前单元格切换成文本状态
   okRowHandle = (record, index, callback) => {
     const { rowKey, onRowSave } = this.props;
-    const { pagination, cellStatusMap } = this.state;
+    const { cellStatusMap } = this.state;
     // const curRecordErrorInfo = this.errorMap[record[rowKey]];
     // if (curRecordErrorInfo && Object.keys(curRecordErrorInfo).length) return;
 
@@ -1617,8 +1621,7 @@ class EditTable extends Component {
         { ...record, ...values },
         record.id > 0 ? 'EDIT' : 'NEW',
         (value) => {
-          pagination.pageSize = 10;
-          this.setState({ loading: false, pagination });
+          this.setState({ loading: false });
           if (!value) return;
 
           // 遍历 cellStatusMap
