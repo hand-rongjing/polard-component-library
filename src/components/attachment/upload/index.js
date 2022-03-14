@@ -17,12 +17,63 @@ class CustomUpload extends React.Component {
     this.state = {
       fileList: props.defaultFileList || [], // 受控，上传的文件数据集，回抛外部
       valueList: props.defaultOids || [], // 兼容以前组件设定的字段名，存放附件的id/oid list
+      maxFileNum: 0, // 限制文件数量
+      lowerLimitSize: 0, // 限制文件最小大小
+      upperLimitSize: 0, // 限制文件最大大小
+      sizeUnit: 'MB', // 文件大小单位
     };
     this.sizeMap = {
       MB: 2,
       KB: 1,
       B: 0,
     };
+    this.sizeUnitList = {
+      // 附件大小单位
+      1001: 'MB',
+      1002: 'KB',
+      1003: 'GB',
+    };
+  }
+
+  componentDidMount() {
+    const {
+      attachmentType,
+      useCustomConfig,
+      fileNum,
+      fileSize,
+      lowerLimitFileSize,
+      unitSize,
+    } = this.props;
+    httpFetch
+      .get(
+        `${config.fileUrl}/api/attachment/type/query/code?attachmentType=${attachmentType}`,
+      )
+      .then((res) => {
+        console.log(res);
+        if (useCustomConfig) {
+          this.setState({
+            maxFileNum: fileNum,
+            lowerLimitSize: lowerLimitFileSize, // 限制文件最小大小
+            upperLimitSize: fileSize, // 限制文件最大大小
+            sizeUnit: unitSize, // 文件大小单位
+          });
+        } else {
+          this.setState({
+            maxFileNum: res.data.attachmentCount,
+            lowerLimitSize: res.data.lowerLimit, // 限制文件最小大小
+            upperLimitSize: res.data.upperLimit, // 限制文件最大大小
+            sizeUnit: this.sizeUnitList[res.data.sizeUnit || '1001'], // 文件大小单位
+          });
+        }
+      })
+      .catch(() => {
+        this.setState({
+          maxFileNum: fileNum,
+          lowerLimitSize: lowerLimitFileSize, // 限制文件最小大小
+          upperLimitSize: fileSize, // 限制文件最大大小
+          sizeUnit: unitSize, // 文件大小单位
+        });
+      });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -74,9 +125,35 @@ class CustomUpload extends React.Component {
    */
   renderAppearance = () => {
     const { extensionName, onFaceLift } = this.props;
+    const { maxFileNum, lowerLimitSize, upperLimitSize, sizeUnit } = this.state;
     // onFaceLift(): 支持外部重定义UI视觉，需要返回reactDom节点
     if (typeof onFaceLift === 'function') {
       return onFaceLift();
+    }
+    let fileSizeMsg = '';
+    if (lowerLimitSize && upperLimitSize) {
+      fileSizeMsg =
+        lowerLimitSize === upperLimitSize
+          ? messages(
+              'common.size.of.attachment',
+              {
+                params: { upperLimitSize, unit: sizeUnit },
+              } /* 每个附件大小为{upperLimitSize}{unit} */,
+            )
+          : messages(
+              'common.size.of.attachment.within',
+              {
+                params: { upperLimitSize, lowerLimitSize, unit: sizeUnit },
+              } /* 每个附件大小在{lowerLimitSize}{unit}~{upperLimitSize}{unit}以内 */,
+            );
+    } else if (lowerLimitSize) {
+      fileSizeMsg = messages('common.size.of.attachment.not.less.than', {
+        params: { lowerLimitSize, unit: sizeUnit },
+      }); /* 每个附件大小不小于{lowerLimitSize}{unit} */
+    } else if (upperLimitSize) {
+      fileSizeMsg = messages('common.size.of.attachment.in', {
+        params: { upperLimitSize, unit: sizeUnit },
+      }); /* 每个附件大小在{upperLimitSize}{unit}以内 */
     }
     return (
       <Fragment>
@@ -89,6 +166,14 @@ class CustomUpload extends React.Component {
         <p className="ant-upload-hint">
           {messages('common.upload.support.ext') /* 支持扩展名 */}：
           {extensionName}
+        </p>
+        <p className="ant-upload-hint">
+          {maxFileNum > 0 &&
+            `${
+              messages('common.upload.max.num', {
+                params: { fileNum: maxFileNum },
+              }) /* 最多上传{fileNum}个文件 */
+            }${fileSizeMsg ? ', ' : ''}${fileSizeMsg}`}
         </p>
       </Fragment>
     );
@@ -148,20 +233,37 @@ class CustomUpload extends React.Component {
    * @returns boolean 返回 false 则停止上传
    */
   handleCheckFileSize = (size) => {
-    const { fileSize, unitSize } = this.props;
-    // size 单位是 B
-    const isLt = size / 1024 ** this.sizeMap[unitSize] <= fileSize;
-    if (!isLt) {
-      message.error(
-        messages('common.attachment.size.limit', {
-          params: {
-            size: fileSize,
-            unit: unitSize,
-          },
-        }),
-      );
+    const { lowerLimitSize, upperLimitSize, sizeUnit } = this.state;
+    if (upperLimitSize) {
+      // size 单位是 B
+      const isInMax = size / 1024 ** this.sizeMap[sizeUnit] <= upperLimitSize;
+      if (!isInMax) {
+        message.error(
+          messages('common.attachment.size.limit', {
+            params: {
+              size: upperLimitSize,
+              unit: sizeUnit,
+            },
+          }),
+        );
+        return false;
+      }
     }
-    return isLt;
+    if (lowerLimitSize) {
+      const isInMin = size / 1024 ** this.sizeMap[sizeUnit] >= lowerLimitSize;
+      if (!isInMin) {
+        message.error(
+          messages('common.attachment.size.lower', {
+            params: {
+              size: lowerLimitSize,
+              unit: sizeUnit,
+            },
+          }),
+        );
+        return false;
+      }
+    }
+    return true;
   };
 
   /**
@@ -188,7 +290,22 @@ class CustomUpload extends React.Component {
    * @param {object} file 当前上传的文件
    * @returns boolean 返回boolean值决定file是否符合预期
    */
-  handleBeforeUpload = (file) => {
+  handleBeforeUpload = (file, fileList) => {
+    const { maxFileNum, fileList: originFileList } = this.state;
+    const passList = originFileList.filter(
+      (o) => o.status === 'done' || o.pass === true,
+    );
+    if (passList.length + fileList.length > maxFileNum) {
+      if (file.uid === fileList[0].uid) {
+        // 如果存在同时上传多个文件时，只在第一个文件判断时作出提示，避免这个提示出现多次
+        message.error(
+          messages('common.upload.max.num', {
+            params: { fileNum: maxFileNum },
+          }) /* 最多上传{fileNum}个文件 */,
+        );
+      }
+      return false;
+    }
     if (!this.handleCheckFileType(file.name)) return false;
     if (!this.handleCheckFileSize(file.size)) return false;
     return this.handleCheckImgSize(file)
@@ -312,9 +429,9 @@ class CustomUpload extends React.Component {
    * @returns array 截取后的数组
    */
   handleCutArray = (list) => {
-    const { fileNum } = this.props;
-    if (fileNum) {
-      return list.slice(parseInt(`-${fileNum}`, 10));
+    const { maxFileNum } = this.state;
+    if (maxFileNum) {
+      return list.slice(parseInt(`-${maxFileNum}`, 10));
     }
     return list;
   };
@@ -415,6 +532,7 @@ class CustomUpload extends React.Component {
 }
 
 // CustomUpload.propTypes = {
+// useCustomConfig: PropTypes.bool, // 是否使用客制化配置，该参数主要用来判断附件大小、数量、单位是否采用组件传入的参数，false表示采用数据库中的附件类型配置信息，true则采用组件传入的信息
 //   uploadUrl: PropTypes.string, // 上传URL
 //   disabled: PropTypes.bool, // 是否禁用组件
 //   defaultFileList: PropTypes.array, // 默认上传的文件列表，每项必须包含：uid，name
@@ -439,11 +557,12 @@ class CustomUpload extends React.Component {
 //   defaultOids: PropTypes.array,
 // };
 CustomUpload.defaultProps = {
+  useCustomConfig: false,
   uploadUrl: `${config.fileUrl}/api/upload/static/attachment`,
   disabled: false,
   defaultFileList: [],
   uploadHandle: () => {},
-  attachmentType: '',
+  attachmentType: 'default',
   pkName: '',
   pkValue: '',
   style: {},
@@ -452,6 +571,8 @@ CustomUpload.defaultProps = {
   needAllResponse: false,
   unitSize: 'MB',
   fileSize: 100,
+  lowerLimitFileSize: 0,
+  fileNum: undefined,
   extensionName: '.rar .zip .doc .docx .pdf .jpg .jpeg .png .txt .xls .xlsx...',
   extensions: [],
   defaultOids: [],

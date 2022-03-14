@@ -16,6 +16,18 @@ import SettingSvg from './images/setting';
 import './style.less';
 import { messages } from '../../utils';
 
+const isHaveSortColumn = (columns, showNumber, sortColumn) => {
+  // 判断一下 序号列在不在
+  const isSortColumn = columns.findIndex((item) => item.dataIndex === 'sort');
+  if (isSortColumn < 0) {
+    if (showNumber) {
+      // 序号列不在 在看有没有配置 showNumber
+      columns.unshift(sortColumn);
+    }
+  }
+  return columns;
+};
+
 /**
  * 表格行操作菜单，鼠标移入才显示
  */
@@ -76,8 +88,9 @@ export function OperateMenus(props) {
  */
 
 export function HeaderSettingsDropDown(props) {
-  const { columns, tableColumns, onChange } = props;
+  const { columns, tableColumns, onChange, sortColumn, showNumber } = props;
   const [fixedColumns, setFixedColumns] = useState({ left: [], right: [] });
+  const [cacheColumns, setCacheColumns] = useState([]);
 
   // 获取 固定在 左边和右边的选项
   // 当 columns 改变的时候 触发这个函数
@@ -89,6 +102,7 @@ export function HeaderSettingsDropDown(props) {
       else if (col.fixed === 'right') right.push(col.dataIndex);
     });
     setFixedColumns({ left, right });
+    formatColumns(columns);
   }, [columns]);
 
   // 获取 必选项，提前渲染出来
@@ -159,21 +173,13 @@ export function HeaderSettingsDropDown(props) {
     // 重排cols顺序
     const left = [];
     const right = [];
-    let temp = [];
-    const { getTableColumnDataIndex } = props;
-    const originColumns = getTableColumnDataIndex();
-    columns.forEach((col) => {
+    const temp = [];
+    const newColumns = isHaveSortColumn(cacheColumns, showNumber, sortColumn); // 用于判断是否存在 序号列
+    newColumns.forEach((col) => {
       if (col.fixed === 'left') left.push(col);
       else if (col.fixed === 'right') right.push(col);
-      else {
-        const index = originColumns.findIndex(
-          (dataIndex) => dataIndex === col.dataIndex,
-        );
-        temp[index] = col;
-      }
-      // else temp.push(col);
+      else temp.push(col);
     });
-    temp = temp.filter((col) => col);
     const final = left.concat(temp).concat(right);
     // 滤出勾选的数据
     const result = final.filter((col) => {
@@ -232,35 +238,47 @@ export function HeaderSettingsDropDown(props) {
     return newArr;
   };
 
-  // 排序后 重置表格列
+  // 拖拽排序
   const handleResetColsAfterSort = (info) => {
-    const [, oldIndex] = info.dragNode.pos.split('-');
-    let [, newIndex] = info.node.pos.split('-');
-    const dropPos = info.node.pos.split('-');
-    const dropPosition =
-      info.dropPosition - Number(dropPos[dropPos.length - 1]);
-    if (oldIndex > newIndex && dropPosition >= 0) {
-      newIndex = Number(newIndex) + 1;
+    const { node, dragNode, dropPosition } = info;
+    const oldNodeIndex = cacheColumns.findIndex(
+      (item) => item.dataIndex === dragNode.key,
+    );
+    let newNodeIndex = cacheColumns.findIndex(
+      (item) => item.dataIndex === node.key,
+    );
+    const dropPositionNew =
+      dropPosition +
+      cacheColumns.filter((item) => item.fixed === 'left').length; // dropPosition 节后的位置
+    if (oldNodeIndex > newNodeIndex && dropPositionNew >= newNodeIndex) {
+      newNodeIndex = newNodeIndex + 1;
     }
-    const temp = arrayMove(columns, Number(oldIndex), Number(newIndex));
-    if (onChange) {
-      onChange(temp, temp);
-    }
+    const temp = arrayMove(
+      cacheColumns,
+      Number(oldNodeIndex),
+      Number(newNodeIndex),
+    );
+    setCacheColumns(temp);
+    // if (onChange) {
+    //   onChange(temp, temp);
+    // }
   };
 
   // 格式化 处理表格列
-  const formatColumns = () => {
-    const temp = columns.filter((col) => !col.fixed);
+  const formatColumns = (cols) => {
+    const newColumns = isHaveSortColumn(cols, showNumber, sortColumn); // 用于判断是否存在 序号列
+    let temp = newColumns.filter((col) => !col.cancelFixed);
     const originColumns = props.getTableColumnDataIndex();
-    const treeNodes = [];
-    temp.forEach((col) => {
-      const index = originColumns.findIndex(
+    // 将 取消固定的列 恢复为原来位置
+    const cancelFixedCol = columns.filter((col) => col.cancelFixed);
+    cancelFixedCol.map((col) => {
+      col.cancelFixed = false;
+      const originIndex = originColumns.findIndex(
         (dataIndex) => dataIndex === col.dataIndex,
       );
-      col.key = col.dataIndex;
-      treeNodes[index] = col;
+      temp.splice(originIndex, 0, col);
     });
-    return treeNodes.filter((col) => col);
+    setCacheColumns(temp);
   };
 
   // 固定 表格列中 选中的选项
@@ -269,6 +287,7 @@ export function HeaderSettingsDropDown(props) {
     const anotherType = type === 'left' ? 'right' : 'left';
     item.fixed = type;
     item.ellipsis = true;
+    item.cancelFixed = false;
     if (Array.isArray(fixedColumns[type])) {
       fixedColumns[type].push(item.dataIndex);
     } else fixedColumns[type] = [item.dataIndex];
@@ -282,6 +301,7 @@ export function HeaderSettingsDropDown(props) {
       [type]: fixedColumns[type],
       [anotherType]: fixedColumns[anotherType],
     });
+    formatColumns(cacheColumns);
   };
 
   // 取消 表格列中 被固定的选项
@@ -292,10 +312,12 @@ export function HeaderSettingsDropDown(props) {
     if (~index) fixedColumns[type].splice(index, 1);
     col.fixed = '';
     col.ellipsis = false;
+    col.cancelFixed = true;
     setFixedColumns({
       ...fixedColumns,
       [type]: fixedColumns[type],
     });
+    formatColumns(cacheColumns);
   };
 
   // 渲染 进行列控制的节点树上的 节点
@@ -390,7 +412,7 @@ export function HeaderSettingsDropDown(props) {
           draggable
           blockNode
           selectable={false}
-          treeData={formatColumns()}
+          treeData={cacheColumns.filter((col) => !col.fixed)}
           titleRender={renderTreeNode}
           onDrop={handleResetColsAfterSort}
           style={{ padding: '4px 0px 12px' }}
@@ -662,14 +684,15 @@ class CustomTable extends Component {
       if (item.key && !item.dataIndex) {
         item.dataIndex = item.key;
       }
+      if (!item.key && item.dataIndex) {
+        item.key = items.dataIndex;
+      }
       if (item.align !== 'right') {
         item.align = 'left';
       }
     });
     let tableColumns = [...columns];
-    if (showNumber) {
-      tableColumns = [sortColumn, ...columns];
-    }
+    tableColumns = isHaveSortColumn(tableColumns, showNumber, sortColumn); // 用于判断是否存在 序号列
     if (operateMenus) {
       // 操作列下拉菜单
       const fixed = tableColumns.find((col) => col.fixed === 'left')
@@ -754,13 +777,15 @@ class CustomTable extends Component {
   };
 
   handleResetCols = () => {
-    const { columns } = this.props;
-    this.getTableColumns(columns, this.props, true);
+    const { columns, showNumber } = this.props;
+    const { sortColumn } = this.state;
+    const newColumns = isHaveSortColumn(columns, showNumber, sortColumn); // 用于判断是否存在 序号列
+    this.getTableColumns(newColumns, this.props, true);
   };
 
   // 最后一列添加 表头设置按钮
   setHeaderSettings = () => {
-    const { allColumns, tableColumns } = this.state;
+    const { allColumns, tableColumns, sortColumn } = this.state;
     const { headSettingKey } = this.props;
     if (headSettingKey) {
       return (
@@ -777,6 +802,7 @@ class CustomTable extends Component {
           <HeaderSettingsDropDown
             {...this.props}
             columns={allColumns || []}
+            sortColumn={sortColumn}
             tableColumns={tableColumns}
             onChange={(cols, results) => {
               this.setState({

@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 11:05:05
+ * @LastEditTime: 2022-03-10 09:52:44
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -85,6 +85,7 @@ export default {
   'common.size.big.warning': '尺寸不可大于',
   'common.size.small.warning': '尺寸不可小于',
   'common.attachment.size.limit': '请选择小于{size}{unit}的附件',
+  'common.attachment.size.lower': '请选择大于{size}{unit}的附件',
   'common.upload.failed.reason':
     '上传失败，当前附件类型格式设置不支持此类附件格式上传',
   'common.upload.success': '上传成功',
@@ -165,6 +166,7 @@ export default {
   'common.budget.structure': '预算表',
   'common.budget.scenarios': '预算场景',
   'common.period': '期间',
+  'common.control.period': '控制期段',
   'common.budget.item': '预算项目',
   'common.expense.type': '费用类型',
   'common.company': '公司',
@@ -236,4 +238,12 @@ export default {
   'base.policy.verification.info': '政策校验信息',
   'common.input.name.or.code': '请输入代码或名称',
   'chooser.data.company': '选择公司',
+  'common.to.configuration': '前往配置',
+  'common.upload.max.num': '最多上传{fileNum}个文件',
+  'common.size.of.attachment': '每个附件大小为{upperLimitSize}{unit}',
+  'common.size.of.attachment.within':
+    '每个附件大小在{lowerLimitSize}{unit}~{upperLimitSize}{unit}以内',
+  'common.size.of.attachment.not.less.than':
+    '每个附件大小不小于{lowerLimitSize}{unit}',
+  'common.size.of.attachment.in': '每个附件大小在{upperLimitSize}{unit}以内',
 };
