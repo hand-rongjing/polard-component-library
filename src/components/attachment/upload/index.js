@@ -295,7 +295,7 @@ class CustomUpload extends React.Component {
     const passList = originFileList.filter(
       (o) => o.status === 'done' || o.pass === true,
     );
-    if (passList.length + fileList.length > maxFileNum) {
+    if (maxFileNum && passList.length + fileList.length > maxFileNum) {
       if (file.uid === fileList[0].uid) {
         // 如果存在同时上传多个文件时，只在第一个文件判断时作出提示，避免这个提示出现多次
         message.error(
