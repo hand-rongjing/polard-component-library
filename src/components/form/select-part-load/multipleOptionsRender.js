@@ -36,6 +36,7 @@ export default function MultipleOptionsRender(props) {
 
   const popoverContent = useRef(); // 下拉框
   const searchInput = useRef(); // 搜索框
+  const [searchInputValue, setSearchInputValue] = useState(''); // 搜索框值
 
   const [selectedRender, setSelectedRender] = useState([]); // 已选选项
   const [noSelectedRender, setNoSelectedRender] = useState([]); // 未选选项
@@ -71,7 +72,7 @@ export default function MultipleOptionsRender(props) {
       setNoSelectedRender(noSelectedRenderTemp);
     } else {
       setTimeout(() => {
-        searchInput.current.state.value = null; // 打开页面 下拉框中搜索框聚焦
+        setSearchInputValue('');
       }, 300);
     }
   }, [open, extraOptions, options]);
@@ -176,7 +177,11 @@ export default function MultipleOptionsRender(props) {
           <Input
             prefix={<SearchSvg style={{ marginRight: 8 }} />}
             placeholder={messages('common.search' /* 搜索 */)}
-            onChange={(e) => onSearch(e.target.value)}
+            value={searchInputValue}
+            onChange={(e) => {
+              setSearchInputValue(e.target.value);
+              onSearch(e.target.value);
+            }}
             ref={searchInput}
             style={{
               padding: '4px 0',

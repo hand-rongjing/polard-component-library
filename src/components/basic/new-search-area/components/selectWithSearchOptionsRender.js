@@ -31,6 +31,7 @@ export default function SelectWithSearchOptionsRender(props) {
 
   const popoverContent = useRef(); // 下拉框
   const searchInput = useRef(); // 搜索框
+  const [searchInputValue, setSearchInputValue] = useState(''); // 搜索框值
 
   const [selectedRender, setSelectedRender] = useState([]); // 已选选项
   const [noSelectedRender, setNoSelectedRender] = useState([]); // 未选选项
@@ -63,7 +64,7 @@ export default function SelectWithSearchOptionsRender(props) {
       setNoSelectedRender(noSelectedRenderTemp);
     } else {
       setTimeout(() => {
-        searchInput.current.state.value = null; // 关闭页面 下拉框中搜索框失焦
+        setSearchInputValue('');
         setFilterOptions('');
       }, 300);
     }
@@ -182,7 +183,11 @@ export default function SelectWithSearchOptionsRender(props) {
           <Input
             prefix={<SearchSvg style={{ marginRight: 8 }} />}
             placeholder={messages('common.search' /* 搜索 */)}
-            onChange={(e) => handleFilterOptions(e.target.value)}
+            value={searchInputValue}
+            onChange={(e) => {
+              setSearchInputValue(input);
+              handleFilterOptions(e.target.value);
+            }}
             ref={searchInput}
             style={{
               padding: '4px 0',
