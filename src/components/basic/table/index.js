@@ -55,17 +55,10 @@ class BasicTable extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       columns: nextProps.columns,
-      dataSource: nextProps.dataSource,
+      dataSource: nextProps.dataSource.map((item) => {
+        return { ...item };
+      }),
     });
-    // 刷新表格数据
-    const { refreshData } = this.props;
-    if (nextProps.refreshData && nextProps.refreshData !== refreshData) {
-      this.setState({
-        dataSource: nextProps.dataSource.map((item) => {
-          return { ...item };
-        }),
-      });
-    }
   }
 
   handleResize =
