@@ -41,6 +41,7 @@ export default function TableOptionsRender(props) {
 
   const popoverContent = useRef();
   const searchInput = useRef();
+  const [searchInputValue, setSearchInputValue] = useState(''); // 搜索框值
 
   const selectedCount = useMemo(() => (value || []).length, [value]);
 
@@ -126,9 +127,7 @@ export default function TableOptionsRender(props) {
       setNoSelectedRender(noSelectedRenderTemp);
     } else {
       setTimeout(() => {
-        if (searchInput.current) {
-          searchInput.current.state.value = null; // 打开页面 下拉框中搜索框聚焦
-        }
+        setSearchInputValue('');
       }, 300);
     }
   }, [open, options, columns]);
@@ -284,7 +283,11 @@ export default function TableOptionsRender(props) {
             placeholder={
               searchPlaceholder || messages('common.search' /* 搜索 */)
             }
-            onChange={(e) => onSearchHandle(e.target.value)}
+            value={searchInputValue}
+            onChange={(e) => {
+              setSearchInputValue(e.target.value);
+              onSearchHandle(e.target.value);
+            }}
             ref={searchInput}
             style={{
               padding: '4px 0',
