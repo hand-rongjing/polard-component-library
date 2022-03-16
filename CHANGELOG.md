@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-alpha.0...v1.6.1-alpha.6) (2022-03-16)
+
+### Bug Fixes
+
+- custom-table 样式调整 ([adf38af](https://github.com/hand-rongjing/polard-component-library/commit/adf38afe79003172cfddc985b0be450df4f1abe5))
+- custom-table 样式调整 ([b09e34b](https://github.com/hand-rongjing/polard-component-library/commit/b09e34baaa76a8751f95bfc3539e130c499b5d77))
+- custom-table 样式调整 ([6a05002](https://github.com/hand-rongjing/polard-component-library/commit/6a050021755c773d6d2d71be7521b5f15d0dcd07))
+- custom-table 样式调整 ([abc01c2](https://github.com/hand-rongjing/polard-component-library/commit/abc01c2f031aa4892da45eeee08595901b530a27))
+- 兼容附件上传数量为空 ([79d4583](https://github.com/hand-rongjing/polard-component-library/commit/79d458322a976e64e77494a781ace2bc32bd534a))
+- 分类附件增加数量判断 ([56578ee](https://github.com/hand-rongjing/polard-component-library/commit/56578eec568d459ab5be4e44a9062eba24672214))
+- 分类附件增加数量判断 ([649bd94](https://github.com/hand-rongjing/polard-component-library/commit/649bd948fce08c2fb6f23ce5a5d838f14a38b831))
+- 取消 table refreshData ([0a7e9ac](https://github.com/hand-rongjing/polard-component-library/commit/0a7e9ac2bf751a86e9442fece660aceb68242a38))
+- 可编辑表格校验修复 ([435342e](https://github.com/hand-rongjing/polard-component-library/commit/435342eaef061342f05063962692d7e872e359be))
+- 可编辑表格校验修复 ([7735d2c](https://github.com/hand-rongjing/polard-component-library/commit/7735d2c12a41034838363bbab373f4ca5f5d5c0d))
+- 解决冲突 ([f553ac3](https://github.com/hand-rongjing/polard-component-library/commit/f553ac3977317502392cd06b5e14a7c4be7dfb52))
+- 解决冲突 ([6da37ac](https://github.com/hand-rongjing/polard-component-library/commit/6da37ac34a098de1395c4a4c42eb1af8ce42dc6e))
+- 解决冲突 ([67d4aba](https://github.com/hand-rongjing/polard-component-library/commit/67d4aba4a62cdee7d6a126d012e4596f24d07662))
+- 解决冲突 ([573050d](https://github.com/hand-rongjing/polard-component-library/commit/573050d55ef883bb958df662eb964c9bd36a466e))
+- 解决冲突 ([62254c8](https://github.com/hand-rongjing/polard-component-library/commit/62254c804efa3d5673aea39a65c4e81f35c6886e))
+- 附件上传按钮组件增加附件类型控制 ([2c5b119](https://github.com/hand-rongjing/polard-component-library/commit/2c5b119c29082e21e6b1b26181dc8d6c793a49f1))
+- 附件上传按钮组件增加附件类型控制 ([26af15f](https://github.com/hand-rongjing/polard-component-library/commit/26af15f3952f3ede13083dc1b9652d719b50cea3))
+- 附件上传按钮组件增加附件类型控制 ([01a585a](https://github.com/hand-rongjing/polard-component-library/commit/01a585a760172059d45479db73d8718e7639abba))
+- 附件上传提示优化 ([31c2e3b](https://github.com/hand-rongjing/polard-component-library/commit/31c2e3b719adb324ab223fe8b7dd148e39a913d9))
+- 预算进度增加多语言 ([efa8b9d](https://github.com/hand-rongjing/polard-component-library/commit/efa8b9da0602e014ecd6e661a3eb6be723dde97a))
+- 鼠标行 onMouseDown 超过 300ms 认为是在选择复制, 不触发 onClick ([5f1c065](https://github.com/hand-rongjing/polard-component-library/commit/5f1c0654e6965bda5b017733edbd0cf373bb116b))
+
 ### [1.6.1-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.4...v1.6.1-alpha.5) (2022-03-16)
 
 ### [1.6.1-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.1...v1.6.1-alpha.4) (2022-03-16)
