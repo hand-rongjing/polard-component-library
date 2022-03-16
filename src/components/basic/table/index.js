@@ -34,6 +34,7 @@ class BasicTable extends React.Component {
   state = {
     columns: [],
     expandedRows: [],
+    dataSource: [],
   };
 
   components = {
@@ -43,16 +44,28 @@ class BasicTable extends React.Component {
   };
 
   componentDidMount() {
-    const { columns: columnsFromProps } = this.props;
+    const { columns: columnsFromProps, dataSource: dataSourceProps } =
+      this.props;
     this.setState({
       columns: columnsFromProps,
+      dataSource: dataSourceProps,
     });
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       columns: nextProps.columns,
+      dataSource: nextProps.dataSource,
     });
+    // 刷新表格数据
+    const { refreshData } = this.props;
+    if (nextProps.refreshData && nextProps.refreshData !== refreshData) {
+      this.setState({
+        dataSource: nextProps.dataSource.map((item) => {
+          return { ...item };
+        }),
+      });
+    }
   }
 
   handleResize =
@@ -108,7 +121,7 @@ class BasicTable extends React.Component {
       console.log('initScrollY', initScrollY, currentPage.pageCode);
       return initScrollY < 200 ? 200 : initScrollY;
     } catch (e) {
-      console.log('getScrollY error', e);
+      console.log('getScrollY Error', e);
       return null;
     }
   };
@@ -122,7 +135,7 @@ class BasicTable extends React.Component {
       scrollXWidth,
       scroll,
     } = this.props;
-    const { columns: columnsFromState } = this.state;
+    const { columns: columnsFromState, dataSource } = this.state;
     const columns = noReSize
       ? columnsFromState
       : columnsFromState &&
@@ -148,6 +161,7 @@ class BasicTable extends React.Component {
           pagination={pagination}
           onChange={this.onTableChange}
           columns={columns}
+          dataSource={dataSource}
           expandedRowKeys={
             onExpandedRowsChange ? expandedRowKeys : expandedRows
           }

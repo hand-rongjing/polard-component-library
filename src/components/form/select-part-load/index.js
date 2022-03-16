@@ -33,6 +33,7 @@ class SelectPartLoad extends Component {
         ? props.extraOptionList
         : [],
       forceGetList: props.forceGetList,
+      searchInputValue: '',
     };
     this.canGetList = true;
     this.fetchTimes = 0;
@@ -214,7 +215,8 @@ class SelectPartLoad extends Component {
   };
 
   dropdownRender = (menu) => {
-    const { loading, total, page, options, extraOptions } = this.state;
+    const { loading, total, page, options, extraOptions, searchInputValue } =
+      this.state;
     const { showPagination, showSearch } = this.props;
     const hasData = !![...options, ...extraOptions].length;
     return (
@@ -231,7 +233,11 @@ class SelectPartLoad extends Component {
             <Input
               prefix={<SearchSvg style={{ marginRight: 8 }} />}
               placeholder={messages('common.search' /* 搜索 */)}
-              onChange={(e) => this.onSearch(e.target.value)}
+              value={searchInputValue}
+              onChange={(e) => {
+                this.setState({ searchInputValue: e.target.value });
+                this.onSearch(e.target.value);
+              }}
               ref={(ref) => {
                 this.searchInput = ref;
               }}
@@ -369,7 +375,7 @@ class SelectPartLoad extends Component {
         mode !== 'multiple' &&
         this.searchInput &&
         setTimeout(() => {
-          if (this.searchInput.state) this.searchInput.state.value = null; // 关闭页面清空 下拉框中搜索框的值
+          this.setState({ searchInputValue: '' }); // 关闭页面清空 下拉框中搜索框的值
         }, 300);
       if (searchText) {
         this.setState({ page: 0, total: 0, options: [] });

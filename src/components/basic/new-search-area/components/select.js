@@ -9,7 +9,7 @@
  */
 import React, { useState, useEffect, useRef } from 'react';
 import { Select, Spin, Input } from 'antd';
-import { debounce } from 'lodash';
+import { useDebounceFn } from 'ahooks';
 import httpFetch from 'share/httpFetch';
 import { CaretDownOutlined } from '@ant-design/icons';
 import { getDataLabel, getLastKey, preventOpen } from '../utils';
@@ -45,6 +45,7 @@ export default function CustomSelect(props) {
   const [open, setOpen] = useState(false);
 
   const searchInput = useRef();
+  const [searchInputValue, setSearchInputValue] = useState(''); // 搜索框值
 
   useEffect(() => {
     if (defaultGetList && !hasGetList.current) {
@@ -72,9 +73,9 @@ export default function CustomSelect(props) {
       setTimeout(() => {
         searchInput.current.focus();
       }, 300);
-      if (open && searchInput.current.state.value !== null) {
+      if (open && searchInputValue) {
         setTimeout(() => {
-          searchInput.current.state.value = null;
+          setSearchInputValue('');
         }, 300);
         setOptionList(optionListBeforeSearch.current);
       }
@@ -129,6 +130,13 @@ export default function CustomSelect(props) {
     });
     return newArray;
   }
+
+  const { run: onSearchHandle } = useDebounceFn(
+    (e) => {
+      handleSearch(e);
+    },
+    { wait: 200 },
+  );
 
   function handleSearch(e) {
     e.preventDefault();
@@ -207,7 +215,11 @@ export default function CustomSelect(props) {
                   <Input
                     prefix={<SearchSvg />}
                     placeholder={messages('common.search' /* 搜索 */)}
-                    onChange={debounce(handleSearch, 200)}
+                    value={searchInputValue}
+                    onChange={(e) => {
+                      setSearchInputValue(e.target.value);
+                      onSearchHandle(e);
+                    }}
                     ref={searchInput}
                   />
                 </div>
