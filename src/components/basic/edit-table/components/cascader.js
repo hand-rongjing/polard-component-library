@@ -122,7 +122,7 @@ function CustomCascader(props) {
           className="edit-table-over-range"
           onClick={handleFocus}
           style={{
-            minHeight: !result ? '20px' : 'unset',
+            minHeight: !value ? '20px' : 'unset',
             display: !value ? 'inline-block' : 'inline',
           }}
         >
