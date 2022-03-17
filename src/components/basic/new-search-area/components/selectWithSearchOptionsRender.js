@@ -185,7 +185,7 @@ export default function SelectWithSearchOptionsRender(props) {
             placeholder={messages('common.search' /* 搜索 */)}
             value={searchInputValue}
             onChange={(e) => {
-              setSearchInputValue(input);
+              setSearchInputValue(e.target.value);
               handleFilterOptions(e.target.value);
             }}
             ref={searchInput}
