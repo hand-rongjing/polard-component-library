@@ -148,8 +148,8 @@ class BasicTable extends React.Component {
           components={this.components}
           {...this.props}
           scroll={{
-            x: scrollXWidth || scroll?.x || 1000,
-            y: scroll?.y || initScrollY,
+            x: scrollXWidth ?? scroll?.x ?? 1000,
+            y: scroll?.y ?? initScrollY,
           }}
           pagination={pagination}
           onChange={this.onTableChange}
