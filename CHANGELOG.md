@@ -84,6 +84,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.6.1-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-beta.2...v1.6.1-beta.0) (2022-03-15)
 
+### [1.6.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0...v1.6.1) (2022-03-17)
+
+### Bug Fixes
+
+- 兼容附件上传数量为空 ([79d4583](https://github.com/hand-rongjing/polard-component-library/commit/79d458322a976e64e77494a781ace2bc32bd534a))
+
+## [1.6.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0-beta.2...v1.6.0) (2022-03-10)
+
 ### Bug Fixes
 
 - 兼容附件上传数量为空 ([79d4583](https://github.com/hand-rongjing/polard-component-library/commit/79d458322a976e64e77494a781ace2bc32bd534a))

@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-07-27 15:53:12
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-03 16:29:54
+ * @LastEditTime: 2022-03-22 15:25:12
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -30,6 +30,7 @@ export function filterProps(props) {
     getUrl,
     searchKey,
     filterData,
+    title, // 避免可编辑表格输入框出现title提示
     ...rest
   } = props;
   return rest;
