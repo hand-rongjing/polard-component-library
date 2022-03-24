@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-10 09:52:38
+ * @LastEditTime: 2022-03-24 16:58:53
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -252,4 +252,8 @@ export default {
     'The size of each attachment shall not be less than {lowerlimitsize}{unit}',
   'common.size.of.attachment.in':
     'The size of each attachment is within {upperlimitsize}{unit}',
+  'full.screen': 'Full screen',
+  'full.screen.exit': 'Exit full screen',
+  'pre.page': 'The previous page',
+  'next.page': 'The next page',
 };
