@@ -1,4 +1,5 @@
 import React from 'react';
+import Connect from '../../custom-connect';
 import { Table, ConfigProvider, Empty } from 'antd';
 import { Resizable } from 'react-resizable';
 
@@ -33,6 +34,7 @@ class BasicTable extends React.Component {
   state = {
     columns: [],
     expandedRows: [],
+    dataSource: [],
   };
 
   components = {
@@ -42,15 +44,20 @@ class BasicTable extends React.Component {
   };
 
   componentDidMount() {
-    const { columns: columnsFromProps } = this.props;
+    const { columns: columnsFromProps, dataSource: dataSourceProps } =
+      this.props;
     this.setState({
       columns: columnsFromProps,
+      dataSource: dataSourceProps,
     });
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       columns: nextProps.columns,
+      dataSource: nextProps.dataSource.map((item) => {
+        return { ...item };
+      }),
     });
   }
 
@@ -87,10 +94,41 @@ class BasicTable extends React.Component {
     }
   };
 
+  /**
+   * 获取当前页面表格可滚动高度
+   */
+  getScrollY = () => {
+    const { dataSource } = this.props;
+    try {
+      if (dataSource.length <= 5) return null; // 解决表格数据少，Popover Dropdown弹出框定位问题，同时避免详情页数据设置高度
+      const { getState } = window?.g_app?._store || {};
+      const state = getState ? getState() : {};
+      const currentPage = state?.pageTab?.currentPage;
+      const contentDom = document.querySelector(`#${currentPage.pageCode}`);
+      const scrollWrapDom = contentDom.parentElement; // .scroll-wrapped
+      let initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
+      const footerDom = contentDom.querySelector('.content-footer');
+      if (footerDom) {
+        initScrollY -= footerDom.clientHeight;
+      }
+      console.log('initScrollY', initScrollY, currentPage.pageCode);
+      return initScrollY < 200 ? 200 : initScrollY;
+    } catch (e) {
+      console.log('getScrollY Error', e);
+      return null;
+    }
+  };
+
   render() {
-    const { noReSize, onExpandedRowsChange, expandedRowKeys, pagination } =
-      this.props;
-    const { columns: columnsFromState } = this.state;
+    const {
+      noReSize,
+      onExpandedRowsChange,
+      expandedRowKeys,
+      pagination,
+      scrollXWidth,
+      scroll,
+    } = this.props;
+    const { columns: columnsFromState, dataSource } = this.state;
     const columns = noReSize
       ? columnsFromState
       : columnsFromState &&
@@ -102,15 +140,21 @@ class BasicTable extends React.Component {
           }),
         }));
     const { expandedRows } = this.state;
+    const initScrollY = this.getScrollY();
 
     return (
       <ConfigProvider renderEmpty={() => <Empty />}>
         <Table
           components={this.components}
           {...this.props}
+          scroll={{
+            x: scrollXWidth ?? scroll?.x ?? 1000,
+            y: scroll?.y ?? initScrollY,
+          }}
           pagination={pagination}
           onChange={this.onTableChange}
           columns={columns}
+          dataSource={dataSource}
           expandedRowKeys={
             onExpandedRowsChange ? expandedRowKeys : expandedRows
           }
@@ -135,4 +179,10 @@ BasicTable.defaultProps = {
   columns: [],
 };
 
-export default BasicTable;
+function mapStateToProps(state) {
+  return {
+    // currentPage: state?.pageTab?.currentPage,
+  };
+}
+
+export default Connect(mapStateToProps)(BasicTable);
