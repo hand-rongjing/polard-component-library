@@ -528,7 +528,7 @@ class UploadButton extends React.Component {
   };
 
   render() {
-    const { visible, fileList } = this.state;
+    const { visible, fileList, acceptList } = this.state;
     const {
       extraRender,
       buttonClass,
@@ -547,7 +547,6 @@ class UploadButton extends React.Component {
       style,
       wrapHandle,
       span,
-      acceptList,
     } = this.props;
     const token = sessionStorage.getItem('token');
     fileList.forEach((items) => {
