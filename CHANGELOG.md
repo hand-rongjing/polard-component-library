@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.4...v1.6.3-alpha.5) (2022-03-24)
+
+### Bug Fixes
+
+- 添加 reactreact-rnd 依赖 ([838c6d3](https://github.com/hand-rongjing/polard-component-library/commit/838c6d3414df29067cdfc27ff27a4e0ae01d377c))
+
 ### [1.6.3-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.3...v1.6.3-alpha.4) (2022-03-24)
 
 ### Bug Fixes
