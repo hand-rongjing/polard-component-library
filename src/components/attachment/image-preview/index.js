@@ -238,7 +238,6 @@ function FilePreview(props) {
 
   function renderImage() {
     const { user } = props;
-    console.log('user', user);
     return (
       <WaterMark
         content={`${user.userCode} - ${user.userName}`}
@@ -469,7 +468,6 @@ function FilePreview(props) {
 }
 
 function mapStateToProps(state) {
-  console.log('state', state);
   return {
     user: state.user.currentUser,
   };
