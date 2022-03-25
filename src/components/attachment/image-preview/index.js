@@ -11,7 +11,7 @@ import {
   FullscreenOutlined,
   FullscreenExitOutlined,
 } from '@ant-design/icons';
-import { Result } from 'antd';
+import { Result, Popconfirm } from 'antd';
 import { WaterMark } from '@ant-design/pro-layout';
 import Connect from '../../custom-connect';
 import { messages, getImgIcon } from '../../utils';
@@ -386,11 +386,17 @@ function FilePreview(props) {
                 />
               )}
               {!props.disabled && onDelete && (
-                <DeleteOutlined
-                  className="rnd-opera-img cancel-drag"
-                  title={messages('common.delete')}
-                  onClick={() => onDelete(attachmentOid, index)}
-                />
+                <Popconfirm
+                  title={messages('common.confirm.to.delete')}
+                  onConfirm={() => onDelete(attachmentOid, index)}
+                  okText={messages('common.ok')}
+                  cancelText={messages('common.cancel')}
+                >
+                  <DeleteOutlined
+                    className="rnd-opera-img cancel-drag"
+                    title={messages('common.delete')}
+                  />
+                </Popconfirm>
               )}
               {isImg && (
                 <>
