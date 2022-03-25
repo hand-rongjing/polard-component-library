@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.9](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.8...v1.6.3-alpha.9) (2022-03-25)
+
+### Bug Fixes
+
+- 调整宽高和缩放倍数 ([050ff2c](https://github.com/hand-rongjing/polard-component-library/commit/050ff2c09a168e8633051fdf660d01a7077630a2))
+
 ### [1.6.3-alpha.8](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.7...v1.6.3-alpha.8) (2022-03-25)
 
 ### Bug Fixes
