@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.0...v1.6.3-beta.1) (2022-03-25)
+
+### Bug Fixes
+
+- custom-table 样式调整 ([adf38af](https://github.com/hand-rongjing/polard-component-library/commit/adf38afe79003172cfddc985b0be450df4f1abe5))
+- custom-table 样式调整 ([b09e34b](https://github.com/hand-rongjing/polard-component-library/commit/b09e34baaa76a8751f95bfc3539e130c499b5d77))
+- custom-table 样式调整 ([6a05002](https://github.com/hand-rongjing/polard-component-library/commit/6a050021755c773d6d2d71be7521b5f15d0dcd07))
+- custom-table 样式调整 ([abc01c2](https://github.com/hand-rongjing/polard-component-library/commit/abc01c2f031aa4892da45eeee08595901b530a27))
+- 取消 table refreshData ([0a7e9ac](https://github.com/hand-rongjing/polard-component-library/commit/0a7e9ac2bf751a86e9442fece660aceb68242a38))
+- 表格 dataSource 兼容空值 ([3f980b9](https://github.com/hand-rongjing/polard-component-library/commit/3f980b9a504d1feb3ff11756652569330eb0c314))
+
 ### [1.6.3-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.0...v1.6.3-beta.0) (2022-03-23)
 
 ### Bug Fixes
