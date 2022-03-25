@@ -45,10 +45,10 @@ function FilePreview(props) {
   const [scale, setScale] = useState(1);
   const [isFullScreen, setIsFullScreen] = useState(false); // 是否全屏显示
   const rndOption = {
-    x: (document.body.clientWidth - 740) / 2,
-    y: (document.body.clientHeight - 580) / 2,
-    width: 740,
-    height: 580,
+    x: (document.body.clientWidth - 1040) / 2,
+    y: (document.body.clientHeight - 680) / 2,
+    width: 1040,
+    height: 680,
   };
 
   useEffect(() => {
@@ -174,14 +174,14 @@ function FilePreview(props) {
       return target;
     });
     switch (operate) {
-      // 放大，最大2
+      // 放大，最大4
       case 'plus': {
-        if (newScale < 2) newScale += 0.2;
+        if (newScale < 4) newScale += 0.5;
         break;
       }
       // 缩小，最小0.1
       case 'minus': {
-        if (newScale > 0.2) newScale -= 0.2;
+        if (newScale > 0.5) newScale -= 0.5;
         break;
       }
       // 向左旋转
