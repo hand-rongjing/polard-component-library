@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.1...v1.6.3-beta.2) (2022-03-28)
+
+### Bug Fixes
+
+- 鼠标行 onMouseDown 超过 300ms 认为是在选择复制, 不触发 onClick ([5f1c065](https://github.com/hand-rongjing/polard-component-library/commit/5f1c0654e6965bda5b017733edbd0cf373bb116b))
+
 ### [1.6.3-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.0...v1.6.3-beta.1) (2022-03-25)
 
 ### Bug Fixes
