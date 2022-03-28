@@ -685,7 +685,7 @@ UploadButton.defaultProps = {
   fileSize: 500,
   lowerLimitFileSize: 0,
   fileNum: undefined,
-  extensions: undefined, // 用法： ["png","jpg","jpeg"], 不传则默认接受所有
+  extensions: [], // 用法： ["png","jpg","jpeg"], 不传则默认接受所有
   uploadHandleFileList: undefined,
   removeByInterface: true,
 };
