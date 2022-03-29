@@ -19,7 +19,6 @@ export { default as SlideFrameSubtitle } from './components/other/slide-frame-su
 export { default as ExcelExporter } from './components/other/excel-export';
 export { default as DivideContent } from './components/other/divide-content';
 export { default as BasicInfo } from './components/other/basic-info';
-export { default as PlatformNotice } from './components/other/platform-notice';
 // 表单
 export { default as Cascader } from './components/form/cascader';
 export { default as Lov } from './components/form/lov';
