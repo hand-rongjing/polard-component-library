@@ -55,9 +55,11 @@ class BasicTable extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       columns: nextProps.columns,
-      dataSource: nextProps.dataSource?.map((item) => {
-        return { ...item };
-      }),
+      dataSource: Array.isArray(nextProps.dataSource)
+        ? nextProps.dataSource?.map((item) => {
+            return { ...item };
+          })
+        : nextProps.dataSource,
     });
   }
 
