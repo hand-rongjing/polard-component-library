@@ -10,7 +10,7 @@
 import React, { useEffect, useState, useImperativeHandle, forwardRef, useRef } from 'react'
 import { CloseOutlined } from '@ant-design/icons';
 import { useModel } from 'umi';
-import httpFetch from 'share/httpFetch';
+import axios from 'axios'
 import config from 'config'
 
 
@@ -59,7 +59,7 @@ function PlatformNotice(props) {
       url += `?tenantId=${tenantId}`
     }
 
-    httpFetch.get(url).then(res => {
+    axios.get(url).then(res => {
       if (res.data) {
         let cacheList = window.sessionStorage.getItem('notice_cache');
         cacheList = cacheList ? JSON.parse(cacheList) : [];
