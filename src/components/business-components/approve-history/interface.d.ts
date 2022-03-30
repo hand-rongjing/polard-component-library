@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-26 10:45:50
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-10-26 11:56:46
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-03-30 14:28:39
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -26,4 +26,5 @@ export interface IState {
   historyData: Array<{ [key: string]: any }>;
   loading: boolean;
   expenseColorFlag: boolean;
+  showWaitDo: boolean;
 }

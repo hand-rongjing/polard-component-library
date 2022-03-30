@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-10 09:52:44
+ * @LastEditTime: 2022-03-30 14:38:30
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -246,4 +246,9 @@ export default {
   'common.size.of.attachment.not.less.than':
     '每个附件大小不小于{lowerLimitSize}{unit}',
   'common.size.of.attachment.in': '每个附件大小在{upperLimitSize}{unit}以内',
+  'common.view.flow.chart': '查看流程图',
+  'common.view.flow.remark':
+    '注：审批流预览按当前工作流显示，但实际会根据配置变化而改变。',
+  'approve.flow.preview': '审批流预览',
+  'close.approve.flow.view': '收起审批流预览',
 };

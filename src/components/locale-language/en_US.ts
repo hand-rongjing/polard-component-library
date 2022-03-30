@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-10 09:52:38
+ * @LastEditTime: 2022-03-30 14:39:55
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -252,4 +252,9 @@ export default {
     'The size of each attachment shall not be less than {lowerlimitsize}{unit}',
   'common.size.of.attachment.in':
     'The size of each attachment is within {upperlimitsize}{unit}',
+  'common.view.flow.chart': 'View flow chart',
+  'common.view.flow.remark':
+    'Note: The approval flow preview is displayed according to the current workflow, but will actually change according to configuration changes.',
+  'approve.flow.preview': 'Approval Flow preview',
+  'close.approve.flow.view': 'Fold up the approval stream preview',
 };
