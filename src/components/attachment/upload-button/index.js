@@ -21,8 +21,10 @@ class UploadButton extends React.Component {
       lowerLimitSize: 0, // 限制文件最小大小
       upperLimitSize: 0, // 限制文件最大大小
       sizeUnit: 'MB', // 文件大小单位
+      acceptList: [], // 文件格式
     };
     this.sizeMap = {
+      GB: 3,
       MB: 2,
       KB: 1,
       B: 0,
@@ -71,6 +73,7 @@ class UploadButton extends React.Component {
       fileSize,
       lowerLimitFileSize,
       unitSize,
+      extensions,
     } = this.props;
     httpFetch
       .get(
@@ -84,13 +87,16 @@ class UploadButton extends React.Component {
             lowerLimitSize: lowerLimitFileSize, // 限制文件最小大小
             upperLimitSize: fileSize, // 限制文件最大大小
             sizeUnit: unitSize, // 文件大小单位
+            acceptList: extensions, // 文件格式
           });
         } else {
+          const formatList = res.data.formatList || [];
           this.setState({
             maxFileNum: res.data.attachmentCount,
             lowerLimitSize: res.data.lowerLimit, // 限制文件最小大小
             upperLimitSize: res.data.upperLimit, // 限制文件最大大小
             sizeUnit: this.sizeUnitList[res.data.sizeUnit || '1001'], // 文件大小单位
+            acceptList: formatList.map((item) => item.format), // 文件格式
           });
         }
       })
@@ -242,12 +248,13 @@ class UploadButton extends React.Component {
    * @returns boolean
    */
   handleCheckFileType = (fileName) => {
-    const { extensions, fileTypeErrorMessage } = this.props;
-    if (!extensions || (Array.isArray(extensions) && extensions.length === 0))
+    const { fileTypeErrorMessage } = this.props;
+    const { acceptList } = this.state;
+    if (!acceptList || (Array.isArray(acceptList) && acceptList.length === 0))
       return true;
     // fileType: image/jpeg / text/html / application/x-zip-compressed ....
     const type = fileName.split('.').pop().toLowerCase();
-    const lowerCaseExtensions = extensions.map((o) => o.toLowerCase());
+    const lowerCaseExtensions = acceptList.map((o) => o.toLowerCase());
     const isQualified = lowerCaseExtensions.includes(type);
     if (!isQualified) {
       if (fileTypeErrorMessage) {
@@ -269,7 +276,7 @@ class UploadButton extends React.Component {
     const passList = originFileList.filter(
       (o) => o.status === 'done' || o.pass === true,
     );
-    if (passList.length + fileList.length > maxFileNum) {
+    if (maxFileNum && passList.length + fileList.length > maxFileNum) {
       if (file.uid === fileList[0].uid) {
         // 如果存在同时上传多个文件时，只在第一个文件判断时作出提示，避免这个提示出现多次
         message.error(
@@ -521,7 +528,7 @@ class UploadButton extends React.Component {
   };
 
   render() {
-    const { visible, fileList } = this.state;
+    const { visible, fileList, acceptList } = this.state;
     const {
       extraRender,
       buttonClass,
@@ -580,6 +587,7 @@ class UploadButton extends React.Component {
               onChange={this.handleChange}
               onRemove={this.handleRemove}
               customRequest={this.handleCustomUpload}
+              accept={acceptList.map((item) => `.${item}`).join(',')}
             >
               {!disabled && (
                 <Button className={buttonClass}>
@@ -677,7 +685,7 @@ UploadButton.defaultProps = {
   fileSize: 500,
   lowerLimitFileSize: 0,
   fileNum: undefined,
-  extensions: undefined, // 用法： ["png","jpg","jpeg"], 不传则默认接受所有
+  extensions: [], // 用法： ["png","jpg","jpeg"], 不传则默认接受所有
   uploadHandleFileList: undefined,
   removeByInterface: true,
 };

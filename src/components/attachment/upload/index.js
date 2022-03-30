@@ -21,8 +21,11 @@ class CustomUpload extends React.Component {
       lowerLimitSize: 0, // 限制文件最小大小
       upperLimitSize: 0, // 限制文件最大大小
       sizeUnit: 'MB', // 文件大小单位
+      acceptList: [], // 文件格式
+      acceptName: '',
     };
     this.sizeMap = {
+      GB: 3,
       MB: 2,
       KB: 1,
       B: 0,
@@ -43,6 +46,8 @@ class CustomUpload extends React.Component {
       fileSize,
       lowerLimitFileSize,
       unitSize,
+      extensions,
+      extensionName,
     } = this.props;
     httpFetch
       .get(
@@ -56,13 +61,18 @@ class CustomUpload extends React.Component {
             lowerLimitSize: lowerLimitFileSize, // 限制文件最小大小
             upperLimitSize: fileSize, // 限制文件最大大小
             sizeUnit: unitSize, // 文件大小单位
+            acceptList: extensions, // 文件格式
+            acceptName: extensionName,
           });
         } else {
+          const formatList = res.data.formatList || [];
           this.setState({
             maxFileNum: res.data.attachmentCount,
             lowerLimitSize: res.data.lowerLimit, // 限制文件最小大小
             upperLimitSize: res.data.upperLimit, // 限制文件最大大小
             sizeUnit: this.sizeUnitList[res.data.sizeUnit || '1001'], // 文件大小单位
+            acceptList: formatList.map((item) => item.format), // 文件格式
+            acceptName: formatList.map((item) => `.${item.format}`).join(', '),
           });
         }
       })
@@ -124,8 +134,9 @@ class CustomUpload extends React.Component {
    * @returns reactDOM
    */
   renderAppearance = () => {
-    const { extensionName, onFaceLift } = this.props;
-    const { maxFileNum, lowerLimitSize, upperLimitSize, sizeUnit } = this.state;
+    const { onFaceLift } = this.props;
+    const { maxFileNum, lowerLimitSize, upperLimitSize, sizeUnit, acceptName } =
+      this.state;
     // onFaceLift(): 支持外部重定义UI视觉，需要返回reactDom节点
     if (typeof onFaceLift === 'function') {
       return onFaceLift();
@@ -165,7 +176,7 @@ class CustomUpload extends React.Component {
         </p>
         <p className="ant-upload-hint">
           {messages('common.upload.support.ext') /* 支持扩展名 */}：
-          {extensionName}
+          {acceptName || '全部'}
         </p>
         <p className="ant-upload-hint">
           {maxFileNum > 0 &&
@@ -273,12 +284,12 @@ class CustomUpload extends React.Component {
    * @returns boolean
    */
   handleCheckFileType = (fileName) => {
-    const { extensions } = this.props;
-    if (!extensions || (Array.isArray(extensions) && extensions.length === 0))
+    const { acceptList } = this.state;
+    if (!acceptList || (Array.isArray(acceptList) && acceptList.length === 0))
       return true;
     // fileType: image/jpeg / text/html / application/x-zip-compressed ....
     const type = fileName.split('.').pop();
-    const isQualified = extensions.includes(type);
+    const isQualified = acceptList.includes(type);
     if (!isQualified) {
       message.error(messages('common.upload.failed.reason'));
     }
@@ -295,7 +306,7 @@ class CustomUpload extends React.Component {
     const passList = originFileList.filter(
       (o) => o.status === 'done' || o.pass === true,
     );
-    if (passList.length + fileList.length > maxFileNum) {
+    if (maxFileNum && passList.length + fileList.length > maxFileNum) {
       if (file.uid === fileList[0].uid) {
         // 如果存在同时上传多个文件时，只在第一个文件判断时作出提示，避免这个提示出现多次
         message.error(
@@ -483,7 +494,7 @@ class CustomUpload extends React.Component {
       showPreviewIcon,
       showDownloadIcon,
     } = this.props;
-    const { fileList: originFileList } = this.state;
+    const { fileList: originFileList, acceptList } = this.state;
     // 设置上传的请求头部
     const uploadHeaders = {
       Authorization: `Bearer ${window.sessionStorage.getItem('token')}`,
@@ -510,6 +521,7 @@ class CustomUpload extends React.Component {
           onChange={this.handleChange}
           onRemove={this.handleRemove}
           customRequest={this.handleCustomUpload}
+          accept={acceptList.map((item) => `.${item}`).join(',')}
         >
           {this.renderAppearance()}
         </Upload.Dragger>
