@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //@ts-ignore
 import httpFetch from 'share/httpFetch';
-import SearchArea from '../../basic/search-area-lov';
+import SearchArea from '../../basic/new-search-area';
 import Table from '../../basic/table';
 import { ILovProps, ILovState } from './interface';
 import { messages } from '../../utils';
@@ -428,6 +428,13 @@ class Lov extends Component<ILovProps, ILovState> {
             // eslint-disable-next-line no-return-assign
             wrappedComponentRef={(inst: any) => {
               this.formRef = inst;
+            }}
+            hideDynamicSelFieldBtn
+            hideCondition
+            style={{
+              'box-shadow': 'unset',
+              'background-color': 'unset',
+              'border-top': 'unset',
             }}
           />
         )}
