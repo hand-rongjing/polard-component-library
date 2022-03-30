@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.13](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.11...v1.6.3-alpha.13) (2022-03-30)
+
+### Bug Fixes
+
+- 表格 dataSource 兼容空值 ([7bfa457](https://github.com/hand-rongjing/polard-component-library/commit/7bfa4576a73b37d86beb12b8d2299e905fc1484b))
+- move PlatformNotice to lib ([770c2a2](https://github.com/hand-rongjing/polard-component-library/commit/770c2a203051f85d71278c3f128b9db868acb871))
+
 ### [1.6.3-alpha.12](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.10...v1.6.3-alpha.12) (2022-03-29)
 
 ### Bug Fixes
