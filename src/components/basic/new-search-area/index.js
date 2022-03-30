@@ -63,6 +63,7 @@ let needBlurValidate = true; // 是否需要在blur时校验，点击搜索、�
 function SearchArea(props) {
   const formRef = useRef({});
   const {
+    className,
     style,
     searchForm,
     extraSearch,
@@ -1738,7 +1739,9 @@ function SearchArea(props) {
 
   return (
     <div
-      className={expand ? 'search-area expand' : 'search-area'}
+      className={`${
+        expand ? 'search-area expand' : 'search-area'
+      } ${className}`}
       id="new-search-area"
       style={style}
     >
