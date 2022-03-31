@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-beta.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.2...v1.6.3-beta.3) (2022-03-31)
+
+### Bug Fixes
+
+- 去掉无关日志 ([68379b1](https://github.com/hand-rongjing/polard-component-library/commit/68379b1ab665bbec7314fd1ddeeec8e12d5a4aa7))
+- 添加 reactreact-rnd 依赖 ([838c6d3](https://github.com/hand-rongjing/polard-component-library/commit/838c6d3414df29067cdfc27ff27a4e0ae01d377c))
+- 表格 dataSource 兼容空值 ([7bfa457](https://github.com/hand-rongjing/polard-component-library/commit/7bfa4576a73b37d86beb12b8d2299e905fc1484b))
+- 调整宽高和缩放倍数 ([050ff2c](https://github.com/hand-rongjing/polard-component-library/commit/050ff2c09a168e8633051fdf660d01a7077630a2))
+- 附件增加删除提示 ([8a986e3](https://github.com/hand-rongjing/polard-component-library/commit/8a986e370f9f321e0b2d23644df2f2d115ab3b0d))
+- 附件预览改版，大小可调节可拖拽 ([43246ec](https://github.com/hand-rongjing/polard-component-library/commit/43246ec0be0baffb1d345cbea32f121522b4a95a))
+- 附件预览改版，大小可调节可拖拽 ([c28faf2](https://github.com/hand-rongjing/polard-component-library/commit/c28faf242dad77870612e29c1c971b81dbb0c8f0))
+
 ### [1.6.3-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.1...v1.6.3-beta.2) (2022-03-28)
 
 ### Bug Fixes
