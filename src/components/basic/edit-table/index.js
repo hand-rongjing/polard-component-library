@@ -349,7 +349,9 @@ class EditTable extends Component {
         ? {
             value: record[latestAttr.valueMapKey],
             // selectPartLoad 的值是 {label, value}, 必须要拆解出 label, 否则会无限套娃直接报错
-            label: record[latestAttr.valueMapLabel]?.label ?? record[latestAttr.valueMapLabel],
+            label:
+              record[latestAttr.valueMapLabel]?.label ??
+              record[latestAttr.valueMapLabel],
           }
         : undefined;
     } else if (latestAttr.valueMap) {

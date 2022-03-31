@@ -666,20 +666,22 @@ class CustomTable extends Component {
               getPopupContainer={(node) => node.parentNode}
               overlayStyle={{ maxWidth: 500, wordWrap: 'break-word' }}
             >
-              {value}
+              <div className="over-range">{value}</div>
             </Popover>
           );
         };
-      } else if (item.fixed) {
-        item.ellipsis = true;
-      }
-      if (item.render) {
-        const tempRender = item.render;
-        item.render = (values, record, index) => (
-          <div className="over-range">{tempRender(values, record, index)}</div>
-        );
       } else {
-        item.render = (values) => <div className="over-range">{values}</div>;
+        if (item.fixed) item.ellipsis = true;
+        if (item.render) {
+          const tempRender = item.render;
+          item.render = (values, record, index) => (
+            <div className="over-range">
+              {tempRender(values, record, index)}
+            </div>
+          );
+        } else {
+          item.render = (values) => <div className="over-range">{values}</div>;
+        }
       }
       if (item.key && !item.dataIndex) {
         item.dataIndex = item.key;
@@ -1130,18 +1132,18 @@ class CustomTable extends Component {
           bordered={!headSettingKey}
           onChange={this.tableChange}
           onRow={(record) => {
-            const userDefOns = typeof onRow === 'function' ? onRow(record) : {}
+            const userDefOns = typeof onRow === 'function' ? onRow(record) : {};
             return {
               ...userDefOns,
               onMouseDown: (...args) => {
-                this.mouseDownTime = new Date()
+                this.mouseDownTime = new Date();
                 if (userDefOns.onMouseDown) {
-                  userDefOns.onMouseDown(...args)
+                  userDefOns.onMouseDown(...args);
                 }
               },
               onClick: () => {
-                const now = new Date()
-                console.log('onClick delay', now - this.mouseDownTime)
+                const now = new Date();
+                console.log('onClick delay', now - this.mouseDownTime);
                 // 超过 300ms 认为是在选择复制, 不触发 onClick
                 if (now - this.mouseDownTime < 300) {
                   if (onClick) {
