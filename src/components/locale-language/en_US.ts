@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-31 11:30:57
+ * @LastEditTime: 2022-03-31 14:41:11
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -263,6 +263,7 @@ export default {
   'close.approve.flow.view': 'Fold up the approval stream preview',
   'common.approve': 'The examination and approval',
   'common.pending.approval': 'Pending',
+  'common.end': 'End',
   'workflow.preview': 'Workflow preview',
   'workflow.node': 'Node',
   'workflow.no.settings': 'No set up',
