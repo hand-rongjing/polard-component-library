@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.24](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.23...v1.6.3-alpha.24) (2022-03-31)
+
+### Bug Fixes
+
+- 导出 ApprovalFlowPreview 组件 ([0c4bdb2](https://github.com/hand-rongjing/polard-component-library/commit/0c4bdb20c93b8ea48a15093ba110b75b25eec606))
+
 ### [1.6.3-alpha.23](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.22...v1.6.3-alpha.23) (2022-03-31)
 
 ### Bug Fixes
