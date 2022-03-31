@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { Modal, Spin } from 'antd';
 // import PropTypes from 'prop-types';
-import connect from '../../custom-connect';
 import { messages } from '../../utils';
 import FlowDesignParcel from './preview-out/flow-design-parcel';
 import service from './service';
@@ -307,18 +306,31 @@ class ApprovalFlowPreview extends Component {
     }
   };
 
+  /**
+   * 优先从redux中取数据，如果没有则判断外界是否传入，使用外界的，否则则使用默认的
+   * @returns
+   */
+  getLanguageInfo = () => {
+    const { languages } = this.props;
+    const { getState } = window?.g_app?._store || {};
+    if (getState) {
+      const { languages } = getState?.();
+      if (languages?.local && languages?.languageType) {
+        return languages;
+      }
+    }
+    if (languages) {
+      return languages;
+    }
+    return {};
+  };
+
   render() {
-    const {
-      visible,
-      entityType,
-      entityId,
-      taskId,
-      language,
-      instanceId,
-      flagUrl,
-    } = this.props;
+    const { visible, entityType, entityId, taskId, instanceId, flagUrl } =
+      this.props;
     const { spinLoading, nodes, previewNodeMap, isShowNotPASSNode } =
       this.state;
+    const language = this.getLanguageInfo();
     return (
       <Modal
         visible={visible}
@@ -376,9 +388,5 @@ class ApprovalFlowPreview extends Component {
 ApprovalFlowPreview.defaultProps = {
   visible: false,
 };
-function mapStateToProps(state) {
-  return {
-    language: state.languages,
-  };
-}
-export default connect(mapStateToProps)(ApprovalFlowPreview);
+
+export default ApprovalFlowPreview;
