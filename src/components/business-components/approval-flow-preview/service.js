@@ -2,7 +2,7 @@
  * @Author: zong.wang01@hand-china.com
  * @Date: 2022-03-30 15:53:30
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-31 09:33:16
+ * @LastEditTime: 2022-03-31 11:32:08
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -100,16 +100,5 @@ export default {
   getParamDefinition(code, params = {}) {
     const url = `${config.baseUrl}/api/param/value/get/by/code?code=${code}`;
     return httpFetch.post(url, params);
-  },
-
-  /**
-   * 在审批历史中获取画布信息
-   * @param entityId,
-   * @param entityType,
-   */
-  getApprovalNodeByHistory(entityId, entityType) {
-    const url = `${config.wflUrl}/api/workflow/approval/history?entityType=${entityType}&entityId=${entityId}`;
-    console.log('url', url);
-    return httpFetch.get(url);
   },
 };
