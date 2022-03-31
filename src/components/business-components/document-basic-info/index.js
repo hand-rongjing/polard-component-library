@@ -9,7 +9,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { messages } from '../../utils';
 import FileItem from './file-item';
 import ImagePriview from '../../attachment/image-preview';
-import ZipFileView from '../../attachment/image-preview';
+import ZipFileView from '../../attachment/zip-preview';
 import './document-basic-info.less';
 
 TweenOne.plugins.push(Children);
