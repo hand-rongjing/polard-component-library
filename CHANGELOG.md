@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.16](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.12...v1.6.3-alpha.16) (2022-03-31)
+
+### Bug Fixes
+
+- move PlatformNotice to lib ([770c2a2](https://github.com/hand-rongjing/polard-component-library/commit/770c2a203051f85d71278c3f128b9db868acb871))
+- 审批历史增加工作流预览 ([dd6c990](https://github.com/hand-rongjing/polard-component-library/commit/dd6c99075708b157c58b04e482a95cefee34936c))
+- 审批历史增加工作流预览 ([b285a45](https://github.com/hand-rongjing/polard-component-library/commit/b285a455db155d21be083f29b15455b22b73c6b6))
+- 审批历史增加等待处理预览 ([017b749](https://github.com/hand-rongjing/polard-component-library/commit/017b749338a9547378ad1c0d955fcc6b51d7669f))
+- 解决冲突 ([4e7b660](https://github.com/hand-rongjing/polard-component-library/commit/4e7b6609adcf31e6697c98700cbb12f839eecf82))
+
+### [1.6.3-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.10...v1.6.3-beta.2) (2022-03-28)
+
+### [1.6.3-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.9...v1.6.3-beta.1) (2022-03-25)
+
 ### [1.6.3-alpha.15](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.14...v1.6.3-alpha.15) (2022-03-30)
 
 ### [1.6.3-alpha.14](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.13...v1.6.3-alpha.14) (2022-03-30)
