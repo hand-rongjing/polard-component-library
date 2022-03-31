@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-26 10:45:50
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-30 14:28:39
+ * @LastEditTime: 2022-03-31 10:23:19
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -27,4 +27,5 @@ export interface IState {
   loading: boolean;
   expenseColorFlag: boolean;
   showWaitDo: boolean;
+  viewVisible: boolean;
 }

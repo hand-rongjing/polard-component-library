@@ -6,9 +6,10 @@ import moment from 'moment';
 import httpFetch from 'share/httpFetch';
 // @ts-ignore
 import config from 'config';
-import { messages } from '../../utils';
+import ApprovalFlowPreview from '../approval-flow-preview';
 import { IProps, IState } from './interface';
 import { modelInfoMap } from './config';
+import { messages } from '../../utils';
 import Waring from './images/waring.svg';
 import './style.less';
 /**
@@ -36,6 +37,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       loading: false,
       expenseColorFlag: false,
       showWaitDo: false, // 是否显示等待处理
+      viewVisible: false, // 显示工作流
     };
   }
 
@@ -321,6 +323,10 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
     return model;
   };
 
+  showApproveFlow = (viewVisible) => {
+    this.setState({ viewVisible });
+  };
+
   /**
    * 自动转交时有换行符需要进行转换
    */
@@ -438,7 +444,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
     return (
       <div>
         <div className="view-flow">
-          <Button type="primary">
+          <Button type="primary" onClick={() => this.showApproveFlow(true)}>
             {messages('common.view.flow.chart') /* 查看流程图 */}
           </Button>
           <span className="subtext">
@@ -469,8 +475,9 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   render() {
-    const { loading, historyData } = this.state;
-    const { slideFrameFlag, expandIcon, header } = this.props;
+    const { loading, historyData, viewVisible } = this.state;
+    const { slideFrameFlag, expandIcon, header, documentId, entityType } =
+      this.props;
     return (
       <Spin spinning={loading}>
         <div className="approve-history">
@@ -514,6 +521,16 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
             </div>
           )}
         </div>
+
+        {documentId && (
+          <ApprovalFlowPreview
+            visible={viewVisible}
+            onCancel={() => this.showApproveFlow(false)}
+            entityId={documentId}
+            entityType={entityType}
+            flagUrl="byHistory"
+          />
+        )}
       </Spin>
     );
   }
