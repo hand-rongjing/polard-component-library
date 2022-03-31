@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="16px" viewBox="0 0 46 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>bg_red </title>
+    <desc>Created with Sketch.</desc>
+    <g id="pic_present" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bg_red-" fill="#39D2B4" opacity="0.195870536">
+            <path d="M6,0 L46,0 L46,0 L46,14 C46,15.1045695 45.1045695,16 44,16 L0,16 L0,16 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z" id="bg_blue" transform="translate(23.000000, 8.000000) scale(1, -1) translate(-23.000000, -8.000000) "></path>
+        </g>
+        <text id="rejected" font-family="MicrosoftYaHei, Microsoft YaHei" font-size="10" font-weight="blod" line-spacing="12" fill="red">
+            <tspan x="8" y="11">rejected</tspan>
+        </text>
+    </g>
+</svg>

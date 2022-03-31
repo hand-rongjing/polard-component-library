@@ -1,13 +1,15 @@
 import React from 'react';
-import { Collapse, Timeline, Spin, Row, Col, Empty } from 'antd';
+import { Collapse, Timeline, Spin, Row, Col, Empty, Button } from 'antd';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import moment from 'moment';
 // @ts-ignore
 import httpFetch from 'share/httpFetch';
 // @ts-ignore
 import config from 'config';
-import { messages } from '../../utils';
+import ApprovalFlowPreview from '../approval-flow-preview';
 import { IProps, IState } from './interface';
 import { modelInfoMap } from './config';
+import { messages } from '../../utils';
 import Waring from './images/waring.svg';
 import './style.less';
 /**
@@ -34,6 +36,8 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       historyData: [],
       loading: false,
       expenseColorFlag: false,
+      showWaitDo: false, // 是否显示等待处理
+      viewVisible: false, // 显示工作流
     };
   }
 
@@ -104,11 +108,20 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   getHistory = () => {
-    const { historyData } = this.state;
+    const { historyData, showWaitDo } = this.state;
     const children = [];
-    historyData.forEach((item, i) => {
-      children.push(this.getHistoryRender(item, i));
-    });
+    if (showWaitDo) {
+      historyData.forEach((item, i) => {
+        children.push(this.getHistoryRender(item, i));
+      });
+    } else {
+      historyData.forEach((item, i) => {
+        if (item.operationType !== '9998') {
+          // 9998: 等待处理
+          children.push(this.getHistoryRender(item, i));
+        }
+      });
+    }
     return children;
   };
 
@@ -283,7 +296,8 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
         } else if (value.operation === 'CANCEL_APPROVAL') {
           // 撤销（撤销审批）
           model.color = '#EA4343';
-        } else if (value.operation === '9999') {
+        } else if (value.operation === '9999' || value.operation === '9998') {
+          // 待处理 等待处理
           // 待处理
           model.color = '#D5DAE0'; // 灰色
           model.isPending = true;
@@ -307,6 +321,10 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       ...modelInfoMap[operationType || 'default'],
     };
     return model;
+  };
+
+  showApproveFlow = (viewVisible) => {
+    this.setState({ viewVisible });
   };
 
   /**
@@ -334,7 +352,12 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       const description = item.hasOwnProperty('description')
         ? item.description
         : this.operationRemarkTransfer(item);
-      const isLatest = historyData[0].operationType == '9999' ? i == 1 : i == 0; // 最新节点展示颜色
+      const typeList = historyData.map((o) => o.operationType);
+      const wLastIndex = typeList.lastIndexOf('9998'); // 查找等待处理最后一个元素的下标
+      const isLatest =
+        historyData[wLastIndex + 1].operationType == '9999'
+          ? i == wLastIndex + 2
+          : i == wLastIndex + 1; // 最新节点展示颜色
       return (
         <Timeline.Item
           dot={
@@ -367,7 +390,12 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
         >
           <Row>
             <Col span={24}>
-              <div style={{ marginBottom: 8, color: '#333333' }}>
+              <div
+                style={{
+                  marginBottom: 8,
+                  color: item.operationType === '9998' ? '#BFC7DC' : '#333333',
+                }}
+              >
                 <span style={{ fontWeight: 'bold' }}>{model.text}</span>
                 <span style={{ margin: '0 8px' }}>{item.approvalNodeName}</span>
                 <span>
@@ -406,9 +434,50 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
     return '';
   };
 
+  changeShowWaitDo = (flag) => {
+    this.setState({ showWaitDo: flag });
+  };
+
+  viewFlowRender = () => {
+    const { showWaitDo, historyData } = this.state;
+    const hasWaitDo = historyData.filter((o) => o.operationType === '9998');
+    return (
+      <div>
+        <div className="view-flow">
+          <Button type="primary" onClick={() => this.showApproveFlow(true)}>
+            {messages('common.view.flow.chart') /* 查看流程图 */}
+          </Button>
+          <span className="subtext">
+            {
+              messages(
+                'common.view.flow.remark',
+              ) /* 注：审批流预览按当前工作流显示，但实际会根据配置变化而改变。 */
+            }
+          </span>
+        </div>
+        {hasWaitDo.length > 0 && (
+          <div className="show-waitdo">
+            {showWaitDo ? (
+              <Button type="link" onClick={() => this.changeShowWaitDo(false)}>
+                {messages('close.approve.flow.view') /* 收起审批流预览 */}
+                <UpOutlined />
+              </Button>
+            ) : (
+              <Button type="link" onClick={() => this.changeShowWaitDo(true)}>
+                {messages('approve.flow.preview') /* 审批流预览 */}
+                <DownOutlined />
+              </Button>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   render() {
-    const { loading, historyData } = this.state;
-    const { slideFrameFlag, expandIcon, header } = this.props;
+    const { loading, historyData, viewVisible } = this.state;
+    const { slideFrameFlag, expandIcon, header, documentId, entityType } =
+      this.props;
     return (
       <Spin spinning={loading}>
         <div className="approve-history">
@@ -420,6 +489,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
               >
                 {header || messages('common.approval.history')}
               </div>
+              {this.viewFlowRender()}
               {historyData.length ? (
                 <Timeline className="times">{this.getHistory()}</Timeline>
               ) : (
@@ -439,6 +509,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
                   key="1"
                 >
                   <div style={{ paddingLeft: 18, marginTop: 8 }}>
+                    {this.viewFlowRender()}
                     {historyData.length ? (
                       <Timeline className="times">{this.getHistory()}</Timeline>
                     ) : (
@@ -450,6 +521,16 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
             </div>
           )}
         </div>
+
+        {documentId && (
+          <ApprovalFlowPreview
+            visible={viewVisible}
+            onCancel={() => this.showApproveFlow(false)}
+            entityId={documentId}
+            entityType={entityType}
+            flagUrl="byHistory"
+          />
+        )}
       </Spin>
     );
   }

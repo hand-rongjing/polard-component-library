@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-26 11:26:12
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-10-26 11:34:03
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-03-30 14:30:55
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -47,6 +47,7 @@ export const modelInfoMap = {
   }, // 变更
   PAYMENT_SUBMIT: { color: '#4390FF' }, // 发起支付
   '9999': { color: '#D5DAE0', isPending: true }, // 待处理
+  '9998': { color: '#D5DAE0', isPending: true }, // 等待处理
   DOCUMENT_POST: { color: '#FAAD14' }, // 单据邮寄
   PAYMENT_FAIL: { color: '#EA4343' }, // 支付失败
   CSH_RESERVED: { color: '#EA4343' }, // 付款反冲

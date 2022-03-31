@@ -1,0 +1,103 @@
+:global {
+  #flow-box canvas {
+    background-color: #f7f8fa;
+  }
+
+  .flow-design-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e3e5e8;
+    z-index: 9999;
+
+    .header {
+      height: 64px;
+      line-height: 64px;
+      background-color: #444b51;
+      padding: 0 16px;
+    }
+
+    .content {
+      position: absolute;
+      top: 64px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+    }
+
+    .flow-design-box {
+      flex: 1;
+      overflow: scroll;
+    }
+
+    .right-panel {
+      flex: 0 0 300px;
+      width: 300px;
+    }
+
+    .ant-menu-item-active {
+      color: #1890ff;
+      background: #f7f7f7;
+    }
+    .ant-menu-submenu-active {
+      color: #1890ff;
+      background: #f7f7f7;
+    }
+    .ant-menu-submenu-popup {
+      ul.ant-menu-sub {
+        li.ant-menu-item:hover,
+        li.ant-menu-item-active {
+          color: #1890ff;
+          background: #f7f7f7;
+        }
+      }
+    }
+  }
+
+  .flow-design-container.flow-design-component {
+    position: relative !important;
+
+    .content {
+      height: 500px;
+      top: 0px;
+    }
+  }
+
+  .ant-menu-submenu-popup {
+    z-index: 10000 !important;
+  }
+
+  .ant-modal-wrap {
+    z-index: 10001 !important;
+  }
+
+  .ant-time-picker-panel,
+  .ant-calendar-picker-container,
+  .ant-cascader-menus,
+  .ant-tooltip,
+  .ant-select-dropdown {
+    z-index: 10002 !important;
+  }
+
+  .ant-popover {
+    z-index: 10004 !important;
+  }
+
+  .minimap {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .ant-menu-submenu-popup {
+    ul.ant-menu-sub {
+      li.ant-menu-item:hover,
+      li.ant-menu-item-active {
+        color: #1890ff;
+        background: #f7f7f7;
+      }
+    }
+  }
+}

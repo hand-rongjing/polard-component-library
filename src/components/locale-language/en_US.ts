@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-24 16:58:53
+ * @LastEditTime: 2022-03-31 11:30:57
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -256,4 +256,26 @@ export default {
   'full.screen.exit': 'Exit full screen',
   'pre.page': 'The previous page',
   'next.page': 'The next page',
+  'common.view.flow.chart': 'View flow chart',
+  'common.view.flow.remark':
+    'Note: The approval flow preview is displayed according to the current workflow, but will actually change according to configuration changes.',
+  'approve.flow.preview': 'Approval Flow preview',
+  'close.approve.flow.view': 'Fold up the approval stream preview',
+  'common.approve': 'The examination and approval',
+  'common.pending.approval': 'Pending',
+  'workflow.preview': 'Workflow preview',
+  'workflow.node': 'Node',
+  'workflow.no.settings': 'No set up',
+  'workflow.approval.chain': 'The examination and approval chain',
+  'workflow.view.approval.chain': 'View approval chain',
+  'workflow.dispatch': 'Scheduling',
+  'workflow.scheduling.plan': 'Scheduling plan',
+  'workflow.intelligence': 'Smart',
+  'workflow.not.through': 'Do not pass through',
+  'workflow.node.not.participate':
+    'This object does not participate in the approval operation',
+  'workflow.approval.record': 'The examination and approval records',
+  'workflow.robot': 'The robot',
+  'workflow.self.selected.node': 'Customize the node',
+  'workflow.arrived': 'Have reached',
 };
