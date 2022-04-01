@@ -9,12 +9,12 @@
  */
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Input, Modal, Tree, Spin, message, Pagination } from 'antd';
+import { Input, Modal, Tree, Spin, message, Pagination, Checkbox } from 'antd';
 import httpFetch from 'share/httpFetch';
 import config from 'config';
 import { CloseOutlined, CaretDownOutlined } from '@ant-design/icons';
 import { messages } from '../../../../utils';
-import SearchAreaLov from '../../../../basic/search-area-lov';
+import SearchArea from '../../index';
 // import useWidthAdaptation from '../../useWidth';
 import './style.less';
 
@@ -41,6 +41,7 @@ function TreeSelectModel(props) {
     childrenKey = 'children',
     extraLabelKey = 'companyLevelName',
     titleRender,
+    searchFormCode = 'company',
   } = formItem;
   const inputRef = useRef();
   const searchRef = useRef();
@@ -49,7 +50,7 @@ function TreeSelectModel(props) {
   const [selectedList, setSelectedList] = useState([]);
   const [expandedKeys, setExpandedKeys] = useState([]);
 
-  const searchForm = [
+  const companySearchForm = [
     {
       id: 'keywords',
       label: messages('common.company' /* 公司 */),
@@ -88,21 +89,39 @@ function TreeSelectModel(props) {
       allowClear: true,
       span: 12,
     },
+  ];
+  const deptSearchForm = [
     {
-      id: 'withChildren',
-      type: 'checkbox',
+      id: 'keyWord',
+      label: messages('sdp.dep' /* 部门 */),
+      placeholder: messages('common.input.name.or.code' /* 请输入代码或名称 */),
+      type: 'input',
+      allowClear: true,
+      span: 12,
+    },
+    {
+      id: 'checkType',
+      label: messages('common.view' /* 查看 */),
+      type: 'select',
       options: [
+        { value: ALL, label: messages('common.all' /* 全部 */) },
+        { value: SELECT, label: messages('common.has.selected' /* 已选 */) },
         {
-          label: messages('base.sync.check.subsidiary' /* 同时勾选下属公司 */),
-          value: true,
+          value: NOT_SELECT,
+          label: messages('base.attachment.not.selected' /* 未选 */),
         },
       ],
-      event: 'WITHCHILDREN',
-      label: '',
+      allowClear: true,
       span: 12,
-      defaultValue: [false],
     },
   ];
+  const searchFormMap = {
+    company: companySearchForm,
+    department: deptSearchForm,
+  };
+  const {
+    searchForm = searchFormMap[searchFormCode] || searchFormMap['company'],
+  } = formItem;
 
   const [optionList, setOptionList] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -135,14 +154,15 @@ function TreeSelectModel(props) {
 
   useEffect(() => {
     if (visible) {
+      // TODO: 以下noRefresh判断逻辑有问题，如果以后需要，则另外判断
       // 避免每次弹窗的时候，都调用接口或者重设 optionsList,仅当options，getUrl变动的时候
-      const noRefresh =
-        options?.length > 1
-          ? false
-          : newConfig.getUrl !== getUrl &&
-            newConfig.extraParams !== extraParams &&
-            newConfig.requestBody !== requestBody;
-      getTreeData(noRefresh);
+      // const noRefresh =
+      //   options?.length > 1
+      //     ? false
+      //     : newConfig.getUrl !== getUrl &&
+      //       newConfig.extraParams !== extraParams &&
+      //       newConfig.requestBody !== requestBody;
+      getTreeData(false);
     }
   }, [options, getUrl, visible]);
 
@@ -155,8 +175,7 @@ function TreeSelectModel(props) {
         current: 1,
       });
       setTotalCount(0);
-      searchParam.withChildren = false;
-      setSearchParams(searchParam);
+      setSearchParams({ withChildren: false });
     }
   }, [visible]);
 
@@ -359,7 +378,9 @@ function TreeSelectModel(props) {
   }
 
   function handleSearch(params) {
-    setSearchParams(params);
+    pageInfo.current = 1;
+    setPageInfo(pageInfo);
+    setSearchParams({ ...params, withChildren: searchParam });
     getTreeData(false, params);
   }
 
@@ -481,6 +502,10 @@ function TreeSelectModel(props) {
     searchRef.current.setValues({ withChildren: searchParam.withChildren });
   }
 
+  function changeWithChildren(e) {
+    setSearchParams({ ...searchParam, withChildren: e.target.checked });
+  }
+
   return (
     <div className="tree-select-model">
       <span className="label">{label}</span>
@@ -537,7 +562,7 @@ function TreeSelectModel(props) {
         bodyStyle={{ maxHeight: 545 }}
       >
         <div className="ts-model-search-area">
-          <SearchAreaLov
+          <SearchArea
             searchForm={searchForm}
             eventHandle={handleEvent}
             submitHandle={handleSearch}
@@ -545,7 +570,23 @@ function TreeSelectModel(props) {
             maxLength={1}
             btnCol={12}
             wrappedComponentRef={searchRef}
+            hideDynamicSelFieldBtn
+            hideCondition
           />
+        </div>
+        <div className="checkbox-with-children">
+          <Checkbox
+            value={searchParam.withChildren}
+            onChange={changeWithChildren}
+          >
+            {searchFormCode === 'company'
+              ? messages(
+                  'base.check.the.subordinate.company.at.the.same.time' /* 同时勾选下属公司 */,
+                )
+              : messages(
+                  'base.check.the.subordinate.department' /* 同时勾选下级部门 */,
+                )}
+          </Checkbox>
         </div>
         <Spin spinning={spinning}>
           <div className="tree-select-model-container">
