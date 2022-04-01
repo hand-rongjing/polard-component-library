@@ -272,4 +272,7 @@ export default {
   'workflow.robot': '机器人',
   'workflow.self.selected.node': '自选节点',
   'workflow.arrived': '已到达',
+  'company.maintain.company.companyLevelName': '公司级别',
+  'common.view': '查看',
+  'base.sync.check.subsidiary.department': '同时勾选下级部门',
 };
