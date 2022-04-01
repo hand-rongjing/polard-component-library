@@ -130,7 +130,7 @@ class WorkFlow extends React.Component {
           this.currentNode.parent,
         );
 
-        const point = graph.getCanvasByPoint(x, y);
+        const point = this.graph.getCanvasByPoint(x, y);
         this.setState({
           nodeContextMenuX: point.x + 80,
           nodeContextMenuY: point.y + 50,

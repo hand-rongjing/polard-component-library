@@ -564,7 +564,7 @@ export default {
               textBaseline: 'top',
               // text: '机器人',
               text:
-                spliceString(cfg.nodeName, 10) || messages('setting.key1249'),
+                spliceString(cfg.nodeName, 10) || messages('workflow.robot'),
               fill: cfg.missed ? textOpacity : '#999999',
               fontSize: 12,
             },
