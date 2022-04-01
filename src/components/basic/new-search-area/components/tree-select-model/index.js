@@ -93,7 +93,7 @@ function TreeSelectModel(props) {
   const deptSearchForm = [
     {
       id: 'keyWord',
-      label: messages('sdp.dep' /* 部门 */),
+      label: messages('common.department' /* 部门 */),
       placeholder: messages('common.input.name.or.code' /* 请输入代码或名称 */),
       type: 'input',
       allowClear: true,
@@ -108,7 +108,7 @@ function TreeSelectModel(props) {
         { value: SELECT, label: messages('common.has.selected' /* 已选 */) },
         {
           value: NOT_SELECT,
-          label: messages('base.attachment.not.selected' /* 未选 */),
+          label: messages('common.not.selected' /* 未选 */),
         },
       ],
       allowClear: true,
@@ -580,11 +580,9 @@ function TreeSelectModel(props) {
             onChange={changeWithChildren}
           >
             {searchFormCode === 'company'
-              ? messages(
-                  'base.check.the.subordinate.company.at.the.same.time' /* 同时勾选下属公司 */,
-                )
+              ? messages('base.sync.check.subsidiary' /* 同时勾选下属公司 */)
               : messages(
-                  'base.check.the.subordinate.department' /* 同时勾选下级部门 */,
+                  'base.sync.check.subsidiary.department' /* 同时勾选下级部门 */,
                 )}
           </Checkbox>
         </div>

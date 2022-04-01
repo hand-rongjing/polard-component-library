@@ -256,4 +256,8 @@ export default {
   'full.screen.exit': 'Exit full screen',
   'pre.page': 'The previous page',
   'next.page': 'The next page',
+  'company.maintain.company.companyLevelName': 'Company Level Name',
+  'common.view': 'View',
+  'base.sync.check.subsidiary.department':
+    'Check the subordinate department at the same time',
 };

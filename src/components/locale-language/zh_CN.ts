@@ -250,4 +250,7 @@ export default {
   'full.screen.exit': '退出全屏',
   'pre.page': '上一页',
   'next.page': '下一页',
+  'company.maintain.company.companyLevelName': '公司级别',
+  'common.view': '查看',
+  'base.sync.check.subsidiary.department': '同时勾选下级部门',
 };
