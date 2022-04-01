@@ -1,6 +1,7 @@
 import React from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
+import G6 from '@antv/g6';
 import { messages } from '../../../utils';
 import {
   uuid,
