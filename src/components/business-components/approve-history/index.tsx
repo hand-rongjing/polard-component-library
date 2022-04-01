@@ -38,6 +38,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       expenseColorFlag: false,
       showWaitDo: false, // 是否显示等待处理
       viewVisible: false, // 显示工作流
+      hasWorkflow: false, // 是否显示工作流
     };
   }
 
@@ -76,7 +77,12 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           )
           .then((res) => {
             console.log(res.data, 'res');
-            this.setState({ historyData: res.data, loading: false });
+            this.setState({
+              historyData: res.data,
+              loading: false,
+              hasWorkflow:
+                res.data.findIndex((o) => o.source === 'WORKFLOW') > -1, // 判断审批历史中是否存在工作流数据
+            });
           })
           .catch((err) => {
             console.error(err);
@@ -87,6 +93,8 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           httpFetch[methodType || 'get'](url, params)
             .then((res) => {
               this.setState({
+                hasWorkflow:
+                  res.data.findIndex((o) => o.source === 'WORKFLOW') > -1, // 判断审批历史中是否存在工作流数据
                 historyData: res.data,
                 loading: false,
                 expenseColorFlag: true,
@@ -101,6 +109,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       }
     } else {
       this.setState({
+        hasWorkflow: infoData.findIndex((o) => o.source === 'WORKFLOW') > -1, // 判断审批历史中是否存在工作流数据
         historyData: infoData,
         loading: false,
       });
@@ -439,22 +448,24 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   viewFlowRender = () => {
-    const { showWaitDo, historyData } = this.state;
+    const { showWaitDo, historyData, hasWorkflow } = this.state;
     const hasWaitDo = historyData.filter((o) => o.operationType === '9998');
     return (
       <div>
-        <div className="view-flow">
-          <Button type="primary" onClick={() => this.showApproveFlow(true)}>
-            {messages('common.view.flow.chart') /* 查看流程图 */}
-          </Button>
-          <span className="subtext">
-            {
-              messages(
-                'common.view.flow.remark',
-              ) /* 注：审批流预览按当前工作流显示，但实际会根据配置变化而改变。 */
-            }
-          </span>
-        </div>
+        {hasWorkflow && (
+          <div className="view-flow">
+            <Button type="primary" onClick={() => this.showApproveFlow(true)}>
+              {messages('common.view.flow.chart') /* 查看流程图 */}
+            </Button>
+            <span className="subtext">
+              {
+                messages(
+                  'common.view.flow.remark',
+                ) /* 注：审批流预览按当前工作流显示，但实际会根据配置变化而改变。 */
+              }
+            </span>
+          </div>
+        )}
         {hasWaitDo.length > 0 && (
           <div className="show-waitdo">
             {showWaitDo ? (
@@ -475,7 +486,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   render() {
-    const { loading, historyData, viewVisible } = this.state;
+    const { loading, historyData, viewVisible, hasWorkflow } = this.state;
     const { slideFrameFlag, expandIcon, header, documentId, entityType } =
       this.props;
     return (
@@ -522,7 +533,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           )}
         </div>
 
-        {documentId && (
+        {documentId && hasWorkflow && (
           <ApprovalFlowPreview
             visible={viewVisible}
             onCancel={() => this.showApproveFlow(false)}
