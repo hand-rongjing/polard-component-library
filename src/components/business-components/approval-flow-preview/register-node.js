@@ -1,4 +1,5 @@
 /* eslint-disable */
+import G6 from '@antv/g6';
 import { messages } from '../../utils';
 import approvalIcon from './icons/ic_ex.svg';
 import conditionIcon from './icons/ic_condition.svg';
