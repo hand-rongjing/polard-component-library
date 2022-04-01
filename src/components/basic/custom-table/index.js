@@ -409,7 +409,7 @@ export function HeaderSettingsDropDown(props) {
         )}
         <Tree
           className="draggable-tree"
-          draggable
+          draggable={{ icon: false, nodeDraggable: () => true }}
           blockNode
           selectable={false}
           treeData={cacheColumns.filter((col) => !col.fixed)}
