@@ -38,12 +38,14 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       expenseColorFlag: false,
       showWaitDo: false, // 是否显示等待处理
       viewVisible: false, // 显示工作流
-      hasWorkflow: false, // 是否显示工作流
+      hasWorkflow: false, // 是否有工作流
+      canShowFlowView: false, // 是否可以查看工作流
     };
   }
 
   componentDidMount() {
     this.getHistoryData();
+    this.canShowFlow();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -114,6 +116,19 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
         loading: false,
       });
     }
+  };
+
+  canShowFlow = () => {
+    const { entityType } = this.props;
+    httpFetch
+      .get(`${config.wflUrl}/api/wfl/type/by/code/${entityType}`)
+      .then((res) => {
+        const { data = {} } = res.data;
+        this.setState({ canShowFlowView: !!data.allProcessEnabled });
+      })
+      .catch(() => {
+        this.setState({ canShowFlowView: false });
+      });
   };
 
   getHistory = () => {
@@ -448,11 +463,12 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   viewFlowRender = () => {
-    const { showWaitDo, historyData, hasWorkflow } = this.state;
+    const { showWaitDo, historyData, canShowFlowView, hasWorkflow } =
+      this.state;
     const hasWaitDo = historyData.filter((o) => o.operationType === '9998');
     return (
       <div>
-        {hasWorkflow && (
+        {canShowFlowView && hasWorkflow && (
           <div className="view-flow">
             <Button type="primary" onClick={() => this.showApproveFlow(true)}>
               {messages('common.view.flow.chart') /* 查看流程图 */}
@@ -486,7 +502,8 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   render() {
-    const { loading, historyData, viewVisible, hasWorkflow } = this.state;
+    const { loading, historyData, viewVisible, hasWorkflow, canShowFlowView } =
+      this.state;
     const { slideFrameFlag, expandIcon, header, documentId, entityType } =
       this.props;
     return (
@@ -533,7 +550,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           )}
         </div>
 
-        {documentId && hasWorkflow && (
+        {canShowFlowView && documentId && hasWorkflow && (
           <ApprovalFlowPreview
             visible={viewVisible}
             onCancel={() => this.showApproveFlow(false)}
