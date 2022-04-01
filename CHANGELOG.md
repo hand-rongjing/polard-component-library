@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.27](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.26...v1.6.3-alpha.27) (2022-04-01)
+
 ### [1.6.3-alpha.26](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.25...v1.6.3-alpha.26) (2022-04-01)
 
 ### Bug Fixes
