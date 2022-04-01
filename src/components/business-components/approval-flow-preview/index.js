@@ -339,7 +339,7 @@ class ApprovalFlowPreview extends Component {
         width="90vw"
         destroyOnClose
         onCancel={this.handleCancel}
-        bodyStyle={{ minHeight: '500px' }}
+        bodyStyle={{ minHeight: '580px', padding: 0 }}
       >
         <Spin spinning={spinLoading} delay={300}>
           <div className="flow-design-preview-box">
@@ -347,7 +347,7 @@ class ApprovalFlowPreview extends Component {
               <div
                 style={{
                   overflow: 'scroll',
-                  height: '450px',
+                  height: '580px',
                   backgroundColor: '#F7F8FA',
                   position: 'relative',
                 }}
