@@ -380,7 +380,7 @@ function TreeSelectModel(props) {
   function handleSearch(params) {
     pageInfo.current = 1;
     setPageInfo(pageInfo);
-    setSearchParams({ ...params, withChildren: searchParam });
+    setSearchParams({ ...params, withChildren: searchParam.withChildren });
     getTreeData(false, params);
   }
 
