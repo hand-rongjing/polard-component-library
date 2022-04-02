@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>ic_selected_right</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ic_selected_right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(8.000000, 8.000000) rotate(90.000000) translate(-8.000000, -8.000000) ">
+            <g id="编组" transform="translate(1.000000, 1.000000)" fill="#4390FF">
+                <g id="编组-4">
+                    <circle id="椭圆形" cx="7" cy="7" r="7"></circle>
+                </g>
+            </g>
+            <g id="对号(1)" transform="translate(8.000000, 8.086957) scale(-1, -1) rotate(90.000000) translate(-8.000000, -8.086957) translate(5.000000, 6.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <path d="M2.30613354,4.15673525 C2.1882764,4.15673525 2.07088509,4.11154891 1.98097826,4.02164208 L0.141381988,2.17459239 C-0.0379658385,1.99431289 -0.0379658385,1.7017663 0.141381988,1.5214868 C0.321195652,1.3412073 0.61234472,1.3412073 0.791692547,1.5214868 L2.30613354,3.0419837 L5.19992236,0.136548913 C5.37927019,-0.0441964286 5.67041925,-0.0441964286 5.85023292,0.136548913 C6.02958075,0.316828416 6.02958075,0.608909161 5.85023292,0.789188665 L2.63128882,4.02164208 C2.54138199,4.11154891 2.42352484,4.15673525 2.30613354,4.15673525 Z" id="路径"></path>
+            </g>
+        </g>
+    </g>
+</svg>

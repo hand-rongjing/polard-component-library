@@ -1,3 +1,12 @@
+/*
+ * @Author: zong.wang01@hand-china.com
+ * @Date: 2022-03-30 10:29:28
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-03-31 16:26:59
+ * @Version: 1.0.0
+ * @Description:
+ * @Copyright: Copyright (c) 2021, Hand-RongJing
+ */
 // 以下为了解决打包问题
 /// <reference path="../typings.d.ts" />
 // 统一导出
@@ -44,6 +53,7 @@ export {
 } from './components/business-components/batch-download-attachments';
 export { default as SelectApplicationType } from './components/business-components/select-application-type';
 export { default as ApproveHistory } from './components/business-components/approve-history';
+export { default as ApprovalFlowPreview } from './components/business-components/approval-flow-preview';
 export { default as DocumentSubmitBtn } from './components/business-components/document-submit-btn';
 
 // 附件

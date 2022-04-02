@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-26 10:45:50
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-10-26 11:56:46
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-04-01 16:49:49
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -26,4 +26,8 @@ export interface IState {
   historyData: Array<{ [key: string]: any }>;
   loading: boolean;
   expenseColorFlag: boolean;
+  showWaitDo: boolean;
+  viewVisible: boolean;
+  hasWorkflow: boolean; // 是否有工作流
+  canShowFlowView: boolean; // 是否可以查看工作流
 }

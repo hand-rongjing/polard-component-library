@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-24 16:59:46
+ * @LastEditTime: 2022-03-31 14:41:01
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -250,4 +250,26 @@ export default {
   'full.screen.exit': '退出全屏',
   'pre.page': '上一页',
   'next.page': '下一页',
+  'common.view.flow.chart': '查看流程图',
+  'common.view.flow.remark':
+    '注：审批流预览按当前工作流显示，但实际会根据配置变化而改变。',
+  'approve.flow.preview': '审批流预览',
+  'close.approve.flow.view': '收起审批流预览',
+  'common.approve': '审批',
+  'common.pending.approval': '待审批',
+  'common.end': '结束',
+  'workflow.preview': '工作流预览',
+  'workflow.node': '节点',
+  'workflow.no.settings': '暂无设置',
+  'workflow.approval.chain': '审批链',
+  'workflow.view.approval.chain': '查看审批链',
+  'workflow.dispatch': '调度',
+  'workflow.scheduling.plan': '调度计划',
+  'workflow.intelligence': '智能',
+  'workflow.not.through': '不经过',
+  'workflow.node.not.participate': '该节点不参与审批操作',
+  'workflow.approval.record': '审批记录',
+  'workflow.robot': '机器人',
+  'workflow.self.selected.node': '自选节点',
+  'workflow.arrived': '已到达',
 };
