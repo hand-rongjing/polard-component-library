@@ -350,6 +350,7 @@ class SelectPartLoad extends Component {
       if (beforeOpen) beforeOpen();
       this.setState({ open: true, searchText: null });
       if (!options.length || forceGetList) {
+        this.canGetList = false;
         const { forceGetList: propsGet } = this.props;
         this.setState(
           {
