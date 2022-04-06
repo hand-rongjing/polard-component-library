@@ -132,15 +132,16 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   getHistory = () => {
-    const { historyData, showWaitDo } = this.state;
+    const { historyData, showWaitDo, expenseColorFlag } = this.state;
     const children = [];
     if (showWaitDo) {
       historyData.forEach((item, i) => {
         children.push(this.getHistoryRender(item, i));
       });
     } else {
+      const operaField = expenseColorFlag ? 'operationType' : 'operation';
       historyData.forEach((item, i) => {
-        if (item.operationType !== '9998') {
+        if (item[operaField].toString() !== '9998') {
           // 9998: 等待处理
           children.push(this.getHistoryRender(item, i));
         }
@@ -320,7 +321,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
         } else if (value.operation === 'CANCEL_APPROVAL') {
           // 撤销（撤销审批）
           model.color = '#EA4343';
-        } else if (value.operation === '9999' || value.operation === '9998') {
+        } else if (value.operation === 9999 || value.operation === 9998) {
           // 待处理 等待处理
           // 待处理
           model.color = '#D5DAE0'; // 灰色
@@ -376,12 +377,13 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       const description = item.hasOwnProperty('description')
         ? item.description
         : this.operationRemarkTransfer(item);
-      const typeList = historyData.map((o) => o.operationType);
+      const operaField = expenseColorFlag ? 'operationType' : 'operation';
+      const typeList = historyData.map((o) => o[operaField].toString());
       const wLastIndex = typeList.lastIndexOf('9998'); // 查找等待处理最后一个元素的下标
       const isLatest =
-        historyData[wLastIndex + 1].operationType == '9999'
-          ? i == wLastIndex + 2
-          : i == wLastIndex + 1; // 最新节点展示颜色
+        historyData[wLastIndex + 1][operaField].toString() === '9999'
+          ? i === wLastIndex + 2
+          : i === wLastIndex + 1; // 最新节点展示颜色
       return (
         <Timeline.Item
           dot={
@@ -417,7 +419,10 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
               <div
                 style={{
                   marginBottom: 8,
-                  color: item.operationType === '9998' ? '#BFC7DC' : '#333333',
+                  color:
+                    item[operaField].toString() === '9998'
+                      ? '#BFC7DC'
+                      : '#333333',
                 }}
               >
                 <span style={{ fontWeight: 'bold' }}>{model.text}</span>
@@ -463,9 +468,17 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
   };
 
   viewFlowRender = () => {
-    const { showWaitDo, historyData, canShowFlowView, hasWorkflow } =
-      this.state;
-    const hasWaitDo = historyData.filter((o) => o.operationType === '9998');
+    const {
+      showWaitDo,
+      historyData,
+      canShowFlowView,
+      hasWorkflow,
+      expenseColorFlag,
+    } = this.state;
+    const operaField = expenseColorFlag ? 'operationType' : 'operation';
+    const hasWaitDo = historyData.filter(
+      (o) => o[operaField].toString() === '9998',
+    );
     return (
       <div>
         {canShowFlowView && hasWorkflow && (
