@@ -123,7 +123,7 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
     httpFetch
       .get(`${config.wflUrl}/api/wfl/type/by/code/${entityType}`)
       .then((res) => {
-        const { data = {} } = res.data;
+        const { data = {} } = res;
         this.setState({ canShowFlowView: !!data.allProcessEnabled });
       })
       .catch(() => {
