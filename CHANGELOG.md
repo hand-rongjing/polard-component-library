@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-beta.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.4...v1.6.3-beta.5) (2022-04-06)
+
+### Bug Fixes
+
+- 控制工作流显示 ([96e40d1](https://github.com/hand-rongjing/polard-component-library/commit/96e40d1cc087b0c5b15d7bf5ed26c3d93f42eee7))
+
 ### [1.6.3-beta.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.3...v1.6.3-beta.4) (2022-04-02)
 
 ### Bug Fixes
