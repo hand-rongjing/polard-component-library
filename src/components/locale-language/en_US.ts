@@ -279,4 +279,8 @@ export default {
   'workflow.robot': 'The robot',
   'workflow.self.selected.node': 'Customize the node',
   'workflow.arrived': 'Have reached',
+  'company.maintain.company.companyLevelName': 'Company Level Name',
+  'common.view': 'View',
+  'base.sync.check.subsidiary.department':
+    'Check the subordinate department at the same time',
 };
