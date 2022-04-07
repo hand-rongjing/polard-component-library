@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-beta.8](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.0...v1.6.3-beta.8) (2022-04-07)
+
+### Bug Fixes
+
+- 避免可编辑表格输入框出现 title 提示 ([3d9c293](https://github.com/hand-rongjing/polard-component-library/commit/3d9c2937389bd6a783cf6f4fc8f5b139df6b5580))
+- 表格气泡优化 ([3eeb9f9](https://github.com/hand-rongjing/polard-component-library/commit/3eeb9f907cb32f9538b6aab96da3336f1896cfc5))
+- 表格 dataSource 兼容空值 ([7bfa457](https://github.com/hand-rongjing/polard-component-library/commit/7bfa4576a73b37d86beb12b8d2299e905fc1484b))
+- 表格 dataSource 兼容空值 ([3f980b9](https://github.com/hand-rongjing/polard-component-library/commit/3f980b9a504d1feb3ff11756652569330eb0c314))
+- 导出 ApprovalFlowPreview 组件 ([0c4bdb2](https://github.com/hand-rongjing/polard-component-library/commit/0c4bdb20c93b8ea48a15093ba110b75b25eec606))
+- 调整宽高和缩放倍数 ([050ff2c](https://github.com/hand-rongjing/polard-component-library/commit/050ff2c09a168e8633051fdf660d01a7077630a2))
+- 附件预览改版，大小可调节可拖拽 ([43246ec](https://github.com/hand-rongjing/polard-component-library/commit/43246ec0be0baffb1d345cbea32f121522b4a95a))
+- 附件预览改版，大小可调节可拖拽 ([c28faf2](https://github.com/hand-rongjing/polard-component-library/commit/c28faf242dad77870612e29c1c971b81dbb0c8f0))
+- 附件增加删除提示 ([8a986e3](https://github.com/hand-rongjing/polard-component-library/commit/8a986e370f9f321e0b2d23644df2f2d115ab3b0d))
+- 工作流预览导入 G6 ([8efdd68](https://github.com/hand-rongjing/polard-component-library/commit/8efdd687deed325baa674d21dce8cea8e2c11858))
+- 工作流预览多语言 ([72c74fa](https://github.com/hand-rongjing/polard-component-library/commit/72c74fae8aade44de3ce6646c1cea2f24e1b25ee))
+- 工作流预览增加 g6 依赖 ([0f0ea41](https://github.com/hand-rongjing/polard-component-library/commit/0f0ea414cfe9670506546ae6a214a13d624a77af))
+- 解决冲突 ([8ed9a22](https://github.com/hand-rongjing/polard-component-library/commit/8ed9a22973dcca02c5d7b20367be51de489503f5))
+- 解决冲突 ([9dd40bb](https://github.com/hand-rongjing/polard-component-library/commit/9dd40bb70e952173617673975c8587e6f2e3622d))
+- 控制工作流显示 ([7f8dcfa](https://github.com/hand-rongjing/polard-component-library/commit/7f8dcfa17daca88e0e16d3d35208a57055b59f62))
+- 控制工作流显示 ([96e40d1](https://github.com/hand-rongjing/polard-component-library/commit/96e40d1cc087b0c5b15d7bf5ed26c3d93f42eee7))
+- 控制工作流显示 ([192778d](https://github.com/hand-rongjing/polard-component-library/commit/192778d34f899f11210e74db85d02e9a8d61e420))
+- 去掉无关日志 ([68379b1](https://github.com/hand-rongjing/polard-component-library/commit/68379b1ab665bbec7314fd1ddeeec8e12d5a4aa7))
+- 审批历史优化工作流预览 ([709c66c](https://github.com/hand-rongjing/polard-component-library/commit/709c66c6bc9eb71ae698f8ed7fcbe041e30802ea))
+- 审批历史优化工作流预览 ([e3036ed](https://github.com/hand-rongjing/polard-component-library/commit/e3036ed7e52706158735767ce8dd0d1e556cf06c))
+- 审批历史增加等待处理预览 ([017b749](https://github.com/hand-rongjing/polard-component-library/commit/017b749338a9547378ad1c0d955fcc6b51d7669f))
+- 审批历史增加工作流预览 ([dd6c990](https://github.com/hand-rongjing/polard-component-library/commit/dd6c99075708b157c58b04e482a95cefee34936c))
+- 审批历史增加工作流预览 ([b285a45](https://github.com/hand-rongjing/polard-component-library/commit/b285a455db155d21be083f29b15455b22b73c6b6))
+- 添加 reactreact-rnd 依赖 ([838c6d3](https://github.com/hand-rongjing/polard-component-library/commit/838c6d3414df29067cdfc27ff27a4e0ae01d377c))
+- 修改工作流高度 ([847abfb](https://github.com/hand-rongjing/polard-component-library/commit/847abfb2b873d8e61ff36be7a08c4452eff106f9))
+
+### [1.6.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0...v1.6.1) (2022-03-17)
+
+### Bug Fixes
+
+- 取消 table refreshData ([0a7e9ac](https://github.com/hand-rongjing/polard-component-library/commit/0a7e9ac2bf751a86e9442fece660aceb68242a38))
+- 鼠标行 onMouseDown 超过 300ms 认为是在选择复制, 不触发 onClick ([5f1c065](https://github.com/hand-rongjing/polard-component-library/commit/5f1c0654e6965bda5b017733edbd0cf373bb116b))
+- custom-table 样式调整 ([adf38af](https://github.com/hand-rongjing/polard-component-library/commit/adf38afe79003172cfddc985b0be450df4f1abe5))
+- custom-table 样式调整 ([b09e34b](https://github.com/hand-rongjing/polard-component-library/commit/b09e34baaa76a8751f95bfc3539e130c499b5d77))
+- custom-table 样式调整 ([6a05002](https://github.com/hand-rongjing/polard-component-library/commit/6a050021755c773d6d2d71be7521b5f15d0dcd07))
+- custom-table 样式调整 ([abc01c2](https://github.com/hand-rongjing/polard-component-library/commit/abc01c2f031aa4892da45eeee08595901b530a27))
+
 ### [1.6.3-beta.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.6...v1.6.3-beta.7) (2022-04-06)
 
 ### [1.6.3-beta.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.5...v1.6.3-beta.6) (2022-04-06)
