@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3-alpha.38](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-beta.9...v1.6.3-alpha.38) (2022-04-07)
+
+### Bug Fixes
+
+- lov 搜索框样式修改 ([8d8afa9](https://github.com/hand-rongjing/polard-component-library/commit/8d8afa9f2673db45287ec08e94f23f7a2051cf35))
+
+### [1.6.3-alpha.35](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.33...v1.6.3-alpha.35) (2022-04-06)
+
+### [1.6.3-alpha.33](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.31...v1.6.3-alpha.33) (2022-04-01)
+
+### [1.6.3-alpha.31](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.15...v1.6.3-alpha.31) (2022-04-01)
+
+### Bug Fixes
+
+- 解决冲突 ([d38b0ad](https://github.com/hand-rongjing/polard-component-library/commit/d38b0adf5c278a66d61ecbfc36827fd16c73570e))
+- 解决冲突 ([4e7b660](https://github.com/hand-rongjing/polard-component-library/commit/4e7b6609adcf31e6697c98700cbb12f839eecf82))
+- 修改表格气泡渲染 ([51907b6](https://github.com/hand-rongjing/polard-component-library/commit/51907b6c0dd83d0e96658c09f79e68bfc2543f76))
+
+### [1.6.3-alpha.15](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.14...v1.6.3-alpha.15) (2022-03-30)
+
+### [1.6.3-alpha.14](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.13...v1.6.3-alpha.14) (2022-03-30)
+
+### [1.6.3-alpha.13](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.11...v1.6.3-alpha.13) (2022-03-30)
+
+### Bug Fixes
+
+- move PlatformNotice to lib ([770c2a2](https://github.com/hand-rongjing/polard-component-library/commit/770c2a203051f85d71278c3f128b9db868acb871))
+
+### [1.6.3-alpha.11](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.2...v1.6.3-alpha.11) (2022-03-28)
+
+### [1.6.3-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.1...v1.6.3-alpha.2) (2022-03-24)
+
+### [1.6.3-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.0...v1.6.3-alpha.1) (2022-03-24)
+
+### Bug Fixes
+
+- 解决冲突 ([242e582](https://github.com/hand-rongjing/polard-component-library/commit/242e5826b6e36d21232cd8348fd185d4473f8730))
+
+### [1.6.1-alpha.9](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.8...v1.6.1-alpha.9) (2022-03-17)
+
+### [1.6.1-alpha.8](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.7...v1.6.1-alpha.8) (2022-03-17)
+
+### [1.6.1-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.6...v1.6.1-alpha.7) (2022-03-16)
+
+### [1.6.1-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.5...v1.6.1-alpha.6) (2022-03-16)
+
+### [1.6.1-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.4...v1.6.1-alpha.5) (2022-03-16)
+
+### [1.6.1-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.1...v1.6.1-alpha.4) (2022-03-16)
+
+### [1.6.1-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0...v1.6.1-alpha.1) (2022-03-14)
+
+### Bug Fixes
+
+- 解决冲突 ([6da37ac](https://github.com/hand-rongjing/polard-component-library/commit/6da37ac34a098de1395c4a4c42eb1af8ce42dc6e))
+- 解决冲突 ([573050d](https://github.com/hand-rongjing/polard-component-library/commit/573050d55ef883bb958df662eb964c9bd36a466e))
+- 解决冲突 ([62254c8](https://github.com/hand-rongjing/polard-component-library/commit/62254c804efa3d5673aea39a65c4e81f35c6886e))
+- 解决冲突 ([8c86e18](https://github.com/hand-rongjing/polard-component-library/commit/8c86e18f5c208ff29772d5a4c645d0fed8dedead))
+- 解决冲突 ([1eff9c9](https://github.com/hand-rongjing/polard-component-library/commit/1eff9c9ca0bee7cf7d728180927da00753a2fcc9))
+
 ### [1.6.3-alpha.37](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.3-alpha.36...v1.6.3-alpha.37) (2022-04-06)
 
 ### Bug Fixes
