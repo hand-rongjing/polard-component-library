@@ -1739,9 +1739,9 @@ function SearchArea(props) {
 
   return (
     <div
-      className={`${
-        expand ? 'search-area expand' : 'search-area'
-      } ${className}`}
+      className={`${expand ? 'search-area expand' : 'search-area'} ${
+        className || ''
+      }`}
       id="new-search-area"
       style={style}
     >
