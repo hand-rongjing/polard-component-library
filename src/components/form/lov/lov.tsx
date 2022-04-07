@@ -431,11 +431,8 @@ class Lov extends Component<ILovProps, ILovState> {
             }}
             hideDynamicSelFieldBtn
             hideCondition
-            style={{
-              'box-shadow': 'unset',
-              'background-color': 'unset',
-              'border-top': 'unset',
-            }}
+            className="simple-search-area"
+            style={{ margin: '-24px -24px 0' }}
           />
         )}
         <div style={{ marginBottom: 12, fontSize: '12px' }}>
