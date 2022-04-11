@@ -10,7 +10,7 @@ import {
   approvalNameStyle,
   smartNodeStyle,
 } from '../constant.js';
-import '../style.less';
+import '../styles/style.less';
 
 class PreviewHistory extends Component {
   constructor(props) {
@@ -228,6 +228,7 @@ class PreviewHistory extends Component {
           footer={null}
           destroyOnClose
           bodyStyle={{ minHeight: 300 }}
+          wrapClassName="approval-flow-preview-modal"
         >
           <PreviewInner
             {...this.props}

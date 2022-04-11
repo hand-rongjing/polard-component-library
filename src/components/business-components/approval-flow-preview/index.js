@@ -340,6 +340,7 @@ class ApprovalFlowPreview extends Component {
         destroyOnClose
         onCancel={this.handleCancel}
         bodyStyle={{ minHeight: '580px', padding: 0 }}
+        wrapClassName="approval-flow-preview-modal"
       >
         <Spin spinning={spinLoading} delay={300}>
           <div className="flow-design-preview-box">
