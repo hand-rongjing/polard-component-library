@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.6-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.6-alpha.1) (2022-04-11)
+
+### Bug Fixes
+
+- move PlatformNotice to lib ([770c2a2](https://github.com/hand-rongjing/polard-component-library/commit/770c2a203051f85d71278c3f128b9db868acb871))
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([a815b69](https://github.com/hand-rongjing/polard-component-library/commit/a815b69f9c6f2dd39f926dce4bc32b4e1b133282))
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([21fbd27](https://github.com/hand-rongjing/polard-component-library/commit/21fbd27c0caca9a00b7ec8bb4f04f9afbc4f1ac8))
+- 优化工作流弹窗样式 ([47cf62e](https://github.com/hand-rongjing/polard-component-library/commit/47cf62e3f4080febd7ddb3b3649477c3e9717a1f))
+- 修改表格气泡渲染 ([51907b6](https://github.com/hand-rongjing/polard-component-library/commit/51907b6c0dd83d0e96658c09f79e68bfc2543f76))
+- 可编辑表格多选优化 ([61b66fa](https://github.com/hand-rongjing/polard-component-library/commit/61b66fa7450386eeeef7f58acb5e0a74c8649968))
+- 解决冲突 ([a22d542](https://github.com/hand-rongjing/polard-component-library/commit/a22d5423963f0f4b14481172096224ad14a26494))
+- 解决冲突 ([2b3c5aa](https://github.com/hand-rongjing/polard-component-library/commit/2b3c5aa75fdaf895d9a0ed9f016eb5056fd7f2f3))
+- 解决冲突 ([d38b0ad](https://github.com/hand-rongjing/polard-component-library/commit/d38b0adf5c278a66d61ecbfc36827fd16c73570e))
+- 解决冲突 ([4e7b660](https://github.com/hand-rongjing/polard-component-library/commit/4e7b6609adcf31e6697c98700cbb12f839eecf82))
+- 解决冲突 ([242e582](https://github.com/hand-rongjing/polard-component-library/commit/242e5826b6e36d21232cd8348fd185d4473f8730))
+- 附件预览 zIndex 修改 ([a8f0a4c](https://github.com/hand-rongjing/polard-component-library/commit/a8f0a4c5bb9eaaf1f2ad6f9e6210e8f7b3978994))
+
+### [1.6.1-alpha.9](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.6...v1.6.1-alpha.9) (2022-03-17)
+
+### [1.6.1-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0...v1.6.1-alpha.6) (2022-03-16)
+
+### Bug Fixes
+
+- 解决冲突 ([6da37ac](https://github.com/hand-rongjing/polard-component-library/commit/6da37ac34a098de1395c4a4c42eb1af8ce42dc6e))
+- 解决冲突 ([573050d](https://github.com/hand-rongjing/polard-component-library/commit/573050d55ef883bb958df662eb964c9bd36a466e))
+- 解决冲突 ([62254c8](https://github.com/hand-rongjing/polard-component-library/commit/62254c804efa3d5673aea39a65c4e81f35c6886e))
+
+## [1.6.0-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/1eff9c9ca0bee7cf7d728180927da00753a2fcc9...v1.6.0-alpha.0) (2022-03-03)
+
+### Bug Fixes
+
+- 解决冲突 ([8c86e18](https://github.com/hand-rongjing/polard-component-library/commit/8c86e18f5c208ff29772d5a4c645d0fed8dedead))
+- 解决冲突 ([1eff9c9](https://github.com/hand-rongjing/polard-component-library/commit/1eff9c9ca0bee7cf7d728180927da00753a2fcc9))
+
 ### [1.6.6-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5...v1.6.6-alpha.0) (2022-04-11)
 
 ### Bug Fixes
