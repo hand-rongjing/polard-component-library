@@ -3,7 +3,7 @@ import Icon, { LoadingOutlined } from '@ant-design/icons';
 import { Tooltip, Popconfirm, Col, Row, Progress } from 'antd';
 import config from 'config';
 import httpFetch from 'share/httpFetch';
-import { getImgIcon, messages } from '../../utils';
+import { getImgIcon, messages, getBrowserInfo } from '../../utils';
 import DownloadIcon from '../../../assets/upload/download';
 import PreviewIcon from '../../../assets/upload/preview';
 import DeleteIcon from '../../../assets/upload/delete';
@@ -184,13 +184,29 @@ class RenderUploadFileItem extends React.Component {
     }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
       'token',
     )}`;
-    const iframe = document.createElement('iframe');
-    iframe.src = downloadURL;
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-    }, 500);
+
+    // X-FRAME-OPTIONS: SAMEORIGIN iframe 打开下载链接 ie11 不能正常下载
+    // 设置一个 a标签 并模拟点击一下让它在新标签里面打开正常下载, 浏览器会有个短暂的闪烁业务接受此方式
+    if (getBrowserInfo().name === 'IE') {
+      const aTag = document.createElement('a');
+      aTag.setAttribute('target', '_blank');
+      aTag.setAttribute('href', downloadURL);
+      aTag.style.position = 'absolute';
+      aTag.style.visibility = 'hidden';
+      document.body.appendChild(aTag);
+      setTimeout(() => {
+        document.body.removeChild(aTag);
+      }, 500);
+      aTag.click();
+    } else {
+      const iframe = document.createElement('iframe');
+      iframe.src = downloadURL;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+      }, 500);
+    }
   };
 
   // 文件大小转换
