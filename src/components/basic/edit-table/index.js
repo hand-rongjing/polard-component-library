@@ -1855,8 +1855,8 @@ class EditTable extends Component {
         )}
         <Table
           size="small"
-          rowSelection={allowChecked ? customSelection : rowSelection}
           {...this.props}
+          rowSelection={allowChecked ? customSelection : rowSelection}
           columns={columns}
           dataSource={dataSource}
           rowKey={(record) => record[rowKey]}
