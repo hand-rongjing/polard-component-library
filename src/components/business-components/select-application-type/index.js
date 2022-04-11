@@ -1,17 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Select,
-  Input,
-  Button,
-  Modal,
-  Row,
-  Col,
-  Spin,
-  message,
-  Tooltip,
-  Anchor,
-  Form,
-} from 'antd';
+import { Select, Modal, Row, Col, Spin, message, Tooltip, Anchor } from 'antd';
+import SearchArea from '../../basic/new-search-area';
 import config from 'config';
 import httpFetch from 'share/httpFetch';
 import Connect from '../../custom-connect';
@@ -19,67 +8,6 @@ import { messages } from '../../utils';
 import './index.less';
 
 const { Link } = Anchor;
-
-function SearchAreaWrap(props) {
-  const { categoryList, handleSearch, handleReset } = props;
-
-  const [form] = Form.useForm();
-
-  const formItemLayout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
-  return (
-    <Form labelAlign="right" form={form}>
-      <Row>
-        <Col span={8}>
-          <Form.Item
-            {...formItemLayout}
-            name="typeCategoryId"
-            label={messages('common.large.class') /* 大类 */}
-          >
-            <Select
-              style={{ width: '100%' }}
-              placeholder={messages('common.please.select')}
-              getPopupContainer={(trigger) => trigger.parentNode}
-              allowClear
-            >
-              {categoryList.map((item) => {
-                return <Select.Option key={item.id}>{item.name}</Select.Option>;
-              })}
-            </Select>
-          </Form.Item>
-        </Col>
-        <Col span={8}>
-          <Form.Item
-            {...formItemLayout}
-            name="name"
-            label={messages('common.name') /* 名称 */}
-          >
-            <Input
-              placeholder={messages('common.please.enter')}
-              autoComplete="off"
-            />
-          </Form.Item>
-        </Col>
-        <Col span={8} style={{ textAlign: 'right' }}>
-          <Form.Item wrapperCol={{ span: 24 }}>
-            <Button
-              type="primary"
-              htmlType="submit"
-              onClick={(e) => handleSearch(e, form)}
-            >
-              {messages('common.search')}
-            </Button>
-            <Button style={{ marginLeft: 8 }} onClick={() => handleReset(form)}>
-              {messages('common.clear')}
-            </Button>
-          </Form.Item>
-        </Col>
-      </Row>
-    </Form>
-  );
-}
 
 function RenderByType({ type, selected, selectHandle }) {
   return type.map((item) => {
@@ -118,6 +46,21 @@ class SelectApplicationType extends Component {
       isInit: false,
       total: 0,
       confirmLoading: false, // 确定loading
+      searchForm: [
+        {
+          type: 'select',
+          id: 'typeCategoryId',
+          label: messages('common.large.class') /* 大类 */,
+          labelKey: 'name',
+          valueKey: 'id',
+          options: [],
+        },
+        {
+          type: 'input',
+          id: 'name',
+          label: messages('common.name') /* 名称 */,
+        },
+      ],
     };
   }
 
@@ -221,7 +164,7 @@ class SelectApplicationType extends Component {
 
   // 类型分组
   getApplicationTypes = () => {
-    const { applicationData, isInit, categoryList } = this.state;
+    const { applicationData, isInit, categoryList, searchForm } = this.state;
     const applicationTypes = {};
     applicationData.forEach((item) => {
       if (Array.isArray(applicationTypes[item.typeCategoryId])) {
@@ -232,25 +175,31 @@ class SelectApplicationType extends Component {
           categoryList.push({
             id: item.typeCategoryId,
             name: item.typeCategoryName,
+            value: item.typeCategoryId,
+            label: item.typeCategoryName,
           });
         }
       }
     });
-    this.setState({ applicationTypes, categoryList, loading: false }, () => {
-      const { value } = this.props;
-      if (isInit && value && value.id) {
-        const cur = applicationData.find((item) => item.id === value.id);
-        if (cur) {
-          const curElement = document.querySelector(
-            `#type${cur.typeCategoryId}`,
-          );
-          if (curElement) {
-            curElement.scrollIntoView();
+    searchForm[0].options = categoryList;
+    this.setState(
+      { applicationTypes, categoryList, loading: false, searchForm },
+      () => {
+        const { value } = this.props;
+        if (isInit && value && value.id) {
+          const cur = applicationData.find((item) => item.id === value.id);
+          if (cur) {
+            const curElement = document.querySelector(
+              `#type${cur.typeCategoryId}`,
+            );
+            if (curElement) {
+              curElement.scrollIntoView();
+            }
           }
         }
-      }
-      this.setState({ isInit: false });
-    });
+        this.setState({ isInit: false });
+      },
+    );
   };
 
   // 获取申请大类
@@ -362,18 +311,12 @@ class SelectApplicationType extends Component {
   };
 
   // 搜索
-  handleSearch = (e, form) => {
-    e.preventDefault();
-    const { validateFields } = form;
-    validateFields().then((value) => {
-      this.setState({ searchParams: value ? { ...value } : {} }, this.getList);
-    });
+  search = (value) => {
+    this.setState({ searchParams: value }, this.getList);
   };
 
   // 清空
-  handleReset = (form) => {
-    const { resetFields } = form;
-    resetFields();
+  clear = () => {
     this.setState({ searchParams: {} });
   };
 
@@ -389,10 +332,10 @@ class SelectApplicationType extends Component {
       recentlyData,
       selected,
       loading,
-      categoryList,
       scrollElement,
       total,
       confirmLoading,
+      searchForm,
     } = this.state;
     const { hideSelect, disabled, value, placeholder, title, allowClear } =
       this.props;
@@ -426,10 +369,13 @@ class SelectApplicationType extends Component {
           destroyOnClose
         >
           <div className="select-application-type">
-            <SearchAreaWrap
-              handleSearch={this.handleSearch}
-              handleReset={this.handleReset}
-              categoryList={categoryList}
+            <SearchArea
+              searchForm={searchForm}
+              submitHandle={this.search}
+              clearHandle={this.clear}
+              hideDynamicSelFieldBtn
+              hideCondition
+              className="simple-search-area"
             />
 
             <Spin spinning={loading}>
