@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5...v1.6.6) (2022-04-13)
+
+### Bug Fixes
+
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([a815b69](https://github.com/hand-rongjing/polard-component-library/commit/a815b69f9c6f2dd39f926dce4bc32b4e1b133282))
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([21fbd27](https://github.com/hand-rongjing/polard-component-library/commit/21fbd27c0caca9a00b7ec8bb4f04f9afbc4f1ac8))
+
 ### [1.6.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.5) (2022-04-11)
 
 ### Bug Fixes
