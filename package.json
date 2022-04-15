@@ -1,6 +1,6 @@
 {
   "name": "hand-polard",
-  "version": "1.6.7-alpha.0",
+  "version": "1.6.7-alpha.1",
   "scripts": {
     "start": "cross-env ENV_TYPE=native dumi dev",
     "docs:build": "cross-env ENV_TYPE=native dumi build",
@@ -35,7 +35,7 @@
     "@types/node": "^16.10.1",
     "@types/qs": "^6.9.7",
     "ahooks": "^2.10.0",
-    "antd": "^4.19.2",
+    "antd": "4.19.2",
     "axios": "^0.21.4",
     "babel-plugin-import": "^1.13.3",
     "babel-runtime": "^6.26.0",
