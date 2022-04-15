@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.7-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5-alpha.3...v1.6.7-alpha.2) (2022-04-15)
+
+### Bug Fixes
+
+- 解决冲突 ([af175e3](https://github.com/hand-rongjing/polard-component-library/commit/af175e3a8cbe161534c3001498d6947117f321a7))
+- 解决冲突 ([a22d542](https://github.com/hand-rongjing/polard-component-library/commit/a22d5423963f0f4b14481172096224ad14a26494))
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([a815b69](https://github.com/hand-rongjing/polard-component-library/commit/a815b69f9c6f2dd39f926dce4bc32b4e1b133282))
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([21fbd27](https://github.com/hand-rongjing/polard-component-library/commit/21fbd27c0caca9a00b7ec8bb4f04f9afbc4f1ac8))
+- value_list 增加 optionsFilter 可以在 getSystemValueList 之后再过滤一次 options ([93756b8](https://github.com/hand-rongjing/polard-component-library/commit/93756b844d046f4606f72670d33df07584aaffd5))
+
 ### [1.6.7-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.6-beta.1...v1.6.7-alpha.1) (2022-04-15)
 
 ### Bug Fixes
