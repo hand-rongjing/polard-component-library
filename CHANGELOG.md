@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.7-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.6-beta.1...v1.6.7-beta.1) (2022-04-15)
+
+### Bug Fixes
+
+- value_list 增加 optionsFilter 可以在 getSystemValueList 之后再过滤一次 options ([93756b8](https://github.com/hand-rongjing/polard-component-library/commit/93756b844d046f4606f72670d33df07584aaffd5))
+
 ### [1.6.7-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.7-beta.0) (2022-04-15)
 
 ### Bug Fixes
