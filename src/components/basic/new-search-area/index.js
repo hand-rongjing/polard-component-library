@@ -388,6 +388,9 @@ function SearchArea(props) {
       ![null, undefined].includes(target.key)
     )
       return target.key;
+    else if (['date', 'month', 'yearPicker'].includes(item.type))
+      return target ? moment(target) : undefined;
+    // 固定字段取默认值时，需要格式化date
     else return target;
   }
 
@@ -1204,9 +1207,15 @@ function SearchArea(props) {
       // 这三个是原有的，但貌似没用到过，临时兼容
       values[key] = value;
     } else if (
-      ['input', 'switch', 'list', 'lov', 'select_part_load'].includes(
-        formItem.type,
-      )
+      [
+        'input',
+        'switch',
+        'list',
+        'lov',
+        'select_part_load',
+        'multiple',
+        'tree_select_model',
+      ].includes(formItem.type)
     ) {
       values[key] = value;
     } else {
