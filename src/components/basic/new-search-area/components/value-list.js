@@ -10,6 +10,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Select, Tooltip, Input } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
+import { isFunction } from 'lodash';
 import { messages, getSystemValueList } from '../../../utils';
 import { preventOpen } from '../utils';
 import SearchSvg from '../images/search';
@@ -27,6 +28,7 @@ export default function CustomValueListSelector(props) {
     all,
     label,
     showSearch,
+    optionsFilter,
   } = formItem;
 
   const [optionList, setOptionList] = useState([]);
@@ -44,7 +46,7 @@ export default function CustomValueListSelector(props) {
     if (!isOpen) return;
     if (options.length === 0 || (options.length === 1 && options[0].temp)) {
       getSystemValueList(valueListCode, all).then((res) => {
-        const tempOptions = [];
+        let tempOptions = [];
         res.data.values.forEach((data) => {
           tempOptions.push({
             label: renderOption ? renderOption(data) : data.name,
@@ -52,6 +54,9 @@ export default function CustomValueListSelector(props) {
             data,
           });
         });
+        if (isFunction(optionsFilter)) {
+          tempOptions = optionsFilter(tempOptions)
+        }
         optionListBeforeSearch.current = [...(tempOptions || [])];
         setOptionList(tempOptions);
         onResetOptions(tempOptions, formItem.id);
