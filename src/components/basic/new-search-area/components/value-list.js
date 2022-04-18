@@ -55,7 +55,7 @@ export default function CustomValueListSelector(props) {
           });
         });
         if (isFunction(optionsFilter)) {
-          tempOptions = optionsFilter(tempOptions);
+          tempOptions = optionsFilter(tempOptions)
         }
         optionListBeforeSearch.current = [...(tempOptions || [])];
         setOptionList(tempOptions);
