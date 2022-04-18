@@ -89,9 +89,9 @@ export default function Test() {
 
 ### API
 
-| 参数       | 说明         | 类型     | 默认值 |
-| ---------- | ------------ | -------- | ------ |
-| visible    | 弹框是否显示 | boolean  | false  |
-| onCancel   | 关闭         | Function |        |
-| baseParams | 请求参数     | Object   |        |
-| onReqSuccess | 请求成功的回调 | Function   |        |
+| 参数         | 说明           | 类型     | 默认值 |
+| ------------ | -------------- | -------- | ------ |
+| visible      | 弹框是否显示   | boolean  | false  |
+| onCancel     | 关闭           | Function |        |
+| baseParams   | 请求参数       | Object   |        |
+| onReqSuccess | 请求成功的回调 | Function |        |

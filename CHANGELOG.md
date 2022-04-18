@@ -2,7 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.6.7-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.2...v1.6.7-alpha.3) (2022-04-18)
+### [1.6.7-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.6-beta.1...v1.6.7-beta.1) (2022-04-15)
+
+### Bug Fixes
+
+- value_list 增加 optionsFilter 可以在 getSystemValueList 之后再过滤一次 options ([93756b8](https://github.com/hand-rongjing/polard-component-library/commit/93756b844d046f4606f72670d33df07584aaffd5))
+
+### [1.6.7-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.7-beta.0) (2022-04-15)
+
+### Bug Fixes
+
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([a815b69](https://github.com/hand-rongjing/polard-component-library/commit/a815b69f9c6f2dd39f926dce4bc32b4e1b133282))
+- upload-file-list 在 ie 下载的时候, 模拟 a 标签打开新窗口来下载, 避免 X-FRAME-OPTIONS: SAMEORIGIN 导致无法下载 ([21fbd27](https://github.com/hand-rongjing/polard-component-library/commit/21fbd27c0caca9a00b7ec8bb4f04f9afbc4f1ac8))
+- value_list 增加 optionsFilter 可以在 getSystemValueList 之后再过滤一次 options ([93756b8](https://github.com/hand-rongjing/polard-component-library/commit/93756b844d046f4606f72670d33df07584aaffd5))
+- 优化工作流弹窗样式 ([47cf62e](https://github.com/hand-rongjing/polard-component-library/commit/47cf62e3f4080febd7ddb3b3649477c3e9717a1f))
+- 可编辑表格多选优化 ([61b66fa](https://github.com/hand-rongjing/polard-component-library/commit/61b66fa7450386eeeef7f58acb5e0a74c8649968))
+- 解决冲突 ([af175e3](https://github.com/hand-rongjing/polard-component-library/commit/af175e3a8cbe161534c3001498d6947117f321a7))
+- 附件预览 zIndex 修改 ([a8f0a4c](https://github.com/hand-rongjing/polard-component-library/commit/a8f0a4c5bb9eaaf1f2ad6f9e6210e8f7b3978994))
+
+### [1.6.6-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.6-beta.0...v1.6.6-beta.1) (2022-04-11)
 
 ### [1.6.7-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5-alpha.3...v1.6.7-alpha.2) (2022-04-15)
 
