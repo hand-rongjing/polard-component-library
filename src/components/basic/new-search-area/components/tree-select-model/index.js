@@ -314,7 +314,11 @@ function TreeSelectModel(props) {
     const { node, checked } = event;
     const { withChildren } = searchParam;
 
-    let checkedList = Array.isArray(selectedList) ? selectedList : [];
+    let checkedList = Array.isArray(selectedList)
+      ? selectedList
+      : selectedList.checked
+      ? selectedList.checked
+      : [];
     // 假设当前节点有子级节点，选中的同时将子级推入到勾选数组中，反选则删除
     let children = [];
     if (withChildren) {
@@ -432,7 +436,11 @@ function TreeSelectModel(props) {
    */
   function filterByCheckType(checkType = ALL, dataList) {
     const treeList = [];
-    const newCheckedList = Array.isArray(selectedList) ? selectedList : [];
+    const newCheckedList = Array.isArray(selectedList)
+      ? selectedList
+      : selectedList.checked
+      ? selectedList.checked
+      : [];
     if (checkType === ALL) return dataList;
     else if (checkType === SELECT) {
       recurseTree(dataList, (data) => {
