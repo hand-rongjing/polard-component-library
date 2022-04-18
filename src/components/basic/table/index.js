@@ -113,10 +113,10 @@ class BasicTable extends React.Component {
       if (footerDom) {
         initScrollY -= footerDom.clientHeight;
       }
-      console.log('initScrollY', initScrollY, currentPage.pageCode);
+      // console.log('initScrollY', initScrollY, currentPage.pageCode);
       return initScrollY < 200 ? 200 : initScrollY;
     } catch (e) {
-      console.log('getScrollY Error', e);
+      // console.log('getScrollY Error', e);
       return null;
     }
   };
