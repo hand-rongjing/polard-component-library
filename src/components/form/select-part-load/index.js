@@ -300,11 +300,16 @@ class SelectPartLoad extends Component {
           <Select.Option
             key={item[valueKey]}
             value={item[valueKey]}
-            title={label}
             data={componentType === 'select' ? item : undefined}
             label={item[optionLabelProp || labelKey]}
           >
-            {label}
+            <Tooltip
+              mouseEnterDelay={0}
+              mouseLeaveDelay={0}
+              title={label}
+            >
+              {label}
+            </Tooltip>
           </Select.Option>
         );
       });
@@ -588,6 +593,7 @@ class SelectPartLoad extends Component {
       mode,
       componentType,
       onBlur,
+      dropdownMatchSelectWidth,
       // 避免控制台警告，以下属性都不应该挂到select组件上
       // 以下属性来自lov组件，由于上级要求，强制lov组件内部整合当前组件渲染
       valueKey,
@@ -615,6 +621,7 @@ class SelectPartLoad extends Component {
           : 'value notAllowClear'
         : 'value valueNull'
     }`;
+    const realDropdownMatchSelectWidth = dropdownMatchSelectWidth || (mode === 'multiple' ? 260 : 200)
     return (
       <Space
         style={{ width: rest?.style?.width || '100%' }}
@@ -626,7 +633,7 @@ class SelectPartLoad extends Component {
           ref={(ref) => {
             this.selectRef = ref;
           }}
-          dropdownMatchSelectWidth={mode === 'multiple' ? 260 : 200}
+          dropdownMatchSelectWidth={realDropdownMatchSelectWidth}
           value={value}
           dropdownRender={
             mode === 'multiple'
@@ -680,7 +687,6 @@ class SelectPartLoad extends Component {
           }
           dropdownStyle={{
             paddingTop: 0,
-            minWidth: mode === 'multiple' ? 260 : 200,
           }}
           optionLabelProp={rest.optionLabelProp ? 'label' : 'children'}
           style={{ width: '100%' }}

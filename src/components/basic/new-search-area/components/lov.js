@@ -37,6 +37,7 @@ export default function CustomLov(props) {
     type,
     allowClear,
     paramAsBody = false,
+    dropdownMatchSelectWidth = 200,
   } = formItem;
 
   function preSetValue() {
@@ -80,7 +81,7 @@ export default function CustomLov(props) {
         }
       >
         <Lov
-          dropdownMatchSelectWidth={200}
+          dropdownMatchSelectWidth={dropdownMatchSelectWidth}
           {...extra}
           placeholder={messages('common.all')}
           disabled={disabled}
