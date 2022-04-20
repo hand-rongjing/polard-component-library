@@ -35,7 +35,6 @@ export default function CustomSelectWithSearch(props) {
     labelKey = 'label',
     type,
     maxTagCount,
-    allowClear = false,
   } = formItem;
 
   const [optionList, setOptionList] = useState([]);
@@ -259,7 +258,6 @@ export default function CustomSelectWithSearch(props) {
         tagRender={tagRender}
         open={dropDownOpen}
         showArrow
-        allowClear={allowClear}
         suffixIcon={
           <CaretDownOutlined
             style={{
