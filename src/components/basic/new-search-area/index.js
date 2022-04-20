@@ -798,9 +798,8 @@ function SearchArea(props) {
             values[item.id] = JSON.parse(values[item.id].title);
           }
         } else if (item.type === 'multiple') {
-          values[item.id] = values[item.id].map((value) =>
-            JSON.parse(value.title),
-          );
+          // entity 对应 labelInValue 返回对象数据
+          values[item.id] = values[item.id].map((value) => value.data ?? value);
         }
       } else if (item.type === 'list') {
         values[item.id] = values[item.id].map((value) =>
@@ -837,21 +836,19 @@ function SearchArea(props) {
             }
           });
         } else if (item.type === 'multiple') {
-          const result = [];
-          const options = [];
-          item.options.forEach((option) => {
-            values[item.id].forEach((id) => {
-              if (option.value === id) {
-                result.push(option.value);
-                options.push({ label: option.label, value: option.value });
-              }
-            });
-          });
-          values[`${item.id}Lable`] = result;
-          values[`${item.id}Option`] = options;
+          // 修改multiple数据为对象数组后，兼容原来isReturnLabel方式
+          values[`${item.id}Lable`] = values[item.id].map(
+            (value) => value.label ?? value,
+          );
+          values[`${item.id}Option`] = values[item.id];
+          values[item.id] = values[item.id].map(
+            (value) => value.value ?? value,
+          );
         } else {
           values[`${item.id}Lable`] = values[item.id];
         }
+      } else if (item.type === 'multiple') {
+        values[item.id] = values[item.id].map((value) => value.value ?? value);
       }
     });
     return { params: values };
