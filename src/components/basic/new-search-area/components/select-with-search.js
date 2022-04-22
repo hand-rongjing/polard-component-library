@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
 import { Select, Tooltip, Tag } from 'antd';
 import httpFetch from 'share/httpFetch';
 import { CaretDownOutlined } from '@ant-design/icons';
-import { getDataLabel, getLastKey } from '../utils';
+import { getDataLabel, getLastKey, haveAValue } from '../utils';
 import { messages } from '../../../utils';
 import CloseSvg from '../images/close';
 import SelectWithSearchOptionsRender from './selectWithSearchOptionsRender';
@@ -20,7 +20,7 @@ import SelectWithSearchOptionsRender from './selectWithSearchOptionsRender';
 export default function CustomSelectWithSearch(props) {
   const { formItem, value, onChange, onResetOptions } = props;
   const {
-    entity,
+    entity = false,
     getUrl,
     searchUrl,
     disabled,
@@ -31,8 +31,8 @@ export default function CustomSelectWithSearch(props) {
     listKey,
     renderOption,
     childrenMultipleKey,
-    valueKey,
-    labelKey,
+    valueKey = 'value',
+    labelKey = 'label',
     type,
     maxTagCount,
   } = formItem;
@@ -164,15 +164,28 @@ export default function CustomSelectWithSearch(props) {
    * @returns
    */
   function handleSelectValue(selectValue) {
-    if (onChange) onChange([...selectValue]);
+    if (onChange) onChange([...(value || []), selectValue]);
   }
 
   // 反选
   function handleDesSelectValue(deSelectValue) {
-    const index = value.findIndex((selected) => selected === deSelectValue);
+    const index = value.findIndex((selected) =>
+      haveAValue(selected.value)
+        ? selected.value === deSelectValue.value
+        : selected === deSelectValue,
+    );
     if (~index && onChange) {
       const temp = [...value];
       temp.splice(index, 1);
+      onChange(temp);
+    }
+  }
+
+  // Selec中 allowClear清除所有、删除单个tag，触发onChange
+  function handleChange(val) {
+    const ids = entity ? val.map((item) => item.value ?? item) : val;
+    const temp = value.filter((item) => ids.includes(item.value ?? item));
+    if (onChange) {
       onChange(temp);
     }
   }
@@ -200,10 +213,10 @@ export default function CustomSelectWithSearch(props) {
         selectValue={value}
         loading={loading}
         showSearch
-        showPagination
+        showPagination={false}
         options={optionList}
-        valueKey={valueKey}
-        labelKey={labelKey}
+        valueKey="value"
+        labelKey="label"
         componentType="select"
         onChange={onChange}
         onSelect={handleSelectValue}
@@ -229,7 +242,7 @@ export default function CustomSelectWithSearch(props) {
         showSearch
         placeholder={messages('common.all')}
         dropdownRender={dropDownMultipleRender}
-        onChange={onChange}
+        onChange={handleChange}
         onDropdownVisibleChange={handleDropdownVisible}
         onSearch={handleSearchOption}
         disabled={disabled}

@@ -10,6 +10,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Spin, Input, Divider, Checkbox } from 'antd';
 import { messages } from '../../../utils';
 import SearchSvg from '../images/search';
+import { haveAValue } from '../utils';
 
 export default function SelectWithSearchOptionsRender(props) {
   const {
@@ -27,7 +28,7 @@ export default function SelectWithSearchOptionsRender(props) {
   } = props;
   const [filterOptions, setFilterOptions] = useState(''); // 这里初始值给 '' 是因为要与初始状态区分开，这样下面做判断的时候，只需要判断 filterOptions 是不是数组就行，不是数组就用 options，是数组就用 filterOptions; 设置 total 值的时候同理
 
-  console.log(options, 'options');
+  // console.log(options, 'options');
 
   const popoverContent = useRef(); // 下拉框
   const searchInput = useRef(); // 搜索框
@@ -49,8 +50,14 @@ export default function SelectWithSearchOptionsRender(props) {
         noSelectedRenderTemp = currentOptions;
       } else {
         currentOptions.forEach((item) => {
-          // 遍历后不存在于 selectValue(下拉框已选数据) 中的，放入未选
-          if (!selectValue.find((curr) => curr === item.value)) {
+          // 遍历后不存在于 selectValue(下拉框已选数据) 中的，放入未选，同时兼容对象数组和普通数组
+          if (
+            !selectValue.find((curr) =>
+              haveAValue(curr.value)
+                ? curr.value === item.value
+                : curr === item,
+            )
+          ) {
             noSelectedRenderTemp.push(item);
           }
         });
@@ -107,34 +114,20 @@ export default function SelectWithSearchOptionsRender(props) {
 
   // 模拟 select 的 change 事件
   function handleChange(item, flag) {
-    const selectedValue = [...(selectValue || []), item.value];
-
     // 模拟 select 选择事件
     if (onSelect && flag) {
-      onSelect(selectedValue);
+      onSelect(item);
     }
 
     // 模拟 select 反选事件
     if (onDeselect && !flag) {
-      onDeselect(item.value || item);
+      onDeselect(item);
     }
-  }
-
-  // 通过 optionList 来获取 item 的 label
-  function getLabel(item) {
-    let label;
-    options.forEach((curr) => {
-      const { label: currLabel } = curr;
-      if (curr.value === (item.value || item)) {
-        label = currLabel;
-      }
-    });
-    return label;
   }
 
   // 单个 checkBox 的渲染模板
   function checkBoxItemRender(item) {
-    const label = getLabel(item);
+    const label = item.label || item;
     return (
       <div
         key={item.value || item}
@@ -148,8 +141,8 @@ export default function SelectWithSearchOptionsRender(props) {
           onChange={(e) => {
             handleChange(item, e.target.checked);
           }}
-          checked={(selectValue || []).find(
-            (curr) => curr === (item.value || item),
+          checked={(selectValue || []).find((curr) =>
+            haveAValue(curr.value) ? curr.value === item.value : curr === item,
           )} // 在 selectValue 中就选中
         >
           {label}
