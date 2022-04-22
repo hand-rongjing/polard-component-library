@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.7-beta.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.1...v1.6.7-beta.4) (2022-04-22)
+
+### Bug Fixes
+
+- Lov 的 Select Option tooltip, 接收 dropdownMatchSelectWidth 属性, 默认 260/200 ([c1cb71d](https://github.com/hand-rongjing/polard-component-library/commit/c1cb71d7ae1dc6b20dbeaf2fb4b5e101908c013c))
+- new-search-area 的 Lov dropdownMatchSelectWidth 透传, 默认 200 ([7f854f2](https://github.com/hand-rongjing/polard-component-library/commit/7f854f2b58e8ad5b3cd1bbcec259acc1308267b2))
+
+### [1.6.7-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.6...v1.6.7-alpha.1) (2022-04-15)
+
+### [1.6.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.6-beta.1...v1.6.6) (2022-04-13)
+
+### Bug Fixes
+
+- 解决冲突 ([a22d542](https://github.com/hand-rongjing/polard-component-library/commit/a22d5423963f0f4b14481172096224ad14a26494))
+
+### [1.6.6-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5...v1.6.6-alpha.0) (2022-04-11)
+
+### [1.6.5-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5-beta.0...v1.6.5-alpha.2) (2022-04-11)
+
+### [1.6.5-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.5-alpha.0...v1.6.5-alpha.1) (2022-04-08)
+
+### [1.6.5-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.5-alpha.0) (2022-04-08)
+
+### Bug Fixes
+
+- move PlatformNotice to lib ([770c2a2](https://github.com/hand-rongjing/polard-component-library/commit/770c2a203051f85d71278c3f128b9db868acb871))
+- 修改表格气泡渲染 ([51907b6](https://github.com/hand-rongjing/polard-component-library/commit/51907b6c0dd83d0e96658c09f79e68bfc2543f76))
+- 解决冲突 ([2b3c5aa](https://github.com/hand-rongjing/polard-component-library/commit/2b3c5aa75fdaf895d9a0ed9f016eb5056fd7f2f3))
+- 解决冲突 ([d38b0ad](https://github.com/hand-rongjing/polard-component-library/commit/d38b0adf5c278a66d61ecbfc36827fd16c73570e))
+- 解决冲突 ([4e7b660](https://github.com/hand-rongjing/polard-component-library/commit/4e7b6609adcf31e6697c98700cbb12f839eecf82))
+- 解决冲突 ([242e582](https://github.com/hand-rongjing/polard-component-library/commit/242e5826b6e36d21232cd8348fd185d4473f8730))
+
+### [1.6.1-alpha.9](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.1-alpha.6...v1.6.1-alpha.9) (2022-03-17)
+
+### [1.6.1-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.0...v1.6.1-alpha.6) (2022-03-16)
+
+### Bug Fixes
+
+- 解决冲突 ([6da37ac](https://github.com/hand-rongjing/polard-component-library/commit/6da37ac34a098de1395c4a4c42eb1af8ce42dc6e))
+- 解决冲突 ([573050d](https://github.com/hand-rongjing/polard-component-library/commit/573050d55ef883bb958df662eb964c9bd36a466e))
+- 解决冲突 ([62254c8](https://github.com/hand-rongjing/polard-component-library/commit/62254c804efa3d5673aea39a65c4e81f35c6886e))
+
+## [1.6.0-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.5.7...v1.6.0-alpha.0) (2022-03-03)
+
+### Bug Fixes
+
+- 解决冲突 ([8c86e18](https://github.com/hand-rongjing/polard-component-library/commit/8c86e18f5c208ff29772d5a4c645d0fed8dedead))
+- 解决冲突 ([1eff9c9](https://github.com/hand-rongjing/polard-component-library/commit/1eff9c9ca0bee7cf7d728180927da00753a2fcc9))
+
 ### [1.6.7-beta.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.7-beta.3) (2022-04-20)
 
 ### Bug Fixes
