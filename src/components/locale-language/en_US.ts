@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-04-02 15:12:23
+ * @LastEditTime: 2022-04-25 14:31:54
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -283,4 +283,6 @@ export default {
   'common.view': 'View',
   'base.sync.check.subsidiary.department':
     'Check the subordinate department at the same time',
+  'common.simultaneous.approval': 'Simultaneous approval',
+  'common.sequential.approval': 'Sequential approval',
 };
