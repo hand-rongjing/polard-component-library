@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-31 14:41:01
+ * @LastEditTime: 2022-04-25 14:31:09
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -275,4 +275,6 @@ export default {
   'company.maintain.company.companyLevelName': '公司级别',
   'common.view': '查看',
   'base.sync.check.subsidiary.department': '同时勾选下级部门',
+  'common.simultaneous.approval': '同时审批',
+  'common.sequential.approval': '顺序审批',
 };
