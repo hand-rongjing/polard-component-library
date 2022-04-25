@@ -2,7 +2,7 @@
  * @Author: zong.wang01@hand-china.com
  * @Date: 2022-04-24 16:23:37
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-04-25 15:11:26
+ * @LastEditTime: 2022-04-25 15:44:13
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -15,7 +15,6 @@ import { useDrop, useDrag } from 'react-dnd';
 export default function TagItem(props) {
   const { data, list, canDrag, handleDel, hoverIndex, onChange } = props;
 
-  console.log('canDrag', canDrag);
   const tagStyle = {
     background: '#f5f5f5',
     border: 0,
