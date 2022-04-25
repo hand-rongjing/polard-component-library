@@ -80,7 +80,6 @@ class UploadButton extends React.Component {
         `${config.fileUrl}/api/attachment/type/query/code?attachmentType=${attachmentType}`,
       )
       .then((res) => {
-        console.log(res);
         if (useCustomConfig) {
           this.setState({
             maxFileNum: fileNum,

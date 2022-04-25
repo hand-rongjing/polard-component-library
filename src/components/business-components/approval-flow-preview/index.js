@@ -177,7 +177,6 @@ class ApprovalFlowPreview extends Component {
           // parent.end = null;
           // delete parent.children;
           // delete parent.end;
-          console.log(record.title);
           this.deleteNode(parent);
         }
       }
