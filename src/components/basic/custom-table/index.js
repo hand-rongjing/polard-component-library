@@ -1143,7 +1143,6 @@ class CustomTable extends Component {
               },
               onClick: () => {
                 const now = new Date();
-                console.log('onClick delay', now - this.mouseDownTime);
                 // 超过 300ms 认为是在选择复制, 不触发 onClick
                 if (now - this.mouseDownTime < 300) {
                   if (onClick) {

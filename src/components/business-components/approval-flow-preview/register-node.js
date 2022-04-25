@@ -901,7 +901,6 @@ export default {
       'approval-chain-node',
       {
         draw(cfg, group) {
-          console.log('cfg:', cfg);
           const style = this.getShapeStyle(cfg);
           const shape = group.addShape('rect', {
             attrs: {

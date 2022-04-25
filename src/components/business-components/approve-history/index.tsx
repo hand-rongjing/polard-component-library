@@ -78,7 +78,6 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
             `${config.wflUrl}/api/workflow/approval/history?entityType=${entityType}&entityId=${documentId}`,
           )
           .then((res) => {
-            console.log(res.data, 'res');
             this.setState({
               historyData: res.data,
               loading: false,

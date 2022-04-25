@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-09-16 09:50:03
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-09-30 14:45:58
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-04-25 15:42:54
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -88,7 +88,5 @@ const httpFetch = {
     return axios(baseUrl + url, option);
   },
 };
-
-console.log('将axios注册到window全局...');
 
 export default httpFetch;
