@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.7-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.7...v1.6.7-beta.0) (2022-04-27)
+
+### Bug Fixes
+
+- value_list 增加 optionsFilter 可以在 getSystemValueList 之后再过滤一次 options ([8f13641](https://github.com/hand-rongjing/polard-component-library/commit/8f136418f715630d969eab352e6ce146fb0f70db))
+- 优化自选审批人 ([f201bc7](https://github.com/hand-rongjing/polard-component-library/commit/f201bc73ba78810d52d7eb927fdf0830df25c042))
+- 去除日志信息 ([b14beaa](https://github.com/hand-rongjing/polard-component-library/commit/b14beaad30311a6874245f535ac14304c607c8a3))
+- 去除日志信息 ([c5d6b28](https://github.com/hand-rongjing/polard-component-library/commit/c5d6b28ac4bc8387b4dc004f3b8e6ad33ac0518e))
+- 自选审批人增加审批人排序 ([7491c11](https://github.com/hand-rongjing/polard-component-library/commit/7491c11582c6878b8e7256f766df24522aaf405a))
+
 ### [1.6.7-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.4...v1.6.7-alpha.7) (2022-04-25)
 
 ### Bug Fixes
