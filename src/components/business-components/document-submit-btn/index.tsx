@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-29 14:23:27
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-04-25 15:42:27
+ * @LastEditTime: 2022-04-27 09:41:36
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -128,6 +128,9 @@ export default function DocumentSubmitBtn(props: IProps) {
               flex="130px"
               style={{ textAlign: 'right', paddingTop: 5, marginBottom: 16 }}
             >
+              {item.required && (
+                <span style={{ color: 'red', marginRight: 4 }}>*</span>
+              )}
               {item.title}：
             </Col>
 
