@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.7-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.4...v1.6.7-alpha.7) (2022-04-25)
+
+### Bug Fixes
+
+- 自选审批人增加审批人排序 ([d0ca781](https://github.com/hand-rongjing/polard-component-library/commit/d0ca781b29fc2829b98c882d34d8b0221b573c0e))
+
 ### [1.6.7-beta.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.1...v1.6.7-beta.4) (2022-04-22)
 
 ### Bug Fixes
