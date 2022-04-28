@@ -300,16 +300,11 @@ class SelectPartLoad extends Component {
           <Select.Option
             key={item[valueKey]}
             value={item[valueKey]}
+            title={label}
             data={componentType === 'select' ? item : undefined}
             label={item[optionLabelProp || labelKey]}
           >
-            <Tooltip
-              mouseEnterDelay={0}
-              mouseLeaveDelay={0}
-              title={label}
-            >
-              {label}
-            </Tooltip>
+            {label}
           </Select.Option>
         );
       });
@@ -621,7 +616,8 @@ class SelectPartLoad extends Component {
           : 'value notAllowClear'
         : 'value valueNull'
     }`;
-    const realDropdownMatchSelectWidth = dropdownMatchSelectWidth || (mode === 'multiple' ? 260 : 200)
+    const realDropdownMatchSelectWidth =
+      dropdownMatchSelectWidth || (mode === 'multiple' ? 260 : 200);
     return (
       <Space
         style={{ width: rest?.style?.width || '100%' }}
