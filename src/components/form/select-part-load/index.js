@@ -420,16 +420,20 @@ class SelectPartLoad extends Component {
     );
   };
 
+  // Selec中 allowClear清除所有、删除单个tag，触发该方法
   onChange = (value, rest) => {
     const { componentType, onChange, mode } = this.props;
+    const { value: stateValue } = this.state;
     if (componentType === 'select') {
       /**
        * 这行是为了兼容 onSelect，onDesSelect时，
        * 由于用户点击清除图标来控制数据，因内部allowClear触发的是onChange事件
        * 故判断如果value不存在或者value为 “ [] ”，执行一次onChange
        */
-      if (!value || (Array.isArray(value) && value.length === 0)) {
-        onChange(value, rest);
+      if (!value || Array.isArray(value)) {
+        const ids = value.map((o) => o.value ?? o);
+        const newRest = stateValue.filter((o) => ids.includes(o.value ?? o));
+        onChange(newRest, newRest);
         return;
       }
       return;
@@ -643,7 +647,7 @@ class SelectPartLoad extends Component {
           onDropdownVisibleChange={this.onDropdownVisibleChange}
           onChange={this.onChange}
           onSelect={this.handleSelectValue}
-          onDeselect={this.handleDesSelectValue}
+          // onDeselect={this.handleDesSelectValue}
           filterOption={false}
           defaultActiveFirstOption={false}
           mode={mode === 'singleTag' ? 'tags' : mode}
