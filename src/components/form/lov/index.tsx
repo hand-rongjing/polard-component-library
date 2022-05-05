@@ -297,11 +297,7 @@ function CompatibleLov(props: IProps) {
         value={formatSelectValue()}
         onChange={handleChangeSelectValue}
         searchKey={props.searchKey || 'keywords'}
-        placeholder={
-          props.placeholder
-            ? messages('common.all')
-            : messages('common.please.select')
-        }
+        placeholder={props.placeholder || messages('common.please.select')}
         allowClear={props.allowClear ?? true}
         onBlur={handleBlur}
       />
