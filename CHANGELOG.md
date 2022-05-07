@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.8-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.0...v1.6.8-beta.2) (2022-05-07)
+
+### Bug Fixes
+
+- lov 组件清除问题修复 ([cfebe99](https://github.com/hand-rongjing/polard-component-library/commit/cfebe9932166fd4801edfbba802171edf23e51c9))
+- 解决冲突 ([7dc78e2](https://github.com/hand-rongjing/polard-component-library/commit/7dc78e236d1e09fd1f49d1434508566ac38459fe))
+
 ### [1.6.8-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.2...v1.6.8-beta.1) (2022-04-28)
 
 ### Bug Fixes
