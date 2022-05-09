@@ -18,8 +18,8 @@ module.exports = {
     { type: 'revert', section: '回滚', hidden: true },
     { type: 'conflict', section: '冲突', hidden: true },
   ],
-  compareUrlFormat:
-    'https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7...{{currentTag}}',
+  // compareUrlFormat:
+  //   'https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7...{{currentTag}}',
   //hash链接
   // commitUrlFormat: "http://gitlab.cmss.com/BI/{{repository}}/commit/{{hash}}",
   // https://github.com/hand-rongjing/polard-component-library/commit/{{hash}}
