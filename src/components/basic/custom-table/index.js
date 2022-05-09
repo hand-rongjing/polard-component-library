@@ -677,7 +677,10 @@ class CustomTable extends Component {
           item.render = (values, record, index) => {
             const renderRs = tempRender(values, record, index);
             if (renderRs && renderRs.children && renderRs.props) {
-              return renderRs;
+              return {
+                ...renderRs,
+                children: <div className="over-range">{renderRs.children}</div>,
+              };
             } else {
               return <div className="over-range">{renderRs}</div>;
             }
