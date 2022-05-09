@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.8-beta.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.2...v1.6.8-beta.3) (2022-05-09)
+
+### Bug Fixes
+
+- CustomTable column render-fn 兼容原来的支持返回 {children, props} 对象 - 【【智能审核 BUG】——【智能审核结果查询】报错】https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026880 ([767b77f](https://github.com/hand-rongjing/polard-component-library/commit/767b77f0ba19085a32554acb67bc4e95f890238e))
+- EditTable 组件列字段超出列宽重叠 - 【前端框架组件优化 - EditTable 组件如果列没有设置编辑类型，其值超出列宽没有省略】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001073764 ([4db79f8](https://github.com/hand-rongjing/polard-component-library/commit/4db79f8e2ebf975efa85d43b956d2ffd1a128cdf))
+- renderRs 为 null 的判断 ([83781bd](https://github.com/hand-rongjing/polard-component-library/commit/83781bdb0f70e153ea26bf113bb1f88c1500e1b1))
+- renderRs.children 包裹在 .over-range 里面 ([9cbee1c](https://github.com/hand-rongjing/polard-component-library/commit/9cbee1c02f51b0adfaf5a0a79e7ce66efdfd4d82))
+
 ### [1.6.8-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.0...v1.6.8-beta.2) (2022-05-07)
 
 ### Bug Fixes
