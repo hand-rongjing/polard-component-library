@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.8-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.2...v1.6.8-alpha.5) (2022-05-09)
+
+### Bug Fixes
+
+- CustomTable column render-fn 兼容原来的支持返回 {children, props} 对象 - 【【智能审核 BUG】——【智能审核结果查询】报错】https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026880 ([767b77f](https://github.com/hand-rongjing/polard-component-library/commit/767b77f0ba19085a32554acb67bc4e95f890238e))
+- EditTable 组件列字段超出列宽重叠 - 【前端框架组件优化 - EditTable 组件如果列没有设置编辑类型，其值超出列宽没有省略】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001073764 ([4db79f8](https://github.com/hand-rongjing/polard-component-library/commit/4db79f8e2ebf975efa85d43b956d2ffd1a128cdf))
+- 解决冲突 ([58cb688](https://github.com/hand-rongjing/polard-component-library/commit/58cb6881a0fa8991ceac3b000a9c758529de8bae))
+
+### [1.6.8-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.0...v1.6.8-alpha.2) (2022-04-28)
+
+### Bug Fixes
+
+- 解决冲突 ([072d594](https://github.com/hand-rongjing/polard-component-library/commit/072d5941bc574642768712e078bda2e752a4ca47))
+
+### [1.6.8-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.9...v1.6.8-alpha.0) (2022-04-27)
+
+### [1.6.7-alpha.9](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.8...v1.6.7-alpha.9) (2022-04-25)
+
+### [1.6.7-alpha.8](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.7...v1.6.7-alpha.8) (2022-04-25)
+
+### Bug Fixes
+
+- 解决冲突 ([5e6a9c1](https://github.com/hand-rongjing/polard-component-library/commit/5e6a9c120042423157d49b6f5dca16f2577ba4c1))
+- 解决冲突 ([50209de](https://github.com/hand-rongjing/polard-component-library/commit/50209de6801d610d1c6e91b72cecea5e860bcfcd))
+
 ### [1.6.8-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.8-alpha.4) (2022-05-09)
 
 ### Bug Fixes
