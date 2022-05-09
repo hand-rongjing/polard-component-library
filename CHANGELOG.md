@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.8-alpha.8](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-alpha.5...v1.6.8-alpha.8) (2022-05-09)
+
+### Bug 修复
+
+- renderRs 为 null 的判断 ([83781bd](https://github.com/hand-rongjing/polard-component-library/commit/83781bdb0f70e153ea26bf113bb1f88c1500e1b1))
+- renderRs.children 包裹在 .over-range 里面 ([9cbee1c](https://github.com/hand-rongjing/polard-component-library/commit/9cbee1c02f51b0adfaf5a0a79e7ce66efdfd4d82))
+
+### 文档
+
+- 增加更新日志文档 ([b6e95b9](https://github.com/hand-rongjing/polard-component-library/commit/b6e95b9409ef551d177a134ee0c1c131d3761517))
+- 增加更新日志文档 ([abe102b](https://github.com/hand-rongjing/polard-component-library/commit/abe102bd456bcdff0e3f972efe0ece91fef1caf0))
+
 ### [1.6.8-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.4...v1.6.8-alpha.7) (2022-05-09)
 
 ### Bug Fixes
