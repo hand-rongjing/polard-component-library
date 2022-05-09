@@ -222,12 +222,22 @@ class EditTable extends Component {
           // 开放 renderNormalCell方法，renderEditCell方法，分别渲染文本状态及 编辑状态下,用于兼容外界自定义复杂逻辑的表单时
           let result;
           if (column.render) {
-            result = column.render(
+            const tempRender = column.render;
+            const newRender = (...rest) => (
+              <div className="over-range">{tempRender(...rest)}</div>
+            );
+            result = newRender(
               value,
               record,
               index,
               addKeys.indexOf(record[rowKey]) >= 0,
             );
+            // result = column.render(
+            //   value,
+            //   record,
+            //   index,
+            //   addKeys.indexOf(record[rowKey]) >= 0,
+            // );
           } else if (column.renderNormalCell && column.renderEditCell) {
             result = undefined;
           } else
