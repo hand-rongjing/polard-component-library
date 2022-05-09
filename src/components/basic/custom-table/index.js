@@ -674,11 +674,14 @@ class CustomTable extends Component {
         if (item.fixed) item.ellipsis = true;
         if (item.render) {
           const tempRender = item.render;
-          item.render = (values, record, index) => (
-            <div className="over-range">
-              {tempRender(values, record, index)}
-            </div>
-          );
+          item.render = (values, record, index) => {
+            const renderRs = tempRender(values, record, index);
+            if (renderRs && renderRs.children && renderRs.props) {
+              return renderRs;
+            } else {
+              return <div className="over-range">{renderRs}</div>;
+            }
+          };
         } else {
           item.render = (values) => <div className="over-range">{values}</div>;
         }
