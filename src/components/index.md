@@ -1,6 +1,7 @@
 ---
 nav:
   title: 组件
+  order: 1
 group:
   title: 开始
   path: /

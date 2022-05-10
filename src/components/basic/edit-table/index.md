@@ -93,22 +93,23 @@ export default function EditTableDemo() {
 
 ## API
 
-| 属性             | 说明                                               | 类型                                                                                                                                    | 默认值 |
-| ---------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| rowKey           | 表格行的 key                                       | string                                                                                                                                  | id     |
-| hideButton       | 是否隐藏创建按钮                                   | bool                                                                                                                                    | false  |
-| showNumber       | 是否显示序号                                       | bool                                                                                                                                    | false  |
-| createButtonText | 创建按钮的文本                                     | bool                                                                                                                                    | false  |
-| addOrder         | 添加新行的顺序                                     | 'front', 'after'                                                                                                                        | front  |
-| renderOption     | 自定义操作列内容, 如果为空，则使用组件自带的操作列 | { dataIndex: string, title: string, editRender: (value, record, index) => void, normalRender: (value, record, index) => void } : object | null   |
-| url              | 请求数据的 url                                     | string                                                                                                                                  | ''     |
-| params           | 请求的额外参数                                     | {}                                                                                                                                      | null   |
-| dataKey          | 如果数据有嵌套，可以用这个属性设置数据源字段       | string                                                                                                                                  | ''     |
-| onFilterData     | 格式化数据                                         | (data) => (newData)                                                                                                                     | null   |
-| onLoadData       | 数据请求完成的回调                                 | (response, pagination) => void                                                                                                          | null   |
-| onValueChange    | 表单值输改变回调                                   | (column, value, record, index, row) => void                                                                                             | null   |
-| onDeleteRow      | 删除一行数据的回调                                 | (id, next : function, record) => void                                                                                                   | null   |
-| onRowSave        | 保存一行数据的回调                                 | (values, status, next: function) => void                                                                                                | null   |
+| 属性             | 说明                                                           | 类型                                                                                                                                    | 默认值 |
+| ---------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| rowKey           | 表格行的 key                                                   | string                                                                                                                                  | id     |
+| hideButton       | 是否隐藏创建按钮                                               | bool                                                                                                                                    | false  |
+| showNumber       | 是否显示序号                                                   | bool                                                                                                                                    | false  |
+| createButtonText | 创建按钮的文本                                                 | bool                                                                                                                                    | false  |
+| addOrder         | 添加新行的顺序                                                 | 'front', 'after'                                                                                                                        | front  |
+| renderOption     | 自定义操作列内容, 如果为空，则使用组件自带的操作列             | { dataIndex: string, title: string, editRender: (value, record, index) => void, normalRender: (value, record, index) => void } : object | null   |
+| url              | 请求数据的 url                                                 | string                                                                                                                                  | ''     |
+| params           | 请求的额外参数                                                 | {}                                                                                                                                      | null   |
+| hiddenEditMore   | 隐藏左侧三个点操作(搭配 `editWithCellFlag` 一起使用，单用无效) | boolean                                                                                                                                 | false  |
+| dataKey          | 如果数据有嵌套，可以用这个属性设置数据源字段                   | string                                                                                                                                  | ''     |
+| onFilterData     | 格式化数据                                                     | (data) => (newData)                                                                                                                     | null   |
+| onLoadData       | 数据请求完成的回调                                             | (response, pagination) => void                                                                                                          | null   |
+| onValueChange    | 表单值输改变回调                                               | (column, value, record, index, row) => void                                                                                             | null   |
+| onDeleteRow      | 删除一行数据的回调                                             | (id, next : function, record) => void                                                                                                   | null   |
+| onRowSave        | 保存一行数据的回调                                             | (values, status, next: function) => void                                                                                                | null   |
 
 ## 方法
 
@@ -143,6 +144,7 @@ export default function EditTableDemo() {
 | inverseValueMap                      | 表单数据映射到表格上的方法                                                     | (value,record) => {newRecord: object}      | null   |
 | valueMapKey                          | 同时兼有 valueMap,inverseValueMap 的作用，一般用作 select，指定 value 的字段名 | string                                     | null   |
 | valueMapLabel                        | 同时兼有 valueMap,inverseValueMap 的作用，一般用作 select，指定 label 的字段   | string                                     | null   |
+| renderValue                          | 列只读状态下的渲染(不会影响编辑的渲染)                                         | (value, record) => {}                      |
 
 ## 更新日志
 
