@@ -430,7 +430,10 @@ class SelectPartLoad extends Component {
        * 由于用户点击清除图标来控制数据，因内部allowClear触发的是onChange事件
        * 故判断如果value不存在或者value为 “ [] ”，执行一次onChange
        */
-      if (!value || Array.isArray(value)) {
+      if (!value) {
+        onChange(value, rest);
+        return;
+      } else if (Array.isArray(value)) {
         const ids = value.map((o) => o.value ?? o);
         const newRest = stateValue.filter((o) => ids.includes(o.value ?? o));
         onChange(newRest, newRest);
