@@ -158,3 +158,11 @@ $ npm run release
   </IntlProvider>
 </ConfigProvider>
 ```
+
+## 组件文档发布
+
+```bash
+$ npm run docs:build
+$ docker build -t registry.cn-hangzhou.aliyuncs.com/ecf/polard-web:[年月日] .
+$ docker push registry.cn-hangzhou.aliyuncs.com/ecf/polard-web:[年月日]
+```
