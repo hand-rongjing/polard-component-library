@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.8-beta.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.3...v1.6.8-beta.5) (2022-05-11)
+
+### 文档
+
+- 增加更新日志文档 ([b6e95b9](https://github.com/hand-rongjing/polard-component-library/commit/b6e95b9409ef551d177a134ee0c1c131d3761517))
+- 增加更新日志文档 ([abe102b](https://github.com/hand-rongjing/polard-component-library/commit/abe102bd456bcdff0e3f972efe0ece91fef1caf0))
+- 添加组件文档发布命令 ([8c96549](https://github.com/hand-rongjing/polard-component-library/commit/8c96549e5ff5bfc12cad85cac6cfd14fa27b583a))
+
+### Bug 修复
+
+- SearchArea 输入框类型超长内容输入显示超出了页面范围 https://www.tapd.cn/34592457/s/2155806 ([2b6955c](https://github.com/hand-rongjing/polard-component-library/commit/2b6955caeab36c54ea2f0241ccdda93c9ced6e6b))
+- SelectPartLoad 组件单选无法清空-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001073846 ([13feff2](https://github.com/hand-rongjing/polard-component-library/commit/13feff24f7e7e68646b46ef489da129a090a3f7e))
+
 ### [1.6.8-beta.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.3...v1.6.8-beta.4) (2022-05-11)
 
 ### 文档
