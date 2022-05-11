@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-05-21 10:25:43
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-11-22 10:33:04
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-05-11 15:10:00
  * @Version: 1.0.0
  * @Description: 数字输入框
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -45,7 +45,7 @@ export default function CustomInputNumber(props) {
         <span
           className="inputSpanText"
           ref={spanRef}
-          style={{ minWidth: 64 }}
+          style={{ minWidth: 64, maxWidth: 300 }}
         />
         <InputNumber
           value={value}
