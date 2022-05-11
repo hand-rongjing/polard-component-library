@@ -1,8 +1,8 @@
 /*
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-05-19 15:13:57
- * @LastEditors: binfeng.long@hand-china.com
- * @LastEditTime: 2021-11-22 10:31:17
+ * @LastEditors: zong.wang01@hand-china.com
+ * @LastEditTime: 2022-05-11 15:10:09
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -53,7 +53,7 @@ function CustomInput(props) {
         <span
           className="inputSpanText"
           ref={spanRef}
-          style={{ minWidth: 64 }}
+          style={{ minWidth: 64, maxWidth: 300 }}
         />
         <Input
           placeholder={messages('common.please.enter...' /* 请输入... */)}
