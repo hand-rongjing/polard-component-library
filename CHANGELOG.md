@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.8-alpha.12](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.1...v1.6.8-alpha.12) (2022-05-12)
+
+### 文档
+
+- 添加组件文档发布命令 ([8c96549](https://github.com/hand-rongjing/polard-component-library/commit/8c96549e5ff5bfc12cad85cac6cfd14fa27b583a))
+- 增加更新日志文档 ([b6e95b9](https://github.com/hand-rongjing/polard-component-library/commit/b6e95b9409ef551d177a134ee0c1c131d3761517))
+- 增加更新日志文档 ([abe102b](https://github.com/hand-rongjing/polard-component-library/commit/abe102bd456bcdff0e3f972efe0ece91fef1caf0))
+
+### Bug 修复
+
+- 解决冲突 ([58cb688](https://github.com/hand-rongjing/polard-component-library/commit/58cb6881a0fa8991ceac3b000a9c758529de8bae))
+- 解决冲突 ([7dc78e2](https://github.com/hand-rongjing/polard-component-library/commit/7dc78e236d1e09fd1f49d1434508566ac38459fe))
+- 解决冲突 ([072d594](https://github.com/hand-rongjing/polard-component-library/commit/072d5941bc574642768712e078bda2e752a4ca47))
+- CustomTable column render-fn 兼容原来的支持返回 {children, props} 对象 - 【【智能审核 BUG】——【智能审核结果查询】报错】https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026880 ([767b77f](https://github.com/hand-rongjing/polard-component-library/commit/767b77f0ba19085a32554acb67bc4e95f890238e))
+- EditTable 组件列字段超出列宽重叠 - 【前端框架组件优化 - EditTable 组件如果列没有设置编辑类型，其值超出列宽没有省略】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001073764 ([4db79f8](https://github.com/hand-rongjing/polard-component-library/commit/4db79f8e2ebf975efa85d43b956d2ffd1a128cdf))
+- lov 组件清除问题修复 ([cfebe99](https://github.com/hand-rongjing/polard-component-library/commit/cfebe9932166fd4801edfbba802171edf23e51c9))
+- renderRs 为 null 的判断 ([83781bd](https://github.com/hand-rongjing/polard-component-library/commit/83781bdb0f70e153ea26bf113bb1f88c1500e1b1))
+- renderRs.children 包裹在 .over-range 里面 ([9cbee1c](https://github.com/hand-rongjing/polard-component-library/commit/9cbee1c02f51b0adfaf5a0a79e7ce66efdfd4d82))
+- SearchArea 输入框类型超长内容输入显示超出了页面范围 https://www.tapd.cn/34592457/s/2155806 ([2b6955c](https://github.com/hand-rongjing/polard-component-library/commit/2b6955caeab36c54ea2f0241ccdda93c9ced6e6b))
+- SelectPartLoad 组件单选无法清空-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001073846 ([13feff2](https://github.com/hand-rongjing/polard-component-library/commit/13feff24f7e7e68646b46ef489da129a090a3f7e))
+
+### [1.6.8-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.6...v1.6.8-alpha.1) (2022-04-28)
+
+### Bug 修复
+
+- 解决冲突 ([5e6a9c1](https://github.com/hand-rongjing/polard-component-library/commit/5e6a9c120042423157d49b6f5dca16f2577ba4c1))
+- 解决冲突 ([50209de](https://github.com/hand-rongjing/polard-component-library/commit/50209de6801d610d1c6e91b72cecea5e860bcfcd))
+
+### [1.6.7-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.5...v1.6.7-alpha.6) (2022-04-20)
+
+### [1.6.7-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.2...v1.6.7-alpha.5) (2022-04-20)
+
 ### [1.6.8-alpha.11](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.3...v1.6.8-alpha.11) (2022-05-12)
 
 ### 文档
