@@ -1,7 +1,7 @@
 module.exports = {
-  skip: {
-    tag: true,
-  },
+  // skip: {
+  //   tag: true,
+  // },
   //types为Conventional Commits标准中定义，目前支持
   //https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional
   types: [
