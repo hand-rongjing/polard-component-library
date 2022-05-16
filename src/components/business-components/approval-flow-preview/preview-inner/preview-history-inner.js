@@ -173,7 +173,9 @@ class PreviewHistory extends Component {
                     </div>
                   </Col>
                   <Col span={20} style={fontStyle}>
-                    <div style={{ color: '#333', marginBottom: 8 }}>
+                    <div
+                      style={{ color: '#333', marginBottom: 8, minHeight: 12 }}
+                    >
                       {item.operationDesc}
                       <span style={{ float: 'right', color: '#999' }}>
                         {`${item.userName}`}
