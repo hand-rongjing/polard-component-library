@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.9-alpha.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.6.9-alpha.0) (2022-05-16)
+
+### Bug 修复
+
+- 优化工作流预览样式 - https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026932 ([46ef0f8](https://github.com/hand-rongjing/polard-component-library/commit/46ef0f8ddd5f634f08f979ba7af614f405bf8b76))
+- 解决冲突 ([58cb688](https://github.com/hand-rongjing/polard-component-library/commit/58cb6881a0fa8991ceac3b000a9c758529de8bae))
+- 解决冲突 ([072d594](https://github.com/hand-rongjing/polard-component-library/commit/072d5941bc574642768712e078bda2e752a4ca47))
+- 解决冲突 ([5e6a9c1](https://github.com/hand-rongjing/polard-component-library/commit/5e6a9c120042423157d49b6f5dca16f2577ba4c1))
+- 解决冲突 ([50209de](https://github.com/hand-rongjing/polard-component-library/commit/50209de6801d610d1c6e91b72cecea5e860bcfcd))
+
 ### [1.6.8-alpha.14](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-alpha.13...v1.6.8-alpha.14) (2022-05-12)
 
 ### [1.6.8-alpha.13](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8-beta.3...v1.6.8-alpha.13) (2022-05-12)
