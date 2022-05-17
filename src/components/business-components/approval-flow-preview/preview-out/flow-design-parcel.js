@@ -1,6 +1,6 @@
 import React from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Input, Popover } from 'antd';
 import G6 from '@antv/g6';
 import { messages } from '../../../utils';
 import {
@@ -120,7 +120,8 @@ class WorkFlow extends React.Component {
       const { item } = evt;
       const model = item.getModel();
 
-      if (model.dataType && model.dataType !== 'condition') {
+      // if (model.dataType && model.dataType !== 'condition') {
+      if (model.dataType) {
         const { x, y, type, id } = model;
 
         this.currentNode = this.getNodeById([this.state.nodes], id);
@@ -143,6 +144,13 @@ class WorkFlow extends React.Component {
 
     this.graph.on('node:mouseleave', (evt) => {
       const { item } = evt;
+      const model = item.getModel();
+      if (model.dataType && model.dataType === 'condition') {
+        this.setState({
+          showNodeMenu: false,
+          currentClickNode: {},
+        });
+      }
       this.graph.setItemState(item, 'hover', false);
     });
 
@@ -548,26 +556,43 @@ class WorkFlow extends React.Component {
     return (
       <React.Fragment>
         {showNodeMenu && (
-          <div
-            style={{
-              position: 'absolute',
-              left: xOffset,
-              top: nodeContextMenuY - 64,
-              boxShadow: '0 1px 3px rgba(0,0,0,0.13)',
-              minHeight: 81,
-              fontFamily: 'MicrosoftYaHei',
-              background: '#fff',
-              borderRadius: '2px',
-              width: historyFlag ? 356 : 294,
-            }}
-          >
-            <PreviewHistory
-              {...this.props}
-              node={currentClickNode}
-              historyFlag={historyFlag}
-              previewNodeMap={previewNodeMap}
-            />
-          </div>
+          <>
+            {currentClickNode.dataType === 'condition' ? (
+              <Popover content={currentClickNode.title} trigger="hover">
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: currentClickNode.x - currentClickNode.size[0] / 2,
+                    top: currentClickNode.y - currentClickNode.size[1] / 2,
+                    width: currentClickNode.size[0],
+                    height: currentClickNode.size[1],
+                    opacity: 0,
+                  }}
+                ></div>
+              </Popover>
+            ) : (
+              <div
+                style={{
+                  position: 'absolute',
+                  left: xOffset,
+                  top: nodeContextMenuY - 64,
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.13)',
+                  minHeight: 81,
+                  fontFamily: 'MicrosoftYaHei',
+                  background: '#fff',
+                  borderRadius: '2px',
+                  width: historyFlag ? 356 : 294,
+                }}
+              >
+                <PreviewHistory
+                  {...this.props}
+                  node={currentClickNode}
+                  historyFlag={historyFlag}
+                  previewNodeMap={previewNodeMap}
+                />
+              </div>
+            )}
+          </>
         )}
       </React.Fragment>
     );
