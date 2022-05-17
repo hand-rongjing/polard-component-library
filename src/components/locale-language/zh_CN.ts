@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-04-25 14:31:09
+ * @LastEditTime: 2022-05-16 17:46:27
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -272,6 +272,7 @@ export default {
   'workflow.robot': '机器人',
   'workflow.self.selected.node': '自选节点',
   'workflow.arrived': '已到达',
+  'workflow.custom.approval': '自选审批',
   'company.maintain.company.companyLevelName': '公司级别',
   'common.view': '查看',
   'base.sync.check.subsidiary.department': '同时勾选下级部门',
