@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-04-25 14:31:54
+ * @LastEditTime: 2022-05-16 17:47:02
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -279,6 +279,7 @@ export default {
   'workflow.robot': 'The robot',
   'workflow.self.selected.node': 'Customize the node',
   'workflow.arrived': 'Have reached',
+  'workflow.custom.approval': 'Optional approval',
   'company.maintain.company.companyLevelName': 'Company Level Name',
   'common.view': 'View',
   'base.sync.check.subsidiary.department':
