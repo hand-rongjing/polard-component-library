@@ -64,14 +64,16 @@ class BasicTable extends React.Component {
   }
 
   handleResize =
-    (index) =>
+    (indexList) =>
     (e, { size }) => {
       this.setState(({ columns }) => {
         const nextColumns = [...columns];
-        nextColumns[index] = {
-          ...nextColumns[index],
-          width: size.width,
-        };
+        const [firstIndex, ...restIndex] = indexList;
+        let col = nextColumns[firstIndex];
+        for (const index of restIndex) {
+          col = col.children[index];
+        }
+        col.width = size.width;
         return { columns: nextColumns };
       });
     };
@@ -121,6 +123,22 @@ class BasicTable extends React.Component {
     }
   };
 
+  deepInInitResize = (columns, indexList = []) => {
+    columns.forEach((col, index) => {
+      if (col.children) {
+        this.deepInInitResize(col.children, [...indexList, index]);
+      } else {
+        col.onHeaderCell = (column) => {
+          // console.log('column: ', column)
+          return {
+            width: parseInt(column.width, 10) || 120,
+            onResize: this.handleResize([...indexList, index]),
+          };
+        };
+      }
+    });
+  };
+
   render() {
     const {
       noReSize,
@@ -130,17 +148,10 @@ class BasicTable extends React.Component {
       scrollXWidth,
       scroll,
     } = this.props;
-    const { columns: columnsFromState, dataSource } = this.state;
-    const columns = noReSize
-      ? columnsFromState
-      : columnsFromState &&
-        columnsFromState.map((col, index) => ({
-          ...col,
-          onHeaderCell: (column) => ({
-            width: parseInt(column.width, 10) || 120,
-            onResize: this.handleResize(index),
-          }),
-        }));
+    const { columns, dataSource } = this.state;
+    if (!noReSize) {
+      this.deepInInitResize(columns);
+    }
     const { expandedRows } = this.state;
     const initScrollY = this.getScrollY();
 
