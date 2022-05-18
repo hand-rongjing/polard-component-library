@@ -457,15 +457,21 @@ class CommonImporter extends React.Component {
                     align: 'left',
                     render: (val, record) => {
                       const value = record.excelData[v.columnCode];
+                      const newVal =
+                        typeof value === 'boolean'
+                          ? value
+                            ? 'Y'
+                            : 'N'
+                          : value; // 布尔值类型的数据默认显示成N Y
                       return (
                         <Popover
-                          content={value}
+                          content={newVal}
                           overlayStyle={{
                             maxWidth: 500,
                             wordWrap: 'break-word',
                           }}
                         >
-                          {value}
+                          {newVal}
                         </Popover>
                       );
                     },
