@@ -148,10 +148,11 @@ class BasicTable extends React.Component {
       scrollXWidth,
       scroll,
     } = this.props;
-    const { columns, dataSource } = this.state;
+    const { columns: columnsFromState, dataSource } = this.state;
     if (!noReSize) {
-      this.deepInInitResize(columns);
+      this.deepInInitResize(columnsFromState);
     }
+    const columns = [...columnsFromState];
     const { expandedRows } = this.state;
     const initScrollY = this.getScrollY();
 
