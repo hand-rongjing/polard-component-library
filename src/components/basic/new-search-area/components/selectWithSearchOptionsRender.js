@@ -98,7 +98,7 @@ export default function SelectWithSearchOptionsRender(props) {
         {noSelectedRender.map((item) => checkBoxItemRender(item))}
         {![...selectedRender, ...noSelectedRender].length && (
           <div className="empty-tips">
-            {messages('my.contract.no.result' /* 无匹配结果 */)}
+            {messages('common.no.matching.result' /* 无匹配结果 */)}
           </div>
         )}
       </div>
