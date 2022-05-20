@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-alpha.2...v1.7.0-alpha.3) (2022-05-20)
+
+### Bug 修复
+
+- 自选审批弹框优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074013 ([efa7f9d](https://github.com/hand-rongjing/polard-component-library/commit/efa7f9da87bdd7e6fbdf83c73d0fea98b26febd6))
+
 ## [1.7.0-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.9-alpha.2...v1.7.0-alpha.2) (2022-05-20)
 
 ### Bug 修复
