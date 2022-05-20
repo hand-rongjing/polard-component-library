@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-29 14:23:27
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-05-20 11:45:36
+ * @LastEditTime: 2022-05-20 14:17:58
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -178,7 +178,7 @@ export default function DocumentSubmitBtn(props: IProps) {
                   </Form.Item>
                   {item.multiSelectFlag && (
                     <div className="lov-place-replace">
-                      {this.$t('common.please.select')}
+                      {messages('common.please.select')}
                     </div>
                   )}
                 </Col>
