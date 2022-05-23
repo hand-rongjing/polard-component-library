@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-29 14:23:27
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-04-27 09:41:36
+ * @LastEditTime: 2022-05-20 14:17:58
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -176,6 +176,11 @@ export default function DocumentSubmitBtn(props: IProps) {
                       onChange={(val: any) => lovChange(val, index)}
                     />
                   </Form.Item>
+                  {item.multiSelectFlag && (
+                    <div className="lov-place-replace">
+                      {messages('common.please.select')}
+                    </div>
+                  )}
                 </Col>
                 {item.multiSelectFlag && (
                   <Col flex="182px" style={{ marginLeft: 16 }}>
