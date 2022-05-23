@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0-beta.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.9-beta.0...v1.7.0-beta.2) (2022-05-23)
+
+### Bug 修复
+
+- 导入组件修改布尔值显示值-https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001026969 ([e72242d](https://github.com/hand-rongjing/polard-component-library/commit/e72242dd1d7fdb389550fde524f92d594b814a61))
+- 自选审批弹框优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074013 ([efa7f9d](https://github.com/hand-rongjing/polard-component-library/commit/efa7f9da87bdd7e6fbdf83c73d0fea98b26febd6))
+- 自选审批弹框优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074013 ([92ff388](https://github.com/hand-rongjing/polard-component-library/commit/92ff3880f120fe46706976024d249728304653c7))
+- 表头合并的 Table column 可拖动宽度 ([d287246](https://github.com/hand-rongjing/polard-component-library/commit/d2872468f0ad563dcbe011fa60accd621dc38d59))
+
 ## [1.7.0-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.7.0-beta.1) (2022-05-23)
 
 ### Bug 修复
