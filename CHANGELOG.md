@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.10](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.9...v1.6.10) (2022-05-25)
+
+### Bug 修复
+
+- 表头合并的 Table column 可拖动宽度 ([d287246](https://github.com/hand-rongjing/polard-component-library/commit/d2872468f0ad563dcbe011fa60accd621dc38d59))
+
+### [1.6.9-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.6.9-beta.0) (2022-05-17)
+
 ### [1.6.9](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.6.9) (2022-05-18)
 
 ### Bug 修复
