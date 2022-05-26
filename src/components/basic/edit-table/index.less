@@ -37,16 +37,6 @@
         border-radius: 0;
       }
     }
-    .ant-table-thead > tr {
-      .ant-table-cell:nth-last-of-type(2) {
-        padding-right: 65px;
-      }
-    }
-    .ant-table-row {
-      .ant-table-cell:nth-last-of-type(2) {
-        padding-right: 65px;
-      }
-    }
 
     .ant-table-cell {
       .ant-legacy-form-item-control {
@@ -90,6 +80,7 @@
       .operation-group-box {
         position: relative;
         .cell-outer-box {
+          pointer-events: none;
           width: 44px;
           height: 100%;
           position: absolute;
@@ -112,6 +103,13 @@
             color: #1790ff;
             & + span {
               margin-left: 24px;
+            }
+          }
+          .anticon {
+            pointer-events: all;
+            opacity: 0.3;
+            &:hover {
+              opacity: 1;
             }
           }
         }
