@@ -71,8 +71,8 @@ class TableFormItem extends Component {
       ...newProps,
       ...column,
       ...attr,
-      disabled,
-      allowClear: !col.required,
+      disabled: attr?.disabled ?? disabled, // 优先外界设置的attr
+      allowClear: !(attr?.required ?? col.required),
     };
     const type = (attr && attr.type) || colType;
     switch (type) {
