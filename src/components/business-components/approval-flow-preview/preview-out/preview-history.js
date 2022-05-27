@@ -76,7 +76,9 @@ class PreviewHistory extends Component {
         <div>
           <div>
             <span style={statusStyle}>
-              {messages('common.approving') /* 审批中 */}
+              {dataType === 'financial-shared'
+                ? messages('common.auditing' /* 审核中 */)
+                : messages('common.approving')}
             </span>
             {dataType === 'approval-chain' && (
               <a
@@ -91,7 +93,10 @@ class PreviewHistory extends Component {
           </div>
           {isOnlyApprovalState && !smartNodeFlag ? (
             <p style={approvalNameStyle}>
-              {messages('common.approver') /*审批人*/}：
+              {dataType === 'financial-shared'
+                ? messages('common.auditing.people')
+                : messages('common.approver')}
+              ：
               <span style={{ color: '#666' }}>
                 {this.renderPersonsName(personName)}
               </span>

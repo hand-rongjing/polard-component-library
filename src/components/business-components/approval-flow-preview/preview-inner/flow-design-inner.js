@@ -26,6 +26,7 @@ const msg = {
   'approval-chian': messages('workflow.approval.chain'), // 审批链
   robot: messages('workflow.robot'), // 机器人
   'custom-approval': messages('workflow.self.selected.node'), // 自选节点
+  'financial-shared': messages('workflow.financial.sharing' /* 财务共享 */),
 };
 
 class WorkFlow extends React.Component {
