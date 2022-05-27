@@ -378,6 +378,37 @@ export function createNode(type) {
         },
       };
     }
+    case 'financial-shared': {
+      return {
+        shape: 'financial-shared',
+        size: [148, 62],
+        anchorPoints: [
+          [0.5, 0], // 上中
+          [0.5, 1], // 下中
+          [0, 0.5], // 左中
+          [1, 0.5], // 右中
+        ],
+        linkPoints: {
+          top: true,
+          bottom: true,
+          left: true,
+          right: true,
+          size: 5,
+          fill: '#fff',
+        },
+
+        type: 'node',
+        dataType: 'approval',
+        style: {
+          cursor: 'pointer',
+          radius: [4],
+          fill: '#FFFFFF',
+          stroke: '#FFFFFF',
+          width: 148,
+          height: 62,
+        },
+      };
+    }
     default: {
       return {
         shape: 'base-node',
