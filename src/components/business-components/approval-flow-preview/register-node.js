@@ -16,6 +16,7 @@ import withDrewIcon from './icons/pic_withdrew.svg';
 import arrivedIcon from './icons/pic_arrived.svg';
 import rejectedIcon from './icons/pic_rejected.svg';
 import suspendedIcon from './icons/pic_suspended.svg';
+import sharedIcon from './icons/ic_shared.svg';
 import { spliceString } from './utils';
 import currentEnIcon from './icons/pic_present_en.svg';
 import currentTwIcon from './icons/pic_present_tw.svg';
@@ -1739,6 +1740,188 @@ export default {
             }
           }
           if (name === 'hover' && item) {
+            const children = group.get('children');
+
+            if (!children || !children.length) return;
+            const shape = children[0];
+
+            if (value) {
+              shape.attr('shadowColor', 'rgba(0,0,0,0.15)');
+              shape.attr('shadowOffsetX', 0);
+              shape.attr('shadowOffsetY', 2);
+              shape.attr('shadowBlur', 8);
+            } else {
+              shape.attr('shadowOffsetX', 0);
+              shape.attr('shadowOffsetY', 0);
+              shape.attr('shadowBlur', 0);
+            }
+          }
+        },
+        getAnchorPoints() {
+          return [
+            [0.5, 0], // 上中
+            [0.5, 1], // 下中
+            [0, 0.5], // 左中
+            [1, 0.5], // 右中
+          ];
+        },
+      },
+      'rect',
+    );
+  },
+  financialShared: () => {
+    G6.registerNode(
+      'financial-shared',
+      {
+        draw(cfg, group) {
+          const style = this.getShapeStyle(cfg);
+          const shape = group.addShape('rect', {
+            attrs: {
+              ...style,
+              stroke:
+                cfg.selected && !cfg.current
+                  ? '#1890ff'
+                  : cfg.conditionFlag
+                  ? '#fa541d'
+                  : cfg.copyed
+                  ? '#FFAB44'
+                  : style.stroke,
+              lineDash: cfg.copyed ? [4, 4] : [],
+              lineWidth: cfg.copyed ? 2 : 1,
+            },
+          });
+          group.addShape('image', {
+            attrs: {
+              x: style.x + 12,
+              y: style.y + 16,
+              width: 12,
+              height: 12,
+              img: sharedIcon,
+            },
+          });
+
+          if (cfg.current) {
+            group.addShape('image', {
+              attrs: {
+                x: style.x + style.width - 45,
+                y: style.y - 1,
+                width: 46,
+                height: 16,
+                img: switchPicture.currentImg[cfg.language || 'zh_cn'],
+              },
+            });
+          }
+
+          group.addShape('text', {
+            attrs: {
+              x: style.x + 28,
+              y: style.y + 16,
+              textAlign: 'left',
+              textBaseline: 'top',
+              // text: '审批',
+              text: messages('workflow.financial.sharing' /* 财务共享 */),
+              fill: '#999999',
+              fontSize: 12,
+            },
+          });
+
+          if (cfg.title) {
+            let { title } = cfg;
+            title = spliceString(title, 12);
+            group.addShape('text', {
+              attrs: {
+                x: style.x + 28,
+                y: style.y + 46,
+                textAlign: 'left',
+                textBaseline: 'middle',
+                text: title,
+                fill: '#333333',
+                fontSize: 14,
+              },
+            });
+          } else {
+            group.addShape('text', {
+              attrs: {
+                x: style.x + 28,
+                y: style.y + 46,
+                textAlign: 'left',
+                textBaseline: 'middle',
+                text: messages('workflow.no.settings'), // 暂无设置
+                fill: '#333333',
+                fontSize: 14,
+              },
+            });
+            group.addShape('image', {
+              attrs: {
+                x: style.x + 88,
+                y: style.y + 39,
+                width: 14,
+                height: 14,
+                img: redpromptIcon,
+              },
+            });
+          }
+
+          if (cfg.selected && !cfg.current) {
+            group.addShape('image', {
+              attrs: {
+                x: style.x + style.width - 9,
+                y: style.y - 9,
+                width: 18,
+                height: 18,
+                img: selectedIcon,
+                shapeType: 'selected',
+              },
+            });
+          }
+          return shape;
+        },
+        update(cfg, node) {
+          const group = node.getContainer();
+          const style = node.getKeyShapeStyle();
+          group.getFirst().attr('lineDash', []);
+          group.getFirst().attr('lineWidth', 1);
+          if (cfg.delete) {
+            group.getFirst().attr('stroke', '#EA4343');
+          } else if (cfg.selected) {
+            group.getFirst().attr('stroke', '#1890ff');
+          } else if (cfg.copyed) {
+            group.getFirst().attr('stroke', '#FFAB44');
+            group.getFirst().attr('lineDash', [4, 4]);
+            group.getFirst().attr('lineWidth', 2);
+          } else group.getFirst().attr('stroke', '#FFFFFF');
+
+          if (cfg.selected) {
+            const shape = group.getLast();
+            if (shape._attrs.shapeType === 'selected') {
+              return;
+            }
+            // group.getFirst().attr("stroke", "#1890ff");
+            group.addShape('image', {
+              attrs: {
+                x: style.x + style.width - 9,
+                y: style.y - 9,
+                width: 18,
+                height: 18,
+                img: selectedIcon,
+                shapeType: 'selected',
+              },
+            });
+          } else {
+            // group.removeChild(group.getChildByIndex(5));
+            // group.removeChild(group.getLast());
+            if (!cfg.delete && !cfg.copyed)
+              group.getFirst().attr('stroke', '#fff');
+            const shape = group.getLast();
+            if (shape._attrs.shapeType === 'selected') {
+              group.removeChild(shape);
+            }
+          }
+        },
+        setState(name, value, item) {
+          if (name === 'hover' && item) {
+            const group = item.getContainer();
+
             const children = group.get('children');
 
             if (!children || !children.length) return;

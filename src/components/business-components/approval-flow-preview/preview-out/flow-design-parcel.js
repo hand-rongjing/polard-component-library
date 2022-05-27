@@ -104,6 +104,7 @@ class WorkFlow extends React.Component {
     registerNode.condition();
     registerNode.scheduling();
     registerNode.smart();
+    registerNode.financialShared();
 
     this.graph = new G6.Graph({
       container: id,
