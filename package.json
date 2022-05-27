@@ -1,6 +1,6 @@
 {
   "name": "hand-polard",
-  "version": "1.7.1-alpha.0",
+  "version": "1.7.1-alpha.1",
   "scripts": {
     "start": "cross-env ENV_TYPE=native dumi dev",
     "docs:build": "cross-env ENV_TYPE=native dumi build",
