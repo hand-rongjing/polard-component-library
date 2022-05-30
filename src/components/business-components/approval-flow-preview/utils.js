@@ -398,7 +398,7 @@ export function createNode(type) {
         },
 
         type: 'node',
-        dataType: 'approval',
+        dataType: 'financial-shared',
         style: {
           cursor: 'pointer',
           radius: [4],
