@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1-alpha.2...v1.7.1-alpha.3) (2022-05-30)
+
+### Bug 修复
+
+- 工作流预览增加财务共享节点-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074172 ([ae5b3ee](https://github.com/hand-rongjing/polard-component-library/commit/ae5b3ee887642642766fe69663e6633448ba69b6))
+
 ### [1.7.1-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1-alpha.1...v1.7.1-alpha.2) (2022-05-27)
 
 ### [1.7.1-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.5...v1.7.1-alpha.1) (2022-05-27)
