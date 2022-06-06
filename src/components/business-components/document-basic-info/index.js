@@ -537,6 +537,18 @@ class DocumentBasicInfo extends Component {
                     {(this.status[data.statusCode] || {}).label}
                   </Tag>
                 )}
+                {data.includeHolidays && (
+                  <Tag
+                    style={{
+                      verticalAlign: 'middle',
+                      marginRight: 0,
+                      marginLeft: 8,
+                    }}
+                    className={'tag-edit'}
+                  >
+                    包含节假日
+                  </Tag>
+                )}
               </div>
               <div style={{ float: 'left', fontSize: 14 }}>{extarButton}</div>
             </Col>
