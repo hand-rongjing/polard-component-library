@@ -546,7 +546,7 @@ class DocumentBasicInfo extends Component {
                     }}
                     className={'tag-edit'}
                   >
-                    包含节假日
+                    {messages('peripheral.including.holidays' /* 包含节假日 */)}
                   </Tag>
                 )}
               </div>
