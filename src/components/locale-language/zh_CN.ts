@@ -280,4 +280,5 @@ export default {
   'common.sequential.approval': '顺序审批',
   'common.auditing.people': '审核人',
   'workflow.financial.sharing': '财务共享',
+  'peripheral.including.holiday': '包含节假日',
 };
