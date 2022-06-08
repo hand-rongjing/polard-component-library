@@ -278,5 +278,5 @@ export default {
   'base.sync.check.subsidiary.department': '同时勾选下级部门',
   'common.simultaneous.approval': '同时审批',
   'common.sequential.approval': '顺序审批',
-  'peripheral.including.holiday': '包含节假日',
+  'peripheral.including.holidays': '包含节假日',
 };
