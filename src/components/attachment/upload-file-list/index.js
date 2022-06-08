@@ -102,7 +102,7 @@ class RenderUploadFileItem extends React.Component {
               onConfirm={() => {
                 onRemove(fileList[index], index);
               }}
-              overlayStyle={{ whiteSpace: 'nowrap' }}
+              overlayStyle={{ whiteSpace: 'nowrap', minWidth: 152 }}
               getPopupContainer={(node) =>
                 popupContainer
                   ? document.querySelector(popupContainer)
