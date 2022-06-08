@@ -286,4 +286,5 @@ export default {
     'Check the subordinate department at the same time',
   'common.simultaneous.approval': 'Simultaneous approval',
   'common.sequential.approval': 'Sequential approval',
+  'peripheral.including.holiday': 'Including holiday',
 };
