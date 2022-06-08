@@ -311,6 +311,7 @@ export default function DocumentSubmitBtn(props: IProps) {
         bodyStyle={{ maxHeight: '400px', overflow: 'auto' }}
         onCancel={handleCancel}
         maskClosable={false}
+        destroyOnClose
       >
         <Form form={form}>
           <div style={{ marginBottom: '48px' }}>{renderFormItem()}</div>
