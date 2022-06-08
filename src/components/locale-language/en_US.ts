@@ -288,5 +288,5 @@ export default {
   'common.sequential.approval': 'Sequential approval',
   'common.auditing.people': 'The reviewer',
   'workflow.financial.sharing': 'Financial Shared',
-  'peripheral.including.holiday': 'Including holiday',
+  'peripheral.including.holidays': 'Including holiday',
 };
