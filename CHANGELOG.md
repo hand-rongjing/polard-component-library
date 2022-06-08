@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1-alpha.8](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.6...v1.7.1-alpha.8) (2022-06-08)
+
+### [1.7.1-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1-alpha.5...v1.7.1-alpha.7) (2022-06-07)
+
+### [1.7.1-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1-alpha.4...v1.7.1-alpha.5) (2022-06-06)
+
+### [1.7.1-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.3...v1.7.1-alpha.4) (2022-06-06)
+
+### Bug 修复
+
+- 工作流预览增加财务共享节点-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074172 ([ae5b3ee](https://github.com/hand-rongjing/polard-component-library/commit/ae5b3ee887642642766fe69663e6633448ba69b6))
+- 工作流预览增加财务共享节点-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074172 ([b3f1ef6](https://github.com/hand-rongjing/polard-component-library/commit/b3f1ef63e277bd6dbbbcec13d21c2ec19712bcf4))
+
+## [1.7.0-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.7.0-alpha.4) (2022-05-24)
+
+### Bug 修复
+
+- 解决冲突 ([58cb688](https://github.com/hand-rongjing/polard-component-library/commit/58cb6881a0fa8991ceac3b000a9c758529de8bae))
+- 解决冲突 ([072d594](https://github.com/hand-rongjing/polard-component-library/commit/072d5941bc574642768712e078bda2e752a4ca47))
+
+### [1.6.8-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.6...v1.6.8-alpha.1) (2022-04-28)
+
+### Bug 修复
+
+- 解决冲突 ([5e6a9c1](https://github.com/hand-rongjing/polard-component-library/commit/5e6a9c120042423157d49b6f5dca16f2577ba4c1))
+- 解决冲突 ([50209de](https://github.com/hand-rongjing/polard-component-library/commit/50209de6801d610d1c6e91b72cecea5e860bcfcd))
+
+### [1.6.7-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-alpha.5...v1.6.7-alpha.6) (2022-04-20)
+
+### [1.6.7-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.7-beta.2...v1.6.7-alpha.5) (2022-04-20)
+
 ### [1.7.1-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1-alpha.5...v1.7.1-alpha.7) (2022-06-07)
 
 ### [1.7.1-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.7.1-alpha.6) (2022-06-06)
