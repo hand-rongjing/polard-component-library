@@ -254,7 +254,9 @@ function FilePreview(props) {
         >
           <img
             id={`img-${attachmentOid}`}
-            src={`${staticFileUrl}`}
+            src={`${staticFileUrl}?access_token=${sessionStorage.getItem(
+              'token',
+            )}`}
             alt="pic"
             className="img-attach"
             style={{
@@ -307,10 +309,12 @@ function FilePreview(props) {
     const flag = reg.test(staticFileUrl.toLowerCase());
     let fileUrl;
     if (!flag) {
-      fileUrl = `.${staticFileUrl}`;
+      fileUrl = `.${staticFileUrl}?access_token=${sessionStorage.getItem(
+        'token',
+      )}`;
     } else {
       fileUrl = `/pdfjs/web/viewer.html?file=${window.encodeURIComponent(
-        `${staticFileUrl}`,
+        `${staticFileUrl}?access_token=${sessionStorage.getItem('token')}`,
       )}`;
     }
     return (
