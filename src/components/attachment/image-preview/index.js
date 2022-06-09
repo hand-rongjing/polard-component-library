@@ -27,6 +27,7 @@ function FilePreview(props) {
     onDelete,
     onDownload,
     staticFileUrl,
+    url,
     first,
     last,
     onPrevious,
@@ -252,9 +253,25 @@ function FilePreview(props) {
             height: '100%',
           }}
         >
-          <img
+          {/* <img
             id={`img-${attachmentOid}`}
             src={`${staticFileUrl}`}
+            alt="pic"
+            className="img-attach"
+            style={{
+              top,
+              left,
+              transform: `rotateZ(${rotateZ}deg) scale(${scale}) translate(-50%, -50%)`,
+            }}
+            onMouseDown={mouseDown}
+            onMouseUp={mouseUp}
+            draggable={false}
+            onLoad={loadImage}
+          /> */}
+          <RzhImg
+            id={`img-${attachmentOid}`}
+            // src={`${staticFileUrl}?access_token=${sessionStorage.getItem('token')}`}
+            url={`${url}`}
             alt="pic"
             className="img-attach"
             style={{
