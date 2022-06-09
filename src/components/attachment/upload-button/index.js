@@ -551,7 +551,8 @@ class UploadButton extends React.Component {
     fileList.forEach((items) => {
       const item = items;
       const key = item.response ? item.response[valueKey] : item[valueKey];
-      item.url = `${config.fileUrl}/api/attachments/download/${key}?access_token=${token}`;
+      item.url = `/api/attachments/download/${key}`;
+      // item.url = `${config.fileUrl}/api/attachments/download/${key}?access_token=${token}`;
     });
     const ArrowIcon = visible ? DownOutlined : RightOutlined;
     return (
