@@ -240,7 +240,6 @@ function FilePreview(props) {
     const { user } = props;
     return (
       <WaterMark
-        content={`${user.userCode} - ${user.userName}`}
         style={{ position: 'absolute', bottom: 0, top: 0, left: 0, right: 0 }}
       >
         <div
@@ -319,7 +318,6 @@ function FilePreview(props) {
     }
     return (
       <WaterMark
-        content={`${user.userCode} - ${user.userName}`}
         style={{ position: 'absolute', bottom: '0', top: 0, left: 0, right: 0 }}
       >
         <iframe
