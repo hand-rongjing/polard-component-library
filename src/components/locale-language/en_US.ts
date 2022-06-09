@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 11:05:29
+ * @LastEditTime: 2022-03-24 16:58:53
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -239,4 +239,18 @@ export default {
   'base.policy.verification.info': 'Policy Verification Information',
   'common.input.name.or.code': 'Please enter a code or name',
   'chooser.data.company': 'Choose the company',
+  'common.to.configuration': 'To configure',
+  'common.upload.max.num': 'Upload up to {filenum} files',
+  'common.size.of.attachment':
+    'The size of each attachment is {upperlimitsize}{unit}',
+  'common.size.of.attachment.within':
+    'The size of each attachment is within {lowerlimitsize}{unit} ~ {upperlimitsize}{unit}',
+  'common.size.of.attachment.not.less.than':
+    'The size of each attachment shall not be less than {lowerlimitsize}{unit}',
+  'common.size.of.attachment.in':
+    'The size of each attachment is within {upperlimitsize}{unit}',
+  'full.screen': 'Full screen',
+  'full.screen.exit': 'Exit full screen',
+  'pre.page': 'The previous page',
+  'next.page': 'The next page',
 };

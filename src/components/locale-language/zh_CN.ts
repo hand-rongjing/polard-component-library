@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-01-05 11:05:05
+ * @LastEditTime: 2022-03-24 16:59:46
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -236,4 +236,16 @@ export default {
   'base.policy.verification.info': '政策校验信息',
   'common.input.name.or.code': '请输入代码或名称',
   'chooser.data.company': '选择公司',
+  'common.to.configuration': '前往配置',
+  'common.upload.max.num': '最多上传{fileNum}个文件',
+  'common.size.of.attachment': '每个附件大小为{upperLimitSize}{unit}',
+  'common.size.of.attachment.within':
+    '每个附件大小在{lowerLimitSize}{unit}~{upperLimitSize}{unit}以内',
+  'common.size.of.attachment.not.less.than':
+    '每个附件大小不小于{lowerLimitSize}{unit}',
+  'common.size.of.attachment.in': '每个附件大小在{upperLimitSize}{unit}以内',
+  'full.screen': '全屏',
+  'full.screen.exit': '退出全屏',
+  'pre.page': '上一页',
+  'next.page': '下一页',
 };
