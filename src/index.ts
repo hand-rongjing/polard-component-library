@@ -2,7 +2,7 @@
  * @Author: zong.wang01@hand-china.com
  * @Date: 2022-03-30 10:29:28
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-03-31 16:26:59
+ * @LastEditTime: 2022-06-10 09:24:00
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -63,3 +63,4 @@ export { default as UploadByType } from './components/attachment/upload-by-type'
 export { default as UploadFileList } from './components/attachment/upload-file-list';
 export { default as ImagePriview } from './components/attachment/image-preview';
 export { default as ZipFileView } from './components/attachment/zip-preview';
+export { default as RzhImg } from './components/attachment/rzh-img';
