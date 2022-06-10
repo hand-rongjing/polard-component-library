@@ -14,6 +14,7 @@ import {
 import { Result, Popconfirm } from 'antd';
 import { WaterMark } from '@ant-design/pro-layout';
 import Connect from '../../custom-connect';
+import RzhImg from '../rzh-img';
 import { messages, getImgIcon } from '../../utils';
 import nextPageImg from './assets/next-page.svg';
 import './index.less';
