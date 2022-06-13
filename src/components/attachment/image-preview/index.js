@@ -405,6 +405,7 @@ function FilePreview(props) {
                   onConfirm={() => onDelete(attachmentOid, index)}
                   okText={messages('common.ok')}
                   cancelText={messages('common.cancel')}
+                  getPopupContainer={(node) => node.parentNode}
                 >
                   <DeleteOutlined
                     className="rnd-opera-img cancel-drag"
