@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2-alpha.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.2-alpha.6...v1.7.2-alpha.7) (2022-06-14)
+
+### Bug 修复
+
+- 多附件同时上传时，有问题的附件没被阻拦 - https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001027176 ([a2f60af](https://github.com/hand-rongjing/polard-component-library/commit/a2f60afcf1133c0cf78da939387c7256bfc3e4ed))
+- 解决合并 hotfix-1027176-release-wz 冲突 ([8518372](https://github.com/hand-rongjing/polard-component-library/commit/85183727c72c6ed4738fb1c9cea6e45efe14c646))
+
+### [1.7.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1-alpha.3...v1.7.1) (2022-06-09)
+
 ### [1.7.2-alpha.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.2-alpha.3...v1.7.2-alpha.6) (2022-06-14)
 
 ### Bug 修复
