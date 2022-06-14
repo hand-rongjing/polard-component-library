@@ -14,6 +14,7 @@ import {
 import { Result, Popconfirm } from 'antd';
 import { WaterMark } from '@ant-design/pro-layout';
 import Connect from '../../custom-connect';
+import RzhImg from '../rzh-img';
 import { messages, getImgIcon } from '../../utils';
 import nextPageImg from './assets/next-page.svg';
 import './index.less';
@@ -27,6 +28,7 @@ function FilePreview(props) {
     onDelete,
     onDownload,
     staticFileUrl,
+    url,
     first,
     last,
     onPrevious,
@@ -252,11 +254,27 @@ function FilePreview(props) {
             height: '100%',
           }}
         >
-          <img
+          {/* <img
             id={`img-${attachmentOid}`}
             src={`${staticFileUrl}?access_token=${sessionStorage.getItem(
               'token',
             )}`}
+            alt="pic"
+            className="img-attach"
+            style={{
+              top,
+              left,
+              transform: `rotateZ(${rotateZ}deg) scale(${scale}) translate(-50%, -50%)`,
+            }}
+            onMouseDown={mouseDown}
+            onMouseUp={mouseUp}
+            draggable={false}
+            onLoad={loadImage}
+          /> */}
+          <RzhImg
+            id={`img-${attachmentOid}`}
+            // src={`${staticFileUrl}?access_token=${sessionStorage.getItem('token')}`}
+            url={`${url}`}
             alt="pic"
             className="img-attach"
             style={{
@@ -391,6 +409,7 @@ function FilePreview(props) {
                   onConfirm={() => onDelete(attachmentOid, index)}
                   okText={messages('common.ok')}
                   cancelText={messages('common.cancel')}
+                  getPopupContainer={(node) => node.parentNode}
                 >
                   <DeleteOutlined
                     className="rnd-opera-img cancel-drag"
