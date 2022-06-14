@@ -3,6 +3,7 @@ import Icon, { LoadingOutlined } from '@ant-design/icons';
 import { Tooltip, Popconfirm, Col, Row, Progress } from 'antd';
 import config from 'config';
 import httpFetch from 'share/httpFetch';
+import FileSaver from 'file-saver';
 import { getImgIcon, messages } from '../../utils';
 import DownloadIcon from '../../../assets/upload/download';
 import PreviewIcon from '../../../assets/upload/preview';
@@ -179,18 +180,27 @@ class RenderUploadFileItem extends React.Component {
   // 下载
   handleDownload = (attachmentOid) => {
     if (!attachmentOid) return;
-    const downloadURL = `${
-      config.fileUrl
-    }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
-      'token',
-    )}`;
-    const iframe = document.createElement('iframe');
-    iframe.src = downloadURL;
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-    }, 500);
+    const downloadURL = `${config.fileUrl}/api/attachments/download/${attachmentOid}`;
+    httpFetch
+      .get(downloadURL, {}, {}, { responseType: 'arraybuffer' })
+      .then((res) => {
+        const fileName =
+          res.headers['content-disposition'].split('filename=')[1];
+        const f = new Blob([res.data]);
+        FileSaver.saveAs(f, decodeURIComponent(fileName));
+      });
+    // const downloadURL = `${
+    //   config.fileUrl
+    // }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
+    //   'token',
+    // )}`;
+    // const iframe = document.createElement('iframe');
+    // iframe.src = downloadURL;
+    // iframe.style.display = 'none';
+    // document.body.appendChild(iframe);
+    // setTimeout(() => {
+    //   document.body.removeChild(iframe);
+    // }, 500);
   };
 
   // 文件大小转换

@@ -3,6 +3,7 @@ import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import { Col, message, Popover, Row, Spin, Tag, Tooltip } from 'antd';
 import config from 'config';
 import httpFetch from 'share/httpFetch';
+import FileSaver from 'file-saver';
 import TweenOne from 'rc-tween-one';
 import Children from 'rc-tween-one/lib/plugin/ChildrenPlugin';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -372,18 +373,28 @@ class DocumentBasicInfo extends Component {
   };
 
   download = (attachmentOid) => {
-    const downloadURL = `${
-      config.fileUrl
-    }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
-      'token',
-    )}`;
-    const iframe = document.createElement('iframe');
-    iframe.src = downloadURL;
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    setTimeout(() => {
-      document.body.removeChild(iframe);
-    }, 500);
+    if (!attachmentOid) return;
+    const downloadURL = `${config.fileUrl}/api/attachments/download/${attachmentOid}`;
+    httpFetch
+      .get(downloadURL, {}, {}, { responseType: 'arraybuffer' })
+      .then((res) => {
+        const fileName =
+          res.headers['content-disposition'].split('filename=')[1];
+        const f = new Blob([res.data]);
+        FileSaver.saveAs(f, decodeURIComponent(fileName));
+      });
+    // const downloadURL = `${
+    //   config.fileUrl
+    // }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
+    //   'token',
+    // )}`;
+    // const iframe = document.createElement('iframe');
+    // iframe.src = downloadURL;
+    // iframe.style.display = 'none';
+    // document.body.appendChild(iframe);
+    // setTimeout(() => {
+    //   document.body.removeChild(iframe);
+    // }, 500);
   };
 
   deleteFile = (attachmentOid, index) => {

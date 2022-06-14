@@ -12,6 +12,9 @@ import {
   Switch,
 } from 'antd';
 import moment from 'moment';
+import httpFetch from 'share/httpFetch';
+import FileSaver from 'file-saver';
+import RzhImg from '../../attachment/rzh-img';
 import SearchArea from '../../basic/search-area-lov';
 import WrappedForm from '../../wrapped-form';
 import config from 'config';
@@ -163,11 +166,12 @@ class BasicInfo extends React.Component<IProps, IState> {
   preview = (record) => {
     this.setState({
       previewVisible: true,
-      previewImage:
-        record.thumbnailUrl &&
-        `${record.thumbnailUrl}?access_token=${sessionStorage.getItem(
-          'token',
-        )}`,
+      previewImage: record.thumbnailUrl,
+      // previewImage:
+      //   record.thumbnailUrl &&
+      //   `${record.thumbnailUrl}?access_token=${sessionStorage.getItem(
+      //     'token',
+      //   )}`,
     });
   };
 
@@ -251,6 +255,19 @@ class BasicInfo extends React.Component<IProps, IState> {
     return uuid;
   };
 
+  download = (attachmentOid) => {
+    if (!attachmentOid) return;
+    const downloadURL = `${config.fileUrl}/api/attachments/download/${attachmentOid}`;
+    httpFetch
+      .get(downloadURL, {}, {}, { responseType: 'arraybuffer' })
+      .then((res) => {
+        const fileName =
+          res.headers['content-disposition'].split('filename=')[1];
+        const f = new Blob([res.data]);
+        FileSaver.saveAs(f, decodeURIComponent(fileName));
+      });
+  };
+
   // 渲染基本信息显示页
   renderGetInfo(item) {
     const { infoData } = this.state;
@@ -259,16 +276,19 @@ class BasicInfo extends React.Component<IProps, IState> {
       item.type.toLowerCase() === 'img' ||
       item.type.toLowerCase() === 'image'
     ) {
-      const url = infoData[item.src]
-        ? `${config.fileUrl}${
-            infoData[item.src]
-          }?access_token=${sessionStorage.getItem('token')}`
-        : '';
+      // const url = infoData[item.src]
+      //   ? `${config.fileUrl}${
+      //       infoData[item.src]
+      //     }?access_token=${sessionStorage.getItem('token')}`
+      //   : '';
+      const url = infoData[item.src] ? infoData[item.src] : '';
       return (
         <Tooltip
-          title={<img alt="" style={{ width: 200, height: 200 }} src={url} />}
+          title={
+            <RzhImg alt="" style={{ width: 200, height: 200 }} url={url} />
+          }
         >
-          <img alt="" style={{ width: 20, height: 20 }} src={url} />
+          <RzhImg alt="" style={{ width: 20, height: 20 }} url={url} />
         </Tooltip>
       );
     } else if (item.type === 'switch') {
@@ -383,9 +403,8 @@ class BasicInfo extends React.Component<IProps, IState> {
               <Popover content={link.fileName}>
                 {link.fileType !== 'IMAGE' ? (
                   <a
-                    href={`${config.fileUrl}/api/attachments/download/${
-                      link.attachmentOid
-                    }?access_token=${sessionStorage.getItem('token')}`}
+                    href="javascript:void(0);"
+                    onClick={() => this.download(link.attachmentOid)}
                   >
                     {link.fileName}
                   </a>
@@ -456,15 +475,10 @@ class BasicInfo extends React.Component<IProps, IState> {
               this.setState({ previewVisible: false });
             }}
           >
-            <img
+            <RzhImg
               alt="example"
               style={{ width: '100%' }}
-              src={
-                previewImage &&
-                `${previewImage}?access_token=${sessionStorage.getItem(
-                  'token',
-                )}`
-              }
+              url={previewImage}
             />
           </Modal>
         </Card>
