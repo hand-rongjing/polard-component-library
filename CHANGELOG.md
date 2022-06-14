@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1...v1.7.2-beta.0) (2022-06-14)
+
+### 文档
+
+- 更新日志 ([0bbf1c0](https://github.com/hand-rongjing/polard-component-library/commit/0bbf1c0a914ce99fa686e942c4cd00847758905c))
+
+### Bug 修复
+
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([75e4ca5](https://github.com/hand-rongjing/polard-component-library/commit/75e4ca536a8eb0e31439df369d8fb19c5ccbf7be))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([46e082d](https://github.com/hand-rongjing/polard-component-library/commit/46e082dd38e7331f49e397704895bb21fc1f94c2))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([e3f354a](https://github.com/hand-rongjing/polard-component-library/commit/e3f354a858ba1fd985bc14035995df3094dc0b4f))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([c0a41f7](https://github.com/hand-rongjing/polard-component-library/commit/c0a41f7741231696237654ab08799c466603cd4d))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([3a8f155](https://github.com/hand-rongjing/polard-component-library/commit/3a8f155fa552756b677dc97bd61e7d2897b1a795))
+- 多附件同时上传时，有问题的附件没被阻拦 - https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001027176 ([a2f60af](https://github.com/hand-rongjing/polard-component-library/commit/a2f60afcf1133c0cf78da939387c7256bfc3e4ed))
+
 ### [1.7.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.5...v1.7.1) (2022-06-09)
 
 ## [1.7.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.0-beta.5...v1.7.0) (2022-06-09)
