@@ -256,7 +256,9 @@ function FilePreview(props) {
         >
           {/* <img
             id={`img-${attachmentOid}`}
-            src={`${staticFileUrl}`}
+            src={`${staticFileUrl}?access_token=${sessionStorage.getItem(
+              'token',
+            )}`}
             alt="pic"
             className="img-attach"
             style={{
@@ -295,7 +297,7 @@ function FilePreview(props) {
     const { offsetWidth, offsetHeight } = e.target.parentNode;
     style.width = 'auto';
     style.height = 'auto';
-    if (offsetWidth < width && offsetHeight < height) {
+    if (offsetWidth <= width && offsetHeight <= height) {
       if (width > height) {
         style.width = '100%';
         style.height = 'auto';
@@ -303,10 +305,10 @@ function FilePreview(props) {
         style.width = 'auto';
         style.height = '100%';
       }
-    } else if (offsetWidth < width) {
+    } else if (offsetWidth <= width) {
       style.width = '100%';
       style.height = 'auto';
-    } else if (offsetHeight < height) {
+    } else if (offsetHeight <= height) {
       style.width = 'auto';
       style.height = '100%';
     }
@@ -325,10 +327,12 @@ function FilePreview(props) {
     const flag = reg.test(staticFileUrl.toLowerCase());
     let fileUrl;
     if (!flag) {
-      fileUrl = `.${staticFileUrl}`;
+      fileUrl = `.${staticFileUrl}?access_token=${sessionStorage.getItem(
+        'token',
+      )}`;
     } else {
       fileUrl = `/pdfjs/web/viewer.html?file=${window.encodeURIComponent(
-        `${staticFileUrl}`,
+        `${staticFileUrl}?access_token=${sessionStorage.getItem('token')}`,
       )}`;
     }
     return (
