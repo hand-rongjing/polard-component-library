@@ -383,7 +383,9 @@ class UploadButton extends React.Component {
 
     let { fileList } = info;
     let { valueList } = this.state;
-    fileList = this.handleCutArray(fileList).filter((o) => o.pass !== false);
+    fileList = this.handleCutArray(fileList).filter(
+      (o) => o.pass === true || o.id,
+    );
     this.setState({ fileList }, () => {
       const { status } = info.file;
       if (status === 'done') {
