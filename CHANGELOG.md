@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.2-beta.0...v1.7.2-beta.1) (2022-06-15)
+
+### Bug 修复
+
+- 压缩文件无法预览图片 - https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074517 ([a4e2aab](https://github.com/hand-rongjing/polard-component-library/commit/a4e2aab66a35312398ecfbd84a4c8e2a05121d6a))
+
 ### [1.7.2-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.1...v1.7.2-beta.0) (2022-06-14)
 
 ### 文档
