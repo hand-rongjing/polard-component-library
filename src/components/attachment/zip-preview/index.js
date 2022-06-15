@@ -115,7 +115,7 @@ class ZipFileView extends React.Component {
           }}
           visible={filePreviewVisible}
           conversionStatus={item.conversionStatus}
-          url={item.url}
+          url={item.url || item.staticFileUrl}
           title={item.title}
           first
           last
