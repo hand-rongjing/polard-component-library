@@ -1,5 +1,6 @@
 import React from 'react';
 import httpFetch from 'share/httpFetch';
+import FileSaver from 'file-saver';
 import config from 'config';
 import FilePreview from '../../attachment/image-preview';
 import ZipFileView from '../../attachment/image-preview';
@@ -84,18 +85,28 @@ const AttachmentsWrap = (AttachmentsContent, PreviewElement) => {
 
     // 下载
     downloadMethod = (attachmentOid) => {
-      const downloadURL = `${
-        config.fileUrl
-      }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
-        'token',
-      )}`;
-      const iframe = document.createElement('iframe');
-      iframe.src = downloadURL;
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-      setTimeout(() => {
-        document.body.removeChild(iframe);
-      }, 500);
+      if (!attachmentOid) return;
+      const downloadURL = `${config.fileUrl}/api/attachments/download/${attachmentOid}`;
+      httpFetch
+        .get(downloadURL, {}, {}, { responseType: 'arraybuffer' })
+        .then((res) => {
+          const fileName =
+            res.headers['content-disposition'].split('filename=')[1];
+          const f = new Blob([res.data]);
+          FileSaver.saveAs(f, decodeURIComponent(fileName));
+        });
+      // const downloadURL = `${
+      //   config.fileUrl
+      // }/api/attachments/download/${attachmentOid}?access_token=${sessionStorage.getItem(
+      //   'token',
+      // )}`;
+      // const iframe = document.createElement('iframe');
+      // iframe.src = downloadURL;
+      // iframe.style.display = 'none';
+      // document.body.appendChild(iframe);
+      // setTimeout(() => {
+      //   document.body.removeChild(iframe);
+      // }, 500);
     };
 
     getFileType = (fileName) => {
