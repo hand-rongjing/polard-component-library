@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.4-alpha.2](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.7.4-alpha.2) (2022-06-17)
+
+### 文档
+
+- 更新日志 ([0bbf1c0](https://github.com/hand-rongjing/polard-component-library/commit/0bbf1c0a914ce99fa686e942c4cd00847758905c))
+
+### Bug 修复
+
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([75e4ca5](https://github.com/hand-rongjing/polard-component-library/commit/75e4ca536a8eb0e31439df369d8fb19c5ccbf7be))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([46e082d](https://github.com/hand-rongjing/polard-component-library/commit/46e082dd38e7331f49e397704895bb21fc1f94c2))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([e3f354a](https://github.com/hand-rongjing/polard-component-library/commit/e3f354a858ba1fd985bc14035995df3094dc0b4f))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([c0a41f7](https://github.com/hand-rongjing/polard-component-library/commit/c0a41f7741231696237654ab08799c466603cd4d))
+- 【框架任务】【附件漏洞修复】- https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187 ([3a8f155](https://github.com/hand-rongjing/polard-component-library/commit/3a8f155fa552756b677dc97bd61e7d2897b1a795))
+- col.render 存成\_ORG_RENDER_FN, 每次生成新的 render 函数来调用它, 触发 rc-table 的 Cell 的 render 【【需求收集登记】前端框架优化 - 【基础组】角色管理-分配数据权限后，编辑数据权限无效】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074569 ([fe7ad28](https://github.com/hand-rongjing/polard-component-library/commit/fe7ad2813a10ee477aee57fa99ae2893ddcac8f3))
+- trim console.log ([455128e](https://github.com/hand-rongjing/polard-component-library/commit/455128e3e026122965f3029ec6d2ff149a26068c))
+- 优化工作流预览样式 - https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026932 ([46ef0f8](https://github.com/hand-rongjing/polard-component-library/commit/46ef0f8ddd5f634f08f979ba7af614f405bf8b76))
+- 使 dataSource 透传 【【需求收集登记】前端框架优化 - 【基础组】角色管理-分配数据权限后，编辑数据权限无效】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074569 ([856be4a](https://github.com/hand-rongjing/polard-component-library/commit/856be4a2e8d469b511cf677f59c4d099a562223a))
+- 修复工作流预览多语言、条件节点气泡提示-https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001026950 ([28c5bf8](https://github.com/hand-rongjing/polard-component-library/commit/28c5bf8a8d38d77efaf81eb5a87ab24bbf0399e2))
+- 压缩文件无法预览图片 - https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074517 ([a4e2aab](https://github.com/hand-rongjing/polard-component-library/commit/a4e2aab66a35312398ecfbd84a4c8e2a05121d6a))
+- 多附件同时上传时，有问题的附件没被阻拦 - https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001027176 ([a2f60af](https://github.com/hand-rongjing/polard-component-library/commit/a2f60afcf1133c0cf78da939387c7256bfc3e4ed))
+- 导入组件修改布尔值显示值-https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001026969 ([e72242d](https://github.com/hand-rongjing/polard-component-library/commit/e72242dd1d7fdb389550fde524f92d594b814a61))
+- 工作流预览增加财务共享节点-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074172 ([ae5b3ee](https://github.com/hand-rongjing/polard-component-library/commit/ae5b3ee887642642766fe69663e6633448ba69b6))
+- 工作流预览增加财务共享节点-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074172 ([b3f1ef6](https://github.com/hand-rongjing/polard-component-library/commit/b3f1ef63e277bd6dbbbcec13d21c2ec19712bcf4))
+- 生成 render 逻辑修改 ([13b2cf6](https://github.com/hand-rongjing/polard-component-library/commit/13b2cf681019ed522f39b76f034c85c2b3d2420d))
+- 自选审批弹框优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074013 ([efa7f9d](https://github.com/hand-rongjing/polard-component-library/commit/efa7f9da87bdd7e6fbdf83c73d0fea98b26febd6))
+- 自选审批弹框优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074013 ([92ff388](https://github.com/hand-rongjing/polard-component-library/commit/92ff3880f120fe46706976024d249728304653c7))
+- 表头合并的 Table column 可拖动宽度 ([d287246](https://github.com/hand-rongjing/polard-component-library/commit/d2872468f0ad563dcbe011fa60accd621dc38d59))
+- 解决冲突 ([58cb688](https://github.com/hand-rongjing/polard-component-library/commit/58cb6881a0fa8991ceac3b000a9c758529de8bae))
+- 解决冲突 ([072d594](https://github.com/hand-rongjing/polard-component-library/commit/072d5941bc574642768712e078bda2e752a4ca47))
+- 解决冲突 ([5e6a9c1](https://github.com/hand-rongjing/polard-component-library/commit/5e6a9c120042423157d49b6f5dca16f2577ba4c1))
+- 解决冲突 ([50209de](https://github.com/hand-rongjing/polard-component-library/commit/50209de6801d610d1c6e91b72cecea5e860bcfcd))
+- 解决合并 hotfix-1027176-release-wz 冲突 ([8518372](https://github.com/hand-rongjing/polard-component-library/commit/85183727c72c6ed4738fb1c9cea6e45efe14c646))
+
 ### [1.7.4-alpha.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.7.4-alpha.1) (2022-06-17)
 
 ### 文档
