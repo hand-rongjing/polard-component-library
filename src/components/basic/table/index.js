@@ -34,7 +34,6 @@ class BasicTable extends React.Component {
   state = {
     columns: [],
     expandedRows: [],
-    dataSource: [],
   };
 
   components = {
@@ -44,22 +43,15 @@ class BasicTable extends React.Component {
   };
 
   componentDidMount() {
-    const { columns: columnsFromProps, dataSource: dataSourceProps } =
-      this.props;
+    const { columns: columnsFromProps } = this.props;
     this.setState({
       columns: columnsFromProps,
-      dataSource: dataSourceProps,
     });
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       columns: nextProps.columns,
-      dataSource: Array.isArray(nextProps.dataSource)
-        ? nextProps.dataSource?.map((item) => {
-            return { ...item };
-          })
-        : nextProps.dataSource,
     });
   }
 
@@ -148,11 +140,24 @@ class BasicTable extends React.Component {
       scrollXWidth,
       scroll,
     } = this.props;
-    const { columns: columnsFromState, dataSource } = this.state;
+    const { columns: columnsFromState } = this.state;
     if (!noReSize) {
       this.deepInInitResize(columnsFromState);
     }
-    const columns = [...columnsFromState];
+    const columns = columnsFromState.map((col) => {
+      const { render } = col;
+      console.log('render, _ORG_RENDER_FN: ', render, col._ORG_RENDER_FN);
+      if (render) {
+        if (!col._ORG_RENDER_FN) {
+          col._ORG_RENDER_FN = render;
+        }
+        col.render = (...args) => {
+          console.log('new render 1');
+          return col._ORG_RENDER_FN(...args);
+        };
+      }
+      return col;
+    });
     const { expandedRows } = this.state;
     const initScrollY = this.getScrollY();
 
@@ -168,7 +173,6 @@ class BasicTable extends React.Component {
           pagination={pagination}
           onChange={this.onTableChange}
           columns={columns}
-          dataSource={dataSource}
           expandedRowKeys={
             onExpandedRowsChange ? expandedRowKeys : expandedRows
           }
