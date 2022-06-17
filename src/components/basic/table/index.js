@@ -146,13 +146,13 @@ class BasicTable extends React.Component {
     }
     const columns = columnsFromState.map((col) => {
       const { render } = col;
-      console.log('render, _ORG_RENDER_FN: ', render, col._ORG_RENDER_FN);
+      // console.log('render, _ORG_RENDER_FN: ', render, col._ORG_RENDER_FN);
       if (render) {
         if (!col._ORG_RENDER_FN) {
           col._ORG_RENDER_FN = render;
         }
         col.render = (...args) => {
-          console.log('new render 1');
+          // console.log('new render 1');
           return col._ORG_RENDER_FN(...args);
         };
       }
