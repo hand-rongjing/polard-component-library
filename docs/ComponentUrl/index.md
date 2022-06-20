@@ -23,7 +23,7 @@ Lov, //  components/common/lov 或  widget/Template/lov
 InputLanguage, //  components/Widget/Template/input-language
 CodeInput, // components/Widget/Template/code-input
 CustomAmount, // components/Widget/custom-amount
-Cascader, //
+Cascader, // components/Widget/Template/cascader-second-filter
 CustomSwitch, // src\components\Widget\custom-switch.js
 InputNumber, // src\components\Widget\Template\input-number
 SelectPartLoad, // src\components\Widget\Template\select-part-load
