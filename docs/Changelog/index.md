@@ -6,6 +6,23 @@ nav:
 
 # 更新日志
 
+### v1.7.1 _(2022-06-09)_
+
+- [自选审批弹框优化](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074013)
+- [可编辑表格兼容单独设置属性 disabled](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074074)
+- [差旅申请头信息添加“包含节假日”标签](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074295)
+- [修复提交自选审批人拖拽框与其他拖拽框同时打开报错问题](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074341)
+
+### v1.7.0 _(2022-05-25)_
+
+- [表头合并的 Table column 可拖动宽度](https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026936)
+
+### v1.6.9 _(2022-05-18)_
+
+- [导入组件修改布尔值显示值](https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001026969)
+- [修复工作流预览多语言、条件节点气泡提示](https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001026950)
+- [优化工作流预览样式 ](https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026932)
+
 ### v1.6.8 _(2022-05-12)_
 
 - CustomTable column render-fn 兼容原来的支持返回 {children, props} 对象 - [【智能审核结果查询】报错】](https://www.tapd.cn/34592457/bugtrace/bugs/view?bug_id=1134592457001026880)
