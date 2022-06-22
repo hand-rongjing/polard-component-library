@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.4-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.4-alpha.3...v1.7.4-alpha.4) (2022-06-22)
+
+### Bug 修复
+
+- EditTable 页码优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074622 ([ffcf2f7](https://github.com/hand-rongjing/polard-component-library/commit/ffcf2f76de4691500397b0ef658fd5958caafbaf))
+
 ### [1.7.4-alpha.3](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.2-beta.1...v1.7.4-alpha.3) (2022-06-21)
 
 ### 文档
