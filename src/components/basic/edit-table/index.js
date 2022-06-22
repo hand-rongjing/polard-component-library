@@ -914,7 +914,7 @@ class EditTable extends Component {
   reloadData = () => {
     const { pagination } = this.state;
     pagination.current = 1;
-    pagination.pageSize = 10;
+    // pagination.pageSize = 10;
     this.setState(
       {
         pagination,
