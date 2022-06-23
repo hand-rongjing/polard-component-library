@@ -1121,7 +1121,7 @@ class CustomTable extends Component {
         <Table
           tableLayout="fixed"
           rowKey={(record) => this.getDataLabel(record, tableKey || 'id')}
-          scroll={{ x: scrollXWidth || 1000 }}
+          scroll={{ x: scrollXWidth }}
           {...this.props}
           rowSelection={allowChecked ? customSelection : rowSelection}
           loading={loading}
