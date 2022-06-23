@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.4-alpha.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.4-alpha.4...v1.7.4-alpha.5) (2022-06-23)
+
+### Bug 修复
+
+- 表格宽度不超出时，如果没有设置宽度则不显示滚动条 - https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074677 ([5a9e8bf](https://github.com/hand-rongjing/polard-component-library/commit/5a9e8bfa95c22d2341d0a889a81169db919cd1aa))
+
 ### [1.7.4-alpha.4](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.4-alpha.3...v1.7.4-alpha.4) (2022-06-22)
 
 ### Bug 修复
