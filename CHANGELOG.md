@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.4-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.2-beta.1...v1.7.4-beta.1) (2022-06-23)
+
+### 文档
+
+- 增加组件路径日志 ([5ebd70b](https://github.com/hand-rongjing/polard-component-library/commit/5ebd70bc5392c72a34ce3fc8f7e3f044aa80cb4c))
+- 增加组件路径日志 ([4745bc8](https://github.com/hand-rongjing/polard-component-library/commit/4745bc86782a36247c4c97792f9788d17311d893))
+
+### Bug 修复
+
+- col.render 存成\_ORG_RENDER_FN, 每次生成新的 render 函数来调用它, 触发 rc-table 的 Cell 的 render 【【需求收集登记】前端框架优化 - 【基础组】角色管理-分配数据权限后，编辑数据权限无效】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074569 ([fe7ad28](https://github.com/hand-rongjing/polard-component-library/commit/fe7ad2813a10ee477aee57fa99ae2893ddcac8f3))
+- EditTable 页码优化-https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074622 ([ffcf2f7](https://github.com/hand-rongjing/polard-component-library/commit/ffcf2f76de4691500397b0ef658fd5958caafbaf))
+- trim console.log ([455128e](https://github.com/hand-rongjing/polard-component-library/commit/455128e3e026122965f3029ec6d2ff149a26068c))
+- 使 dataSource 透传 【【需求收集登记】前端框架优化 - 【基础组】角色管理-分配数据权限后，编辑数据权限无效】https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074569 ([856be4a](https://github.com/hand-rongjing/polard-component-library/commit/856be4a2e8d469b511cf677f59c4d099a562223a))
+- 生成 render 逻辑修改 ([13b2cf6](https://github.com/hand-rongjing/polard-component-library/commit/13b2cf681019ed522f39b76f034c85c2b3d2420d))
+- 表格宽度不超出时，如果没有设置宽度则不显示滚动条 - https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074677 ([5a9e8bf](https://github.com/hand-rongjing/polard-component-library/commit/5a9e8bfa95c22d2341d0a889a81169db919cd1aa))
+
 ### [1.7.4-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.6.8...v1.7.4-beta.0) (2022-06-20)
 
 ### Bug 修复
