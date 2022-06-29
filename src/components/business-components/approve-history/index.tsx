@@ -70,9 +70,6 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
           this.setState({ loading: false });
           return;
         }
-        console.log(
-          `${config.wflUrl}/api/workflow/approval/history?entityType=${entityType}&entityId=${documentId}`,
-        );
         httpFetch
           .get(
             `${config.wflUrl}/api/workflow/approval/history?entityType=${entityType}&entityId=${documentId}`,
@@ -95,7 +92,12 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
             .then((res) => {
               this.setState({
                 hasWorkflow:
-                  res.data.findIndex((o) => o.source === 'WORKFLOW') > -1, // 判断审批历史中是否存在工作流数据
+                  res.data.findIndex(
+                    (o) =>
+                      (entityType === '601002'
+                        ? o.historyType?.toUpperCase()
+                        : o.source) === 'WORKFLOW',
+                  ) > -1, // 判断审批历史中是否存在工作流数据
                 historyData: res.data,
                 loading: false,
                 expenseColorFlag: true,
@@ -110,7 +112,13 @@ class WorkFlowApproveHistory extends React.Component<IProps, IState> {
       }
     } else {
       this.setState({
-        hasWorkflow: infoData.findIndex((o) => o.source === 'WORKFLOW') > -1, // 判断审批历史中是否存在工作流数据
+        hasWorkflow:
+          infoData.findIndex(
+            (o) =>
+              (entityType === '601002'
+                ? o.historyType?.toUpperCase()
+                : o.source) === 'WORKFLOW',
+          ) > -1, // 判断审批历史中是否存在工作流数据
         historyData: infoData,
         loading: false,
       });
