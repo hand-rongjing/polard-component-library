@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.5-beta.0](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.4-beta.1...v1.7.5-beta.0) (2022-06-29)
+
+### Bug 修复
+
+- 凭证信息增加修改记录 - https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074121 ([6f9c926](https://github.com/hand-rongjing/polard-component-library/commit/6f9c926105f96ff9acd7c62ecf8adf4d676f999f))
+- 核算工单增加工作流预览 - https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074735 ([7ea8ef0](https://github.com/hand-rongjing/polard-component-library/commit/7ea8ef0f0bc397c7d976a46bda0a0a6da7da6c18))
+
 ### [1.7.4-beta.1](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.2-beta.1...v1.7.4-beta.1) (2022-06-23)
 
 ### 文档
