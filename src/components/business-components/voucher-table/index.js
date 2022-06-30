@@ -273,7 +273,7 @@ class VoucherTable extends Component {
                     <span style={{ fontWeight: 600, color: '#333' }}>
                       {o.nodeName}
                     </span>{' '}
-                    {moment(o.createdDate).format('YYYY-MM-DD hh:mm:ss')}{' '}
+                    {moment(o.createdDate).format('YYYY-MM-DD HH:mm:ss')}{' '}
                     <span style={{ marginLeft: 8 }}>
                       {o.userCode}-{o.userName}
                     </span>
