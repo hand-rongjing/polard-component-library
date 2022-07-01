@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-06-21 14:30:33
+ * @LastEditTime: 2022-07-01 09:22:15
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -280,4 +280,6 @@ export default {
   'common.sequential.approval': '顺序审批',
   'peripheral.including.holidays': '包含节假日',
   'common.before.modification': '修改前',
+  'common.auditing.people': '审核人',
+  'workflow.financial.sharing': '财务共享',
 };
