@@ -290,7 +290,11 @@ class VoucherTable extends Component {
           )
         }
         getPopupContainer={(node) => node.parentNode}
-        overlayStyle={{ maxWidth: 500, wordWrap: 'break-word' }}
+        overlayStyle={{
+          maxWidth: 500,
+          width: 'fit-content',
+          wordWrap: 'break-word',
+        }}
       >
         {hisList && (
           <ExclamationCircleOutlined
