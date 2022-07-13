@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.5...v1.7.6) (2022-07-13)
+
+### 文档
+
+- 更新日志 ([2cc88c9](https://github.com/hand-rongjing/polard-component-library/commit/2cc88c998cfcc2e9c6553baa519eb4b614c16688))
+
+### Bug 修复
+
+- 表格横向滚动条当数据<10 条时不出现-https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001027502 ([5e38afe](https://github.com/hand-rongjing/polard-component-library/commit/5e38afe6fd2683d917d4f2448d59515379603fad))
+
 ### [1.7.5](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.5-beta.0...v1.7.5) (2022-07-07)
 
 ### Bug 修复
