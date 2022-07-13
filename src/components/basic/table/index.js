@@ -96,19 +96,21 @@ class BasicTable extends React.Component {
   getScrollY = () => {
     const { dataSource } = this.props;
     try {
-      if (dataSource?.length <= 5) return null; // 解决表格数据少，Popover Dropdown弹出框定位问题，同时避免详情页数据设置高度
-      const { getState } = window?.g_app?._store || {};
-      const state = getState ? getState() : {};
-      const currentPage = state?.pageTab?.currentPage;
-      const contentDom = document.querySelector(`#${currentPage.pageCode}`);
-      const scrollWrapDom = contentDom.parentElement; // .scroll-wrapped
-      let initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
-      const footerDom = contentDom.querySelector('.content-footer');
-      if (footerDom) {
-        initScrollY -= footerDom.clientHeight;
-      }
-      // console.log('initScrollY', initScrollY, currentPage.pageCode);
+      if (dataSource?.length <= 10) return null; // 解决表格数据少，Popover Dropdown弹出框定位问题，同时避免详情页数据设置高度
+      const initScrollY = document.body.offsetHeight - 88 - 48 - 56; // 表头48px，页码56px
       return initScrollY < 200 ? 200 : initScrollY;
+      // const { getState } = window?.g_app?._store || {};
+      // const state = getState ? getState() : {};
+      // const currentPage = state?.pageTab?.currentPage;
+      // const contentDom = document.querySelector(`#${currentPage.pageCode}`);
+      // const scrollWrapDom = contentDom.parentElement; // .scroll-wrapped
+      // let initScrollY = scrollWrapDom.offsetHeight - 48 - 56; // 表头48px，页码56px
+      // const footerDom = contentDom.querySelector('.content-footer');
+      // if (footerDom) {
+      //   initScrollY -= footerDom.clientHeight;
+      // }
+      // // console.log('initScrollY', initScrollY, currentPage.pageCode);
+      // return initScrollY < 200 ? 200 : initScrollY;
     } catch (e) {
       // console.log('getScrollY Error', e);
       return null;
