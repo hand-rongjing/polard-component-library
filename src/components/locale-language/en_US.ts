@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:33:39
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-05-27 18:13:36
+ * @LastEditTime: 2022-07-15 11:07:50
  * @Version: 1.0.0
  * @Description:
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -164,6 +164,7 @@ export default {
   'common.verification.info': 'Verification Information',
   'common.budget.verification.info': 'Budget Verification Information',
   'common.ok': 'OK',
+  'common.create': 'New',
   'common.got.it': 'Got It',
   'common.budget.version': 'Budget version',
   'common.budget.structure': 'Budget structure',
