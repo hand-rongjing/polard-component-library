@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.7](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.6...v1.7.7) (2022-07-15)
+
+### Bug 修复
+
+- 增加新建多语言 - https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001027598 ([47dba22](https://github.com/hand-rongjing/polard-component-library/commit/47dba22e083ae3226700be2364d97110c830b107))
+
 ### [1.7.6](https://github.com/hand-rongjing/polard-component-library/compare/v1.7.5...v1.7.6) (2022-07-13)
 
 ### 文档
