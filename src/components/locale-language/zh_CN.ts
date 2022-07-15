@@ -2,7 +2,7 @@
  * @Author: binfeng.long@hand-china.com
  * @Date: 2021-10-22 15:13:14
  * @LastEditors: zong.wang01@hand-china.com
- * @LastEditTime: 2022-06-21 14:50:16
+ * @LastEditTime: 2022-07-15 11:07:08
  * @Version: 1.0.0
  * @Description: 定义公有的多语言
  * @Copyright: Copyright (c) 2021, Hand-RongJing
@@ -58,6 +58,7 @@ export default {
   'common.rename': '重命名',
   'common.save.as': '另存为',
   'common.ok': '确定',
+  'common.create': '新建',
   'common.clear.selected': '清除已选',
   'common.set.key.before.save': '请先设置唯一值以关联筛选条件和当前页面',
   'common.rename.filter.criteria': '重命名筛选条件',
@@ -278,8 +279,8 @@ export default {
   'base.sync.check.subsidiary.department': '同时勾选下级部门',
   'common.simultaneous.approval': '同时审批',
   'common.sequential.approval': '顺序审批',
-  'common.auditing.people': '审核人',
-  'workflow.financial.sharing': '财务共享',
   'peripheral.including.holidays': '包含节假日',
   'common.before.modification': '修改前',
+  'common.auditing.people': '审核人',
+  'workflow.financial.sharing': '财务共享',
 };

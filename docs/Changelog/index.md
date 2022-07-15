@@ -6,6 +6,18 @@ nav:
 
 # 更新日志
 
+### v1.7.5 _(2022-07-07)_
+
+- [工作流预览增加财务共享节点](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074172)
+- [EditTable 页码优化](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074622)
+- [凭证信息增加修改记录](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074121)
+- [表格宽度不超出时，如果没有设置宽度则不显示滚动条](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074677)
+- [核算工单增加工作流预览](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074735)
+
+### v1.7.4 _(2022-06-21)_
+
+- [信用体系-行编辑问题](https://www.tapd.cn/34592457/bugtrace/bugs/view/1134592457001027275)
+
 ### v1.7.3 _(2022-06-16)_
 
 - [所有文件预览无需携带 token](https://www.tapd.cn/34592457/prong/tasks/view/1134592457001074187)
